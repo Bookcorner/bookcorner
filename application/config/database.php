@@ -59,15 +59,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | the query builder class.
 */
 
+$hostname = "localhost";
+$username = "root";
+$password = "";
+$database = "bookcorner";
+
+
 $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => '',
-	'password' => '',
-	'database' => '',
+	'hostname' => $hostname,
+	'username' => $username,
+	'password' => $password,
+	'database' => $database,
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
@@ -83,3 +89,9 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+
+// load RedBeanPHP
+include(APPPATH.'libraries/rb.php');
+
+R::setup("mysql:host=$hostname;
+        dbname=$database", $username,$password);
