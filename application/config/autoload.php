@@ -63,6 +63,9 @@ $autoload['packages'] = array();
 //$autoload['libraries'] = array();
 $autoload['libraries'] = array('database');
 
+// load RedBeanPHP
+include(APPPATH.'libraries/rb.php');
+
 
 /*
 | -------------------------------------------------------------------

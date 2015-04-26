@@ -90,8 +90,6 @@ $db['default'] = array(
 	'save_queries' => TRUE
 );
 
-// load RedBeanPHP
-include(APPPATH.'libraries/rb.php');
-
+// configuration RedBeanPHP
 R::setup("mysql:host=$hostname;
         dbname=$database", $username,$password);
