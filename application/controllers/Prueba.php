@@ -7,6 +7,28 @@ class Prueba extends CI_Controller {
 		$this->load->view ( 'templates/menu_login' );
 		$this->load->view ( 'templates/end' );
 	}
+	
+	public function usuario() {
+		
+		R::setAutoResolve ( TRUE );
+		$usuario = R::dispense ( 'user' );
+		$usuario->username = 'Mario Cantelar dsfsdfdf';
+		$usuario->nickname = "marcant94";
+		$fecha = new DateTime('09/13/1994');
+		$usuario->user_birthdate = $fecha;
+		$usuario->email = "mcantelar@gmail.com";
+		$usuario->user_genre = "M";
+		$usuario->user_avatar = "http://iconos.gratis.es/iconos/viajes/ico48/tierra--iconos.gratis.es--.ico";
+		
+		$id = R::store ( $usuario );
+		
+		print_r($usuario);
+		
+		//$usuarioRecuperado = R::load ( 'user', $id );
+		//R::trash ( $usuarioRecuperado );
+		
+	}
+	
 	public function mensaje() {
 		$this->load->model ( 'Prueba_Model' );
 		$data ['query'] = $this->Prueba_Model->get_mensajito ();
