@@ -8,6 +8,14 @@ class Prueba extends CI_Controller {
 		$this->load->view ( 'templates/end' );
 	}
 	
+	public function tabla() {
+		R::setAutoResolve ( TRUE );
+		$user = R::dispense ( 'user' );		
+		$usubasico = new user();		
+		$user->import( $usubasico );
+		$id = R::store ( $user );
+	}
+	
 	public function usuario() {
 		
 		R::setAutoResolve ( TRUE );
@@ -61,4 +69,14 @@ class Prueba extends CI_Controller {
 		$this->load->view ( 'templates/end' );
 	}
 	
+}
+
+class User {
+	var $id = 1;
+	var $username = "";	
+	var $nickname = "";
+	var $user_birthdate = "";
+	var $email = "";
+	var $user_genre = "";
+	var $user_avatar = "";
 }
