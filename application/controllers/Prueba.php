@@ -21,4 +21,21 @@ class Prueba extends CI_Controller {
 		$coche = R::load ( 'coche', $id );
 		R::trash ( $coche );
 	}
+	
+	public function create_coche() {
+		R::setAutoResolve ( TRUE );
+		$coche = R::dispense ( 'coche' );
+		$coche->modelo = 'Seat';
+	
+		$id = R::store ( $coche ); // Create or Update
+	}
+	
+	public function show_coche() {
+		$data['coches'] = R::findOne( 'coche' );
+		$this->load->view ( 'templates/cabeceras/cabecera_base' );
+		$this->load->view ( 'templates/menus/menu_login' );
+		$this->load->view ( 'coches' , $data);
+		$this->load->view ( 'templates/end' );
+	}
+	
 }
