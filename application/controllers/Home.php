@@ -6,6 +6,7 @@ class Home extends CI_Controller {
 		$data ['title'] = 'Home';
 		$this->load->view ( 'templates/cabeceras/cabecera_base', $data );
 		$this->load->view ( 'templates/menus/menu_login' );
+		$this->load->view ( 'templates/footer/footer' );
 		$this->load->view ( 'templates/end' );
 		
 		require_once 'Login.php';
