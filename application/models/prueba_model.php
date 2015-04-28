@@ -16,6 +16,10 @@ class Prueba_Model extends CI_Model {
 		return $query->row_array();
 	}
 	
+	function credentialsCheck($user, $password) {
+		return true;
+	}
+	
 	
 }
 ?>

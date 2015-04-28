@@ -1,6 +1,7 @@
 <?php
 defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 class Prueba extends CI_Controller {
+	
 	public function index() {
 		$this->load->view ( 'templates/cabecera' );
 		$this->load->view ( 'templates/menu_login' );
