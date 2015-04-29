@@ -2,7 +2,6 @@
 <!--HEADER-->
 <div class="container">
 
-
 	<!--Comienza el menú header principal-->
 	<div class="row">
 		<div class="col-xs-12">
@@ -50,97 +49,104 @@
 											registro</h4>
 									</div>
 									<div class="modal-body">
-										<form class="form-horizontal" data-toggle="validator">
-											<fieldset>
-												<!-- Sign Up Form -->
-												<!-- Text input-->
-												<div class="control-group">
-													<label class="control-label" for="name">Nombre:</label>
-													<div class="controls">
-														<input id="name" name="name" class="form-control"
-															type="text" placeholder="Nombre" class="input-large"
-															required>
+										<div class="col-xs-12">
+											<form class="form-horizontal" data-toggle="validator">
+												<fieldset>
+													<!-- Sign Up Form -->
+													
+													<!-- Name input-->
+													<div class="form-group">
+														<label class="control-label" for="name">Nombre:</label>
+														<div class="controls">
+															<input id="name" name="name" class="form-control"
+																type="text" placeholder="Nombre" class="input-large"
+																required>
+														</div>
 													</div>
-												</div>
 
-												<!-- Text input-->
-												<div class="control-group">
-													<label class="control-label" for="surname">Apellido:</label>
-													<div class="controls">
-														<input id="surname" name="surname" class="form-control"
-															type="text" placeholder="Apellido" class="input-large"
-															required>
+													<div class="form-group">
+														<label class="control-label" for="surname">Apellido:</label>
+														<div class="controls">
+															<input id="surname" name="surname" class="form-control"
+																type="text" placeholder="Apellido" class="input-large"
+																required>
+														</div>
 													</div>
-												</div>
 
-												<!-- Text input-->
-												<div class="control-group">
-													<label class="control-label" for="user">Nombre de usuario:</label>
-													<div class="controls">
-														<input id="user" name="user" class="form-control"
-															type="text"
-															placeholder="Usuario (tu nombre visible en la página)"
-															class="input-large" required>
+													<!-- Username input-->
+													<div class="form-group">
+														<label class="control-label" for="user">Nombre de usuario:</label>
+														<div class="controls">
+															<input id="user" name="user" class="form-control"
+																type="text"
+																placeholder="Usuario (tu nombre visible en la página)"
+																class="input-large" required>
+														</div>
 													</div>
-												</div>
 
 
-												<!-- Password input-->
-												<div class="control-group">
-													<label class="control-label" for="pass">Contraseña:</label>
-													<div class="controls">
-														<input id="pass" name="pass" class="form-control"
-															type="password" placeholder="********"
-															class="input-large" required>
+													<!-- Password input-->
+													<div class="form-group">
+														<label class="control-label" for="pass">Contraseña:</label>
+														<div class="controls">
+															<input id="pass" name="pass" class="form-control"
+																type="password" placeholder="********"
+																class="input-large" required>
+														</div>
 													</div>
-												</div>
 
-												<!-- Password input-->
-												<div class="control-group">
-													<label class="control-label" for="repass">Introduce
-														contraseña de nuevo:</label>
-													<div class="controls">
-														<input id="repass" name="repass" data-match="#pass"
-															class="form-control" type="password"
-															placeholder="********" class="input-large" required>
+													<div class="form-group">
+														<label class="control-label" for="repass">Introduce
+															contraseña de nuevo:</label>
+														<div class="controls">
+															<input id="repass" name="repass" data-match="#pass"
+																class="form-control" type="password"
+																placeholder="********" class="input-large"
+																data-match-error="Error, la contraseña no coincide"
+																required>
+														</div>
+														<div class="help-block with-errors"></div>
 													</div>
-													<div class="help-block with-errors"></div>
-												</div>
 
-
-												<!-- Text input-->
-												<div class="control-group">
-													<label class="control-label" for="email">Email:</label>
-													<div class="controls">
-														<input id="email" name="email" class="form-control"
-															type="text" placeholder="email" class="input-large" 
-															required>
+													<!-- Email input-->
+													<div class="form-group">
+														<label class="control-label" for="email">Email:</label>
+														<div class="controls">
+															<input id="email" name="email"
+																pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$"
+																class="input-large form-control" type="text"
+																placeholder="email"
+																data-error="Dirección de correo no válida"
+																required>
+														</div>
+														<div class="help-block with-errors"></div>
 													</div>
-												</div>
 
-												<div class="control-group">
-													<label class="control-label" for="reemail">Introduce email
-														de nuevo:</label>
-													<div class="controls">
-														<input id="reemail" name="reemail" data-match="#email"
-															class="form-control" type="text" placeholder="email"
-															class="input-large" required>
+													<div class="form-group">
+														<label class="control-label" for="reemail">Introduce email
+															de nuevo:</label>
+														<div class="controls">
+															<input id="reemail" name="reemail" data-match="#email"
+																class="input-large form-control" type="text"
+																placeholder="email"
+																data-match-error="Error, el email no coincide" required>
+														</div>
+														<div class="help-block with-errors"></div>
 													</div>
-													<div class="help-block with-errors"></div>
-												</div>
 
-												<!-- Button -->
-												<div class="control-group">
-													<label class="control-label" for="confirmsignup"></label>
-													<div class="controls">
-														<button id="confirmsignup" name="confirmsignup"
-															class="btn btn-success">Registrar</button>
-														<button type="button" class="btn btn-danger"
-															data-dismiss="modal">Cerrar</button>
+													<!-- Button -->
+													<div class="form-group">
+														<label class="control-label" for="confirmsignup"></label>
+														<div class="controls">
+															<button id="confirmsignup" name="confirmsignup"
+																class="btn btn-success">Registrar</button>
+															<button type="button" class="btn btn-danger"
+																data-dismiss="modal">Cerrar</button>
+														</div>
 													</div>
-												</div>
-											</fieldset>
-										</form>
+												</fieldset>
+											</form>
+										</div>
 									</div>
 									<div class="modal-footer"></div>
 								</div>
