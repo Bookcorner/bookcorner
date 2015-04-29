@@ -1,6 +1,6 @@
-
 <!--HEADER-->
 <div class="container">
+
 	<!--Comienza el menú header principal-->
 	<div class="row">
 		<div class="col-xs-12">
@@ -12,20 +12,19 @@
 							class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">Book Corner</a>
+					<a class="navbar-brand" href="#">Bootstrap</a>
 				</div>
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#about">Quienes somos</a></li>
-					<li><a href="#about">¿Qué es Bookcorner?</a></li>
-					<li><a href="#about">Contáctanos</a></li>
+					<li><a href="#about">Elemento 1</a></li>
+					<li><a href="#about">Elemento 2</a></li>
+					<li><a href="#about">Elemento 3</a></li>
 				</ul>
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
 					<form class="navbar-form navbar-left" role="search">
 						<div class="form-group">
-							<input type="text" class="form-control"
-								placeholder="Buscar libros...">
+							<input type="text" class="form-control" placeholder="Buscar">
 						</div>
 						<button type="submit" class="btn btn-default">
 							<i class="glyphicon glyphicon-search"></i>
@@ -33,7 +32,8 @@
 					</form>
 
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">Registrarse</a></li>
+						<li><a href="#" data-toggle="modal" data-target="#myModal">Registrarse</a></li>
+						<!-- Modal -->
 						<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 							aria-labelledby="myModalLabel" aria-hidden="true">
 							<div class="modal-dialog">
@@ -48,10 +48,14 @@
 									</div>
 									<div class="modal-body">
 										<div class="col-xs-12">
-											<form class="form-horizontal" data-toggle="validator">
+											<?php echo form_open ( '#', [
+														'class' => 'form-horizontal',
+														'data-toggle' => 'validator',
+														'method' => 'post',
+														'accept-charset' => 'UTF-8',
+														'id' => 'idFormSignIn' 
+												] )?>
 												<fieldset>
-													<!-- Sign Up Form -->
-													
 													<!-- Name input-->
 													<div class="form-group">
 														<label class="control-label" for="name">Nombre:</label>
@@ -156,7 +160,7 @@
 							</div>
 						</div>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown">Entrar <b class="caret"></b></a>
+							data-toggle="dropdown">Entrar<b class="caret"></b></a>
 							<ul class="dropdown-menu"
 								style="padding: 15px; min-width: 250px;">
 								<li>
@@ -172,20 +176,18 @@
 														'accept-charset' => 'UTF-8',
 														'id' => 'idFormLogin' 
 												] )?>
-												<form class="form" role="form" method="post" action="login"
-												accept-charset="UTF-8" id="login-nav">
 												<div class="form-group">
-													<label class="sr-only" for="idUsername">Usuario</label> <input
-														type="text" class="form-control" id="idUsername"
-														name="username" placeholder="Usuario" required>
+													<label class="sr-only" for="emailLogin">Usuario</label> <input
+														type="text" class="form-control" id="emailLogin"
+														placeholder="Usuario" required>
 												</div>
 												<div class="form-group">
-													<label class="sr-only" for="idPwd">Contraseña</label> <input
-														type="password" class="form-control" id="idPwd" name="pwd"
+													<label class="sr-only" for="passLogin">Contraseña</label> <input
+														type="password" class="form-control" id="passLogin"
 														placeholder="Contraseña" required>
 												</div>
 												<div class="checkbox">
-													<label> <input type="checkbox" name="remember"> Recordar
+													<label> <input type="checkbox"> Recordar
 													</label>
 												</div>
 												<div class="form-group">
@@ -195,13 +197,15 @@
 										</div>
 									</div>
 								</li>
-							</ul></li>
+							</ul>
+						</li>
 					</ul>
 				</div>
 			</nav>
 		</div>
 	</div>
 </div>
+
 <script>
 $('#myForm').validator()
 </script>
