@@ -158,7 +158,7 @@
 							</div>
 						</div>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown">Entrar <b class="caret"></b></a>
+							data-toggle="dropdown <?php $loginOk? :'open'?>">Entrar <b class="caret"></b></a>
 							<ul class="dropdown-menu"
 								style="padding: 15px; min-width: 250px;">
 								<li>
@@ -187,7 +187,8 @@
 										</div>
 									</div>
 								</li>
-							</ul></li>
+							</ul>
+						</li>
 					</ul>
 				</div>
 			</nav>
