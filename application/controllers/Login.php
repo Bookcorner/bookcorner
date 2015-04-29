@@ -3,43 +3,72 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 class Login extends CI_Controller {
 	
 	public function signin() {
-		$username = set_value ( "username" );
-		$pwd = md5 ( set_value ( "pwd" ) );
-		$remember = set_value ( "remember" );
+		$this->form_validation->set_rules ( 'username', 'Usuario', 'required|alpha_numeric' );
+		$this->form_validation->set_rules ( 'pwd', 'Contraseña', 'required' );
+		$remember = set_value ( 'remember' );
 		
-		/* Debe realizarse el modelo */
-		$this->load->model ( 'Prueba_Model' );
-		$correct = $this->Prueba_Model->credentialsCheck ( $username, $pwd );
-		/* Debe realizarse el modelo */
-		
-		if ($correct && $remember == 'on') {
-			// creo una cookie
-			$this->load->helper ( 'cookie' );
+		if ($this->form_validation->run () == FALSE) {
+		} else {			
+			$this->load->model ( 'users_model' );
 			
-			$this->input->set_cookie ( "sessionuser", $username, (time () + (86400 * 365)) );
-			// la cookie expira en un año
+			$valid_user = $this->users_model->check_valid_user();
 			
-		} else if ($correct) {
-			// creo una sesion
-			
-			$newsession = array (
-					'sessionuser' => $username,
-					'ingresado' => TRUE 
-			);
-			
-			$this->session->set_userdata ( $newsession );
+			if ($valid_user == FALSE) {
+				$this->session->set_flashdata ( 'error', 'Usuario erróneo, Por favor inténtelo otra vez' );
+			} else {
+				// usuario es valido
+				$pwd = md5(set_value('pwd'));
+				
+				if ($valid_user->pwd != $pwd) {					
+					// no coincide, así que volver diciendo que la contraseña es errónea
+					$this->session->set_flashdata ( 'error', 'Contraseña errónea, Por favor inténtelo otra vez' );
+				} else {
+					// si coincide, creamos la sesión con el ususario y el grupo al que pertenece(ususario registrado, moderador, administrador)
+					if ($remember == 'on') {
+						// creo cookie
+												
+						$cookie = array(
+								'name' => 'venue_details',
+								'value' => 'Hello',
+								'expire' => time()+86500,
+								'path'   => '/',
+						);
+						
+						$cookie = array(
+								'name'   => 'bookcorner',
+								'value'  => $valid_user->username.'#'.$valid_user->name.'#'.$valid_user->surname ,
+								'expire' => time() + (86400 * 365),
+								'path'   => '/',
+						);
+						
+						$this->input->set_cookie($cookie);
+						
+					} else {
+						// creo session
+						
+						$userData = array (
+								'title' => 'bookcorner',
+								'username' => $valid_user->username,
+								'name' => $valid_user->name,
+								'surname' => $valid_user->surname 
+						);
+						
+						$this->session->set_userdata ( $userData );
+					}
+				}
+			}
+			redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );	
 		}
-		
-		redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
 	}
 	
 	public function logout() {
 		$this->load->helper ( 'cookie' );
 		
-		delete_cookie ( 'sessionuser' );
+		delete_cookie ( 'bookcorner' );
 		
 		$this->session->sess_destroy ();
 		
 		redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
 	}
+	
 }

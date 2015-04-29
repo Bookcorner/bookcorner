@@ -1,15 +1,15 @@
 <?php
+
 function asset_url() {
 	return base_url () . 'assets/';
 }
 
 function check_cookie_session_exist() {
-	if (isset ( $_COOKIE ['sessionuser'] )) {
+	$ci =& get_instance();
+	
+	if (isset( $_COOKIE['bookcorner'] ) || $ci->session->userdata('title')) {
 		return true;
 	}
-	if ($_COOKIE == null) {
-		return false;
-	} else {
-		return true;
-	}
+	
+	return false;
 }

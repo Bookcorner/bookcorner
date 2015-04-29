@@ -385,6 +385,8 @@ $config['cookie_path']		= '/';
 $config['cookie_secure']	= FALSE;
 $config['cookie_httponly'] 	= FALSE;
 
+$config['sess_use_database'] = TRUE;
+$config['sess_table_name'] = 'ci_sessions';
 /*
 |--------------------------------------------------------------------------
 | Standardize newlines

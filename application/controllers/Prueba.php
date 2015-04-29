@@ -20,9 +20,10 @@ class Prueba extends CI_Controller {
 		
 		R::setAutoResolve ( TRUE );
 		$usuario = R::dispense ( 'user' );
-		$usuario->username = 'Mario Cantelar';
-		$usuario->nickname = "marcant94";
-		$usuario->password = md5("1234");
+		$usuario->username = 'marcant94';
+		$usuario->name = "Mario";
+		$usuario->surname = "Cantelar";
+		$usuario->pwd = md5("1234");
 		$fecha = new DateTime('09/13/1994');
 		$usuario->user_birthdate = $fecha;
 		$usuario->email = "mcantelar@gmail.com";
@@ -75,8 +76,9 @@ class Prueba extends CI_Controller {
 class User {
 	var $id = -1;
 	var $username = "";	
-	var $nickname = "";
-	var $password = "";
+	var $name = "";
+	var $surname = "";
+	var $pwd = "";
 	var $user_birthdate = "";
 	var $email = "";
 	var $user_genre = "";
