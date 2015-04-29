@@ -55,6 +55,30 @@ class Prueba extends CI_Controller {
 		R::trash ( $coche );
 	}
 	
+	public function who_we_are (){
+		$data['title'] = "Quiénes somos";
+		$this->load->view ( 'templates/cabeceras/cabecera_base', $data);
+		$this->load->view ( 'templates//menus/menu_login' );
+		$this->load->view ( 'templates/end' );
+		$this->load->view ( 'static_pages/who_we_are.html' );
+	}
+	
+	public function what_is (){
+		$data['title'] = "Qué es Bookcorner";
+		$this->load->view ( 'templates/cabeceras/cabecera_base', $data);
+		$this->load->view ( 'templates//menus/menu_login' );
+		$this->load->view ( 'templates/end' );
+		$this->load->view ( 'static_pages/what_is.html' );
+	}
+	
+	public function contact (){
+		$data['title'] = "Contacto";
+		$this->load->view ( 'templates/cabeceras/cabecera_base', $data);
+		$this->load->view ( 'templates//menus/menu_login' );
+		$this->load->view ( 'templates/end' );
+		$this->load->view ( 'static_pages/contact.html' );
+	}
+	
 	public function create_coche() {
 		R::setAutoResolve ( TRUE );
 		$coche = R::dispense ( 'coche' );
