@@ -1,69 +1,189 @@
-	<!--HEADER-->
-	<div class="container">
+
+<!--HEADER-->
+<div class="container">
 
 
-		<!--Comienza el menú header principal-->
-		<div class="row">
-			<div class="col-xs-12">
-				<nav class="navbar navbar-default" role="navigation">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
+	<!--Comienza el menú header principal-->
+	<div class="row">
+		<div class="col-xs-12">
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Logo y nombre</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#about">Elemento 1</a></li>
+					<li><a href="#about">Elemento 2</a></li>
+					<li><a href="#about">Elemento 3</a></li>
+					<li><a href="#contact">Elemento 4</a></li>
+				</ul>
+				<div class="collapse navbar-collapse"
+					id="bs-example-navbar-collapse-1">
+					<form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Buscar">
+						</div>
+						<button type="submit" class="btn btn-default">
+							<i class="glyphicon glyphicon-search"></i>
 						</button>
-						<a class="navbar-brand" href="#">Logo y nombre</a>
-					</div>
-					<ul class="nav navbar-nav">
-						<li class="active"><a href="#">Home</a></li>
-						<li><a href="#about">Elemento 1</a></li>
-						<li><a href="#about">Elemento 2</a></li>
-						<li><a href="#about">Elemento 3</a></li>
-						<li><a href="#contact">Elemento 4</a></li>
-					</ul>
-					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-						<form class="navbar-form navbar-left" role="search">
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Buscar">
-							</div>
-							<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
-						</form>
+					</form>
 
-						<ul class="nav navbar-nav navbar-right">
-							<li><a href="#">Registrarse</a></li>
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Entrar <b class="caret"></b></a>
-								<ul class="dropdown-menu" style="padding: 15px;min-width: 250px;">
-									<li>
-										<div class="row">
-											<div class="col-md-12">
-												<form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-													<div class="form-group">
-														<label class="sr-only" for="exampleInputEmail2">Usuario</label>
-														<input type="text" class="form-control" id="exampleInputEmail2" placeholder="Usuario" required>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#" data-toggle="modal" data-target="#myModal">Registrarse</a></li>
+						<!-- Modal -->
+						<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+							aria-labelledby="myModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal"
+											aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+										<h4 class="modal-title" id="myModalLabel">Formulario de
+											registro</h4>
+									</div>
+									<div class="modal-body">
+										<form class="form-horizontal" data-toggle="validator">
+											<fieldset>
+												<!-- Sign Up Form -->
+												<!-- Text input-->
+												<div class="control-group">
+													<label class="control-label" for="name">Nombre:</label>
+													<div class="controls">
+														<input id="name" name="name" class="form-control"
+															type="text" placeholder="Nombre" class="input-large"
+															required>
 													</div>
-													<div class="form-group">
-														<label class="sr-only" for="exampleInputPassword2">Contraseña</label>
-														<input type="password" class="form-control" id="exampleInputPassword2" placeholder="Contraseña" required>
+												</div>
+
+												<!-- Text input-->
+												<div class="control-group">
+													<label class="control-label" for="surname">Apellido:</label>
+													<div class="controls">
+														<input id="surname" name="surname" class="form-control"
+															type="text" placeholder="Apellido" class="input-large"
+															required>
 													</div>
-													<div class="checkbox">
-														<label>
-															<input type="checkbox"> Recordar
-														</label>
+												</div>
+
+												<!-- Text input-->
+												<div class="control-group">
+													<label class="control-label" for="user">Nombre de usuario:</label>
+													<div class="controls">
+														<input id="user" name="user" class="form-control"
+															type="text"
+															placeholder="Usuario (tu nombre visible en la página)"
+															class="input-large" required>
 													</div>
-													<div class="form-group">
-														<button type="submit" class="btn btn-success btn-block">Acceder</button>
+												</div>
+
+
+												<!-- Password input-->
+												<div class="control-group">
+													<label class="control-label" for="pass">Contraseña:</label>
+													<div class="controls">
+														<input id="pass" name="pass" class="form-control"
+															type="password" placeholder="********"
+															class="input-large" required>
 													</div>
-												</form>
-											</div>
+												</div>
+
+												<!-- Password input-->
+												<div class="control-group">
+													<label class="control-label" for="repass">Introduce
+														contraseña de nuevo:</label>
+													<div class="controls">
+														<input id="repass" name="repass" data-match="#pass"
+															class="form-control" type="password"
+															placeholder="********" class="input-large" required>
+													</div>
+													<div class="help-block with-errors"></div>
+												</div>
+
+
+												<!-- Text input-->
+												<div class="control-group">
+													<label class="control-label" for="email">Email:</label>
+													<div class="controls">
+														<input id="email" name="email" class="form-control"
+															type="text" placeholder="email" class="input-large" 
+															required>
+													</div>
+												</div>
+
+												<div class="control-group">
+													<label class="control-label" for="reemail">Introduce email
+														de nuevo:</label>
+													<div class="controls">
+														<input id="reemail" name="reemail" data-match="#email"
+															class="form-control" type="text" placeholder="email"
+															class="input-large" required>
+													</div>
+													<div class="help-block with-errors"></div>
+												</div>
+
+												<!-- Button -->
+												<div class="control-group">
+													<label class="control-label" for="confirmsignup"></label>
+													<div class="controls">
+														<button id="confirmsignup" name="confirmsignup"
+															class="btn btn-success">Registrar</button>
+														<button type="button" class="btn btn-danger"
+															data-dismiss="modal">Cerrar</button>
+													</div>
+												</div>
+											</fieldset>
+										</form>
+									</div>
+									<div class="modal-footer"></div>
+								</div>
+							</div>
+						</div>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown">Entrar <b class="caret"></b></a>
+							<ul class="dropdown-menu"
+								style="padding: 15px; min-width: 250px;">
+								<li>
+									<div class="row">
+										<div class="col-md-12">
+											<form class="form" role="form" method="post" action="login"
+												accept-charset="UTF-8" id="login-nav">
+												<div class="form-group">
+													<label class="sr-only" for="emailLogin">Usuario</label> <input
+														type="text" class="form-control" id="emailLogin"
+														placeholder="Usuario" required>
+												</div>
+												<div class="form-group">
+													<label class="sr-only" for="passLogin">Contraseña</label> <input
+														type="password" class="form-control" id="passLogin"
+														placeholder="Contraseña" required>
+												</div>
+												<div class="checkbox">
+													<label> <input type="checkbox"> Recordar
+													</label>
+												</div>
+												<div class="form-group">
+													<button type="submit" class="btn btn-success btn-block">Acceder</button>
+												</div>
+											</form>
 										</div>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-				</nav>
-			</div>
+									</div>
+								</li>
+							</ul></li>
+					</ul>
+				</div>
+			</nav>
 		</div>
 	</div>
+</div>
+
+<script>
+$('#myForm').validator()
+</script>
