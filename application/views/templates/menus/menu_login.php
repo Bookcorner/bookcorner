@@ -62,6 +62,7 @@
 																type="text" placeholder="Nombre" class="input-large"
 																required>
 														</div>
+														<div class="help-block with-errors"></div>
 													</div>
 
 													<div class="form-group">
@@ -71,6 +72,7 @@
 																type="text" placeholder="Apellido" class="input-large"
 																required>
 														</div>
+														<div class="help-block with-errors"></div>
 													</div>
 
 													<!-- Username input-->
@@ -82,17 +84,20 @@
 																placeholder="Usuario (tu nombre visible en la página)"
 																class="input-large" required>
 														</div>
+														<div class="help-block with-errors"></div>
 													</div>
-
 
 													<!-- Password input-->
 													<div class="form-group">
 														<label class="control-label" for="pass">Contraseña:</label>
 														<div class="controls">
-															<input id="pass" name="pass" class="form-control"
+															<input id="pass" name="pass" class="form-control" pattern="^{5,12}$"
 																type="password" placeholder="********"
+																data-error="Contraseña no válida"
 																class="input-large" required>
+																
 														</div>
+														<div class="help-block with-errors"></div>
 													</div>
 
 													<div class="form-group">
