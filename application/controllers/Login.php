@@ -3,9 +3,8 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 class Login extends CI_Controller {
 	
 	public function signincookie() {
-		
-		$user = isset($_POST['user']) ? $_POST['user'] : "gh";
-		$password = isset($_POST['password']) ? md5($_POST['password']) : "dfgdf";
+		$usuario = set_value('username');
+		$pwd = set_value('pwd');
 		
 		
 		/*  Debe realizarse el modelo  */
