@@ -9,22 +9,21 @@ class Login extends CI_Controller {
 		
 		/* Debe realizarse el modelo */
 		$this->load->model ( 'Prueba_Model' );
-		$correct = $this->Prueba_Model->credentialsCheck ( $user, $password );
+		$correct = $this->Prueba_Model->credentialsCheck ( $username, $pwd );
 		/* Debe realizarse el modelo */
 		
-		if ($correct && $remember) {
+		if ($correct && $remember == 'on') {
 			// creo una cookie
 			$this->load->helper ( 'cookie' );
 			
-			$this->input->set_cookie ( "sessionuser", $user, (time () + (86400 * 365)) );
+			$this->input->set_cookie ( "sessionuser", $username, (time () + (86400 * 365)) );
 			// la cookie expira en un año
 			
 		} else if ($correct) {
 			// creo una sesion
-			$this->load->library ( 'session' );
 			
 			$newsession = array (
-					'sessionuser' => $user,
+					'sessionuser' => $username,
 					'ingresado' => TRUE 
 			);
 			
@@ -36,7 +35,6 @@ class Login extends CI_Controller {
 	
 	public function logout() {
 		$this->load->helper ( 'cookie' );
-		$this->load->library ( 'session' );
 		
 		delete_cookie ( 'sessionuser' );
 		
@@ -44,20 +42,4 @@ class Login extends CI_Controller {
 		
 		redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
 	}
-}
-
-function checkperm() {
-	if (isset ( $_COOKIE ['sessionuser'] )) {
-		return true;
-	}
-	
-	// las sesiones de codeigniter no usa las de php, y esta funcion no es un objeto que herede
-	// de ninguna clase de codeigniter
-	if ($_COOKIE == null) {
-		return false;
-	} else {
-		return true;
-	}
-	
-	// return false;
 }
