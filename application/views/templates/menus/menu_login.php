@@ -190,7 +190,7 @@
 													placeholder="Contraseña" required>
 											</div>
 											<div class="checkbox">
-												<label> <input type="checkbox" name="remember"> Recordarme
+												<label> <input type="checkbox" name="remember" checked> Recordarme
 												</label>
 											</div>
 											<div class="form-group">
