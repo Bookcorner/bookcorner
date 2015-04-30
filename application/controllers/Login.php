@@ -19,7 +19,7 @@ class Login extends CI_Controller {
 				// usuario es valido
 				$pwd = md5(set_value('pwd'));
 				
-				if ($valid_user->pwd != $pwd) {					
+				if ($valid_user->pwd != $pwd) {	
 					// no coincide, así que volver diciendo que la contraseña es errónea
 					$this->session->set_flashdata ( 'error', 'Contraseña errónea, Por favor inténtelo otra vez' );
 				} else {
@@ -57,8 +57,9 @@ class Login extends CI_Controller {
 					}
 				}
 			}
-			redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );	
 		}
+		
+		redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
 	}
 	
 	public function logout() {

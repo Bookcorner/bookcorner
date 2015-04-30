@@ -158,7 +158,11 @@
 								</div>
 							</div>
 						</div>
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
+						<li class="dropdown <?php 
+						if (validation_errors() || $this->session->flashdata('error')) {
+							echo "open";
+						}
+						?>"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown">Entrar<b class="caret"></b></a>
 							<ul class="dropdown-menu"
 								style="padding: 15px; min-width: 250px;">
@@ -177,16 +181,16 @@
 												] )?>
 												<div class="form-group">
 												<label class="sr-only" for="emailLogin">Usuario</label> <input
-													type="text" class="form-control" id="emailLogin"
+													type="text" class="form-control" id="emailLogin" name="username"
 													placeholder="Usuario" required>
 											</div>
 											<div class="form-group">
 												<label class="sr-only" for="passLogin">Contraseña</label> <input
-													type="password" class="form-control" id="passLogin"
+													type="password" class="form-control" id="passLogin" name="pwd"
 													placeholder="Contraseña" required>
 											</div>
 											<div class="checkbox">
-												<label> <input type="checkbox"> Recordarme
+												<label> <input type="checkbox" name="remember"> Recordarme
 												</label>
 											</div>
 											<div class="form-group">
