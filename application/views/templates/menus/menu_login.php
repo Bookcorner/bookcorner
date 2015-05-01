@@ -58,9 +58,9 @@
 												<fieldset>
 												<!-- Name input-->
 												<div class="form-group">
-													<label class="control-label" for="name">Nombre:</label>
+													<label class="control-label" for="idName">Nombre:</label>
 													<div class="controls">
-														<input id="name" name="name" class="form-control"
+														<input id="idName" name="name" class="form-control"
 															type="text" placeholder="Nombre" class="input-large"
 															required>
 													</div>
@@ -68,9 +68,9 @@
 												</div>
 
 												<div class="form-group">
-													<label class="control-label" for="surname">Apellido:</label>
+													<label class="control-label" for="idSurname">Apellido:</label>
 													<div class="controls">
-														<input id="surname" name="surname" class="form-control"
+														<input id="idSurname" name="surname" class="form-control"
 															type="text" placeholder="Apellido" class="input-large"
 															required>
 													</div>
@@ -79,9 +79,10 @@
 
 												<!-- Username input-->
 												<div class="form-group">
-													<label class="control-label" for="user">Nombre de usuario:</label>
+													<label class="control-label" for="iDusername">Nombre de
+														usuario:</label>
 													<div class="controls">
-														<input id="user" name="user" class="form-control"
+														<input id="idUsername" name="user" class="form-control"
 															type="text"
 															placeholder="Usuario (tu nombre visible en la página)"
 															class="input-large" required>
@@ -91,9 +92,9 @@
 
 												<!-- Password input-->
 												<div class="form-group">
-													<label class="control-label" for="pass">Contraseña:</label>
+													<label class="control-label" for="idPass">Contraseña:</label>
 													<div class="controls">
-														<input id="pass" name="pass" class="form-control"
+														<input id="idPass" name="pass" class="form-control"
 															pattern="^{5,12}$" type="password" placeholder="********"
 															data-error="Contraseña no válida" class="input-large"
 															required>
@@ -103,10 +104,10 @@
 												</div>
 
 												<div class="form-group">
-													<label class="control-label" for="repass">Introduce
+													<label class="control-label" for="idRepass">Introduce
 														contraseña de nuevo:</label>
 													<div class="controls">
-														<input id="repass" name="repass" data-match="#pass"
+														<input id="idRepass" name="repass" data-match="#pass"
 															class="form-control" type="password"
 															placeholder="********" class="input-large"
 															data-match-error="Error, la contraseña no coincide"
@@ -117,9 +118,9 @@
 
 												<!-- Email input-->
 												<div class="form-group">
-													<label class="control-label" for="email">Email:</label>
+													<label class="control-label" for="idEmail">Email:</label>
 													<div class="controls">
-														<input id="email" name="email"
+														<input id="idEmail" name="email"
 															pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$"
 															class="input-large form-control" type="text"
 															placeholder="email"
@@ -129,10 +130,10 @@
 												</div>
 
 												<div class="form-group">
-													<label class="control-label" for="reemail">Introduce email
-														de nuevo:</label>
+													<label class="control-label" for="idReemail">Introduce
+														email de nuevo:</label>
 													<div class="controls">
-														<input id="reemail" name="reemail" data-match="#email"
+														<input id="idReemail" name="reemail" data-match="#email"
 															class="input-large form-control" type="text"
 															placeholder="email"
 															data-match-error="Error, el email no coincide" required>
@@ -142,9 +143,9 @@
 
 												<!-- Button -->
 												<div class="form-group">
-													<label class="control-label" for="confirmsignup"></label>
+													<label class="control-label" for="idConfirmsignup"></label>
 													<div class="controls">
-														<button id="confirmsignup" name="confirmsignup"
+														<button id="idConfirmsignup" name="confirmsignup"
 															class="btn btn-success">Registrar</button>
 														<button type="button" class="btn btn-danger"
 															data-dismiss="modal">Cancelar</button>
@@ -158,19 +159,20 @@
 								</div>
 							</div>
 						</div>
-						<li class="dropdown <?php 
-						if (validation_errors() || $this->session->flashdata('error')) {
-							echo "open";
-						}
-						?>"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown">Entrar<b class="caret"></b></a>
+						<li
+							class="dropdown <?php
+							if (validation_errors () || $this->session->flashdata ( 'error' )) {
+								echo "open";
+							}
+							?>"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Entrar<b
+								class="caret"></b></a>
 							<ul class="dropdown-menu"
 								style="padding: 15px; min-width: 250px;">
 								<li>
 									<div class="row">
 										<div class="col-md-12">
-											<div><?php echo validation_errors()?></div>
-											<div><?php echo $this->session->flashdata('error')?></div>
+											<p class="bg-danger text-danger"><?php echo validation_errors()?></p>
+											<p class="bg-danger text-danger"><?php echo $this->session->flashdata('error')?></p>
 												<?php
 												echo form_open ( 'login/signin', [ 
 														'class' => 'form',
@@ -180,17 +182,18 @@
 														'id' => 'idFormLogin' 
 												] )?>
 												<div class="form-group">
-												<label class="sr-only" for="emailLogin">Usuario</label> <input
-													type="text" class="form-control" id="emailLogin" name="username"
-													placeholder="Usuario" required>
+												<label class="sr-only" for="idUsername">Usuario</label> <input
+													type="text" class="form-control" id="idUsername"
+													name="username" placeholder="Usuario" required>
 											</div>
 											<div class="form-group">
-												<label class="sr-only" for="passLogin">Contraseña</label> <input
-													type="password" class="form-control" id="passLogin" name="pwd"
+												<label class="sr-only" for="idPwd">Contraseña</label> <input
+													type="password" class="form-control" id="idPwd" name="pwd"
 													placeholder="Contraseña" required>
 											</div>
 											<div class="checkbox">
-												<label> <input type="checkbox" name="remember" checked> Recordarme
+												<label> <input type="checkbox" name="remember" checked>
+													Recordarme
 												</label>
 											</div>
 											<div class="form-group">

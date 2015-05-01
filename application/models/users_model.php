@@ -6,7 +6,7 @@ class Users_model extends CI_Model {
 		//obtener datos del formulario
 		$username = set_value('username');
 		
-		$userBean = R::findOne( 'user', ' username = ? ', [ $username ] );
+		$userBean = R::findOne( 'user', ' user_nickname = ? ', [ $username ] );
 		//$userBean = R::load( 'book', $id ); //reloads our book
 		
 		return $userBean;

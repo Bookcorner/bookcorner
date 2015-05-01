@@ -19,7 +19,7 @@ class Login extends CI_Controller {
 				// usuario es valido
 				$pwd = md5(set_value('pwd'));
 				
-				if ($valid_user->pwd != $pwd) {	
+				if ($valid_user->user_pwd != $pwd) {	
 					// no coincide, así que volver diciendo que la contraseña es errónea
 					$this->session->set_flashdata ( 'error', 'Contraseña errónea, Por favor inténtelo otra vez' );
 				} else {
@@ -36,7 +36,7 @@ class Login extends CI_Controller {
 						
 						$cookie = array(
 								'name'   => 'bookcorner',
-								'value'  => $valid_user->username.'#'.$valid_user->name.'#'.$valid_user->surname ,
+								'value'  => $valid_user->user_nickname.'#'.$valid_user->user_name.'#'.$valid_user->user_surname ,
 								'expire' => time() + (86400 * 365),
 								'path'   => '/',
 						);
@@ -48,9 +48,9 @@ class Login extends CI_Controller {
 						
 						$userData = array (
 								'title' => 'bookcorner',
-								'username' => $valid_user->username,
-								'name' => $valid_user->name,
-								'surname' => $valid_user->surname 
+								'username' => $valid_user->user_nickname,
+								'name' => $valid_user->user_name,
+								'surname' => $valid_user->user_surname 
 						);
 						
 						$this->session->set_userdata ( $userData );

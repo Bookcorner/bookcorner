@@ -14,7 +14,7 @@ class Bbdd extends CI_Controller {
 		$user1->user_name = 'sr.admin';
 		$user1->user_surname = 'nistrate';
 		$user1->user_nickname = 'admin';
-		$user1->user_pwd = 'theboss';
+		$user1->user_pwd = md5('theboss');
 		$user1->user_birthdate = '1993-04-29';
 		$user1->user_email = 'juananortizc@gmail.com';
 		$user1->user_avatar = 'juanana.png';
@@ -26,7 +26,7 @@ class Bbdd extends CI_Controller {
 		$user2->user_name = 'mr.comando';
 		$user2->user_surname = 'alfa';
 		$user2->user_nickname = 'moderator';
-		$user2->user_pwd = 'thesecretary';
+		$user2->user_pwd = md5('thesecretary');
 		$user2->user_birthdate = '1993-05-05';
 		$user2->user_email = 'mcantelar@gmail.com';
 		$user2->user_avatar = 'marion.png';
@@ -38,7 +38,7 @@ class Bbdd extends CI_Controller {
 		$user3->user_name = 'justin';
 		$user3->user_surname = 'robbeen';
 		$user3->user_nickname = 'registrate';
-		$user3->user_pwd = 'justinme';
+		$user3->user_pwd = md5('justinme');
 		$user3->user_birthdate = '1993-01-12';
 		$user3->user_email = 'rcortes@gmail.com';
 		$user3->user_avatar = 'rub.png';
