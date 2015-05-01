@@ -1,10 +1,26 @@
-<phpunit bootstrap="bootstrap.php"
-	colors="true"
-	convertErrorsToExceptions="true"
-	convertNoticesToExceptions="true"
-	convertWarningsToExceptions="true"
-	processIsolation="false"
-	stopOnFailure="false"
-	syntaxCheck="false"
-	verbose="true">
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<phpunit
+    colors="true"
+    stopOnFailure="false"
+    backupGlobals="false"
+    backupStaticAttributes="false"
+    convertErrorsToExceptions="true"
+    convertNoticesToExceptions="true"
+    convertWarningsToExceptions="true"
+    processIsolation="false"
+    syntaxCheck="false"
+    cacheTokens="true"
+    verbose="false"
+    bootstrap="tests/bootstrap.php">
+    <testsuites>
+        <testsuite name="CITools Test Suite">
+            <directory>./tests/</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist>
+            <directory>./system/</directory>
+        </whitelist>
+    </filter>
 </phpunit>
