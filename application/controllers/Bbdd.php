@@ -1,12 +1,9 @@
 <?php
 defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 class Bbdd extends CI_Controller {
-	public function create() {
-		// Delete previous data generated in the database
-		R::nuke ();
-		
-		// Set debug mode to see all SQL
-		R::debug ( false );
+	public function createInitialData() {
+		deletePreviousData();
+		setDebugMode(false);
 		
 		// Create database user
 		$user1 = R::Dispense ( 'user' );
@@ -298,5 +295,13 @@ class Bbdd extends CI_Controller {
 		
 		// END
 		echo 'Database base created';
+	}
+	
+	private function deletePreviousData(){
+		R::nuke ();
+	}
+	
+	private function setDebugMode($debugMode){
+		R::debug($debugMode);
 	}
 }
