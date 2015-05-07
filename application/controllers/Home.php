@@ -9,7 +9,7 @@ class Home extends CI_Controller {
 	private function loadViews($data) {
 		$this->load->view ( 'templates/cabeceras/cabecera_base', $data );
 		
-		if (check_cookie_session_exist ()) {
+		if (check_cookie_or_session_exist ()) {
 			$this->load->view ( 'templates/menus/menu_logout' );
 		} else {
 			$this->load->view ( 'templates/menus/menu_login', $data );
