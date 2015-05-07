@@ -7,7 +7,7 @@ class Authors_model extends CI_Model {
 	}
 	
 	function searchAuthors($authorname) {
-		$authorNameFormatted = $authorname.'%';
+		$authorNameFormatted = '%'.$authorname.'%';
 		$authorsBean = R::find( 'author', ' author_fullname LIKE :authorname ', [ 
 				'authorname' =>	$authorNameFormatted 
 		] );

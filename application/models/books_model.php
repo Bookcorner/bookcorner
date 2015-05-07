@@ -7,7 +7,7 @@ class Books_model extends CI_Model {
 	}
 	
 	function searchBooks($bookname) {
-		$booknameFormatted = $bookname.'%';
+		$booknameFormatted = '%'.$bookname.'%';
 		$booksBeans = R::find( 'book', ' book_name LIKE :bookname ', [ 
 				'bookname' => $booknameFormatted 
 		] );
