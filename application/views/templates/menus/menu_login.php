@@ -23,6 +23,10 @@
 					<ul class="nav navbar-nav navbar-right">
 						<li>
 							<form class="navbar-form navbar-left" role="search">
+								<select class="form-control">
+									<option value="author">Autores</option>
+									<option value="book">Libros</option>
+								</select>
 								<div class="form-group">
 									<input type="text" class="form-control" placeholder="Buscar...">
 								</div>
