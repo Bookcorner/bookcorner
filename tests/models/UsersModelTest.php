@@ -7,21 +7,21 @@ class UsersModelTest extends PHPUnit_Framework_TestCase {
 	}
 
 	public function testCheckValidUserWithExistingUser() {
-		$this->CI->load->model('users_model');
-		$username = 'admin';
+		$user_nickname = 'admin';
 		
-		$user = $this->CI->users_model->check_valid_user($username);
+		$this->CI->load->model('users_model');		
+		$userChecked = $this->CI->users_model->check_valid_user($user_nickname);
 		
-		$this->assertNotNull($user);
+		$this->assertNotNull($userChecked);
+		$this->assertEquals($userChecked->user_nickname, $user_nickname);
 	}
 	
 	public function testCheckValidUserWithNotExistingUser() {
-		$this->CI->load->model('users_model');
 		$username = 'nouser';
 		
-		$user = $this->CI->users_model->check_valid_user($username);
+		$this->CI->load->model('users_model');		
+		$userChecked = $this->CI->users_model->check_valid_user($username);
 	
-		$this->assertNull($user);
+		$this->assertNull($userChecked);
 	}
-	
 }

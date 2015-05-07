@@ -2,9 +2,9 @@
     <div class="row">
         <div class="col-lg-12">
             <ul class="nav nav-pills nav-justified">
-                <li><a href="/">Quiénes somos</a></li>
-                <li><a href="#">Qué es Bookcorner</a></li>
-                <li><a href="#">Contáctanos</a></li>
+                <li><?php echo anchor(base_url('quienes-somos'), 'Quienes somos')?></li>
+                <li><?php echo anchor(base_url('que-es-bookcorner'), 'Â¿QuÃ© es Bookcorner?')?></li>
+                <li><?php echo anchor(base_url('contacto'), 'ContÃ¡ctanos')?></li>
             </ul>
         </div>
     </div>

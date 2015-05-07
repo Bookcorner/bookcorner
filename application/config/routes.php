@@ -50,5 +50,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'home';
+
+$route['quienes-somos'] = 'home/goToWhoAreWe';
+$route['que-es-bookcorner'] = 'home/goToWhatIs';
+$route['contacto'] = 'home/goToContact';
+$route['libros'] = 'book/index';
+$route['autores'] = 'author/index';
+$route['busqueda'] = 'search/searchAuthorOrBook';
+$route['busqueda-autores'] = 'author/showAuthorsSearched';
+$route['busqueda-libros'] = 'book/showBooksSearched';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
