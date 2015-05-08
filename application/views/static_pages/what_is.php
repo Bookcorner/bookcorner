@@ -1,8 +1,8 @@
 <div class="col-xs-12">
 	<div class="col-xs-6 col-xs-offset-2">
 		<h2>¿Qué es Bookcorner?</h2>
-		<p>Bookcorner es un sitio web dedicado única y exclusivamente a
-			los libros.</p>
+		<p>Bookcorner es un sitio web dedicado única y exclusivamente a los
+			libros.</p>
 		<p>
 			Pretende ser un lugar donde los amantes de los mismos puedan tener un
 			<strong>registro organizado de todos los libros</strong> que han
@@ -19,7 +19,10 @@
 			está registrado todavía.
 		</p>
 		<p>
-			Tampoco queremos aburriros con las características que tiene, o la visión a futuro del sitio, os dejamos la parte de investigación. Recordad que si teneis alguna sugerencia, siempre será bienvenida <a href="#">aquí</a>
+			Tampoco queremos aburriros con las características que tiene, o la
+			visión a futuro del sitio, os dejamos la parte de investigación.
+			Recordad que si teneis alguna sugerencia, siempre será bienvenida <a
+				href="#">aquí</a>
 		</p>
 	</div>
 </div>

@@ -1,6 +1,5 @@
-
-<!--Esto es el sticky menu-->
 <div id="nav" class="row">
+	<!-- MENU -->
 	<div class="col-xs-11">
 		<nav class="navbar navbar-default navbar-static">
 			<div class="container">
@@ -34,4 +33,5 @@
 			</div>
 		</nav>
 	</div>
+	<!-- FIN DE MENU -->
 </div>

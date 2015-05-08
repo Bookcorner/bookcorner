@@ -36,7 +36,9 @@
 							</form>
 						</li>
 						<li><a href="login/logout">Salir</a></li>
-				
+					</ul>
 				</div>
-		
+			</nav>
 		</div>
+		<!-- FIN DE MENU-->
+	</div>

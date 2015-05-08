@@ -1,3 +1,4 @@
+<!-- CONTENIDO PPAL-->
 <div class="col-xs-12">
 	<div class="col-xs-5 col-xs-offset-2" style="border: 1px solid black;">
 		<p>Añadir slider || bolitas de esas de información || elemento animado</p>
