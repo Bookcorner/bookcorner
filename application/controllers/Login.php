@@ -8,23 +8,18 @@ class Login extends CI_Controller {
         
         if ($isFormValidationOk) {
             $this->load->model ( 'users_model' );
-            $username = set_value ( 'username' );
-            $validUser = $this->users_model->check_valid_user ( $username );
+            $validUser = $this->getCheckedUser ();
             
-            $isValidUserOk = $validUser;
-            
-            if (! $isValidUserOk) {
+            if (empty ( $validUser )) {
                 $this->session->set_flashdata ( 'error', 'Usuario erróneo, Por favor inténtelo otra vez' );
             } else {
-                $pwd = set_value ( 'pwd' );
-                $encriptedPwd = md5 ( $pwd );
+                $encriptedPwd = $this->getEncriptedPwd ();
                 
                 $areDifferentPwd = $validUser->user_pwd != $encriptedPwd;
                 
                 if ($areDifferentPwd) {
                     $this->session->set_flashdata ( 'error', 'Contraseña errónea, Por favor inténtelo otra vez' );
                 } else {
-                    
                     $remember = set_value ( 'remember' );
                     $isRememberChecked = $remember == 'on';
                     
@@ -87,5 +82,13 @@ class Login extends CI_Controller {
         );
         
         return $sessionData;
+    }
+    private function getCheckedUser() {
+        $username = set_value ( 'username' );
+        $validUser = $this->users_model->check_valid_user ( $username );
+        return $validUser;
+    }
+    private function getEncriptedPwd() {
+        return md5 ( set_value ( 'pwd' ) );
     }
 }

@@ -35,7 +35,7 @@
     							<button type="submit" class="btn btn-default">
     								<i class="glyphicon glyphicon-search"></i>
     							</button>
-							</form>
+							<?php echo form_close()?>
 						</li>
 						<li>
 						  <a href="#" data-toggle="modal" data-target="#myModal">Registrarse</a>
@@ -160,7 +160,7 @@
 													</div>
 												</div>
 											</fieldset>
-											</form>
+											<?php echo form_close()?>
 										</div>
 									</div>
 									<div class="modal-footer"></div>
@@ -207,7 +207,7 @@
 											    <div class="form-group">
 												    <button type="submit" class="btn btn-success btn-block">Acceder</button>
 											    </div>
-											</form>
+											<?php echo form_close()?>
 										</div>
 									</div>
 								</li>

@@ -11,31 +11,48 @@
 							class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="home">BookCorner</a>
+					<?php echo anchor(base_url('home'), 'Book Corner', ['class' => 'navbar-brand'])?>
 				</div>
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#about">Libros</a></li>
-					<li><a href="#about">Autores</a></li>
-				</ul>
-				<div class="collapse navbar-collapse"
-					id="bs-example-navbar-collapse-1">
+				<div class="collapse navbar-collapse" id="idHeader">
+					<ul class="nav navbar-nav">
+						<li class="active"><?php echo anchor(base_url('home'), 'Home')?></li>
+						<li><?php echo anchor(base_url('libros'), 'Libros')?></li>
+						<li><?php echo anchor(base_url('autores'), 'Autores')?></li>
+					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li>
-							<form class="navbar-form navbar-left" role="search">
-								<select class="form-control">
+							<?php echo form_open ( 'busqueda', [ 
+								'id' => 'idSearchForm',
+								'class' => 'navbar-form navbar-left',
+								'role' => 'search' 
+							] )?>
+								<select class="form-control" name="typeOfSearch">
 									<option value="author">Autores</option>
 									<option value="book">Libros</option>
 								</select>
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Buscar...">
-								</div>
+    								<input type="text" id="idSearchName" name="searchName" class="form-control" placeholder="Buscar...">
+    							</div>
 								<button type="submit" class="btn btn-default">
 									<i class="glyphicon glyphicon-search"></i>
 								</button>
-							</form>
+							<?php echo form_close()?>
 						</li>
-						<li><a href="login/logout">Salir</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Imagen y <?php echo "$nickname"?><b
+								class="caret"></b></a>
+							<ul class="dropdown-menu" style="padding: 15px; min-width: 250px;">
+								<li role="presentation" class="dropdown-header"><?php echo "$username $surname"?></li>
+								<li role="presentation">
+								    <a role="menuitem" tabindex="-1" href="#">Perfil</a>
+								</li>
+								<li role="presentation" class="divider"></li>
+								<li role="presentation">
+								    <a role="menuitem" tabindex="-1" href="#">Configuración</a>
+								</li>
+							</ul>
+						</li>
+						<li><?php echo anchor(base_url('login/logout'), 'Salir')?></li>
 					</ul>
 				</div>
 			</nav>

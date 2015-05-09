@@ -2,13 +2,23 @@
 function asset_url() {
     return base_url () . 'assets/';
 }
-function check_cookie_or_session_exist() {
+function check_cookie_exist() {
     $ci = & get_instance ();
     
-    if (isset ( $_COOKIE ['bookcorner'] ) || $ci->session->userdata ( 'title' )) {
+    if (isset ( $_COOKIE ['bookcorner'] )) {
         return true;
     }
     
+    return false;
+}
+
+function check_session_exist() {
+    $ci = & get_instance ();
+
+    if ($ci->session->userdata ( 'title' )) {
+        return true;
+    }
+
     return false;
 }
 
@@ -24,8 +34,17 @@ function loadBasicViews($contentURI, $data) {
     $CI = & get_instance ();
     $CI->load->view ( 'templates/cabeceras/cabecera_base', $data );
     
-    if (check_cookie_or_session_exist ()) {
-        $CI->load->view ( 'templates/menus/menu_logout' );
+    if (check_cookie_exist()){
+        $cookieData = explode('#', $CI->input->cookie('bookcorner'));
+        $data['nickname'] = $cookieData[0];
+        $data['username'] = $cookieData[1];
+        $data['surname'] = $cookieData[2];
+        $CI->load->view ( 'templates/menus/menu_logout', $data);
+    } else if (check_session_exist()){
+        $data['nickname'] = $CI->session->userdata('username');
+        $data['username'] = $CI->session->userdata('name');
+        $data['surname'] = $CI->session->userdata('surname');
+        $CI->load->view ( 'templates/menus/menu_logout', $data );
     } else {
         $CI->load->view ( 'templates/menus/menu_login', $data );
     }
