@@ -37,10 +37,12 @@ class Login extends CI_Controller {
         redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
     }
     public function logout() {
+        $this->deleteSessionAndCookie ();
+        redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+    }
+    private function deleteSessionAndCookie() {
         delete_cookie ( 'bookcorner' );
         $this->session->sess_destroy ();
-        
-        redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
     }
     private function setSigninFormRules() {
         $this->form_validation->set_rules ( 'username', 'Usuario', 'required|alpha_numeric' );
@@ -58,7 +60,7 @@ class Login extends CI_Controller {
     private function createUserCookieData($user) {
         $cookieData = array (
                 'name' => 'bookcorner',
-                'value' => $user->user_nickname . '#' . $user->user_name . '#' . $user->user_surname,
+                'value' => $user->user_nickname . '#' . $user->user_name . '#' . $user->user_surname . '#' . $user->user_avatar,
                 'expire' => time () + (86400 * 365),
                 'path' => '/' 
         );
@@ -78,7 +80,8 @@ class Login extends CI_Controller {
                 'title' => 'bookcorner',
                 'username' => $user->user_nickname,
                 'name' => $user->user_name,
-                'surname' => $user->user_surname 
+                'surname' => $user->user_surname,
+                'avatar' => $user->user_avatar 
         );
         
         return $sessionData;

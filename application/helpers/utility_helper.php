@@ -1,24 +1,23 @@
 <?php
+if (! defined ( 'BASEPATH' ))
+    exit ( 'No direct script access allowed' );
 function asset_url() {
     return base_url () . 'assets/';
 }
 function check_cookie_exist() {
-    $ci = & get_instance ();
-    
     if (isset ( $_COOKIE ['bookcorner'] )) {
         return true;
     }
     
     return false;
 }
-
 function check_session_exist() {
-    $ci = & get_instance ();
-
-    if ($ci->session->userdata ( 'title' )) {
+    $CI = & get_instance ();
+    
+    if ($CI->session->userdata ( 'title' )) {
         return true;
     }
-
+    
     return false;
 }
 
@@ -34,16 +33,19 @@ function loadBasicViews($contentURI, $data) {
     $CI = & get_instance ();
     $CI->load->view ( 'templates/cabeceras/cabecera_base', $data );
     
-    if (check_cookie_exist()){
-        $cookieData = explode('#', $CI->input->cookie('bookcorner'));
-        $data['nickname'] = $cookieData[0];
-        $data['username'] = $cookieData[1];
-        $data['surname'] = $cookieData[2];
-        $CI->load->view ( 'templates/menus/menu_logout', $data);
-    } else if (check_session_exist()){
-        $data['nickname'] = $CI->session->userdata('username');
-        $data['username'] = $CI->session->userdata('name');
-        $data['surname'] = $CI->session->userdata('surname');
+    if (check_cookie_exist ()) {
+        $cookieData = explode ( '#', $CI->input->cookie ( 'bookcorner' ) );
+        $data ['nickname'] = $cookieData [0];
+        $data ['username'] = $cookieData [1];
+        $data ['surname'] = $cookieData [2];
+        $data ['avatar'] = $cookieData[3]; 
+        $CI->load->view ( 'templates/menus/menu_logout', $data );
+    } else if (check_session_exist ()) {
+        $data ['nickname'] = $CI->session->userdata ( 'username' );
+        $data ['username'] = $CI->session->userdata ( 'name' );
+        $data ['surname'] = $CI->session->userdata ( 'surname' );
+        $data ['avatar'] = $CI->session->userdata ( 'avatar' );
+        
         $CI->load->view ( 'templates/menus/menu_logout', $data );
     } else {
         $CI->load->view ( 'templates/menus/menu_login', $data );

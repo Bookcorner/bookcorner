@@ -39,8 +39,14 @@
 							<?php echo form_close()?>
 						</li>
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Imagen y <?php echo "$nickname"?><b
-								class="caret"></b></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							     <?php echo img(array(
+							             'src' => asset_url(). '/images/users/'.$avatar,
+							             'class' => 'avatar'
+							     ))?>
+							     <?php echo "$nickname"?>
+							     <bclass="caret"></b>
+							</a>
 							<ul class="dropdown-menu" style="padding: 15px; min-width: 250px;">
 								<li role="presentation" class="dropdown-header"><?php echo "$username $surname"?></li>
 								<li role="presentation">
