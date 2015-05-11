@@ -2,7 +2,7 @@
 defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 class Author extends CI_Controller {
     public function index() {
-        $data ['title'] = 'Autor';
+        $data ['title'] = 'Autores';
         $viewUri = 'authors/main_author_content';
         loadBasicViews ( $viewUri, $data );
     }
