@@ -5,6 +5,7 @@ class Book extends CI_Controller {
         $data ['title'] = 'Libros';
         $viewUri = 'books/main_book_content';
         loadBasicViews ( $viewUri, $data );
+        $this->load->view('templates/crud/read.php');
     }
     public function showBooksSearched() {
         $books = $this->session->flashdata ( 'bookData' );

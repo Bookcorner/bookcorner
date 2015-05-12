@@ -4,7 +4,7 @@
 	<div class="row">
 		<div class="col-md-12 table-section">
 			<div class="table-label">
-				<div class="floatL l5">Customers</div>
+				<div class="floatL l5">Libros</div>
 				<div class="floatR r5 minimize-maximize-container minimize-maximize">
 					<i class="fa fa-caret-up"></i>
 				</div>
@@ -19,7 +19,7 @@
 					<div class="header-tools">
 						<div class="floatL t5">
 							<a class="btn btn-default" href="/demo/bootstrap_theme/add"><i
-								class="fa fa-plus"></i> &nbsp; Add Customer</a>
+								class="fa fa-plus"></i> &nbsp; Añadir libro</a>
 						</div>
 						<div class="floatR">
 							<a class="btn btn-default t5 gc-export"
