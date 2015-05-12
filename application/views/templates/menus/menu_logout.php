@@ -45,7 +45,7 @@
 							             'class' => 'avatar'
 							     ))?>
 							     <?php echo "$nickname"?>
-							     <bclass="caret"></b>
+							     <b class="caret"></b>
 							</a>
 							<ul class="dropdown-menu" style="padding: 15px; min-width: 250px;">
 								<li role="presentation" class="dropdown-header"><?php echo "$username $surname"?></li>
@@ -65,3 +65,4 @@
 		</div>
 		<!-- FIN DE MENU-->
 	</div>
+</div>
