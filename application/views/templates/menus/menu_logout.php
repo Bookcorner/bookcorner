@@ -15,9 +15,9 @@
 				</div>
 				<div class="collapse navbar-collapse" id="idHeader">
 					<ul class="nav navbar-nav">
-						<li class="active"><?php echo anchor(base_url('home'), 'Home')?></li>
-						<li><?php echo anchor(base_url('libros'), 'Libros')?></li>
-						<li><?php echo anchor(base_url('autores'), 'Autores')?></li>
+						<li class="<?php if ($title == 'Home') { echo 'active'; }?>"><?php echo anchor(base_url('home'), 'Home')?></li>
+						<li class="<?php if ($title == 'Libros') { echo 'active'; }?>"><?php echo anchor(base_url('libros'), 'Libros')?></li>
+						<li class="<?php if ($title == 'Autores') { echo 'active'; }?>"><?php echo anchor(base_url('autores'), 'Autores')?></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li>
