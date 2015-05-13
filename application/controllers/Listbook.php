@@ -13,7 +13,6 @@ class Listbook extends CI_Controller {
         
         $this->load->model ( 'listbooks_model' );
         $data ['books'] = $this->listbooks_model->getAllBooklistFromUser ( $userId );
-        echo var_dump($data['books']);
         $data ['title'] = 'Lista de libros';
         $contentURI = 'lists/all_listbook';
         loadBasicViews ( $contentURI, $data );
