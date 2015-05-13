@@ -10,4 +10,8 @@ class Users_model extends CI_Model {
         ] );
         return $userBean;
     }
+    
+    function getUsersInfo(){
+        return true;
+    }
 }

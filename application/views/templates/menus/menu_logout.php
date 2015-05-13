@@ -40,18 +40,17 @@
 							<?php echo form_close()?>
 						</li>
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle avatar" data-toggle="dropdown">
+							<a href="#" class="dropdown-toggle img-responsive" data-toggle="dropdown">
 							     <?php echo img(array(
 							             'src' => asset_url(). '/images/users/'.$avatar,
 							             'class' => 'avatar'
 							     ))?>
-							     <?php echo "$nickname"?>
-							     
+
 							</a>
 							<ul class="dropdown-menu" style="padding: 15px; min-width: 250px;">
 								<li role="presentation" class="dropdown-header"><?php echo "$username $surname"?></li>
 								<li role="presentation">
-								    <a role="menuitem" tabindex="-1" href="#">Perfil</a>
+								    <?php echo anchor(base_url('informacion-de-usuario'), 'Perfil', ['role' => 'menuitem'])?>
 								</li>
 								<li role="presentation" class="divider"></li>
 								<li role="presentation">
