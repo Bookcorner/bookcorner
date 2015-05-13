@@ -4,8 +4,12 @@ class Book extends CI_Controller {
     public function index() {
         $data ['title'] = 'Libros';
         $viewUri = 'books/main_book_content';
+        
+        $this->load->model ( 'books_model' );
+        $data['books'] = $this->books_model->searchAllBooks();
+        
         loadBasicViews ( $viewUri, $data );
-        $this->load->view('templates/crud/read.php');
+        //$this->load->view('templates/crud/read.php');
     }
     public function showBooksSearched() {
         $books = $this->session->flashdata ( 'bookData' );

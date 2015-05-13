@@ -21,4 +21,19 @@ class Home extends CI_Controller {
         $viewUri = 'static_pages/contact';
         loadBasicViews ( $viewUri, $data );
     }
+    public function privacyPolicy() {
+        $data ['title'] = 'Política de Privacidad';
+        $viewUri = 'static_pages/privacy_policy';
+        loadBasicViews ( $viewUri, $data );
+    }
+    public function copyright() {
+        $data ['title'] = 'Copyright';
+        $viewUri = 'static_pages/copyright';
+        loadBasicViews ( $viewUri, $data );
+    }
+    public function legalInformation() {
+        $data ['title'] = 'Información Legal';
+        $viewUri = 'static_pages/legal_information';
+        loadBasicViews ( $viewUri, $data );
+    }
 }

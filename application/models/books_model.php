@@ -11,4 +11,10 @@ class Books_model extends CI_Model {
         ] );
         return $booksBeans;
     }
+    
+    function searchAllBooks() {
+        $booksBeans = R::find ( 'book' );
+        return $booksBeans;
+    }
+    
 }

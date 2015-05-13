@@ -51,9 +51,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'home';
 
+// static pages
 $route['quienes-somos'] = 'home/goToWhoAreWe';
 $route['que-es-bookcorner'] = 'home/goToWhatIs';
 $route['contacto'] = 'home/goToContact';
+$route['politica-de-privacidad'] = 'home/privacyPolicy';
+$route['copyright'] = 'home/copyright';
+$route['informacion-legal'] = 'home/legalInformation';
+
 $route['libros'] = 'book/index';
 $route['autores'] = 'author/index';
 $route['busqueda'] = 'search/searchAuthorOrBook';
