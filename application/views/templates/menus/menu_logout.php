@@ -39,7 +39,7 @@
 							<?php echo form_close()?>
 						</li>
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<a href="#" class="dropdown-toggle avatar" data-toggle="dropdown">
 							     <?php echo img(array(
 							             'src' => asset_url(). '/images/users/'.$avatar,
 							             'class' => 'avatar'
