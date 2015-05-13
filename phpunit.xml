@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
- 
-<phpunit
-    colors="true"
-    stopOnFailure="false"
-    backupGlobals="false"
-    backupStaticAttributes="false"
-    convertErrorsToExceptions="true"
-    convertNoticesToExceptions="true"
-    convertWarningsToExceptions="true"
-    processIsolation="false"
-    syntaxCheck="false"
-    cacheTokens="true"
-    verbose="false"
-    bootstrap="tests/bootstrap.php">
-    <testsuites>
-        <testsuite name="CITools Test Suite">
-            <directory>./tests/</directory>
-        </testsuite>
-    </testsuites>
-    <filter>
-        <whitelist>
-            <directory>./system/</directory>
-        </whitelist>
-    </filter>
+
+<phpunit colors="true" stopOnFailure="false" backupGlobals="false"
+	backupStaticAttributes="false" convertErrorsToExceptions="true"
+	convertNoticesToExceptions="true" convertWarningsToExceptions="true"
+	processIsolation="false" syntaxCheck="false" cacheTokens="true"
+	verbose="false" bootstrap="tests/bootstrap.php">
+	<testsuites>
+		<testsuite name="CITools Test Suite">
+			<directory>./tests/</directory>
+		</testsuite>
+	</testsuites>
+	<filter>
+		<whitelist>
+			<directory></directory>
+		</whitelist>
+		<whitelist processUncoveredFilesFromWhitelist="true">
+			<directory suffix=".php">./system/</directory>
+			<file>build/logs/clover.xml</file>
+		</whitelist>
+	</filter>
+	<logging>
+		<log type="coverage-clover" target="build/logs/clover.xml" />
+	</logging>
 </phpunit>
