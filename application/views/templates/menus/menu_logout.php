@@ -18,7 +18,7 @@
 						<li class="<?php if ($title == 'Home') { echo 'active'; }?>"><?php echo anchor(base_url('home'), 'Home')?></li>
 						<li class="<?php if ($title == 'Libros') { echo 'active'; }?>"><?php echo anchor(base_url('libros'), 'Libros')?></li>
 						<li class="<?php if ($title == 'Autores') { echo 'active'; }?>"><?php echo anchor(base_url('autores'), 'Autores')?></li>
-						<li class="<?php if ($title == 'Listas') { echo 'active'; }?>"><?php echo anchor(base_url('listas'), 'Listas')?></li>
+						<li class="<?php if ($title == 'Listas') { echo 'active'; }?>"><?php echo anchor(base_url('lista-libros'), 'Listas')?></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li>
@@ -47,14 +47,17 @@
 							     ))?>
 
 							</a>
-							<ul class="dropdown-menu" style="padding: 15px; min-width: 250px;">
+							<ul class="dropdown-menu" style="padding: 15px; min-width: 150px;">
 								<li role="presentation" class="dropdown-header"><?php echo "$username $surname"?></li>
 								<li role="presentation">
 								    <?php echo anchor(base_url('informacion-de-usuario'), 'Perfil', ['role' => 'menuitem'])?>
 								</li>
 								<li role="presentation" class="divider"></li>
 								<li role="presentation">
-								    <a role="menuitem" tabindex="-1" href="#">Configuración</a>
+								    <?php echo anchor(base_url('configuracion-de-usuario'), 'Configuración', [
+								            'role' => 'menuitem',
+								            'tabindex' => '-1'
+								    ])?>
 								</li>
 								<li><?php echo anchor(base_url('login/logout'), 'Salir')?></li>
 							</ul>
