@@ -6,7 +6,7 @@ class Listbooks_model extends CI_Model {
     }
     function getAllBooklistFromUser($userId) {
         $booksInList = R::getAll ( 
-                'SELECT b.book_isbn, b.book_name, b.book_desc, b.book_img
+                'SELECT b.book_id, b.book_isbn, b.book_name, b.book_desc, b.book_img
 	               FROM book_listbook lb, book b 
 	               WHERE lb.listbook_id = (SELECT listbook_id FROM `user` WHERE user_id = :userId)
 		              AND lb.book_id = b.book_id;', [':userId' => $userId] );

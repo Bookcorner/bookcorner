@@ -2,6 +2,7 @@
 defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 class Listbook extends CI_Controller {
     public function showListBooks() {
+        $userId;
         if (check_cookie_exist ()) {
             $cookieData = explode ( '#', $this->input->cookie ( 'bookcorner' ) );
             $userId = $cookieData [0];
@@ -12,6 +13,7 @@ class Listbook extends CI_Controller {
         
         $this->load->model ( 'listbooks_model' );
         $data ['books'] = $this->listbooks_model->getAllBooklistFromUser ( $userId );
+        echo var_dump($data['books']);
         $data ['title'] = 'Lista de libros';
         $contentURI = 'lists/all_listbook';
         loadBasicViews ( $contentURI, $data );
