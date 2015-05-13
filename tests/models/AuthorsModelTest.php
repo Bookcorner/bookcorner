@@ -36,4 +36,11 @@ class AuthorsModelTest extends PHPUnit_Framework_TestCase {
 	
 	}
 	
+	public function testWhenSearchSearchAllAuthorsIsCalledThenAuthorsShouldBeReturned() {
+	    $this->CI->load->model('authors_model');
+	    $authorsSearched = $this->CI->authors_model->searchAllAuthors();
+	
+	    $this->assertNotNull($authorsSearched);
+	}
+
 }
