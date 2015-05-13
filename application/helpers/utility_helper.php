@@ -35,12 +35,14 @@ function loadBasicViews($contentURI, $data = array()) {
     
     if (check_cookie_exist ()) {
         $cookieData = explode ( '#', $CI->input->cookie ( 'bookcorner' ) );
-        $data ['nickname'] = $cookieData [0];
-        $data ['username'] = $cookieData [1];
-        $data ['surname'] = $cookieData [2];
-        $data ['avatar'] = $cookieData [3];
+        $data ['id'] = $cookieData [0];
+        $data ['nickname'] = $cookieData [1];
+        $data ['username'] = $cookieData [2];
+        $data ['surname'] = $cookieData [3];
+        $data ['avatar'] = $cookieData [4];
         $CI->load->view ( 'templates/menus/menu_logout', $data );
     } else if (check_session_exist ()) {
+        $data ['id'] = $CI->session->userdata ( 'id' );
         $data ['nickname'] = $CI->session->userdata ( 'username' );
         $data ['username'] = $CI->session->userdata ( 'name' );
         $data ['surname'] = $CI->session->userdata ( 'surname' );
@@ -54,20 +56,20 @@ function loadBasicViews($contentURI, $data = array()) {
     $CI->load->view ( 'templates/footers/base_footer' );
     $CI->load->view ( 'templates/end' );
 }
-
-
 function loadBasicViewsAndCustomHeader($view, $header, $data) {
     $CI = & get_instance ();
     $CI->load->view ( $header, $data );
     
     if (check_cookie_exist ()) {
         $cookieData = explode ( '#', $CI->input->cookie ( 'bookcorner' ) );
-        $data ['nickname'] = $cookieData [0];
-        $data ['username'] = $cookieData [1];
-        $data ['surname'] = $cookieData [2];
-        $data ['avatar'] = $cookieData [3];
+        $data ['id'] = $cookieData [0];
+        $data ['nickname'] = $cookieData [1];
+        $data ['username'] = $cookieData [2];
+        $data ['surname'] = $cookieData [3];
+        $data ['avatar'] = $cookieData [4];
         $CI->load->view ( 'templates/menus/menu_logout', $data );
     } else if (check_session_exist ()) {
+        $data ['id'] = $CI->session->userdata ( 'id' );
         $data ['nickname'] = $CI->session->userdata ( 'username' );
         $data ['username'] = $CI->session->userdata ( 'name' );
         $data ['surname'] = $CI->session->userdata ( 'surname' );

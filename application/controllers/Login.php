@@ -27,6 +27,7 @@ class Login extends CI_Controller {
                         $userCookie = $this->createUserCookieData ( $validUser );
                         $this->input->set_cookie ( $userCookie );
                     } else {
+                        $this->config->set_item('sess_expire_on_close', TRUE);
                         $userSession = $this->createUserSession ( $validUser );
                         $this->session->set_userdata ( $userSession );
                     }
@@ -38,7 +39,7 @@ class Login extends CI_Controller {
     }
     public function logout() {
         $this->deleteSessionAndCookie ();
-        redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+        redirect ( 'home', 'refresh' );
     }
     private function deleteSessionAndCookie() {
         delete_cookie ( 'bookcorner' );
@@ -60,7 +61,7 @@ class Login extends CI_Controller {
     private function createUserCookieData($user) {
         $cookieData = array (
                 'name' => 'bookcorner',
-                'value' => $user->user_nickname . '#' . $user->user_name . '#' . $user->user_surname . '#' . $user->user_avatar,
+                'value' => $user->user_id . '#' . $user->user_nickname . '#' . $user->user_name . '#' . $user->user_surname . '#' . $user->user_avatar,
                 'expire' => time () + (86400 * 365),
                 'path' => '/' 
         );
@@ -78,6 +79,7 @@ class Login extends CI_Controller {
     private function createUserSession($user) {
         $sessionData = array (
                 'title' => 'bookcorner',
+                'id' => $user->user_id,
                 'username' => $user->user_nickname,
                 'name' => $user->user_name,
                 'surname' => $user->user_surname,
