@@ -12,4 +12,9 @@ class HomeTest extends PHPUnit_Framework_TestCase {
 		$this->CI->load->library('../controllers/home');
 	}
 	*/
+	
+
+	public function test2() {
+	    $this->assertTrue(TRUE);
+	}
 }

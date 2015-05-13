@@ -25,4 +25,5 @@ class Book extends CI_Controller {
             loadBasicViews ( $viewUri, $data );
         }
     }
+    
 }

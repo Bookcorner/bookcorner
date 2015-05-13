@@ -17,4 +17,8 @@ class LoginTest extends PHPUnit_Framework_TestCase {
 	    $this->assertNotTrue(check_session_exist());
 	}
 	*/
+	
+	public function test1() {
+	    $this->assertTrue(TRUE);
+	}
 }
