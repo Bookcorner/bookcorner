@@ -59,6 +59,7 @@ $route['autores'] = 'author/index';
 $route['busqueda'] = 'search/searchAuthorOrBook';
 $route['busqueda-autores'] = 'author/showAuthorsSearched';
 $route['busqueda-libros'] = 'book/showBooksSearched';
+$route['informacion-de-usuario'] = 'user/showUserInfo';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
