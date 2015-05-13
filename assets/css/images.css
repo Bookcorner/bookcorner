@@ -1,6 +1,7 @@
 @CHARSET "UTF-8";
 
 .avatar {
-    padding-top: 8px !important;
-    padding-bottom: 0px !important;
+    padding: 0 !important;
+    width:35px !important;
+    height:35px !important;
 }

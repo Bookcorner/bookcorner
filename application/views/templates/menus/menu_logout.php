@@ -18,6 +18,7 @@
 						<li class="<?php if ($title == 'Home') { echo 'active'; }?>"><?php echo anchor(base_url('home'), 'Home')?></li>
 						<li class="<?php if ($title == 'Libros') { echo 'active'; }?>"><?php echo anchor(base_url('libros'), 'Libros')?></li>
 						<li class="<?php if ($title == 'Autores') { echo 'active'; }?>"><?php echo anchor(base_url('autores'), 'Autores')?></li>
+						<li class="<?php if ($title == 'Listas') { echo 'active'; }?>"><?php echo anchor(base_url('listas'), 'Listas')?></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li>
@@ -45,7 +46,7 @@
 							             'class' => 'avatar'
 							     ))?>
 							     <?php echo "$nickname"?>
-							     <b class="caret"></b>
+							     
 							</a>
 							<ul class="dropdown-menu" style="padding: 15px; min-width: 250px;">
 								<li role="presentation" class="dropdown-header"><?php echo "$username $surname"?></li>
@@ -56,9 +57,10 @@
 								<li role="presentation">
 								    <a role="menuitem" tabindex="-1" href="#">Configuración</a>
 								</li>
+								<li><?php echo anchor(base_url('login/logout'), 'Salir')?></li>
 							</ul>
 						</li>
-						<li><?php echo anchor(base_url('login/logout'), 'Salir')?></li>
+						
 					</ul>
 				</div>
 			</nav>

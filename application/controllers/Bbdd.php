@@ -12,10 +12,9 @@ class Bbdd extends CI_Controller {
         $user1->user_surname = 'nistrate';
         $user1->user_nickname = 'admin';
         $user1->user_pwd = md5 ( 'theboss' );
-        $user1->user_birthdate = '1993-04-29';
         $user1->user_email = 'juananortizc@gmail.com';
         $user1->user_avatar = 'boss.jpg';
-        $user1->user_genre = 'V';
+        $user1->user_genre = 'M';
         $user1->listbook_id = 1;
         
         $user2 = R::Dispense ( 'user' );
@@ -24,10 +23,9 @@ class Bbdd extends CI_Controller {
         $user2->user_surname = 'alfa';
         $user2->user_nickname = 'moderator';
         $user2->user_pwd = md5 ( 'thesecretary' );
-        $user2->user_birthdate = '1993-05-05';
         $user2->user_email = 'mcantelar@gmail.com';
         $user2->user_avatar = 'secretary.jpeg';
-        $user2->user_genre = 'V';
+        $user2->user_genre = 'M';
         $user2->listbook_id = 2;
         
         $user3 = R::Dispense ( 'user' );
@@ -36,10 +34,9 @@ class Bbdd extends CI_Controller {
         $user3->user_surname = 'robbeen';
         $user3->user_nickname = 'registrate';
         $user3->user_pwd = md5 ( 'justinme' );
-        $user3->user_birthdate = '1993-01-12';
         $user3->user_email = 'rcortes@gmail.com';
         $user3->user_avatar = 'justin.jpg';
-        $user3->user_genre = 'V';
+        $user3->user_genre = 'M';
         $user3->listbook_id = 3;
         
         // Create database user roles available
@@ -144,7 +141,7 @@ class Bbdd extends CI_Controller {
         $author1 = R::Dispense ( 'author' );
         $author1->author_id = 1;
         $author1->author_fullname = 'Patrick Rothfuss';
-        $author1->author_desc = 'Patrick James Rothfuss (naceido el 6 de junio de 1973) es un escritor estadounidense de fantasía y profesor adjunto de literatura y filología inglesa en la Universidad de Wisconsin. Es el autor de la serie Crónica del asesino de reyes, que fue rechazada por varias editoriales antes de que el primer libro de la serie E nombre del viento fuese publicado en el año 2007. Obtuvo muy buenas críticas y se convirtió en un éxito de ventas. En españa fue publicado en el año 2009.';
+        $author1->author_desc = 'Patrick James Rothfuss (nacido  el 6 de junio de 1973) es un escritor estadounidense de fantasía y profesor adjunto de literatura y filología inglesa en la Universidad de Wisconsin. Es el autor de la serie Crónica del asesino de reyes, que fue rechazada por varias editoriales antes de que el primer libro de la serie E nombre del viento fuese publicado en el año 2007. Obtuvo muy buenas críticas y se convirtió en un éxito de ventas. En españa fue publicado en el año 2009.';
         $author1->author_img = 'patrickrothfuss.png';
         
         $author2 = R::Dispense ( 'author' );
@@ -177,6 +174,11 @@ class Bbdd extends CI_Controller {
         $user_state1->ownUserList [] = $user1;
         $user_state1->ownUserList [] = $user2;
         $user_state1->ownUserList [] = $user3;
+        
+        //Introducir Lista para usuario
+        $listbook1->ownUserList [] = $user1;
+        $listbook2->ownUserList [] = $user2;
+        $listbook3->ownUserList [] = $user3;
         
         // Introducir Estados de los libros
         $bookstate1->ownBookList [] = $book1;
