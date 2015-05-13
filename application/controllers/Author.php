@@ -4,6 +4,10 @@ class Author extends CI_Controller {
     public function index() {
         $data ['title'] = 'Autores';
         $viewUri = 'authors/main_author_content';
+        
+        $this->load->model ( 'authors_model' );
+        $data['authors'] = $this->authors_model->searchAllAuthors();
+        
         loadBasicViews ( $viewUri, $data );
     }
     public function showAuthorsSearched() {

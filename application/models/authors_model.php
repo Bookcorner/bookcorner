@@ -11,4 +11,10 @@ class Authors_model extends CI_Model {
         ] );
         return $authorsBean;
     }
+    
+    function searchAllAuthors() {
+        $authorsBeans = R::find ( 'author' );
+        return $authorsBeans;
+    }
+    
 }
