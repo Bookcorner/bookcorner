@@ -10,7 +10,10 @@ class Users_model extends CI_Model {
         ] );
         return $userBean;
     }
-    function getUsersInfo() {
-        return true;
+    function getUserInfo($userId) {
+        $userBean = R::findOne ( 'user', ' user_id = ? ', [ 
+                $userId
+        ] );
+        return $userBean;
     }
 }

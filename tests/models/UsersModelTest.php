@@ -24,4 +24,22 @@ class UsersModelTest extends PHPUnit_Framework_TestCase {
 	
 		$this->assertNull($userChecked);
 	}
+	
+	public function testWhenGetUserInfoWithExistingIdIsCalledThenThisUserShouldBeReturned() {
+	    $id = '1';
+	
+	    $this->CI->load->model('users_model');
+	    $user = $this->CI->users_model->getUserInfo($id);
+	
+	    $this->assertNotNull($user);
+	}
+	
+	public function testWhenGetUserInfoWithNoExistingIdIsCalledThenUserShouldBeEmpty() {
+	    $id = '-1';
+	
+	    $this->CI->load->model('users_model');
+	    $user = $this->CI->users_model->getUserInfo($id);
+	
+	    $this->assertEmpty($user);
+	}
 }
