@@ -18,6 +18,7 @@ class Search extends CI_Controller {
                 break;
         }
     }
+    
     private function passAuthorsToAuthorController($authors) {
         $this->session->set_flashdata ( 'authorData', $authors );
         redirect ( 'busqueda-autores' );

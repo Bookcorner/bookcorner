@@ -147,7 +147,7 @@ class Bbdd extends CI_Controller {
         $author2 = R::Dispense ( 'author' );
         $author2->author_id = 2;
         $author2->author_fullname = 'Isabel Allende';
-        $author2->author_desc = 'Isabel Allende Llona (Lima, Perú, 2 de agosto de 1942)2 es una escritora chilena, miembro de la Academia Estadounidense de las Artes y las Letras desde 2004.3 Obtuvo el Premio Nacional de Literatura de su país en 2010. Autora de superventas, la tirada total de sus libros alcanza 57 millones de ejemplares y sus obras han sido traducidas a 35 idiomas. Es considerada la escritora viva de lengua española más leída del mundo';
+        $author2->author_desc = 'Isabel Allende Llona (Lima, Perú, 2 de agosto de 1942) es una escritora chilena, miembro de la Academia Estadounidense de las Artes y las Letras desde 2004. Obtuvo el Premio Nacional de Literatura de su país en 2010. Autora de superventas, la tirada total de sus libros alcanza 57 millones de ejemplares y sus obras han sido traducidas a 35 idiomas. Es considerada la escritora viva de lengua española más leída del mundo';
         $author2->author_img = 'isabelallende.png';
         
         // Create authorstate
