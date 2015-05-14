@@ -1,14 +1,23 @@
-$(function(){
+$(function() {
 	var book = $('#book');
 
-	$('#open-book').click(function(){
-		if ( book.attr('class') !='open-book') {
-			$(this).addClass('cur').siblings().removeClass('cur');
-			book.removeClass().addClass('open-book');
-		}else{
-			$(this).removeClass('cur');
-			$('#view-cover').addClass('cur');
-			book.removeClass().addClass('view-cover');
-		}
+	$('.coverImg').click(function() { 
+		$(this).addClass('cur').siblings().removeClass('cur');
+		book.removeClass().addClass('open-book');
+
+	});
+	$('.book-cover-back').click(function() {
+		$(this).removeClass('cur');
+		$('#view-cover').addClass('cur');
+		book.removeClass().addClass('view-cover');
+	})
+	$('.open-page-1').click(function() {
+		$('#page-2').hide();
+		$('#page-1').show();
+	});
+
+	$('.open-page-2').click(function() {
+		$('#page-1').hide();
+		$('#page-2').show();
 	});
 });
