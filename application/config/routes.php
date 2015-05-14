@@ -66,6 +66,7 @@ $route['busqueda-autores'] = 'author/showAuthorsSearched';
 $route['busqueda-libros'] = 'book/showBooksSearched';
 $route['informacion-de-usuario'] = 'user/showUserInfo';
 $route['configuracion-de-usuario'] = 'user/showUserConfig';
+$route['registrarse'] = 'user/signup';
 $route['lista-libros'] = 'listbook/showListBooks';
 
 $route['404_override'] = '';
