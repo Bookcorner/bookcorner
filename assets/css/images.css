@@ -1,6 +1,26 @@
 @CHARSET "UTF-8";
 
 .avatar {
-    width:35px !important;
-    height:35px !important;
+	width: 35px !important;
+	height: 35px !important;
 }
+
+.circle {
+	line-height: 0; /* remove line-height */
+	display: inline-block; /* circle wraps image */
+	margin: 5px;
+	border: 2px solid rgba(255, 255, 255, 0.4);
+	border-radius: 50%; /* relative value */
+	transition: linear 0.25s;
+	height: 544px;
+	width: 364px;
+}
+
+.circle img {
+	border-radius: 50%; /* relative value for
+				   adjustable image size */
+}
+
+a.circle {
+	color: transparent;
+} 
