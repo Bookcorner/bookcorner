@@ -12,8 +12,34 @@ class Users_model extends CI_Model {
     }
     function getUserInfo($userId) {
         $userBean = R::findOne ( 'user', ' user_id = ? ', [ 
-                $userId
+                $userId 
         ] );
         return $userBean;
+    }
+    function check_exist_user($username, $email) {
+        $countUser = R::count ( 'user', ' user_nickname = ? ', [ 
+                $username 
+        ] );
+        
+        if ($countUser != 0) {
+            return 1;
+        }
+        
+        $countUser = R::count ( 'user', ' user_email = ? ', [ 
+                $email 
+        ] );
+        
+        if ($countUser != 0) {
+            return 2;
+        }
+        
+        return 0;
+    }
+    function lastid() {
+        $query = $this->db->query ( 'select MAX(id) AS `maxid` FROM user' )->row ();
+        
+        if ($query) {
+            return $query->maxid;
+        }
     }
 }

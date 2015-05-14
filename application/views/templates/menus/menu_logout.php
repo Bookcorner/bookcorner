@@ -18,7 +18,7 @@
 						<li class="<?php if ($title == 'Home') { echo 'active'; }?>"><?php echo anchor(base_url('home'), 'Home')?></li>
 						<li class="<?php if ($title == 'Libros') { echo 'active'; }?>"><?php echo anchor(base_url('libros'), 'Libros')?></li>
 						<li class="<?php if ($title == 'Autores') { echo 'active'; }?>"><?php echo anchor(base_url('autores'), 'Autores')?></li>
-						<li class="<?php if ($title == 'Listas') { echo 'active'; }?>"><?php echo anchor(base_url('lista-libros'), 'Listas')?></li>
+						<li class="<?php if ($title == 'Lista de libros') { echo 'active'; }?>"><?php echo anchor(base_url('lista-libros'), 'Listas')?></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li>

@@ -38,7 +38,7 @@
 							<?php echo form_close()?>
 						</li>
 						<li>
-						  <a href="#" data-toggle="modal" data-target="#myModal">Registrarse</a>
+						  <a href="" data-toggle="modal" data-target="#myModal">Registrarse</a>
 						</li>
 						<!-- Modal -->
 						<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
@@ -56,7 +56,7 @@
 									</div>
 									<div class="modal-body">
 										<div class="col-xs-12">
-											<?php echo form_open ( '#', [ 
+											<?php echo form_open ( base_url().'registrarse', [ 
 												'class' => 'form-horizontal',
 												'data-toggle' => 'validator',
 												'method' => 'post',
