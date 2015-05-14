@@ -37,4 +37,14 @@ class Users_model extends CI_Model {
         return 0;
     }
     
+    function lastid() {
+    
+        $query = $this->db->query('select MAX(id) AS `maxid` FROM user')->row();
+    
+        if ($query) {
+            return $query->maxid;
+        }
+    
+    }
+    
 }
