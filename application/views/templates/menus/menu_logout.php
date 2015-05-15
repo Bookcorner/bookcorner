@@ -1,4 +1,3 @@
-<!--CONTAINER-->
 <div class="container">
 	<!--MENU-->
 	<div class="row">
@@ -62,7 +61,6 @@
 								<li><?php echo anchor(base_url('login/logout'), 'Salir')?></li>
 							</ul>
 						</li>
-						
 					</ul>
 				</div>
 			</nav>

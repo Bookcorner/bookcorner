@@ -38,13 +38,11 @@ class Login extends CI_Controller {
         redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
     }
     public function logout() {
-        $this->deleteSessionAndCookie ();
-        redirect ( 'home', 'refresh' );
-    }
-    private function deleteSessionAndCookie() {
         delete_cookie ( 'bookcorner' );
         $this->session->sess_destroy ();
+        redirect ( 'home', 'refresh' );
     }
+    
     private function setSigninFormRules() {
         $this->form_validation->set_rules ( 'username', 'Usuario', 'required|alpha_numeric' );
         $this->form_validation->set_rules ( 'pwd', 'Contraseña', 'required' );
@@ -94,6 +92,6 @@ class Login extends CI_Controller {
         return $validUser;
     }
     private function getEncriptedPwd() {
-        return md5 ( set_value ( 'pwd' ) );
+        return encrypt( set_value ( 'pwd' ) );
     }
 }

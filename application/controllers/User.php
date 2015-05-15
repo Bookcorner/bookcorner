@@ -2,16 +2,35 @@
 defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 class User extends CI_Controller {
     public function showUserInfo() {
-        $cookieData = explode ( '#', $this->input->cookie ( 'bookcorner' ) );
-        $userId = $cookieData [0];
+        $userId;
+        $cookie = 'bookcorner';
+        $session = 'id';
+        
+        if (check_cookie_exist($cookie)){
+            $cookieData = get_cookie_data('bookcorner');
+            $userId = $cookieData [0];            
+        }
+        
+        if (check_session_exist($session)){
+            $userId = $this->session->userdata ( $session );
+        }
         
         $this->load->model ( 'users_model' );
-        $data ['userInfo'] = $this->users_model->getUserInfo ( $userId );
         $data ['title'] = 'Información de Usuario';
+        $data ['userInfo'] = $this->users_model->getUserInfo ( $userId );
+
+        $views =  [
+                'cabeceras' => [
+                        'templates/cabeceras/cabecera_base',
+                        'templates/cabeceras/cabecera_usuario'
+                ], 
+                'contenidos' => [
+                        'user/user_info'
+                ],
+                'footer' => 'templates/footers/base_footer'
+        ];
         
-        $viewURI = 'user/user_info';
-        $headerURI = 'templates/cabeceras/cabecera_usuario';
-        loadBasicViewsAndCustomHeader ( $viewURI, $headerURI, $data );
+        loadCustomViews($views, $data);
     }
     public function showUserConfig() {
         $data ['title'] = 'Información de Usuario';
@@ -74,6 +93,6 @@ class User extends CI_Controller {
             }
         }
         
-        redirect ( base_url ( 'home' ), 'refresh' );
+        redirect ('home', 'refresh' );
     }
 }
