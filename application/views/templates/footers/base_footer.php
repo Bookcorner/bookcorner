@@ -1,15 +1,27 @@
 <!-- FOOOTER -->
-<div class="container text-center">
-	<div class="row">
-		<div class="col-lg-12">
-			<ul class="nav nav-pills nav-justified">
-				<li class="<?php if ($title == 'Quienes Somos') { echo 'active'; }?>"><?php echo anchor(base_url('quienes-somos'), 'Quienes somos')?></li>
-				<li class="<?php if ($title == '¿Qué es Bookcorner?') { echo 'active'; }?>"><?php echo anchor(base_url('que-es-bookcorner'), '¿Qué es Bookcorner?')?></li>
-				<li class="<?php if ($title == 'Contacto') { echo 'active'; }?>"><?php echo anchor(base_url('contacto'), 'Contáctanos')?></li>
-			    <li class="<?php if ($title == 'Política de Privacidad') { echo 'active'; }?>"><?php echo anchor(base_url('politica-de-privacidad'), 'Política de Privacidad')?></li>
-			    <li class="<?php if ($title == 'Copyright') { echo 'active'; }?>"><?php echo anchor(base_url('copyright'), 'Copyright')?></li>
-			    <li class="<?php if ($title == 'Información Legal') { echo 'active'; }?>"><?php echo anchor(base_url('informacion-legal'), 'Información Legal')?></li>
-			</ul>
+<div id="footer">
+	<div class="container">
+		<div class="col-xs-12 col-lg-12">
+			<footer>
+				<p>
+				    <?php echo anchor(base_url('que-es-bookcorner'), '¿Qué es Bookcorner?')?>
+				    &nbsp;&nbsp;&middot;&nbsp;&nbsp;
+				    <?php echo anchor(base_url('quienes-somos'), 'Quienes somos')?>
+				    &nbsp;&nbsp;&middot;&nbsp;&nbsp;
+				    <?php echo anchor(base_url('informacion-legal'), 'Información Legal')?>
+				    &nbsp;&nbsp;&middot;&nbsp;&nbsp;
+				    <?php echo anchor(base_url('politica-de-privacidad'), 'Privacidad')?>
+				    &nbsp;&nbsp;&middot;&nbsp;&nbsp;
+				    <?php echo anchor(base_url('copyright'), 'Copyright')?>
+				    &nbsp;&nbsp;&middot;&nbsp;&nbsp;
+				    <?php echo anchor(base_url('contacto'), 'Contáctanos')?> 
+					<span class="pull-right">
+					   &copy; 2015 
+					   <?php echo anchor(base_url('home'), 'Bookcorner')?>
+					</span>
+				</p>
+			</footer>
 		</div>
 	</div>
 </div>
+<!-- FIN FOOTER -->

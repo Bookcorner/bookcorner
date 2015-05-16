@@ -1,6 +1,10 @@
 <?php
 defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 class Login extends CI_Controller {
+    public function __construct() {
+        parent::__construct ();
+        $this->load->helper('users');
+    }
     public function signin() {
         $this->setSigninFormRules ();
         
@@ -27,7 +31,7 @@ class Login extends CI_Controller {
                         $userCookie = $this->createUserCookieData ( $validUser );
                         $this->input->set_cookie ( $userCookie );
                     } else {
-                        $this->config->set_item('sess_expire_on_close', TRUE);
+                        $this->config->set_item ( 'sess_expire_on_close', TRUE );
                         $userSession = $this->createUserSession ( $validUser );
                         $this->session->set_userdata ( $userSession );
                     }
@@ -35,14 +39,17 @@ class Login extends CI_Controller {
             }
         }
         
-        redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+        if (isAdministrator ( $validUser )) {
+            redirect ( 'admin', 'refresh' );
+        } else {
+            redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+        }
     }
     public function logout() {
         delete_cookie ( 'bookcorner' );
         $this->session->sess_destroy ();
         redirect ( 'home', 'refresh' );
     }
-    
     private function setSigninFormRules() {
         $this->form_validation->set_rules ( 'username', 'Usuario', 'required|alpha_numeric' );
         $this->form_validation->set_rules ( 'pwd', 'Contraseña', 'required' );
@@ -92,6 +99,6 @@ class Login extends CI_Controller {
         return $validUser;
     }
     private function getEncriptedPwd() {
-        return encrypt( set_value ( 'pwd' ) );
+        return encrypt ( set_value ( 'pwd' ) );
     }
 }

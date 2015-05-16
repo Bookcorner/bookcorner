@@ -1,0 +1,25 @@
+#footer {
+	width: auto;
+	height: 60px;
+	overflow: hidden;
+	padding: 0;
+	background: #181818
+		url("//d85wutc1n854v.cloudfront.net/live/imgs/tray-bg.png");
+	color: #fff;
+}
+
+#footer a {
+	color: #eee;
+}
+
+footer {
+	border: none;
+	height: 60px;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+footer p {
+	margin-top: 23px;
+}
