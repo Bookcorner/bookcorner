@@ -1,9 +1,11 @@
 <!-- FOOOTER -->
-<div id="footer">
-	<div class="container">
-		<div class="col-xs-12 col-lg-12">
-			<footer>
-				<p>
+<div class="container">
+	<div class="row">
+		<div id="footer">
+			<div class="container">
+				<div class="col-xs-12 col-ls-12">
+					<footer>
+						<p>
 				    <?php echo anchor(base_url('que-es-bookcorner'), '¿Qué es Bookcorner?')?>
 				    &nbsp;&nbsp;&middot;&nbsp;&nbsp;
 				    <?php echo anchor(base_url('quienes-somos'), 'Quienes somos')?>
@@ -19,8 +21,10 @@
 					   &copy; 2015 
 					   <?php echo anchor(base_url('home'), 'Bookcorner')?>
 					</span>
-				</p>
-			</footer>
+						</p>
+					</footer>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
