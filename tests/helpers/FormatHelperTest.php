@@ -15,4 +15,13 @@ class FormatHelperTest extends PHPUnit_Framework_TestCase {
 	    
 	    $this->assertEquals($expectedStringPrepared, $actualStringPrepared);
 	}
+	
+	public function testWhenPrepareForSearchableWordWithSpacesIsCalledThenStringIsCorrectlyFormatted(){
+	    $string = 'ho la';
+	    $expectedStringPrepared = '%ho%la%';
+	     
+	    $actualStringPrepared = prepareForSearchableWord($string);
+	     
+	    $this->assertEquals($expectedStringPrepared, $actualStringPrepared);
+	}
 }
