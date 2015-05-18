@@ -1,4 +1,12 @@
 <div class="container">
+	<!-- BREADCRUMB -->
+	<div>
+		<ol class="breadcrumb">
+			<li><?php echo anchor(base_url('home'), 'Home')?></li>
+			<li><?php echo anchor(base_url('contacto'), 'Contacto')?></li>
+		</ol>
+	</div>
+	<!-- FIN BREADCRUMB -->
 	<div class="row">
 		<div class="col-sm-12 col-lg-12">
 			<div class="panel">
@@ -125,7 +133,7 @@
 						</div>
 						<div class="help-block with-errors"></div>
 					</div>
-
+                    
 					<img id="captcha"
 						src="library/vender/securimage/securimage_show.php"
 						alt="CAPTCHA Image" /> <a href="#"
