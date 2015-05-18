@@ -10,4 +10,5 @@
 <script type="text/javascript"
 	src="<?php echo asset_url()?>js/validator.min.js"></script>
 <script> $('#myForm').validator() </script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">

@@ -11,9 +11,11 @@
 		</ol>
 		<div class="carousel-inner" role="listbox">
 			<div class="item active">
-				<img class="first-slide"
-					src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-					alt="First slide">
+			    <?php echo img(array(
+                    'src' => asset_url(). '/images/general/banner/libros-banner.jpg',
+			        'class' => 'first-slide',
+			        'alt' => 'banner libros'
+				))?>
 				<div class="container">
 					<div class="carousel-caption">
 						<h1>¿Qué es Bookcorner?.</h1>
@@ -29,9 +31,11 @@
 				</div>
 			</div>
 			<div class="item">
-				<img class="second-slide"
-					src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-					alt="Second slide">
+			    <?php echo img(array(
+                    'src' => asset_url(). '/images/general/banner/list-banner.jpeg',
+			        'class' => 'second-slide',
+			        'alt' => 'banner listas'
+				))?>
 				<div class="container">
 					<div class="carousel-caption">
 						<h1>Actualiza tu lista de libros.</h1>
@@ -48,9 +52,11 @@
 				</div>
 			</div>
 			<div class="item">
-				<img class="third-slide"
-					src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-					alt="Third slide">
+			    <?php echo img(array(
+                    'src' => asset_url(). '/images/general/banner/crecimiento-banner.jpeg',
+			        'class' => 'third-slide',
+			        'alt' => 'banner crecimiento'
+				))?>
 				<div class="container">
 					<div class="carousel-caption">
 						<h1>Continuo crecimiento.</h1>
@@ -67,12 +73,14 @@
 				</div>
 			</div>
 			<div class="item">
-				<img class="forth-slide"
-					src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-					alt="Third slide">
+			    <?php echo img(array(
+                    'src' => asset_url(). '/images/general/banner/vote-banner.jpg',
+			        'class' => 'forth-slide',
+			        'alt' => 'banner votos'
+				))?>
 				<div class="container">
 					<div class="carousel-caption">
-						<h1>Vota a tus autores preferidos.</h1>
+						<h1>Vota a tus libros y autores preferidos.</h1>
 						<p>Comparte tus gustos y opiniones con el resto de la comunidad
 							por medio de los votos de libros y autores</p>
 						<p>

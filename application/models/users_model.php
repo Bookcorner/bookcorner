@@ -42,4 +42,9 @@ class Users_model extends CI_Model {
             return $query->maxid;
         }
     }
+    
+    public function getAllModerators(){
+        $mod_users = R::find('user', 'userrole_id = 2');
+        return $mod_users;
+    }
 }

@@ -9,6 +9,8 @@ class Home extends CI_Controller {
     public function goToWhoAreWe() {
         $data ['title'] = 'Quienes Somos';
         $viewUri = 'static_pages/who_are_we';
+        $this->load->model('users_model');
+        $data['moderators'] = $this->users_model->getAllModerators();
         loadBasicViews ( $viewUri, $data );
     }
     public function goToWhatIs() {
