@@ -55,8 +55,6 @@ $route['default_controller'] = 'home/goToWhatIs';
 $route['quienes-somos'] = 'home/goToWhoAreWe';
 $route['que-es-bookcorner'] = 'home/goToWhatIs';
 $route['contacto'] = 'home/goToContact';
-$route['politica-de-privacidad'] = 'home/privacyPolicy';
-$route['copyright'] = 'home/copyright';
 $route['informacion-legal'] = 'home/legalInformation';
 
 $route['libros'] = 'book/index';

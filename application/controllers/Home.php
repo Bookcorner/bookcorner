@@ -9,9 +9,9 @@ class Home extends CI_Controller {
     public function goToWhoAreWe() {
         $data ['title'] = 'Quienes Somos';
         $viewUri = 'static_pages/who_are_we';
-        $this->load->model('users_model');
-        $data['moderators'] = $this->users_model->getAllModerators();
-        $data['administrators'] = $this->users_model->getAllAdministrators();
+        $this->load->model ( 'users_model' );
+        $data ['moderators'] = $this->users_model->getAllModerators ();
+        $data ['administrators'] = $this->users_model->getAllAdministrators ();
         loadBasicViews ( $viewUri, $data );
     }
     public function goToWhatIs() {
@@ -22,16 +22,6 @@ class Home extends CI_Controller {
     public function goToContact() {
         $data ['title'] = 'Contacto';
         $viewUri = 'static_pages/contact';
-        loadBasicViews ( $viewUri, $data );
-    }
-    public function privacyPolicy() {
-        $data ['title'] = 'Política de Privacidad';
-        $viewUri = 'static_pages/privacy_policy';
-        loadBasicViews ( $viewUri, $data );
-    }
-    public function copyright() {
-        $data ['title'] = 'Copyright';
-        $viewUri = 'static_pages/copyright';
         loadBasicViews ( $viewUri, $data );
     }
     public function legalInformation() {

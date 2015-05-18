@@ -1,6 +1,6 @@
 <!-- FOOOTER -->
 <div class="container">
-	<div>
+	<div class="row">
 		<div id="footer">
 			<div class="col-xs-12 col-ls-12">
 				<footer>
@@ -10,10 +10,6 @@
 				    <?php echo anchor(base_url('quienes-somos'), 'Quienes somos')?>
 				    &nbsp;&nbsp;&middot;&nbsp;&nbsp;
 				    <?php echo anchor(base_url('informacion-legal'), 'Información Legal')?>
-				    &nbsp;&nbsp;&middot;&nbsp;&nbsp;
-				    <?php echo anchor(base_url('politica-de-privacidad'), 'Privacidad')?>
-				    &nbsp;&nbsp;&middot;&nbsp;&nbsp;
-				    <?php echo anchor(base_url('copyright'), 'Copyright')?>
 				    &nbsp;&nbsp;&middot;&nbsp;&nbsp;
 				    <?php echo anchor(base_url('contacto'), 'Contáctanos')?> 
 					<span class="pull-right">

@@ -3,7 +3,7 @@
 		<div class="col-sm-12 col-lg-12">
 			<div class="panel">
 				<div class="panel-heading">
-					<h3>
+					<h3 class="lead">
 						<i class="icon-map-marker main-color"></i> Contáctanos
 					</h3>
 				</div>
@@ -29,7 +29,7 @@
 		<div class="col-sm-4 col-lg-4">
 			<div class="panel">
 				<div class="panel-heading">
-					<h3>
+					<h3 class="lead">
 						<i class="icon-time main-color"></i> Horarios de atención
 					</h3>
 				</div>
@@ -83,49 +83,49 @@
 		<div class="col-12 col-lg-8">
 			<div class="panel">
 				<div class="panel-heading">
-					<h3 class="">
+					<h3 class="lead">
 						<i class="icon-envelope main-color"></i> Contacto
 					</h3>
 				</div>
 				<div class="panel-body">
 					<!-- CONTACT FORM -->
-				    <?php echo form_open ( 'email/contact', [ 
-                        'role' => 'form',
-                        'data-toggle' => 'validator',
-				        'method' => 'post',
-				        'accept-charset' => 'UTF-8',
-                        'idContactForm'  
-                    ] )?>
+				    <?php
+        echo form_open ( 'email/contact', [ 
+                'role' => 'form',
+                'data-toggle' => 'validator',
+                'method' => 'post',
+                'accept-charset' => 'UTF-8',
+                'idContactForm' 
+        ] )?>
 					<div class="form-group">
-					   <label class="control-label" for="idName">Nombre:</label>
-					   <div class="controls">
-					       <input id="idName" name="name" class="form-control"
-							 type="text" placeholder="Nombre" class="input-large"
-							 required />
-						</div>
-						<div class="help-block with-errors"></div>
-					</div>
-					
-					<div class="form-group">
-                        <label class="control-label" for="idEmail">Introduce tu correo electrónico:</label>
+						<label class="control-label" for="idName">Nombre:</label>
 						<div class="controls">
-						  <input id="idEmail" name="email"
-							pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$"
-							class="input-large form-control" type="text"
-							placeholder="email"
-							data-error="Dirección de correo no válida" required />
+							<input id="idName" name="name" class="form-control" type="text"
+								placeholder="Nombre" class="input-large" required />
+						</div>
+						<div class="help-block with-errors"></div>
+					</div>
+
+					<div class="form-group">
+						<label class="control-label" for="idEmail">Introduce tu correo
+							electrónico:</label>
+						<div class="controls">
+							<input id="idEmail" name="email"
+								pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$"
+								class="input-large form-control" type="text" placeholder="email"
+								data-error="Dirección de correo no válida" required />
 						</div>
 						<div class="help-block with-errors"></div>
 					</div>
 					<div class="form-group">
-					   <label class="control-label" for="idName">Mensaje:</label>
-					   <div class="controls">
-					       <textarea rows="10" cols="100" class="form-control" id="idMessage"
-							name="message" placeholder="Mensaje" required></textarea>
+						<label class="control-label" for="idName">Mensaje:</label>
+						<div class="controls">
+							<textarea rows="10" cols="100" class="form-control"
+								id="idMessage" name="message" placeholder="Mensaje" required></textarea>
 						</div>
 						<div class="help-block with-errors"></div>
 					</div>
-					
+
 					<img id="captcha"
 						src="library/vender/securimage/securimage_show.php"
 						alt="CAPTCHA Image" /> <a href="#"
