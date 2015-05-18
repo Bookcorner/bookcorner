@@ -43,6 +43,14 @@ class UsersModelTest extends PHPUnit_Framework_TestCase {
 	    $this->assertEmpty($user);
 	}
 	
+	public function testWhenGetAllAdministratorsIsCalledThenAdministratorsShouldBeReturned() {
+	
+	    $this->CI->load->model('users_model');
+	    $user = $this->CI->users_model->getAllAdministrators();
+	
+	    $this->assertNotEmpty($user);
+	}
+	
 	public function testWhenGetAllModeratorsIsCalledThenModeratorsShouldBeReturned() {
 	
 	    $this->CI->load->model('users_model');

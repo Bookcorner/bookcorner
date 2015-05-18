@@ -47,4 +47,9 @@ class Users_model extends CI_Model {
         $mod_users = R::find('user', 'userrole_id = 2');
         return $mod_users;
     }
+    
+    public function getAllAdministrators(){
+        $admin_users = R::find('user', 'userrole_id = 3');
+        return $admin_users;
+    }
 }

@@ -11,6 +11,7 @@ class Home extends CI_Controller {
         $viewUri = 'static_pages/who_are_we';
         $this->load->model('users_model');
         $data['moderators'] = $this->users_model->getAllModerators();
+        $data['administrators'] = $this->users_model->getAllAdministrators();
         loadBasicViews ( $viewUri, $data );
     }
     public function goToWhatIs() {

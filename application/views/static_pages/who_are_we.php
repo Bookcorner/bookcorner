@@ -47,6 +47,24 @@
 	</div>
 	<div class="row">
 		<div class="col-xs-12">
+			<h2 align="center">Administradores</h2>
+		</div>
+	</div>
+	<div class="row">
+        <?php foreach ($administrators as $admin):?>	   
+    		<div class="col-xs-4 col-lg-4 placeholder">
+    		    <?php echo img(array(
+                        'src' => asset_url(). '/images/users/'. $admin->user_avatar,
+    			        'class' => 'img-responsive',
+    			        'alt' => $admin->user_nickname
+    		    ))?>
+    			<h4><?php echo $admin->user_nickname?></h4>
+    			<span class="text-muted">Administrador</span>
+    		</div>
+    	<?php endforeach;?>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
 			<h2 align="center">Colaboradores</h2>
 		</div>
 	</div>
