@@ -20,7 +20,10 @@
 						<p>Te damos la bienvenida a Bookcorner: Lugar de gestión de tus
 							libros y autores preferidos.</p>
 						<p>
-							<a class="btn btn-lg btn-primary" href="#" role="button">Ver más</a>
+						    <?php echo anchor(base_url('home'), 'Inicio', [
+								            'class' => 'btn btn-lg btn-primary',
+								            'role' => 'button'
+						    ])?>
 						</p>
 					</div>
 				</div>
@@ -35,8 +38,11 @@
 						<p>Gestiona en un lugar centralizado todos los libros que te has
 							leído, y compártelos con tus amigos de forma sencilla.</p>
 						<p>
-							<a class="btn btn-lg btn-primary" href="#" role="button">¡Quiero
-								Gestionar mis listas!</a>
+						    <?php echo anchor(base_url('listbook/showListBooks'), '¡Quiero
+								Gestionar mis listas!', [
+								            'class' => 'btn btn-lg btn-primary',
+								            'role' => 'button'
+						    ])?>
 						</p>
 					</div>
 				</div>
@@ -52,8 +58,10 @@
 							encuentres hoy, esté mañana disponible. Para que el sitio crezca,
 							es necesaria tu ayuda. ¿Nos echas un cable?</p>
 						<p>
-							<a class="btn btn-lg btn-primary" href="#" role="button">¡Quiero
-								ayudar!</a>
+						    <?php echo anchor(base_url('user/reportMissing'), '¡Quiero ayudar!', [
+								            'class' => 'btn btn-lg btn-primary',
+								            'role' => 'button'
+						    ])?>
 						</p>
 					</div>
 				</div>
@@ -68,8 +76,10 @@
 						<p>Comparte tus gustos y opiniones con el resto de la comunidad
 							por medio de los votos de libros y autores</p>
 						<p>
-							<a class="btn btn-lg btn-primary" href="#" role="button">¡Quiero
-								votar!</a>
+						    <?php echo anchor(base_url('user/vote'), '¡Quiero votar!', [
+								            'class' => 'btn btn-lg btn-primary',
+								            'role' => 'button'
+						    ])?>
 						</p>
 					</div>
 				</div>
@@ -101,8 +111,12 @@
 				</p>
 			</div>
 			<div class="col-md-5">
-				<img class="featurette-image img-responsive center-block"
-					data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+			    <?php echo img(array(
+                    'src' => asset_url(). '/images/general/libros.jpg',
+			        'class' => 'featurette-image img-responsive center-block',
+			        'alt' => 'Libros',
+			        'data-src' => 'holder.js/500x500/auto'
+				))?>
 			</div>
 		</div>
 
@@ -119,8 +133,12 @@
 					mismos y apuntes de cualquier índole.</p>
 			</div>
 			<div class="col-md-5 col-md-pull-7">
-				<img class="featurette-image img-responsive center-block"
-					data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+			     <?php echo img(array(
+                    'src' => asset_url(). '/images/general/listas.jpg',
+			        'class' => 'featurette-image img-responsive center-block',
+			        'alt' => 'Listas',
+			        'data-src' => 'holder.js/500x500/auto'
+				))?>
 			</div>
 		</div>
 
@@ -141,8 +159,12 @@
 					todavía.</p>
 			</div>
 			<div class="col-md-5">
-				<img class="featurette-image img-responsive center-block"
-					data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+				<?php echo img(array(
+                    'src' => asset_url(). '/images/general/crecimiento.jpg',
+			        'class' => 'featurette-image img-responsive center-block',
+			        'alt' => 'Crecimiento',
+			        'data-src' => 'holder.js/500x500/auto'
+				))?>
 			</div>
 		</div>
 
@@ -156,8 +178,12 @@
 					de cada uno e inevitablemente descubriendo nuevos libros y autores</p>
 			</div>
 			<div class="col-md-5 col-md-pull-7">
-				<img class="featurette-image img-responsive center-block"
-					data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+				<?php echo img(array(
+                    'src' => asset_url(). '/images/general/votacion.jpg',
+			        'class' => 'featurette-image img-responsive center-block',
+			        'alt' => 'Votación',
+			        'data-src' => 'holder.js/500x500/auto'
+				))?>
 			</div>
 		</div>
 	</div>

@@ -43,37 +43,37 @@
 						</thead>
 						<tbody>
 							<tr class="success">
-								<td>Monday</td>
+								<td>Lunes</td>
 								<td>9:00 to 18:00</td>
 							</tr>
 							<tr class="success">
-								<td>Tuesday</td>
-								<td>9:00 to 18:00</td>
-							</tr>
-							<tr class="success">
-
-								<td>Wednesday</td>
+								<td>Martes</td>
 								<td>9:00 to 18:00</td>
 							</tr>
 							<tr class="success">
 
-								<td>Thursday</td>
+								<td>Miércoles</td>
 								<td>9:00 to 18:00</td>
 							</tr>
 							<tr class="success">
 
-								<td>Friday</td>
+								<td>Jueves</td>
+								<td>9:00 to 18:00</td>
+							</tr>
+							<tr class="success">
+
+								<td>Viernes</td>
 								<td>9:00 to 18:00</td>
 							</tr>
 							<tr class="warning">
 
-								<td>Saturday</td>
+								<td>Sábado</td>
 								<td>9:00 to 14:00</td>
 							</tr>
 							<tr class="danger">
 
-								<td>Sunday</td>
-								<td>day off</td>
+								<td>Domingo</td>
+								<td>Descanso</td>
 							</tr>
 						</tbody>
 					</table>
