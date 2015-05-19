@@ -68,3 +68,6 @@
 		<!-- FIN DE MENU-->
 	</div>
 </div>
+
+<?php if($this->session->flashdata('signUpError')) { ?> <div class="alert alert-danger text-center" role="alert"> <?= $this->session->flashdata('signUpError') ?> </div> <?php } ?>
+<?php if($this->session->flashdata('ok')) { ?> <div class="alert alert-info text-center" role="alert"> <?= $this->session->flashdata('ok') ?> </div> <?php } ?>
