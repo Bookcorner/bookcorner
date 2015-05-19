@@ -1,8 +1,14 @@
 @CHARSET "UTF-8";
 
 .avatar {
-	width: 35px !important;
-	height: 35px !important;
+	width: 40px !important;
+	height: 40px !important;
+}
+
+.contenedor-avatar{
+    padding-bottom: 10px !important;
+    padding-top: 0px !important;
+	
 }
 
 .circle {
