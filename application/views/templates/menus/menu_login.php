@@ -84,6 +84,14 @@
 													</div>
 													<div class="help-block with-errors"></div>
 												</div>
+												
+												<div class="form-group">
+												    <label class="control-label" for="idGenre">Género:</label>
+												    <div class="controls">
+												        <label class="radio-inline"><input type="radio" value="M" name="genre" checked>Hombre</label>
+                                                        <label class="radio-inline"><input type="radio" value="F" name="genre">Mujer</label>
+												    </div>
+												</div>
 
 												<!-- Username input-->
 												<div class="form-group">
@@ -168,7 +176,7 @@
 							</div>
 						</div>
 						<li class="dropdown <?php
-							if (validation_errors () || $this->session->flashdata ( 'error' )) {
+                            if (validation_errors () || $this->session->flashdata ( 'loginError' )) {
 								echo "open";
 							}
 							?>">
@@ -180,7 +188,7 @@
 									<div class="row">
 										<div class="col-md-12">
 											<p class="bg-danger text-danger"><?php echo validation_errors()?></p>
-											<p class="bg-danger text-danger"><?php echo $this->session->flashdata('error')?></p>
+											<p class="bg-danger text-danger"><?php echo $this->session->flashdata('loginError')?></p>
 											<?php echo form_open ( 'login/signin', [ 
 												'class' => 'form',
 												'role' => 'form',
@@ -219,3 +227,7 @@
 		</div>
 	</div>	
 </div>
+
+<?php if($this->session->flashdata('signUpError')) { ?> <div class="alert alert-danger text-center" role="alert"> <?= $this->session->flashdata('signUpError') ?> </div> <?php } ?>
+<?php if($this->session->flashdata('ok')) { ?> <div class="alert alert-info text-center" role="alert"> <?= $this->session->flashdata('ok') ?> </div> <?php } ?>
+	        

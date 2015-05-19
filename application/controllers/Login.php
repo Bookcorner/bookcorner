@@ -5,46 +5,53 @@ class Login extends CI_Controller {
         parent::__construct ();
         $this->load->helper('users');
     }
+    
     public function signin() {
         $this->setSigninFormRules ();
-        
+    
         $isFormValidationOk = $this->form_validation->run () == TRUE;
-        
+    
         if ($isFormValidationOk) {
             $this->load->model ( 'users_model' );
             $validUser = $this->getCheckedUser ();
-            
-            if (empty ( $validUser )) {
-                $this->session->set_flashdata ( 'error', 'Usuario erróneo, Por favor inténtelo otra vez' );
+    
+            if ($validUser == 'inactive') {
+                $this->session->set_flashdata ( 'loginError', 'Usuario inactivo' );
+            } else if ($validUser == 'banned') {
+                $this->session->set_flashdata ( 'loginError', 'Usuario baneado' );
+            } else if (empty ( $validUser )) {
+                $this->session->set_flashdata ( 'loginError', 'Usuario erróneo, Por favor inténtelo otra vez' );
             } else {
                 $encriptedPwd = $this->getEncriptedPwd ();
-                
+    
                 $areDifferentPwd = $validUser->user_pwd != $encriptedPwd;
-                
+    
                 if ($areDifferentPwd) {
-                    $this->session->set_flashdata ( 'error', 'Contraseña errónea, Por favor inténtelo otra vez' );
+                    $this->session->set_flashdata ( 'loginError', 'Contraseña errónea, Por favor inténtelo otra vez' );
                 } else {
                     $remember = set_value ( 'remember' );
                     $isRememberChecked = $remember == 'on';
-                    
+    
                     if ($isRememberChecked) {
                         $userCookie = $this->createUserCookieData ( $validUser );
                         $this->input->set_cookie ( $userCookie );
                     } else {
-                        $this->config->set_item ( 'sess_expire_on_close', TRUE );
+                        $this->config->set_item('sess_expire_on_close', TRUE);
                         $userSession = $this->createUserSession ( $validUser );
                         $this->session->set_userdata ( $userSession );
                     }
                 }
+                
+                if (isAdministrator($validUser)) {
+                    redirect ( 'admin', 'refresh' );
+                }
             }
         }
         
-        if (isAdministrator ( $validUser )) {
-            redirect ( 'admin', 'refresh' );
-        } else {
-            redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
-        }
+        redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+        
     }
+    
     public function logout() {
         delete_cookie ( 'bookcorner' );
         $this->session->sess_destroy ();
