@@ -161,7 +161,7 @@ class User extends CI_Controller {
         <br/> <br/>
         Atentamente, El equipo de BookCorner";
     
-        $this->email->message("Email de .$bookcornerEmail. <br /><br />$message");
+        $this->email->message("Email de $bookcornerEmail <br /><br />$message");
     
         if ($this->email->send()) {
              
