@@ -59,11 +59,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | the query builder class.
 */
 
-$hostname = "127.0.0.1";
-$username = "root";
-$password = "";
-$database = "bookcorner";
+$hostname = '';
+$username = '';
+$password = '';
+$database = '';
 
+if ($_SERVER ['SERVER_NAME'] == 'localhost' || $_SERVER ['SERVER_NAME'] == '127.0.0.1') {
+
+    $hostname = "127.0.0.1";
+    $username = "root";
+    $password = "";
+    $database = "bookcorner";
+
+} else {
+    
+    $hostname = "mysql.hostinger.es";
+    $username = "u223979541_admin";
+    $password = "alumnoadmin93";
+    $database = "u223979541_book";
+    
+}
 
 $active_group = 'default';
 $query_builder = TRUE;
@@ -92,4 +107,4 @@ $db['default'] = array(
 
 // configuration RedBeanPHP
 R::setup("mysql:host=$hostname;
-        dbname=$database", $username,$password);
+        dbname=$database",$username,$password);

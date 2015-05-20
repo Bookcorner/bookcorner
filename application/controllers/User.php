@@ -102,17 +102,39 @@ class User extends CI_Controller {
         $bookcornerPass = 'alumnoadmin';
     
         $this->load->library('email');
+        
+        $configGmail = null;
+        
+        if ($_SERVER ['SERVER_NAME'] == 'localhost' || $_SERVER ['SERVER_NAME'] == '127.0.0.1') {
     
-        $configGmail = array(
-                'protocol' => 'smtp',
-                'smtp_host' => 'ssl://smtp.gmail.com',
-                'smtp_port' => 465,
-                'smtp_user' => $bookcornerEmail, // correo desde el cual se envia
-                'smtp_pass' => $bookcornerPass, // contraseña del correo
-                'mailtype' => 'html',
-                'charset' => 'utf-8',
-                'newline' => "\r\n"
-        );
+            $configGmail = array(
+                    'protocol' => 'smtp',
+                    'smtp_host' => 'ssl://smtp.gmail.com',
+                    'smtp_port' => 465,
+                    'smtp_user' => $bookcornerEmail, // correo desde el cual se envia
+                    'smtp_pass' => $bookcornerPass, // contraseña del correo
+                    'mailtype' => 'html',
+                    'charset' => 'utf-8',
+                    'newline' => "\r\n"
+            );
+            
+        } else {
+        
+            $configGmail = array(
+                    //'protocol' => 'smtp',
+                    'smtp_host' => 'ssl://smtp.gmail.com',//'ssl://smtp.googlemail.com'//ssl://smtp.gmail.com
+                    'smtp_port' => 587,//465//25
+                    'smtp_user' => $bookcornerEmail, // change it to yours
+                    'smtp_pass' => $bookcornerPass, // change it to yours
+                    'mailtype' => 'html',
+                    'charset' => 'utf-8',
+                    'newline' => "\r\n",
+                    'validation' => TRUE,
+                    'smtp_crypto' => 'tls', // tls or ssl
+                    'wordwrap' => TRUE
+            );
+        
+        }
     
         $this->email->initialize($configGmail);
     
@@ -120,12 +142,22 @@ class User extends CI_Controller {
         $this->email->to($emailReceiver);
     
         $this->email->subject('Activación de cuenta');
+        
+        $url = $_SERVER ['REQUEST_SCHEME'] . '://' . $_SERVER ['SERVER_NAME'] ;
+        
+        if ($_SERVER ['SERVER_NAME'] == 'localhost' || $_SERVER ['SERVER_NAME'] == '127.0.0.1') {
+            $url .= '/bookcorner';
+        }
     
         $message = "Hola, $nameReceiver:<br/>
         Se ha registrado en BookCorner, este es un mensaje de activación. <br/><br/>
-        Si no ha realizado este registro puede cancelar la operación mediante este link: http://localhost/bookcorner/cancelar/$validation
-        <br/> <br/>
-        Si ha realizado este registro puede confirmar la operación mediante este link: http://localhost/bookcorner/activar/$validation
+        
+        <h2> Si ha realizado este registro puede confirmar la operación mediante este link: $url/activar/$validation </h2>
+        
+        <br/> <br/><br/> <br/><br/> <br/>
+        
+        <h3> Si no ha realizado este registro puede cancelar la operación mediante este link: $url/cancelar/$validation </h3>
+                
         <br/> <br/>
         Atentamente, El equipo de BookCorner";
     
