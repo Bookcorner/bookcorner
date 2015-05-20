@@ -1,5 +1,7 @@
 @CHARSET "UTF-8";
 
+
+/*CSS Avatar*/
 .avatar {
 	width: 40px !important;
 	height: 40px !important;
@@ -11,6 +13,17 @@
 	
 }
 
+/*CSS Logo*/
+.logo{
+	width: 100px;
+	height: 70px;
+}
+.contenedor-logo{
+    padding-top: 0px !important;
+    padding-left: 0px !important;
+}
+
+/*CSS Imágenes redondeadas*/
 .circle {
 	line-height: 0; /* remove line-height */
 	display: inline-block; /* circle wraps image */
@@ -30,3 +43,10 @@
 a.circle {
 	color: transparent;
 } 
+
+/*CSS Background*/
+body{
+	
+	background-image:url("../images/background/background.png");
+	background-repeat: repeat-x;
+}
