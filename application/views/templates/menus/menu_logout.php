@@ -12,7 +12,7 @@
 					</button>
 					<?php echo anchor(base_url('que-es-bookcorner'), 
 					        img(array(
-					                'src' => asset_url(). '/images/logo/logo.jpg',
+					                'src' => asset_url(). '/images/logo/logo2.png',
 					                'class' => 'logo')),
 					        ['class' => 'navbar-brand contenedor-logo'])?>
 				</div>

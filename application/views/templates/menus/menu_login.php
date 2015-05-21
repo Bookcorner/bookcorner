@@ -10,7 +10,11 @@
 							class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
-					<?php echo anchor(base_url('que-es-bookcorner'), 'Book Corner', ['class' => 'navbar-brand'])?>
+					<?php echo anchor(base_url('que-es-bookcorner'), 
+					        img(array(
+					                'src' => asset_url(). '/images/logo/logo2.png',
+					                'class' => 'logo')),
+					        ['class' => 'navbar-brand contenedor-logo'])?>
 				</div>
 				<div class="collapse navbar-collapse" id="idHeader">
 					<ul class="nav navbar-nav">

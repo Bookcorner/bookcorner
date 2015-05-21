@@ -16,15 +16,44 @@
             ] )?>
             </div>
 		</div>
-		<div id="page-1" class="book-page">
+
+		<div id="page-2" class="book-page">
 			<nav class="book-menu" role="">
 				<ul class="nav navbar-nav navbar-right">
-					<li class="book-menu-element open-page-1"><a href="#">Datos de usuario</a></li>
+					<li class="book-menu-element open-page-1"><a href="#">Datos de
+							usuario</a></li>
 					<li class="book-menu-element open-page-2"><a href="#">Editar datos</a></li>
 				</ul>
 			</nav>
-			<div id="page-1" class="page">
-				<p>Información de usuario</p>
+			<div class="page">
+
+				<div class="col-xs-12">
+					<div class="col-xs-10 col-xs-offset-2">
+						<h2>CONFIGURACIÓN DEL USUARIO</h2>
+						<p>Opciones:</p>
+						<ul>
+							<li>Cambiar tu contraseña</li>
+							<li>Cambiar tu información de usuario:(nickname, nombre,
+								apellido, género)</li>
+							<li>Cambiar el correo electrónico asociado</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="page-number">- 2 -</div>
+		</div>
+		
+		<div id="page-1" class="book-page">
+			<nav class="book-menu" role="">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="book-menu-element open-page-1"><a href="#">Datos de
+							usuario</a></li>
+					<li class="book-menu-element open-page-2"><a href="#">Editar datos</a></li>
+				</ul>
+			</nav>
+			<div class="page">
+				<h2>Información de usuario</h2>
+				<hr/>
 				<p>Nombre: <?php echo $userInfo->user_name?></p>
 				<p>Apellidos: <?php echo $userInfo->user_surname?></p>
 				<p>Alias: <?php echo $userInfo->user_nickname?></p>
@@ -43,31 +72,5 @@
 			</div>
 			<div class="page-number">- 1 -</div>
 		</div>
-
-		<div id="page-2" class="book-page">
-			<nav class="book-menu" role="">
-				<ul class="nav navbar-nav navbar-right">
-					<li class="book-menu-element open-page-1"><a href="#">Datos de usuario</a></li>
-					<li class="book-menu-element open-page-2"><a href="#">Editar datos</a></li>
-				</ul>
-			</nav>
-			<div id="page-2" class="page">
-
-				<div class="col-xs-12">
-					<div class="col-xs-10 col-xs-offset-2">
-						<h2>CONFIGURACIÓN DEL USUARIO</h2>
-						<p>Opciones:</p>
-						<ul>
-							<li>Cambiar tu contraseña</li>
-							<li>Cambiar tu información de usuario:(nickname, nombre,
-								apellido, género)</li>
-							<li>Cambiar el correo electrónico asociado</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="page-number">- 2 -</div>
-		</div>
-
 	</div>
 </div>

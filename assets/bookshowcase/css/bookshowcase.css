@@ -96,6 +96,7 @@
 	-ms-transform: translate3d(0, 0, 25px);
 	-o-transform: translate3d(0, 0, 25px);
 	transform: translate3d(0, 0, 25px);
+	
 }
 
 .book-cover {
@@ -187,6 +188,7 @@
 	-ms-transform: translate3d(0, 0, 24px);
 	-o-transform: translate3d(0, 0, 24px);
 	transform: translate3d(0, 0, 24px);
+	
 }
 
 .page {
@@ -466,4 +468,11 @@
 	border: 1px solid #EEEFE9;
 	border-top-left-radius: 50%;
 	border-top-right-radius: 50%;
+}
+
+/*CUSTOM*/
+
+div.page > p{
+	font-family: "Times New Roman", Times, serif;
+	font-size:18px;
 }
