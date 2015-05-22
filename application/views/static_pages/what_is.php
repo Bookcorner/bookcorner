@@ -104,10 +104,10 @@
 	</div>
 	<!-- FIN CAROUSEL -->
 	<div class="row">
-		<hr class="featurette-divider">
-		<div class="row featurette">
+		<hr>
+		<div class="row">
 			<div class="col-md-7">
-				<h2 class="featurette-heading">
+				<h2>
 					Bookcorner <span class="text-muted"> dedicado única y
 						exclusivamente a los libros. </span>
 				</h2>
@@ -128,11 +128,11 @@
 			</div>
 		</div>
 
-		<hr class="featurette-divider">
+		<hr>
 
-		<div class="row featurette">
+		<div class="row">
 			<div class="col-md-7 col-md-push-5">
-				<h2 class="featurette-heading">Actualiza tus listas.</h2>
+				<h2>Actualiza tus listas.</h2>
 				<p class="lead">Bookcorner pretende ser un sitio en el que puedas
 					organizar y compartir tus libros preferidos con la comunidad.</p>
 				<p class="lead">Para ello, te proveemos de la gestión total de los
@@ -150,11 +150,11 @@
 			</div>
 		</div>
 
-		<hr class="featurette-divider">
+		<hr>
 
-		<div class="row featurette">
+		<div class="row">
 			<div class="col-md-7">
-				<h2 class="featurette-heading">
+				<h2>
 					Crecimiento Constante y Colectivo. <span class="text-muted">Ayuda a
 						la página a crecer.</span>
 				</h2>
@@ -176,11 +176,11 @@
 			</div>
 		</div>
 
-		<hr class="featurette-divider">
+		<hr>
 
-		<div class="row featurette">
+		<div class="row">
 			<div class="col-md-7 col-md-push-5">
-				<h2 class="featurette-heading">Vota tus preferidos.</h2>
+				<h2>Vota tus preferidos.</h2>
 				<p class="lead">Bookcorner te la posibilidad de votar sobre los
 					autores y libros de la página, pudiendo así conocer la popularidad
 					de cada uno e inevitablemente descubriendo nuevos libros y autores</p>

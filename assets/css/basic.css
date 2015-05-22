@@ -1,3 +1,9 @@
+/*CSS Background*/
+body{
+	background-image:url("../images/background/background.png");
+	background-repeat: repeat-x;
+}
+
 /* Carousel base class */
 .carousel {
   height: 250px;
@@ -60,4 +66,21 @@ footer {
 
 footer p {
 	margin-top: 23px;
+}
+
+a.nolink{
+	color: #333;
+	text-decoration:none;
+}
+
+.alignleft{
+	float:left;
+}
+
+.alignright{
+	float: right;
+}
+
+.overflow{
+	overflow: auto;
 }

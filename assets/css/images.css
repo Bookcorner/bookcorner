@@ -44,8 +44,12 @@ a.circle {
 	color: transparent;
 } 
 
-/*CSS Background*/
-body{
-	background-image:url("../images/background/background.png");
-	background-repeat: repeat-x;
+.smallbook{
+	width: 150px;
+	height: 220px;
+}
+
+.smallauthor{
+	width: 150px;
+	height: 150px;
 }

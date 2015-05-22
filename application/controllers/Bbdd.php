@@ -90,7 +90,7 @@ class Bbdd extends CI_Controller {
         $book1->book_isbn = '8401337208';
         $book1->book_name = 'El Nombre del Viento';
         $book1->book_desc = 'Viajé, amé, perdí, confié y me traicionaron. En una posada en tierra de nadie, un hombre se dispone a relatar, por primera vez, la auténtica historia de su vida. Una historia que únicamente él conoce y que ha quedado diluida tras los rumores, las conjeturas y los cuentos de taberna que le han convertido en un personaje legendario a quien todos daban ya por muerto: Kvothe... músico, mendigo, ladrón, estudiante, mago, héroe y asesino. Ahora va a revelar la verdad sobre sí mismo. Y para ello debe empezar por el principio: su infancia en una troupe de artistas itinerantes, los años malviviendo como un ladronzuelo en las calles de una gran ciudad y su llegada a una universidad donde esperaba encontrar todas las respuestas que había estado buscando.';
-        $book1->book_img = 'endv.png';
+        $book1->book_img = 'endv.jpg';
         
         $book2 = R::Dispense ( 'book' );
         $book2->book_id = 2;
@@ -104,7 +104,7 @@ class Bbdd extends CI_Controller {
         $book3->book_isbn = '9788401339639';
         $book3->book_name = 'El Temor de un Hombre Sabio';
         $book3->book_desc = "El temor de un hombre sabio. Crónica del asesino de reyes: segundo día (título original: The Wise Man's Fear. The Kingkiller Chronicle: Day Two) es la continuación de El nombre del viento y pertenece a la serie Crónica del asesino de reyes. Es la segunda novela del escritor estadounidense y profesor adjunto de lengua y literatura inglesa en la universidad de Wisconsin1 Patrick Rothfuss. El libro, cuya primera edición data de 2011, ya cuenta con la vista buena de críticos de todo el mundo y su libro precedente ganó el Premio Pluma al mejor libro de literatura fantástica permitiendo a su autor a dedicarse exclusivamente a la escritura.";
-        $book3->book_img = 'etdus.png';
+        $book3->book_img = 'etdus.jpg';
         
         // Create genrebook
         $genrebook1 = R::Dispense ( 'genrebook' );
@@ -145,13 +145,13 @@ class Bbdd extends CI_Controller {
         $author1->author_id = 1;
         $author1->author_fullname = 'Patrick Rothfuss';
         $author1->author_desc = 'Patrick James Rothfuss (nacido  el 6 de junio de 1973) es un escritor estadounidense de fantasía y profesor adjunto de literatura y filología inglesa en la Universidad de Wisconsin. Es el autor de la serie Crónica del asesino de reyes, que fue rechazada por varias editoriales antes de que el primer libro de la serie E nombre del viento fuese publicado en el año 2007. Obtuvo muy buenas críticas y se convirtió en un éxito de ventas. En españa fue publicado en el año 2009.';
-        $author1->author_img = 'patrickrothfuss.png';
+        $author1->author_img = 'patrickrothfuss.jpeg';
         
         $author2 = R::Dispense ( 'author' );
         $author2->author_id = 2;
         $author2->author_fullname = 'Isabel Allende';
         $author2->author_desc = 'Isabel Allende Llona (Lima, Perú, 2 de agosto de 1942) es una escritora chilena, miembro de la Academia Estadounidense de las Artes y las Letras desde 2004. Obtuvo el Premio Nacional de Literatura de su país en 2010. Autora de superventas, la tirada total de sus libros alcanza 57 millones de ejemplares y sus obras han sido traducidas a 35 idiomas. Es considerada la escritora viva de lengua española más leída del mundo';
-        $author2->author_img = 'isabelallende.png';
+        $author2->author_img = 'isabelallende.jpeg';
         
         // Create authorstate
         $authorstate1 = R::Dispense ( 'authorstate' );
