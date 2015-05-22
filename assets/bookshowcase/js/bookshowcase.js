@@ -20,4 +20,13 @@ $(function() {
 		$('#page-1').hide();
 		$('#page-2').show();
 	});
+	
+	$('.goto-page-3').click(function() {
+		$('#page-2').hide();
+		$('#page-3').show();
+	});
+	$('.goto-page-2').click(function() {
+		$('#page-3').hide();
+		$('#page-2').show();
+	});
 });
