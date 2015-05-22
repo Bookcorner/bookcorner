@@ -55,7 +55,7 @@ class Login extends CI_Controller {
     public function logout() {
         delete_cookie ( 'bookcorner' );
         $this->session->sess_destroy ();
-        redirect ( 'home', 'refresh' );
+        redirect ( base_url(), 'refresh' );
     }
     private function setSigninFormRules() {
         $this->form_validation->set_rules ( 'username', 'Usuario', 'required|alpha_numeric' );
