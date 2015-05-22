@@ -33,8 +33,11 @@ class Login extends CI_Controller {
                     $isRememberChecked = $remember == 'on';
     
                     if ($isRememberChecked) {
-                        $userCookie = $this->createUserCookieData ( $validUser );
-                        $this->input->set_cookie ( $userCookie );
+                        //$userCookie = $this->createUserCookieData ( $validUser );
+                        //$this->input->set_cookie ( $userCookie );
+                        $this->config->set_item('sess_expire_on_close', FALSE);
+                        $userSession = $this->createUserSession ( $validUser );
+                        $this->session->set_userdata ( $userSession );
                     } else {
                         $this->config->set_item('sess_expire_on_close', TRUE);
                         $userSession = $this->createUserSession ( $validUser );
@@ -70,7 +73,7 @@ class Login extends CI_Controller {
      *            User object returned by model
      * @return multitype:string number data for the cookie
      */
-    private function createUserCookieData($user) {
+    /*private function createUserCookieData($user) {
         $cookieData = array (
                 'name' => 'bookcorner',
                 'value' => $user->user_id . '#' . $user->user_nickname . '#' . $user->user_name . '#' . $user->user_surname . '#' . $user->user_avatar,
@@ -79,7 +82,7 @@ class Login extends CI_Controller {
         );
         
         return $cookieData;
-    }
+    }*/
     
     /**
      * Create a CodeIgniter special session browser is open.

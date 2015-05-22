@@ -365,6 +365,10 @@ $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;
 
+// para usar sesiones seguras con la bbdd
+$config['sess_use_database'] = TRUE;
+$config['sess_table_name'] = 'ci_sessions';
+
 /*
 |--------------------------------------------------------------------------
 | Cookie Related Variables
@@ -385,9 +389,6 @@ $config['cookie_domain']	= '';
 $config['cookie_path']		= '/';
 $config['cookie_secure']	= FALSE;
 $config['cookie_httponly'] 	= FALSE;
-
-$config['sess_use_database'] = TRUE;
-$config['sess_table_name'] = 'ci_sessions';
 /*
 |--------------------------------------------------------------------------
 | Standardize newlines
