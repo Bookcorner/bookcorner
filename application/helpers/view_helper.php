@@ -19,15 +19,15 @@ function loadCustomViews($views, $data = null) {
     $CI = & get_instance ();
     $CI->load->view ( 'templates/cabeceras/inicio_cabecera', $data );
     foreach ( $views ['cabeceras'] as $cabecera ) {
-        $CI->load->view ( $cabecera, $data );
+        $CI->load->view ( $cabecera );
     }
-    $CI->load->view ( 'templates/cabeceras/fin_cabecera', $data );
+    $CI->load->view ( 'templates/cabeceras/fin_cabecera' );
     loadMenu();
     foreach ( $views ['contenidos'] as $contenido ) {
-        $CI->load->view ( $contenido, $data );
+        $CI->load->view ( $contenido );
     }
-    $CI->load->view ( $views['footer'], $data );
-    $CI->load->view ( 'templates/end', $data );
+    $CI->load->view ( $views['footer'] );
+    $CI->load->view ( 'templates/end' );
 }
 
 /**
@@ -35,15 +35,8 @@ function loadCustomViews($views, $data = null) {
  */
 function loadMenu(){
     $CI = & get_instance ();
-    if (check_cookie_exist ('bookcorner')) {
-        $cookieData = explode ( '#', $CI->input->cookie ( 'bookcorner' ) );
-        $data ['id'] = $cookieData [0];
-        $data ['nickname'] = $cookieData [1];
-        $data ['username'] = $cookieData [2];
-        $data ['surname'] = $cookieData [3];
-        $data ['avatar'] = $cookieData [4];
-        $CI->load->view ( 'templates/menus/menu_logout', $data );
-    } else if (check_session_exist ('title')) {
+    
+    if (check_session_exist ('title')) {
         $data ['id'] = $CI->session->userdata ( 'id' );
         $data ['nickname'] = $CI->session->userdata ( 'username' );
         $data ['username'] = $CI->session->userdata ( 'name' );
@@ -66,17 +59,11 @@ function loadMenu(){
  */
 function loadBasicViews($contentURI, $data = array()) {
     $CI = & get_instance ();
+    $CI->load->view ( 'templates/cabeceras/inicio_cabecera', $data );
     $CI->load->view ( 'templates/cabeceras/cabecera_base', $data );
+    $CI->load->view ( 'templates/cabeceras/fin_cabecera' );
     
-    if (check_cookie_exist ('bookcorner')) {
-        $cookieData = explode ( '#', $CI->input->cookie ( 'bookcorner' ) );
-        $data ['id'] = $cookieData [0];
-        $data ['nickname'] = $cookieData [1];
-        $data ['username'] = $cookieData [2];
-        $data ['surname'] = $cookieData [3];
-        $data ['avatar'] = $cookieData [4];
-        $CI->load->view ( 'templates/menus/menu_logout', $data );
-    } else if (check_session_exist ('title')) {
+    if (check_session_exist ('title')) {
         $data ['id'] = $CI->session->userdata ( 'id' );
         $data ['nickname'] = $CI->session->userdata ( 'username' );
         $data ['username'] = $CI->session->userdata ( 'name' );
