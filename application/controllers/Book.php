@@ -6,7 +6,7 @@ class Book extends CI_Controller {
         $viewUri = 'books/main_book_content';
         
         $this->load->model ( 'books_model' );
-        $data['books'] = $this->books_model->searchAllBooks();
+        $data['books'] = $this->books_model->searchAllBooksOrderedByName();
         
         loadBasicViews ( $viewUri, $data );
     }

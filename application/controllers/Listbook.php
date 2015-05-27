@@ -19,8 +19,18 @@ class Listbook extends CI_Controller {
         $this->load->model ( 'listbooks_model' );
         $data ['title'] = 'Lista de libros';
         $data ['books'] = $this->listbooks_model->getAllBooklistFromUser ( $userId );
-        $contentURI = 'lists/all_listbook';
-        loadBasicViews ( $contentURI, $data );
+        
+        $views = [
+                'cabeceras' => [
+                        'templates/cabeceras/cabecera_base', 
+                        'templates/cabeceras/cabecera_usuario', 
+                        'templates/cabeceras/cabecera_xeditable'
+                    ],
+                'contenidos' => ['lists/all_listbook'],
+                'footer' => 'templates/footers/base_footer'
+        ];
+        
+        loadCustomViews($views, $data);
     }
 }
 

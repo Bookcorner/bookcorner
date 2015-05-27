@@ -6,13 +6,13 @@ class Authors_model extends CI_Model {
     }
     function searchAuthors($authorname) {
         $authorNameFormatted = prepareForSearchableWord ( $authorname );
-        $authorsBean = R::find ( 'author', ' author_fullname LIKE :authorname ', [ 
+        $authorsBean = R::find ( 'author', ' author_fullname LIKE :authorname ORDER BY author_fullname', [ 
                 'authorname' => $authorNameFormatted 
         ] );
         return $authorsBean;
     }
-    function searchAllAuthors() {
-        $authorsBeans = R::find ( 'author' );
+    function searchAllAuthorsOrderedByName() {
+        $authorsBeans = R::find ( 'author', 'ORDER BY author_fullname' );
         return $authorsBeans;
     }
 }

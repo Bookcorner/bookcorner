@@ -106,6 +106,21 @@ class Bbdd extends CI_Controller {
         $book3->book_desc = "El temor de un hombre sabio. Crónica del asesino de reyes: segundo día (título original: The Wise Man's Fear. The Kingkiller Chronicle: Day Two) es la continuación de El nombre del viento y pertenece a la serie Crónica del asesino de reyes. Es la segunda novela del escritor estadounidense y profesor adjunto de lengua y literatura inglesa en la universidad de Wisconsin1 Patrick Rothfuss. El libro, cuya primera edición data de 2011, ya cuenta con la vista buena de críticos de todo el mundo y su libro precedente ganó el Premio Pluma al mejor libro de literatura fantástica permitiendo a su autor a dedicarse exclusivamente a la escritura.";
         $book3->book_img = 'etdus.jpg';
         
+        $book4 = R::Dispense ( 'book' );
+        $book4->book_id = 4;
+        $book4->book_isbn = '978-0-671-47748-6';
+        $book4->book_name = 'El médico';
+        $book4->book_desc = "La novela trata sobre la vida Rob J. Cole, que en sus inicios fue un niño hijo de una familia del gremio de carpinteros de Londres. A los nueve años se queda huérfano. La muerte de sus padres le descubre «su don», ya que es capaz de percibir si alguien está próximo a la muerte sólo con tocarlo. Durante unos días se encarga del cuidado de sus cuatro hermanos, a quienes el jefe del gremio va encontrando nuevos hogares poco a poco. Cuando se queda solo, bajo el peligro de ser vendido como esclavo, fortuitamente pasará a ser el ayudante-aprendiz de Henry Croft (Barber), un hombre campechano que recorre Inglaterra montando espectáculos de malabarismo para atraer al público a su negocio de cirujano-barbero, donde realiza pequeñas curas y vende un brebaje curalotodo: la «Panacea Universal».";
+        $book4->book_img = 'elmedico.jpeg';
+        
+        $book5 = R::Dispense ( 'book' );
+        $book5->book_id = 5;
+        $book5->book_isbn = '85-7665-185-8';
+        $book5->book_name = 'El Alquimista';
+        $book5->book_desc = "En Andalucía, un joven pastor pasea por las llanuras contemplando la naturaleza. El joven Santiago tiene un sueño repetido mientras descansa con sus ovejas en un pasto andaluz, por lo que decide acudir a una gitana para que le interprete el sueño. Después de quedar descontento con la respuesta que recibe, se sienta en un banco de la plaza a leer un libro y conoce a un anciano que dice ser el rey de Salem. Tras tener una conversación con él, en la que le deja claro que es alguien muy especial, Santiago decide emprender un viaje por el norte de África en busca de un tesoro. En su camino conocerá a un sinfín de personas que, cómo él, buscan su propia Leyenda Personal.";
+        $book5->book_img = 'elalquimista.jpeg';
+        
+        
         // Create genrebook
         $genrebook1 = R::Dispense ( 'genrebook' );
         $genrebook1->genrebook_id = 1;
@@ -153,6 +168,19 @@ class Bbdd extends CI_Controller {
         $author2->author_desc = 'Isabel Allende Llona (Lima, Perú, 2 de agosto de 1942) es una escritora chilena, miembro de la Academia Estadounidense de las Artes y las Letras desde 2004. Obtuvo el Premio Nacional de Literatura de su país en 2010. Autora de superventas, la tirada total de sus libros alcanza 57 millones de ejemplares y sus obras han sido traducidas a 35 idiomas. Es considerada la escritora viva de lengua española más leída del mundo';
         $author2->author_img = 'isabelallende.jpeg';
         
+        $author3 = R::Dispense ( 'author' );
+        $author3->author_id = 3;
+        $author3->author_fullname = 'Noah Gordon';
+        $author3->author_desc = 'En un piso en Providence Street en Worcester, Massachusetts, en el Día del Armisticio, la esposa de Robert Gordon, Rose, dio a luz en el hogar a su segundo hijo. Fui llamado Noah en la memoria del padre de mi madre, Noah Melnikoff, que había muerto sólo unos meses antes. Él había sido un encuadernador y, a decir de todos, un hombre maravilloso. Su viuda, mi abuela, Sarah Melnikoff, vivió con mi familia durante los próximos 35 años, y era como una segunda madre para mí.';
+        $author3->author_img = 'noahgordon.jpg';
+        
+        $author4 = R::Dispense ( 'author' );
+        $author4->author_id = 4;
+        $author4->author_fullname = 'Paulo Coelho';
+        $author4->author_desc = 'Es uno de los escritores y novelista más leídos del mundo con más de 150 millones de libros vendidos en más de 150 países (224 territorios), traducidos a 80 lenguas. Desde octubre de 2002 es miembro de la Academia Brasileña de las Letras. Ha recibido destacados premios y reconocimientos internacionales, como la prestigiosa distinción Chevalier de L\'Ordre National de La Legion d\'Honneur del gobierno francés, la Medalla de Oro de Galicia y el premio Crystal Award que concede el Foro Económico Mundial, entre muchos otros premios que ha obtenido gracias a su gran éxito. Además de recibir destacados premios y menciones internacionales, en la actualidad es consejero especial de la Unesco para el programa de convergencia espiritual y diálogos interculturales así como Mensajero de la Paz de Naciones Unidas.';
+        $author4->author_img = 'paulocoelho.jpeg';
+        
+        
         // Create authorstate
         $authorstate1 = R::Dispense ( 'authorstate' );
         $authorstate1->authorstate_id = 1;
@@ -187,10 +215,16 @@ class Bbdd extends CI_Controller {
         $bookstate1->ownBookList [] = $book1;
         $bookstate1->ownBookList [] = $book2;
         $bookstate1->ownBookList [] = $book3;
+        $bookstate1->ownBookList [] = $book4;
+        $bookstate1->ownBookList [] = $book5;
+        
         
         // Introducir Estados de los autores
         $authorstate1->ownAuthorList [] = $author1;
         $authorstate1->ownAuthorList [] = $author2;
+        $authorstate1->ownAuthorList [] = $author3;
+        $authorstate1->ownAuthorList [] = $author4;
+        
         
         // MANY-TO-MANY RELATIONSHIP
         
@@ -204,17 +238,28 @@ class Bbdd extends CI_Controller {
         $genrebook3->sharedBookList [] = $book3;
         $genrebook4->sharedBookList [] = $book3;
         $genrebook5->sharedBookList [] = $book3;
+        $genrebook1->sharedBookList [] = $book4;
+        $genrebook1->sharedBookList [] = $book5;
+        $genrebook4->sharedBookList [] = $book5;
+        
+        
         
         // Introducir los libros que hay en cada lista
         $book1->sharedListbookList [] = $listbook1;
         $book1->sharedListbookList [] = $listbook2;
         $book2->sharedListbookList [] = $listbook2;
         $book3->sharedListbookList [] = $listbook3;
+        $book5->sharedListbookList [] = $listbook3;
+        
         
         // Los autores de cada libro
         $author1->sharedBookList [] = $book1;
         $author1->sharedBookList [] = $book3;
         $author2->sharedBookList [] = $book2;
+        $author3->sharedBookList [] = $book4;
+        $author4->sharedBookList [] = $book5;
+        
+        
         /*
          * // Votaciones de los usuarios a los libros
          * $user1->sharedBookList [] = $book1;
@@ -277,13 +322,17 @@ class Bbdd extends CI_Controller {
         R::storeAll ( [ 
                 $book1,
                 $book2,
-                $book3 
+                $book3,
+                $book4,
+                $book5 
         ] );
         
         // Guardamos todos los autores juntos
         R::storeAll ( [ 
                 $author1,
-                $author2 
+                $author2,
+                $author3,
+                $author4 
         ] );
         
         /*

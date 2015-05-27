@@ -6,15 +6,14 @@ class Books_model extends CI_Model {
     }
     function searchBooks($bookname) {
         $booknameFormatted = prepareForSearchableWord ( $bookname );
-        $booksBeans = R::find ( 'book', ' book_name LIKE :bookname ', [ 
+        $booksBeans = R::find ( 'book', ' book_name LIKE :bookname ORDER BY book_name', [ 
                 'bookname' => $booknameFormatted 
         ] );
         return $booksBeans;
     }
     
-    function searchAllBooks() {
-        $booksBeans = R::find ( 'book' );
+    function searchAllBooksOrderedByName() {
+        $booksBeans = R::find ( 'book', 'ORDER BY book_name' );        
         return $booksBeans;
     }
-    
 }

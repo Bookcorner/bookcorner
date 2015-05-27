@@ -6,7 +6,7 @@ class Author extends CI_Controller {
         $viewUri = 'authors/main_author_content';
         
         $this->load->model ( 'authors_model' );
-        $data['authors'] = $this->authors_model->searchAllAuthors();
+        $data['authors'] = $this->authors_model->searchAllAuthorsOrderedByName();
         
         loadBasicViews ( $viewUri, $data );
     }
