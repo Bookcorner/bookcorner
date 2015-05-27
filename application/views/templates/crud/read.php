@@ -1,9 +1,9 @@
 <div class="panel container">
-	<div class="panel-heading" role="tab" id="headCrudBook">
+	<div class="panel-heading-custom" role="tab" id="headCrudBook">
 		<div class="panel-title overflow">
-			<h3 class="alignleft">Libros</h3>
+			<h4 class="alignleft">Libros</h4>
 			<a data-toggle="collapse" href="#crudBook" aria-expanded="true"
-				class="alignright"> <span class="caret  "
+				class="alignright"> <span class="glyphicon glyphicon-resize-full"
 				aria-hidden="true"></span>
 			</a>
 		</div>
@@ -24,7 +24,7 @@
 				<tbody>
 					<tr>
 						<td><input type="checkbox">
-							<button class="btn btn-danger">
+							<button class="btn btn btn-xs btn-danger">
 								<i class="glyphicon glyphicon-trash"></i> Borrar
 							</button></td>
 						<td><input type="text" class="form-control"
@@ -37,11 +37,30 @@
 							placeholder="Buscar por x" /></td>
 					</tr>
 					<tr>
-						<td><input type="checkbox"></td>
+						<td><input type="checkbox">
+							<button class="btn btn-default btn-xs">
+								Editar<i class="glyphicon glyphicon-pencil"></i>
+							</button>
+
+							<div class="btn-group">
+								<button type="button"
+									class="btn btn-default btn-xs dropdown-toggle"
+									data-toggle="dropdown" aria-expanded="false">
+									Más <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="#">Ver <i class="glyphicon glyphicon-eye-open"></i></a></li>
+									<li><a href="#">Borrar <i class="glyphicon glyphicon-trash"></i></a>
+
+
+
+									</li>
+								</ul>
+							</div></td>
 						<td>Perico</td>
 						<td>Dato 1 de Perico</td>
 						<td>Dato 2 de Perico</td>
-						<td>Dato risas de Perico</td>
+						<td>Dato 3 de Perico</td>
 					</tr>
 				</tbody>
 			</table>
@@ -55,15 +74,27 @@
 					<option>100</option>
 				</select>entradas por página
 			</div>
-			<div class="alignright">Controles de paginación</div>
+			<div class="alignright">
+				<ul class="pagination">
+					<li><a href="#"><<</a></li>
+					<li><a href="#"><</a></li>
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">></a></li>
+					<li><a href="#">>></a></li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>
 
 <div class="panel container">
-	<div class="panel-heading" role="tab" id="headCrudBookState">
+	<div class="panel-heading-custom" role="tab" id="headCrudBookState">
 		<div class="panel-title overflow">
-			<h3 class="alignleft">Estado de libros</h3>
+			<h4 class="alignleft">Estado de libros</h4>
 			<a data-toggle="collapse" href="#crudBookState" aria-expanded="true"
 				class="alignright"> <span class="glyphicon glyphicon-resize-full"
 				aria-hidden="true"></span>
@@ -86,7 +117,7 @@
 				<tbody>
 					<tr>
 						<td><input type="checkbox">
-							<button class="btn btn-danger">
+							<button class="btn btn-xs btn-danger">
 								<i class="glyphicon glyphicon-trash"></i> Borrar
 							</button></td>
 						<td><input type="text" class="form-control"
@@ -99,11 +130,26 @@
 							placeholder="Buscar por x" /></td>
 					</tr>
 					<tr>
-						<td><input type="checkbox"></td>
+						<td><input type="checkbox">
+							<button class="btn btn-default btn-xs">
+								Editar<i class="glyphicon glyphicon-pencil"></i>
+							</button>
+
+							<div class="btn-group">
+								<button type="button"
+									class="btn btn-default btn-xs dropdown-toggle"
+									data-toggle="dropdown" aria-expanded="false">
+									Más <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="#">Ver <i class="glyphicon glyphicon-eye-open"></i></a></li>
+									<li><a href="#">Borrar <i class="glyphicon glyphicon-trash"></i></a></li>
+								</ul>
+							</div></td>
 						<td>Perico</td>
 						<td>Dato 1 de Perico</td>
 						<td>Dato 2 de Perico</td>
-						<td>Dato risas de Perico</td>
+						<td>Dato 3 de Perico</td>
 					</tr>
 				</tbody>
 			</table>
@@ -117,7 +163,19 @@
 					<option>100</option>
 				</select>entradas por página
 			</div>
-			<div class="alignright">Controles de paginación</div>
+			<div class="alignright">
+				<ul class="pagination">
+					<li><a href="#"><<</a></li>
+					<li><a href="#"><</a></li>
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">></a></li>
+					<li><a href="#">>></a></li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>
@@ -125,9 +183,9 @@
 
 
 <div class="panel container">
-	<div class="panel-heading" role="tab" id="headCrudAuthor">
+	<div class="panel-heading-custom" role="tab" id="headCrudAuthor">
 		<div class="panel-title overflow">
-			<h3 class="alignleft">Autores</h3>
+			<h4 class="alignleft">Autores</h4>
 			<a data-toggle="collapse" href="#crudAuthor" aria-expanded="true"
 				class="alignright"> <span class="glyphicon glyphicon-resize-full"
 				aria-hidden="true"></span>
@@ -150,7 +208,7 @@
 				<tbody>
 					<tr>
 						<td><input type="checkbox">
-							<button class="btn btn-danger">
+							<button class="btn btn-xs btn-danger">
 								<i class="glyphicon glyphicon-trash"></i> Borrar
 							</button></td>
 						<td><input type="text" class="form-control"
@@ -163,11 +221,26 @@
 							placeholder="Buscar por x" /></td>
 					</tr>
 					<tr>
-						<td><input type="checkbox"></td>
+						<td><input type="checkbox">
+							<button class="btn btn-default btn-xs">
+								Editar<i class="glyphicon glyphicon-pencil"></i>
+							</button>
+
+							<div class="btn-group">
+								<button type="button"
+									class="btn btn-default btn-xs dropdown-toggle"
+									data-toggle="dropdown" aria-expanded="false">
+									Más <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="#">Ver <i class="glyphicon glyphicon-eye-open"></i></a></li>
+									<li><a href="#">Borrar <i class="glyphicon glyphicon-trash"></i></a></li>
+								</ul>
+							</div></td>
 						<td>Perico</td>
 						<td>Dato 1 de Perico</td>
 						<td>Dato 2 de Perico</td>
-						<td>Dato risas de Perico</td>
+						<td>Dato 3 de Perico</td>
 					</tr>
 				</tbody>
 			</table>
@@ -181,23 +254,36 @@
 					<option>100</option>
 				</select>entradas por página
 			</div>
-			<div class="alignright">Controles de paginación</div>
+			<div class="alignright">
+				<ul class="pagination">
+					<li><a href="#"><<</a></li>
+					<li><a href="#"><</a></li>
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">></a></li>
+					<li><a href="#">>></a></li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>
 
 <div class="panel container">
-	<div class="panel-heading" role="tab" id="headCrudAuthorState">
+	<div class="panel-heading-custom" role="tab" id="headCrudAuthorState">
 		<div class="panel-title overflow">
-			<h3 class="alignleft">Estado de autores</h3>
-			<a data-toggle="collapse" href="#crudAuthorState" aria-expanded="true"
-				class="alignright"> <span class="glyphicon glyphicon-resize-full"
-				aria-hidden="true"></span>
+			<h4 class="alignleft">Estado de autores</h4>
+			<a data-toggle="collapse" href="#crudAuthorState"
+				aria-expanded="true" class="alignright"> <span
+				class="glyphicon glyphicon-resize-full" aria-hidden="true"></span>
 			</a>
 		</div>
 	</div>
-	<div id="crudAuthorState" class="panel-collapse collapse" role="tabpanel"
-		aria-labelledby="headCrudAuthorState" aria-expanded="true">
+	<div id="crudAuthorState" class="panel-collapse collapse"
+		role="tabpanel" aria-labelledby="headCrudAuthorState"
+		aria-expanded="true">
 		<div class="panel-body">
 			<table class="table">
 				<thead>
@@ -212,7 +298,7 @@
 				<tbody>
 					<tr>
 						<td><input type="checkbox">
-							<button class="btn btn-danger">
+							<button class="btn btn-xs btn-danger">
 								<i class="glyphicon glyphicon-trash"></i> Borrar
 							</button></td>
 						<td><input type="text" class="form-control"
@@ -225,11 +311,26 @@
 							placeholder="Buscar por x" /></td>
 					</tr>
 					<tr>
-						<td><input type="checkbox"></td>
+						<td><input type="checkbox">
+							<button class="btn btn-default btn-xs">
+								Editar<i class="glyphicon glyphicon-pencil"></i>
+							</button>
+
+							<div class="btn-group">
+								<button type="button"
+									class="btn btn-default btn-xs dropdown-toggle"
+									data-toggle="dropdown" aria-expanded="false">
+									Más <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="#">Ver <i class="glyphicon glyphicon-eye-open"></i></a></li>
+									<li><a href="#">Borrar <i class="glyphicon glyphicon-trash"></i></a></li>
+								</ul>
+							</div></td>
 						<td>Perico</td>
 						<td>Dato 1 de Perico</td>
 						<td>Dato 2 de Perico</td>
-						<td>Dato risas de Perico</td>
+						<td>Dato 3 de Perico</td>
 					</tr>
 				</tbody>
 			</table>
@@ -243,15 +344,27 @@
 					<option>100</option>
 				</select>entradas por página
 			</div>
-			<div class="alignright">Controles de paginación</div>
+			<div class="alignright">
+				<ul class="pagination">
+					<li><a href="#"><<</a></li>
+					<li><a href="#"><</a></li>
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">></a></li>
+					<li><a href="#">>></a></li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>
 
 <div class="panel container">
-	<div class="panel-heading" role="tab" id="headGenre">
+	<div class="panel-heading-custom" role="tab" id="headGenre">
 		<div class="panel-title overflow">
-			<h3 class="alignleft">Géneros</h3>
+			<h4 class="alignleft">Géneros</h4>
 			<a data-toggle="collapse" href="#crudGenre" aria-expanded="true"
 				class="alignright"> <span class="glyphicon glyphicon-resize-full"
 				aria-hidden="true"></span>
@@ -274,7 +387,7 @@
 				<tbody>
 					<tr>
 						<td><input type="checkbox">
-							<button class="btn btn-danger">
+							<button class="btn btn-xs btn-danger">
 								<i class="glyphicon glyphicon-trash"></i> Borrar
 							</button></td>
 						<td><input type="text" class="form-control"
@@ -287,11 +400,26 @@
 							placeholder="Buscar por x" /></td>
 					</tr>
 					<tr>
-						<td><input type="checkbox"></td>
+						<td><input type="checkbox">
+							<button class="btn btn-default btn-xs">
+								Editar<i class="glyphicon glyphicon-pencil"></i>
+							</button>
+
+							<div class="btn-group">
+								<button type="button"
+									class="btn btn-default btn-xs dropdown-toggle"
+									data-toggle="dropdown" aria-expanded="false">
+									Más <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="#">Ver <i class="glyphicon glyphicon-eye-open"></i></a></li>
+									<li><a href="#">Borrar <i class="glyphicon glyphicon-trash"></i></a></li>
+								</ul>
+							</div></td>
 						<td>Perico</td>
 						<td>Dato 1 de Perico</td>
 						<td>Dato 2 de Perico</td>
-						<td>Dato risas de Perico</td>
+						<td>Dato 3 de Perico</td>
 					</tr>
 				</tbody>
 			</table>
@@ -305,16 +433,28 @@
 					<option>100</option>
 				</select>entradas por página
 			</div>
-			<div class="alignright">Controles de paginación</div>
+			<div class="alignright">
+				<ul class="pagination">
+					<li><a href="#"><<</a></li>
+					<li><a href="#"><</a></li>
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">></a></li>
+					<li><a href="#">>></a></li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>
 
 
 <div class="panel container">
-	<div class="panel-heading" role="tab" id="headUser">
+	<div class="panel-heading-custom" role="tab" id="headUser">
 		<div class="panel-title overflow">
-			<h3 class="alignleft">Usuarios</h3>
+			<h4 class="alignleft">Usuarios</h4>
 			<a data-toggle="collapse" href="#crudUser" aria-expanded="true"
 				class="alignright"> <span class="glyphicon glyphicon-resize-full"
 				aria-hidden="true"></span>
@@ -337,7 +477,7 @@
 				<tbody>
 					<tr>
 						<td><input type="checkbox">
-							<button class="btn btn-danger">
+							<button class="btn btn-xs btn-danger">
 								<i class="glyphicon glyphicon-trash"></i> Borrar
 							</button></td>
 						<td><input type="text" class="form-control"
@@ -350,11 +490,26 @@
 							placeholder="Buscar por x" /></td>
 					</tr>
 					<tr>
-						<td><input type="checkbox"></td>
+						<td><input type="checkbox">
+							<button class="btn btn-default btn-xs">
+								Editar<i class="glyphicon glyphicon-pencil"></i>
+							</button>
+
+							<div class="btn-group">
+								<button type="button"
+									class="btn btn-default btn-xs dropdown-toggle"
+									data-toggle="dropdown" aria-expanded="false">
+									Más <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="#">Ver <i class="glyphicon glyphicon-eye-open"></i></a></li>
+									<li><a href="#">Borrar <i class="glyphicon glyphicon-trash"></i></a></li>
+								</ul>
+							</div></td>
 						<td>Perico</td>
 						<td>Dato 1 de Perico</td>
 						<td>Dato 2 de Perico</td>
-						<td>Dato risas de Perico</td>
+						<td>Dato 3 de Perico</td>
 					</tr>
 				</tbody>
 			</table>
@@ -368,16 +523,28 @@
 					<option>100</option>
 				</select>entradas por página
 			</div>
-			<div class="alignright">Controles de paginación</div>
+			<div class="alignright">
+				<ul class="pagination">
+					<li><a href="#"><<</a></li>
+					<li><a href="#"><</a></li>
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">></a></li>
+					<li><a href="#">>></a></li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>
 
 
 <div class="panel container">
-	<div class="panel-heading" role="tab" id="headUserRole">
+	<div class="panel-heading-custom" role="tab" id="headUserRole">
 		<div class="panel-title overflow">
-			<h3 class="alignleft">Roles de usuario</h3>
+			<h4 class="alignleft">Roles de usuario</h4>
 			<a data-toggle="collapse" href="#crudUserRole" aria-expanded="true"
 				class="alignright"> <span class="glyphicon glyphicon-resize-full"
 				aria-hidden="true"></span>
@@ -400,7 +567,7 @@
 				<tbody>
 					<tr>
 						<td><input type="checkbox">
-							<button class="btn btn-danger">
+							<button class="btn btn-xs btn-danger">
 								<i class="glyphicon glyphicon-trash"></i> Borrar
 							</button></td>
 						<td><input type="text" class="form-control"
@@ -413,11 +580,26 @@
 							placeholder="Buscar por x" /></td>
 					</tr>
 					<tr>
-						<td><input type="checkbox"></td>
+						<td><input type="checkbox">
+							<button class="btn btn-default btn-xs">
+								Editar<i class="glyphicon glyphicon-pencil"></i>
+							</button>
+
+							<div class="btn-group">
+								<button type="button"
+									class="btn btn-default btn-xs dropdown-toggle"
+									data-toggle="dropdown" aria-expanded="false">
+									Más <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="#">Ver <i class="glyphicon glyphicon-eye-open"></i></a></li>
+									<li><a href="#">Borrar <i class="glyphicon glyphicon-trash"></i></a></li>
+								</ul>
+							</div></td>
 						<td>Perico</td>
 						<td>Dato 1 de Perico</td>
 						<td>Dato 2 de Perico</td>
-						<td>Dato risas de Perico</td>
+						<td>Dato 3 de Perico</td>
 					</tr>
 				</tbody>
 			</table>
@@ -431,24 +613,36 @@
 					<option>100</option>
 				</select>entradas por página
 			</div>
-			<div class="alignright">Controles de paginación</div>
+			<div class="alignright">
+				<ul class="pagination">
+					<li><a href="#"><<</a></li>
+					<li><a href="#"><</a></li>
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">></a></li>
+					<li><a href="#">>></a></li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>
 
 
 <div class="panel container">
-	<div class="panel-heading" role="tab" id="headUserStatus">
+	<div class="panel-heading-custom" role="tab" id="headUserStatus">
 		<div class="panel-title overflow">
-			<h3 class="alignleft">Estado de usuario</h3>
+			<h4 class="alignleft">Estado de usuario</h4>
 			<a data-toggle="collapse" href="#crudUserStatus" aria-expanded="true"
 				class="alignright"> <span class="glyphicon glyphicon-resize-full"
 				aria-hidden="true"></span>
 			</a>
 		</div>
 	</div>
-	<div id="crudUserStatus" class="panel-collapse collapse" role="tabpanel"
-		aria-labelledby="headUserStatus" aria-expanded="true">
+	<div id="crudUserStatus" class="panel-collapse collapse"
+		role="tabpanel" aria-labelledby="headUserStatus" aria-expanded="true">
 		<div class="panel-body">
 			<table class="table">
 				<thead>
@@ -463,7 +657,7 @@
 				<tbody>
 					<tr>
 						<td><input type="checkbox">
-							<button class="btn btn-danger">
+							<button class="btn btn-xs btn-danger">
 								<i class="glyphicon glyphicon-trash"></i> Borrar
 							</button></td>
 						<td><input type="text" class="form-control"
@@ -476,11 +670,26 @@
 							placeholder="Buscar por x" /></td>
 					</tr>
 					<tr>
-						<td><input type="checkbox"></td>
+						<td><input type="checkbox">
+							<button class="btn btn-default btn-xs">
+								Editar<i class="glyphicon glyphicon-pencil"></i>
+							</button>
+
+							<div class="btn-group">
+								<button type="button"
+									class="btn btn-default btn-xs dropdown-toggle"
+									data-toggle="dropdown" aria-expanded="false">
+									Más <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="#">Ver <i class="glyphicon glyphicon-eye-open"></i></a></li>
+									<li><a href="#">Borrar <i class="glyphicon glyphicon-trash"></i></a></li>
+								</ul>
+							</div></td>
 						<td>Perico</td>
 						<td>Dato 1 de Perico</td>
 						<td>Dato 2 de Perico</td>
-						<td>Dato risas de Perico</td>
+						<td>Dato 3 de Perico</td>
 					</tr>
 				</tbody>
 			</table>
@@ -494,16 +703,28 @@
 					<option>100</option>
 				</select>entradas por página
 			</div>
-			<div class="alignright">Controles de paginación</div>
+			<div class="alignright">
+				<ul class="pagination">
+					<li><a href="#"><<</a></li>
+					<li><a href="#"><</a></li>
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">></a></li>
+					<li><a href="#">>></a></li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>
 
 
 <div class="panel container">
-	<div class="panel-heading" role="tab" id="headValuation">
+	<div class="panel-heading-custom" role="tab" id="headValuation">
 		<div class="panel-title overflow">
-			<h3 class="alignleft">Puntuaciones</h3>
+			<h4 class="alignleft">Puntuaciones</h4>
 			<a data-toggle="collapse" href="#crudValuation" aria-expanded="true"
 				class="alignright"> <span class="glyphicon glyphicon-resize-full"
 				aria-hidden="true"></span>
@@ -526,7 +747,7 @@
 				<tbody>
 					<tr>
 						<td><input type="checkbox">
-							<button class="btn btn-danger">
+							<button class="btn btn-xs btn-danger">
 								<i class="glyphicon glyphicon-trash"></i> Borrar
 							</button></td>
 						<td><input type="text" class="form-control"
@@ -539,11 +760,26 @@
 							placeholder="Buscar por x" /></td>
 					</tr>
 					<tr>
-						<td><input type="checkbox"></td>
+						<td><input type="checkbox">
+							<button class="btn btn-default btn-xs">
+								Editar<i class="glyphicon glyphicon-pencil"></i>
+							</button>
+
+							<div class="btn-group">
+								<button type="button"
+									class="btn btn-default btn-xs dropdown-toggle"
+									data-toggle="dropdown" aria-expanded="false">
+									Más <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="#">Ver <i class="glyphicon glyphicon-eye-open"></i></a></li>
+									<li><a href="#">Borrar <i class="glyphicon glyphicon-trash"></i></a></li>
+								</ul>
+							</div></td>
 						<td>Perico</td>
 						<td>Dato 1 de Perico</td>
 						<td>Dato 2 de Perico</td>
-						<td>Dato risas de Perico</td>
+						<td>Dato 3 de Perico</td>
 					</tr>
 				</tbody>
 			</table>
@@ -557,7 +793,19 @@
 					<option>100</option>
 				</select>entradas por página
 			</div>
-			<div class="alignright">Controles de paginación</div>
+			<div class="alignright">
+				<ul class="pagination">
+					<li><a href="#"><<</a></li>
+					<li><a href="#"><</a></li>
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">></a></li>
+					<li><a href="#">>></a></li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>
