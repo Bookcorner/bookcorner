@@ -251,6 +251,10 @@ class Bbdd extends CI_Controller {
         $book3->sharedListbookList [] = $listbook3;
         $book5->sharedListbookList [] = $listbook3;
         
+        // Introducir los estados que hay en cada libro dentro de la lista
+        
+        
+        
         
         // Los autores de cada libro
         $author1->sharedBookList [] = $book1;
