@@ -2,7 +2,7 @@
 
 <script>
  $(function () {
-	   var $popoverInbox = $('#idNotas').popover({
+	   var $popoverInbox = $('button.muestratext').popover({
 	        html: 'true',
 	    });
 	});

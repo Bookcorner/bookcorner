@@ -32,13 +32,23 @@
         				        <td><?php echo $book['book_id']?></td>
                                 <td><?php echo $book['book_isbn']?></td>
         				        <td><?php echo $book['book_name']?></td>
-                                <td>Estado del libro</td>
-                                <td>Puntuación del libro</td>
                                 <td>
-                                    <button id="idNotas" type="button" class="btn btn-default" 
+                                    <a href="#"
+                                        data-name="status" 
+                                        data-type="select" 
+                                        data-pk="<?php echo $book['val_id']?>"
+                                        data-url="listbook/updateState/estado/<?php echo $book['book_id']?>" 
+                                        data-title="Selecciona un estado" 
+                                        data-value="<?php echo $book['val_estado_libro']?>"
+                                        aria-describedBy="<?php echo $book['book_id']?>"
+                                        class="btn btn-default btn-xs"></a>
+                                </td>
+                                <td><?php echo $book['val_puntuacion']?></td>
+                                <td>
+                                    <button id="idNotas" type="button" class="btn btn-default muestratext" 
                                         data-container="body" data-toggle="popover" 
                                         data-placement="bottom" 
-                                        data-content="formulario con un textarea que muestre el contenido de la nota y un botón de edición en el que puedas actualizar tus cambios. pasarle el código html">
+                                        data-content="<?php echo $book['val_nota_libro']?>">
                                         <span class="glyphicon glyphicon-edit"></span>
                                     </button>
                                 </td>

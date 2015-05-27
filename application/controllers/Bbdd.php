@@ -13,7 +13,7 @@ class Bbdd extends CI_Controller {
         $user1->user_nickname = 'admin';
         $user1->user_pwd = encrypt( 'theboss' );
         $user1->user_validation = 'jsxDMJt2F0QXO7vrcRAenCLE';
-        $user1->user_email = 'juananortizc@gmail.com';
+        $user1->user_email = 'administrator@gmail.com';
         $user1->user_avatar = 'boss.jpg';
         $user1->user_genre = 'M';
         $user1->listbook_id = 1;
@@ -25,7 +25,7 @@ class Bbdd extends CI_Controller {
         $user2->user_nickname = 'moderator';
         $user2->user_pwd = encrypt( 'thesecretary' );
         $user2->user_validation = 'zbn1OEyPdt65ABoIhgcSvVZF';
-        $user2->user_email = 'mcantelar@gmail.com';
+        $user2->user_email = 'comando@gmail.com';
         $user2->user_avatar = 'secretary.jpeg';
         $user2->user_genre = 'M';
         $user2->listbook_id = 2;
@@ -37,10 +37,46 @@ class Bbdd extends CI_Controller {
         $user3->user_nickname = 'registrate';
         $user3->user_pwd = encrypt( 'justinme' );
         $user3->user_validation = '2JFR97xzncleYypSBqhQTrui';
-        $user3->user_email = 'rcortes@gmail.com';
+        $user3->user_email = 'justinbieber@gmail.com';
         $user3->user_avatar = 'justin.jpg';
         $user3->user_genre = 'M';
         $user3->listbook_id = 3;
+        
+        $user4 = R::Dispense ( 'user' );
+        $user4->user_id = 4;
+        $user4->user_name = 'Mario';
+        $user4->user_surname = 'Cantelar';
+        $user4->user_nickname = 'Marcant94';
+        $user4->user_pwd = encrypt( '1234' );
+        $user4->user_validation = '';
+        $user4->user_email = 'mcantelar@gmail.com';
+        $user4->user_avatar = 'mario.jpg';
+        $user4->user_genre = 'M';
+        $user4->listbook_id = 4;
+        
+        $user5 = R::Dispense ( 'user' );
+        $user5->user_id = 5;
+        $user5->user_name = 'Juan Antonio';
+        $user5->user_surname = 'Ortiz';
+        $user5->user_nickname = 'Juanana';
+        $user5->user_pwd = encrypt( '4321' );
+        $user5->user_validation = '';
+        $user5->user_email = 'juananortizc@gmail.com';
+        $user5->user_avatar = 'juanan.png';
+        $user5->user_genre = 'M';
+        $user5->listbook_id = 5;
+        
+        $user6 = R::Dispense ( 'user' );
+        $user6->user_id = 6;
+        $user6->user_name = 'Rubén';
+        $user6->user_surname = 'Cortés';
+        $user6->user_nickname = 'rcortes';
+        $user6->user_pwd = encrypt( 'asdf' );
+        $user6->user_validation = '';
+        $user6->user_email = 'rubencortesmunuera@gmail.com';
+        $user6->user_avatar = 'ruben.jpg';
+        $user6->user_genre = 'M';
+        $user6->listbook_id = 6;
         
         // Create database user roles available
         $user_role1 = R::Dispense ( 'userrole' );
@@ -83,6 +119,145 @@ class Bbdd extends CI_Controller {
         $listbook3 = R::Dispense ( 'listbook' );
         $listbook3->listbook_id = 3;
         $listbook3->listbook_name = 'List of registrate';
+        
+        $listbook4 = R::Dispense ( 'listbook' );
+        $listbook4->listbook_id = 4;
+        $listbook4->listbook_name = 'List of Marcant94';
+        
+        $listbook5 = R::Dispense ( 'listbook' );
+        $listbook5->listbook_id = 5;
+        $listbook5->listbook_name = 'List of Juanana';
+        
+        $listbook6 = R::Dispense ( 'listbook' );
+        $listbook6->listbook_id = 6;
+        $listbook6->listbook_name = 'List of rcortes';
+        
+        // Create Validation
+        $valuation1 = R::Dispense ( 'valuation' );
+        $valuation1->val_id = 1;
+        $valuation1->val_puntuacion = 1;
+        $valuation1->val_nota_libro = 'Págino 250.';
+        $valuation1->val_estado_libro = 'Leyendo';
+        
+        $valuation2 = R::Dispense ( 'valuation' );
+        $valuation2->val_id = 2;
+        $valuation2->val_puntuacion = 10;
+        $valuation2->val_nota_libro = 'Este es el siguiente seguro';
+        $valuation2->val_estado_libro = 'Pendiente';
+        
+        $valuation3 = R::Dispense ( 'valuation' );
+        $valuation3->val_id = 3;
+        $valuation3->val_puntuacion = 5;
+        $valuation3->val_nota_libro = 'No me gustó mucho';
+        $valuation3->val_estado_libro = 'Terminado';
+        
+        $valuation3 = R::Dispense ( 'valuation' );
+        $valuation3->val_id = 3;
+        $valuation3->val_puntuacion = 5;
+        $valuation3->val_nota_libro = 'No me gustó mucho';
+        $valuation3->val_estado_libro = 'Terminado';
+        
+        $valuation4 = R::Dispense ( 'valuation' );
+        $valuation4->val_id = 4;
+        $valuation4->val_puntuacion = 0;
+        $valuation4->val_nota_libro = 'Introduce una nota';
+        $valuation4->val_estado_libro = 'Pendiente';
+        
+        $valuation5 = R::Dispense ( 'valuation' );
+        $valuation5->val_id = 5;
+        $valuation5->val_puntuacion = 0;
+        $valuation5->val_nota_libro = 'Introduce una nota';
+        $valuation5->val_estado_libro = 'Pendiente';
+        
+        $valuation6 = R::Dispense ( 'valuation' );
+        $valuation6->val_id = 6;
+        $valuation6->val_puntuacion = 0;
+        $valuation6->val_nota_libro = 'Introduce una nota';
+        $valuation6->val_estado_libro = 1;
+        
+        $valuation7 = R::Dispense ( 'valuation' );
+        $valuation7->val_id = 7;
+        $valuation7->val_puntuacion = 0;
+        $valuation7->val_nota_libro = 'Introduce una nota';
+        $valuation7->val_estado_libro = 1;
+        
+        $valuation8 = R::Dispense ( 'valuation' );
+        $valuation8->val_id = 8;
+        $valuation8->val_puntuacion = 0;
+        $valuation8->val_nota_libro = 'Introduce una nota';
+        $valuation8->val_estado_libro = 2;
+        
+        $valuation9 = R::Dispense ( 'valuation' );
+        $valuation9->val_id = 9;
+        $valuation9->val_puntuacion = 0;
+        $valuation9->val_nota_libro = 'Introduce una nota';
+        $valuation9->val_estado_libro = 4;
+        
+        $valuation10 = R::Dispense ( 'valuation' );
+        $valuation10->val_id = 10;
+        $valuation10->val_puntuacion = 0;
+        $valuation10->val_nota_libro = 'Introduce una nota';
+        $valuation10->val_estado_libro = 3;
+        
+        $valuation11 = R::Dispense ( 'valuation' );
+        $valuation11->val_id = 11;
+        $valuation11->val_puntuacion = 0;
+        $valuation11->val_nota_libro = 'Introduce una nota';
+        $valuation11->val_estado_libro = 'Pendiente';
+        
+        $valuation12 = R::Dispense ( 'valuation' );
+        $valuation12->val_id = 12;
+        $valuation12->val_puntuacion = 0;
+        $valuation12->val_nota_libro = 'Introduce una nota';
+        $valuation12->val_estado_libro = 'Pendiente';
+        
+        $valuation13 = R::Dispense ( 'valuation' );
+        $valuation13->val_id = 13;
+        $valuation13->val_puntuacion = 0;
+        $valuation13->val_nota_libro = 'Introduce una nota';
+        $valuation13->val_estado_libro = 'Pendiente';
+        
+        $valuation14 = R::Dispense ( 'valuation' );
+        $valuation14->val_id = 14;
+        $valuation14->val_puntuacion = 0;
+        $valuation14->val_nota_libro = 'Introduce una nota';
+        $valuation14->val_estado_libro = 'Pendiente';
+        
+        $valuation15 = R::Dispense ( 'valuation' );
+        $valuation15->val_id = 15;
+        $valuation15->val_puntuacion = 0;
+        $valuation15->val_nota_libro = 'Introduce una nota';
+        $valuation15->val_estado_libro = 'Pendiente';
+        
+        $valuation16 = R::Dispense ( 'valuation' );
+        $valuation16->val_id = 16;
+        $valuation16->val_puntuacion = 0;
+        $valuation16->val_nota_libro = 'Introduce una nota';
+        $valuation16->val_estado_libro = 'Pendiente';
+        
+        $valuation17 = R::Dispense ( 'valuation' );
+        $valuation17->val_id = 17;
+        $valuation17->val_puntuacion = 0;
+        $valuation17->val_nota_libro = 'Introduce una nota';
+        $valuation17->val_estado_libro = 'Pendiente';
+        
+        $valuation18 = R::Dispense ( 'valuation' );
+        $valuation18->val_id = 18;
+        $valuation18->val_puntuacion = 0;
+        $valuation18->val_nota_libro = 'Introduce una nota';
+        $valuation18->val_estado_libro = 'Pendiente';
+        
+        $valuation19 = R::Dispense ( 'valuation' );
+        $valuation19->val_id = 19;
+        $valuation19->val_puntuacion = 0;
+        $valuation19->val_nota_libro = 'Introduce una nota';
+        $valuation19->val_estado_libro = 'Pendiente';
+        
+        $valuation20 = R::Dispense ( 'valuation' );
+        $valuation20->val_id = 20;
+        $valuation20->val_puntuacion = 0;
+        $valuation20->val_nota_libro = 'Introduce una nota';
+        $valuation20->val_estado_libro = 'Pendiente';
         
         // Create book
         $book1 = R::Dispense ( 'book' );
@@ -200,16 +375,26 @@ class Bbdd extends CI_Controller {
         $user_role3->ownUserList [] = $user1;
         $user_role2->ownUserList [] = $user2;
         $user_role1->ownUserList [] = $user3;
+        $user_role3->ownUserList [] = $user4;
+        $user_role3->ownUserList [] = $user5;
+        $user_role3->ownUserList [] = $user6;
+        
         
         // Introducir Estados de los usuarios
         $user_state1->ownUserList [] = $user1;
         $user_state1->ownUserList [] = $user2;
         $user_state1->ownUserList [] = $user3;
+        $user_state1->ownUserList [] = $user4;
+        $user_state1->ownUserList [] = $user5;
+        $user_state1->ownUserList [] = $user6;
         
         //Introducir Lista para usuario
         $listbook1->ownUserList [] = $user1;
         $listbook2->ownUserList [] = $user2;
         $listbook3->ownUserList [] = $user3;
+        $listbook4->ownUserList [] = $user4;
+        $listbook5->ownUserList [] = $user5;
+        $listbook6->ownUserList [] = $user6;
         
         // Introducir Estados de los libros
         $bookstate1->ownBookList [] = $book1;
@@ -218,12 +403,57 @@ class Bbdd extends CI_Controller {
         $bookstate1->ownBookList [] = $book4;
         $bookstate1->ownBookList [] = $book5;
         
-        
         // Introducir Estados de los autores
         $authorstate1->ownAuthorList [] = $author1;
         $authorstate1->ownAuthorList [] = $author2;
         $authorstate1->ownAuthorList [] = $author3;
         $authorstate1->ownAuthorList [] = $author4;
+        
+        //Introducir las valoraciones del usuario
+        $listbook1->ownValuationList [] = $valuation1;
+        $listbook2->ownValuationList [] = $valuation2;
+        $listbook2->ownValuationList [] = $valuation3;
+        $listbook3->ownValuationList [] = $valuation4;
+        $listbook3->ownValuationList [] = $valuation5;
+        $listbook5->ownValuationList [] = $valuation6;
+        $listbook5->ownValuationList [] = $valuation7;
+        $listbook5->ownValuationList [] = $valuation8;
+        $listbook5->ownValuationList [] = $valuation9;
+        $listbook5->ownValuationList [] = $valuation10;
+        $listbook4->ownValuationList [] = $valuation11;
+        $listbook4->ownValuationList [] = $valuation12;
+        $listbook4->ownValuationList [] = $valuation13;
+        $listbook4->ownValuationList [] = $valuation14;
+        $listbook4->ownValuationList [] = $valuation15;
+        $listbook6->ownValuationList [] = $valuation16;
+        $listbook6->ownValuationList [] = $valuation17;
+        $listbook6->ownValuationList [] = $valuation18;
+        $listbook6->ownValuationList [] = $valuation19;
+        $listbook6->ownValuationList [] = $valuation20;
+        
+        
+        
+        //Introducir los libros que son valorados
+        $book1->ownValuationList [] = $valuation1;
+        $book1->ownValuationList [] = $valuation2;
+        $book2->ownValuationList [] = $valuation3;
+        $book3->ownValuationList [] = $valuation4;
+        $book5->ownValuationList [] = $valuation5;
+        $book1->ownValuationList [] = $valuation6;
+        $book2->ownValuationList [] = $valuation7;
+        $book3->ownValuationList [] = $valuation8;
+        $book4->ownValuationList [] = $valuation9;
+        $book5->ownValuationList [] = $valuation10;
+        $book1->ownValuationList [] = $valuation11;
+        $book2->ownValuationList [] = $valuation12;
+        $book3->ownValuationList [] = $valuation13;
+        $book4->ownValuationList [] = $valuation14;
+        $book5->ownValuationList [] = $valuation15;
+        $book1->ownValuationList [] = $valuation16;
+        $book2->ownValuationList [] = $valuation17;
+        $book3->ownValuationList [] = $valuation18;
+        $book4->ownValuationList [] = $valuation19;
+        $book5->ownValuationList [] = $valuation20;
         
         
         // MANY-TO-MANY RELATIONSHIP
@@ -243,17 +473,27 @@ class Bbdd extends CI_Controller {
         $genrebook4->sharedBookList [] = $book5;
         
         
-        
         // Introducir los libros que hay en cada lista
         $book1->sharedListbookList [] = $listbook1;
         $book1->sharedListbookList [] = $listbook2;
         $book2->sharedListbookList [] = $listbook2;
         $book3->sharedListbookList [] = $listbook3;
         $book5->sharedListbookList [] = $listbook3;
-        
-        // Introducir los estados que hay en cada libro dentro de la lista
-        
-        
+        $book1->sharedListbookList [] = $listbook4;
+        $book2->sharedListbookList [] = $listbook4;
+        $book3->sharedListbookList [] = $listbook4;
+        $book4->sharedListbookList [] = $listbook4;
+        $book5->sharedListbookList [] = $listbook4;
+        $book1->sharedListbookList [] = $listbook5;
+        $book2->sharedListbookList [] = $listbook5;
+        $book3->sharedListbookList [] = $listbook5;
+        $book4->sharedListbookList [] = $listbook5;
+        $book5->sharedListbookList [] = $listbook5;
+        $book1->sharedListbookList [] = $listbook6;
+        $book2->sharedListbookList [] = $listbook6;
+        $book3->sharedListbookList [] = $listbook6;
+        $book4->sharedListbookList [] = $listbook6;
+        $book5->sharedListbookList [] = $listbook6;
         
         
         // Los autores de cada libro
@@ -263,31 +503,23 @@ class Bbdd extends CI_Controller {
         $author3->sharedBookList [] = $book4;
         $author4->sharedBookList [] = $book5;
         
-        
-        /*
-         * // Votaciones de los usuarios a los libros
-         * $user1->sharedBookList [] = $book1;
-         * $user2->sharedBookList [] = $book1;
-         * $user2->sharedBookList [] = $book2;
-         * $user3->sharedBookList [] = $book3;
-         *
-         * // Votaciones de los autores
-         * $user1->sharedAuthorList [] = $author1;
-         * $user2->sharedAuthorList [] = $author1;
-         * $user2->sharedAuthorList [] = $author2;
-         * $user1->sharedAuthorList [] = $author1;
-         */
         // STORE ONE-TO-ONE RELATIONSHIP
         
         // guardamos los usuarios
         R::store ( $user1 );
         R::store ( $user2 );
         R::store ( $user3 );
+        R::store ( $user4 );
+        R::store ( $user5 );
+        R::store ( $user6 );
         
         // guardamos las listas de libros
         R::store ( $listbook1 );
         R::store ( $listbook2 );
         R::store ( $listbook3 );
+        R::store ( $listbook4 );
+        R::store ( $listbook5 );
+        R::store ( $listbook6 );
         
         // STORE ONE-TO-MANY RELATIONSHIP
         
@@ -307,9 +539,32 @@ class Bbdd extends CI_Controller {
         R::store ( $bookstate3 );
         
         // guardamos los estados de los usuarios
-        $id_as1 = R::store ( $authorstate1 );
-        $id_as2 = R::store ( $authorstate2 );
-        $id_as3 = R::store ( $authorstate3 );
+        R::store ( $authorstate1 );
+        R::store ( $authorstate2 );
+        R::store ( $authorstate3 );
+        
+        // guardamos las valoraciones de los usuario
+        R::store ($valuation1);
+        R::store ($valuation2);
+        R::store ($valuation3);
+        R::store ($valuation4);
+        R::store ($valuation5);
+        R::store ($valuation6);
+        R::store ($valuation7);
+        R::store ($valuation8);
+        R::store ($valuation9);
+        R::store ($valuation10);
+        R::store ($valuation11);
+        R::store ($valuation12);
+        R::store ($valuation13);
+        R::store ($valuation14);
+        R::store ($valuation15);
+        R::store ($valuation16);
+        R::store ($valuation17);
+        R::store ($valuation18);
+        R::store ($valuation19);
+        R::store ($valuation20);
+        
         
         // STORE MANY-TO-MANY RELATIONSHIP
         
@@ -339,15 +594,7 @@ class Bbdd extends CI_Controller {
                 $author4 
         ] );
         
-        /*
-         * //Guardamos todos los autores juntos
-         * R::storeAll ( [
-         * $user1,
-         * $user2,
-         * $user3
-         * ] );
-         */
-        
+
         // Freeze the database.
         R::freeze ( TRUE );
         

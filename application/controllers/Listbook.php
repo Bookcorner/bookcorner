@@ -7,11 +7,6 @@ class Listbook extends CI_Controller {
         $cookieName = 'bookcorner';
         $sessionName = 'id';
         
-        if (check_cookie_exist ($cookieName)) {
-            $cookieData = explode ( '#', $this->input->cookie ( $cookieName ) );
-            $userId = $cookieData [0];
-        }
-        
         if (check_session_exist ($sessionName)) {
             $userId = $this->session->userdata ( $sessionName );
         }
@@ -24,13 +19,21 @@ class Listbook extends CI_Controller {
                 'cabeceras' => [
                         'templates/cabeceras/cabecera_base', 
                         'templates/cabeceras/cabecera_usuario', 
-                        'templates/cabeceras/cabecera_popup'
+                        'templates/cabeceras/cabecera_popup',
+                        'templates/cabeceras/cabecera_xeditable'
                     ],
                 'contenidos' => ['lists/all_listbook'],
                 'footer' => 'templates/footers/base_footer'
         ];
         
         loadCustomViews($views, $data);
+    }
+    
+    public function changeState($bookstatus, $book_id){
+        $this->load->model ( 'listbooks_model' );
+        $userId = $this->session->userdata('id');
+        $state = $this->listbooks_model->updateState ( $bookstatus, $book_id, $userId);
+        
     }
 }
 

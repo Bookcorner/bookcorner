@@ -6,11 +6,13 @@ class Listbooks_model extends CI_Model {
     }
     function getAllBooklistFromUser($userId) {
         $booksInList = R::getAll ( 
-                'SELECT b.book_id, b.book_isbn, b.book_name, b.book_desc, b.book_img
-	               FROM book_listbook lb, book b 
-	               WHERE lb.listbook_id = (SELECT listbook_id FROM `user` WHERE user_id = :userId)
-		              AND lb.book_id = b.book_id
-                   ORDER BY book_name', [':userId' => $userId] );
+                'SELECT b.book_id, b.book_isbn, b.book_name, v.val_puntuacion, v.val_nota_libro, v.val_estado_libro, v.val_id
+                    FROM book_listbook lb, book b, valuation v 
+                    WHERE lb.listbook_id = (SELECT listbook_id FROM `user` WHERE user_id = :userId)
+	                   AND lb.book_id = b.book_id
+                       AND v.book_id = b.book_id
+                       AND v.listbook_id = (SELECT listbook_id FROM `user` WHERE user_id = :userId)
+                    ORDER BY book_name', [':userId' => $userId] );
         return $booksInList;
     }
 }
