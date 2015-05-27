@@ -160,6 +160,14 @@
 													</div>
 													<div class="help-block with-errors"></div>
 												</div>
+												
+												<div class="form-group">
+												    <?php 
+												        $infoCaptcha = generateCaptcha();
+												        $this->session->set_flashdata( 'captcha', $infoCaptcha['randomtext'] );
+												        echo $infoCaptcha['img'];
+												    ?>
+												</div>
 
 												<!-- Button -->
 												<div class="form-group">
