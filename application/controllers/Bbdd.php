@@ -167,7 +167,7 @@ class Bbdd extends CI_Controller {
         $valuation5->val_id = 5;
         $valuation5->val_puntuacion = 0;
         $valuation5->val_nota_libro = 'Introduce una nota';
-        $valuation5->val_estado_libro = 'Pendiente';
+        $valuation5->val_estado_libro = 4;
         
         $valuation6 = R::Dispense ( 'valuation' );
         $valuation6->val_id = 6;

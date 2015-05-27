@@ -16,11 +16,16 @@ class Listbooks_model extends CI_Model {
         ] );
         return $booksInList;
     }
-    function updateState($bookstatus, $val_id) {
-        $query = R::exec( 'UPDATE valuation SET val_estado_libro = :bookstatus WHERE val_id = :id', [
+    function updateBookState($bookstatus, $val_id) {
+        R::exec( 'UPDATE valuation SET val_estado_libro = :bookstatus WHERE val_id = :id', [
                 'bookstatus' => $bookstatus, 
                 'id' => $val_id
         ] );
-        return $query;
+    }
+    function updateBookScore($bookscore, $val_id) {
+        R::exec( 'UPDATE valuation SET val_puntuacion = :bookscore WHERE val_id = :id', [
+                'bookscore' => $bookscore,
+                'id' => $val_id
+        ] );
     }
 }

@@ -36,14 +36,26 @@
                                     <a href="#"
                                         data-name="status" 
                                         data-type="select" 
-                                        data-pk="<?php echo $book['val_id']?>"
-                                        data-url="listbook/updateState/<?php echo $book['val_id']?>" 
+                                        data-pk=""
+                                        data-url="listbook/updateBookState/<?php echo $book['val_id']?>" 
                                         data-title="Selecciona un estado" 
                                         data-value="<?php echo $book['val_estado_libro']?>"
                                         aria-describedBy="<?php echo $book['book_id']?>"
-                                        class="btn btn-default btn-xs"></a>
+                                        class="btn btn-default btn-md">
+                                    </a>
                                 </td>
-                                <td><?php echo $book['val_puntuacion']?></td>
+                                <td>
+                                    <a href="#"
+                                        data-name="score" 
+                                        data-type="select"
+                                        data-pk=""
+                                        data-url="listbook/updateBookScore/<?php echo $book['val_id']?>" 
+                                        data-title="Puntuación" 
+                                        data-value="<?php echo $book['val_puntuacion']?>"
+                                        aria-describedBy="<?php echo $book['book_id']?>"
+                                        class="btn btn-default btn-md">
+                                    </a>
+                                </td>
                                 <td>
                                     <button id="idNotas" type="button" class="btn btn-default muestratext" 
                                         data-container="body" data-toggle="popover" 

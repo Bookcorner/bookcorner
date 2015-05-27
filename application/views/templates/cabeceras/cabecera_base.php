@@ -13,9 +13,8 @@
 <script> 
 
 $( document ).ready(function() {
-	$('#myForm').validator() 
-	$('#formPass').validator() 
-	});
+	$('#myForm').validator(); 
+	$('#formPass').validator(); 
 });
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">

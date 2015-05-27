@@ -31,11 +31,20 @@ class Listbook extends CI_Controller {
         
         loadCustomViews ( $views, $data );
     }
-    public function updateState($val_id) {
+    public function updateBookState($val_id) {
         $bookstatus = $_POST ['value'];
         $this->load->model ( 'listbooks_model' );
-        $this->listbooks_model->updateState ( $bookstatus, $val_id );
+        $this->listbooks_model->updateBookState ( $bookstatus, $val_id );
+        
     }
+    
+    public function updateBookScore($val_id) {
+        $bookscore = $_POST ['value'];
+        $this->load->model ( 'listbooks_model' );
+        $this->listbooks_model->updateBookScore( $bookscore, $val_id );
+    }
+    
+    
 }
 
     
