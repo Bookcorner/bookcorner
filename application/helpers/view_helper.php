@@ -69,6 +69,7 @@ function loadBasicViews($contentURI, $data = array()) {
         $data ['username'] = $CI->session->userdata ( 'name' );
         $data ['surname'] = $CI->session->userdata ( 'surname' );
         $data ['avatar'] = $CI->session->userdata ( 'avatar' );
+        $data ['role'] = $CI->session->userdata ( 'role' );
         
         $CI->load->view ( 'templates/menus/menu_logout', $data );
     } else {

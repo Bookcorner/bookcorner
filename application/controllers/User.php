@@ -3,13 +3,7 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 class User extends CI_Controller {
     public function showUserInfo() {
         $userId;
-        $cookie = 'bookcorner';
         $session = 'id';
-        
-        if (check_cookie_exist($cookie)){
-            $cookieData = get_cookie_data('bookcorner');
-            $userId = $cookieData [0];            
-        }
         
         if (check_session_exist($session)){
             $userId = $this->session->userdata ( $session );
