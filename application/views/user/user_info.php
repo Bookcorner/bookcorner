@@ -39,7 +39,7 @@
 						<form>
 							<label for="newmail">Introduce la nueva dirección de correo electrónico</label> 
 							<input id="idEmail" name="email"
-								pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$"
+								pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$"
 								class="input-large form-control" type="text" placeholder="email"
 								data-error="Dirección de correo no válida" required /> <br />
 							<button class="btn btn-primary">Cambiar email</button>
@@ -66,22 +66,26 @@
 				<div class="col-xs-12">
 					<div class="col-xs-10">
 						<h2>Cambiar datos de usuario</h2>
-						<form data-toggle="validator">
-							<label for="oldpass">Introduce la antigua contraseña</label> <input
-								type="password" name="oldpass" id="oldpass"
-								placeholder="********" class="form-control"> <br /> <label
-								for="newpass">Introduce la nueva contraseña</label> <input
-								type="password" name="newpass" id="newpass" pattern="^{5,12}$"
+						<form data-toggle="validator" id="formPass">
+						
+							<label for="oldpass">Introduce la antigua contraseña</label> 
+							<input type="password" name="oldpass" id="oldpass"
+								placeholder="********" class="form-control"> <br />
+								
+							<label for="newpass">Introduce la nueva contraseña</label>
+							<input type="password" name="newpass" id="newpass" pattern="^{5,12}$"
 								placeholder="********" class="form-control"
 								data-error="Contraseña no válida" class="input-large" required>
-							<br /> <label for="renewpass">Introduce la nueva contraseña otra
-								vez</label> <input type="password" name="renewpass"
+							<br />
+							<label for="renewpass">Introduce la nueva contraseña otra vez</label> 
+							<input type="password" name="renewpass"
 								id="renewpass" data-match="#idPass" class="form-control"
 								placeholder="********" class="input-large"
 								data-match-error="Error, la contraseña no coincide" required> <br />
+								
 							<button class="btn btn-primary">Cambiar contraseña</button>
 						</form>
-						<hr />
+						<hr/>
 						<button class="btn btn-default goto-page-3">
 							Más opciones <i class="glyphicon glyphicon-chevron-right"></i>
 						</button>

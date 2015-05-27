@@ -99,13 +99,13 @@
 
 												<!-- Username input-->
 												<div class="form-group">
-													<label class="control-label" for="iDusername">Nombre de
+													<label class="control-label" for="idUsername">Nombre de
 														usuario:</label>
 													<div class="controls">
 														<input id="idUsername" name="user" class="form-control"
-															type="text"
+															pattern="^{1,20}$" type="text"
 															placeholder="Usuario (tu nombre visible en la página)"
-															class="input-large" required />
+															data-error="Nombre de usuario no válida" class="input-large" required />
 													</div>
 													<div class="help-block with-errors"></div>
 												</div>

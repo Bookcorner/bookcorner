@@ -3,7 +3,7 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 class Login extends CI_Controller {
     public function __construct() {
         parent::__construct ();
-        $this->load->helper('users');
+        //$this->load->helper('users');
     }
     
     public function signin() {
@@ -33,8 +33,6 @@ class Login extends CI_Controller {
                     $isRememberChecked = $remember == 'on';
     
                     if ($isRememberChecked) {
-                        //$userCookie = $this->createUserCookieData ( $validUser );
-                        //$this->input->set_cookie ( $userCookie );
                         $this->config->set_item('sess_expire_on_close', FALSE);
                         $userSession = $this->createUserSession ( $validUser );
                         $this->session->set_userdata ( $userSession );
@@ -45,9 +43,6 @@ class Login extends CI_Controller {
                     }
                 }
                 
-                if (isAdministrator($validUser)) {
-                    redirect ( 'admin', 'refresh' );
-                }
             }
         }
         
@@ -56,7 +51,6 @@ class Login extends CI_Controller {
     }
     
     public function logout() {
-        delete_cookie ( 'bookcorner' );
         $this->session->sess_destroy ();
         redirect ( base_url(), 'refresh' );
     }
@@ -64,25 +58,6 @@ class Login extends CI_Controller {
         $this->form_validation->set_rules ( 'username', 'Usuario', 'required|alpha_numeric' );
         $this->form_validation->set_rules ( 'pwd', 'Contraseña', 'required' );
     }
-    
-    /**
-     * Create a cookie that expire in one year.
-     * This cookie name will be bookcorner, and the content it has are nickname, username and surname
-     *
-     * @param Object $user
-     *            User object returned by model
-     * @return multitype:string number data for the cookie
-     */
-    /*private function createUserCookieData($user) {
-        $cookieData = array (
-                'name' => 'bookcorner',
-                'value' => $user->user_id . '#' . $user->user_nickname . '#' . $user->user_name . '#' . $user->user_surname . '#' . $user->user_avatar,
-                'expire' => time () + (86400 * 365),
-                'path' => '/' 
-        );
-        
-        return $cookieData;
-    }*/
     
     /**
      * Create a CodeIgniter special session browser is open.
@@ -95,6 +70,7 @@ class Login extends CI_Controller {
         $sessionData = array (
                 'title' => 'bookcorner',
                 'id' => $user->user_id,
+                'role' => $user->userrole_id,
                 'username' => $user->user_nickname,
                 'name' => $user->user_name,
                 'surname' => $user->user_surname,

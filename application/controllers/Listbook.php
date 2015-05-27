@@ -2,13 +2,14 @@
 defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 class Listbook extends CI_Controller {
     public function showListBooks() {
-        $userId;
-        
-        $cookieName = 'bookcorner';
+        $userId;        
         $sessionName = 'id';
         
         if (check_session_exist ($sessionName)) {
             $userId = $this->session->userdata ( $sessionName );
+        } else {
+            $this->session->set_flashdata ( 'signUpError', 'No tiene permiso para acceder' );
+            redirect ( base_url (), 'refresh' );
         }
         
         $this->load->model ( 'listbooks_model' );
@@ -26,7 +27,13 @@ class Listbook extends CI_Controller {
                 'footer' => 'templates/footers/base_footer'
         ];
         
-        loadCustomViews($views, $data);
+        $templates = loadCustomViews($views, $data);
+        
+        if (!$templates) {
+            $this->session->set_flashdata ( 'signUpError', 'No tiene permiso para acceder' );
+            //redirect ( base_url (), 'refresh' );
+        }
+        
     }
     
     public function changeState($bookstatus, $book_id){
