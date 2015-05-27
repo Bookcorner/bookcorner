@@ -15,3 +15,14 @@ function check_session_exist($session) {
     }
     return false;
 }
+
+function get_userrole() {
+    $CI = & get_instance ();
+    // si tiene sesion, devuelve el role, sino, devuelve 0
+    if (check_session_exist('title')) {
+        return $CI->session->userdata( 'role' );
+    } else {
+        return 0;
+    }
+    
+}

@@ -22,9 +22,6 @@
 						<li class="<?php if ($title == 'Libros') { echo 'active'; }?>"><?php echo anchor(base_url('libros'), 'Libros')?></li>
 						<li class="<?php if ($title == 'Autores') { echo 'active'; }?>"><?php echo anchor(base_url('autores'), 'Autores')?></li>
 						<li class="<?php if ($title == 'Lista de libros') { echo 'active'; }?>"><?php echo anchor(base_url('lista-libros'), 'Listas')?></li>
-					   <?php if($role == 3) { ?>					       
-					       <li class="<?php if ($title == 'Admin') { echo 'active'; }?>"><?php echo anchor(base_url('Admin'), 'Admin')?></li>					       
-					   <?php } ?>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li>
@@ -59,11 +56,13 @@
 								    <?php echo anchor(base_url('informacion-de-usuario'), 'Perfil', ['role' => 'menuitem'])?>
 								</li>
 								<li role="presentation" class="divider"></li>
-								<li role="presentation">
-								    <?php echo anchor(base_url('configuracion-de-usuario'), 'Configuración', [
-								            'role' => 'menuitem',
-								            'tabindex' => '-1'
-								    ])?>
+								<li role="presentation">								    
+								    <?php if($role == 3) {
+								        echo anchor(base_url('Admin'), 'Admin', [
+								                'role' => 'menuitem',
+								                'tabindex' => '-1'
+								        ]);
+								    } ?>
 								</li>
 								<li><?php echo anchor(base_url('login/logout'), 'Salir')?></li>
 							</ul>

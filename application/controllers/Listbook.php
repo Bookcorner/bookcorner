@@ -29,17 +29,12 @@ class Listbook extends CI_Controller {
                 'footer' => 'templates/footers/base_footer' 
         ];
         
-        $templates = loadCustomViews ( $views, $data );
-        
-        if (! $templates) {
-            $this->session->set_flashdata ( 'signUpError', 'No tiene permiso para acceder' );
-            // redirect ( base_url (), 'refresh' );
-        }
+        loadCustomViews ( $views, $data );
     }
     public function updateState($val_id) {
         $bookstatus = $_POST ['value'];
         $this->load->model ( 'listbooks_model' );
-        $result = $this->listbooks_model->updateState ( $bookstatus, $val_id);
+        $result = $this->listbooks_model->updateState ( $bookstatus, $val_id );
     }
 }
 

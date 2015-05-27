@@ -1,12 +1,15 @@
 <?php
 defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 class User extends CI_Controller {
-    public function showUserInfo() {
+    public function showUserInfo() {        
         $userId;
         $session = 'id';
         
         if (check_session_exist($session)){
             $userId = $this->session->userdata ( $session );
+        } else {
+            $this->session->set_flashdata ( 'signUpError', 'No tiene permiso para acceder' );
+            redirect ( base_url (), 'refresh' );
         }
         
         $this->load->model ( 'users_model' );
@@ -27,7 +30,7 @@ class User extends CI_Controller {
         loadCustomViews($views, $data);
     }
     
-    public function showUserConfig() {
+    public function showUserConfig() {        
         $data ['title'] = 'Información de Usuario';
         
         $viewURI = 'user/user_config';
