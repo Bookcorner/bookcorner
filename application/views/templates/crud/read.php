@@ -3,7 +3,8 @@
 		<div class="panel-title overflow">
 			<h4 class="alignleft">Libros</h4>
 			<a data-toggle="collapse" href="#crudBook" aria-expanded="true"
-				class="alignright"> <span class="glyphicon glyphicon-resize-full"
+				class="alignright"> <span class="glyphicon glyphicon-chevron-down"
+				aria-hidden="true"></span> <span class="glyphicon glyphicon-resize-full"
 				aria-hidden="true"></span>
 			</a>
 		</div>
@@ -15,10 +16,12 @@
 				<thead>
 					<tr>
 						<th>Acciones</th>
-						<th>Nombre</th>
-						<th>Dato 1</th>
-						<th>Dato 2</th>
-						<th>Dato 3</th>
+						<th>Book Id</th>
+						<th>Book ISBN</th>
+						<th>Book Name</th>
+						<th>Book Description</th>
+						<th>Book IMG</th>
+						<th>Bookstate ID</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -35,6 +38,10 @@
 							placeholder="Buscar por x" /></td>
 						<td><input type="text" class="form-control"
 							placeholder="Buscar por x" /></td>
+							<td><input type="text" class="form-control"
+							placeholder="Buscar por x" /></td>
+							<td><input type="text" class="form-control"
+							placeholder="Buscar por x" /></td>
 					</tr>
 					<tr>
 						<td><input type="checkbox">
@@ -50,29 +57,27 @@
 								</button>
 								<ul class="dropdown-menu" role="menu">
 									<li><a href="#">Ver <i class="glyphicon glyphicon-eye-open"></i></a></li>
-									<li><a href="#">Borrar <i class="glyphicon glyphicon-trash"></i></a>
-
-
-
-									</li>
+									<li><a href="#">Borrar <i class="glyphicon glyphicon-trash"></i></a>									</li>
 								</ul>
 							</div></td>
-						<td>Perico</td>
-						<td>Dato 1 de Perico</td>
-						<td>Dato 2 de Perico</td>
-						<td>Dato 3 de Perico</td>
+						<td>1</td>
+						<td>9788483462034</td>
+						<td>La Casa de los Espíritus</td>
+						<td>...</td>
+						<td>lacasadelosespiritus.png</td>
+						<td>1</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 		<div class="panel-footer">
-			<div class="alignleft">
+			<div class="alignleft form-inline">
 				Mostrar <select class="form-control">
 					<option>10</option>
 					<option>25</option>
 					<option>50</option>
 					<option>100</option>
-				</select>entradas por página
+				</select> entradas por página
 			</div>
 			<div class="alignright">
 				<ul class="pagination">
@@ -86,6 +91,7 @@
 					<li><a href="#">></a></li>
 					<li><a href="#">>></a></li>
 				</ul>
+				
 			</div>
 		</div>
 	</div>
