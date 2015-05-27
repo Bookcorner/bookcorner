@@ -42,6 +42,7 @@ function loadMenu(){
         $data ['username'] = $CI->session->userdata ( 'name' );
         $data ['surname'] = $CI->session->userdata ( 'surname' );
         $data ['avatar'] = $CI->session->userdata ( 'avatar' );
+        $data ['role'] = $CI->session->userdata ( 'role' );
     
         $CI->load->view ( 'templates/menus/menu_logout', $data );
     } else {
@@ -71,8 +72,17 @@ function loadBasicViews($contentURI, $data = array()) {
         $data ['avatar'] = $CI->session->userdata ( 'avatar' );
         $data ['role'] = $CI->session->userdata ( 'role' );
         
+        if ($data ['role'] != 3) {
+            if ($data['title'] == 'Admin') {
+                return false;
+            }
+        }
+        
         $CI->load->view ( 'templates/menus/menu_logout', $data );
     } else {
+        if ($data['title'] == 'Admin') {
+            return false;
+        }
         $CI->load->view ( 'templates/menus/menu_login', $data );
     }
     $CI->load->view ( $contentURI, $data );
