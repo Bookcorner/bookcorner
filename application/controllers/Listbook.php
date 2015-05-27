@@ -27,12 +27,7 @@ class Listbook extends CI_Controller {
                 'footer' => 'templates/footers/base_footer'
         ];
         
-        $templates = loadCustomViews($views, $data);
-        
-        if (!$templates) {
-            $this->session->set_flashdata ( 'signUpError', 'No tiene permiso para acceder' );
-            //redirect ( base_url (), 'refresh' );
-        }
+        loadCustomViews($views, $data);
         
     }
     
