@@ -2,15 +2,8 @@
 defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 class Listbook extends CI_Controller {
     public function showListBooks() {
-        $userId;
-        
-        $cookieName = 'bookcorner';
+        $userId;        
         $sessionName = 'id';
-        
-        if (check_cookie_exist ($cookieName)) {
-            $cookieData = explode ( '#', $this->input->cookie ( $cookieName ) );
-            $userId = $cookieData [0];
-        }
         
         if (check_session_exist ($sessionName)) {
             $userId = $this->session->userdata ( $sessionName );
