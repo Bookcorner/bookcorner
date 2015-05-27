@@ -34,7 +34,7 @@ class Listbook extends CI_Controller {
     public function updateState($val_id) {
         $bookstatus = $_POST ['value'];
         $this->load->model ( 'listbooks_model' );
-        $result = $this->listbooks_model->updateState ( $bookstatus, $val_id );
+        $this->listbooks_model->updateState ( $bookstatus, $val_id );
     }
 }
 
