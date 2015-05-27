@@ -88,4 +88,6 @@ function loadBasicViews($contentURI, $data = array()) {
     $CI->load->view ( $contentURI, $data );
     $CI->load->view ( 'templates/footers/base_footer' );
     $CI->load->view ( 'templates/end' );
+    
+    return true;
 }
