@@ -24,7 +24,7 @@ class Listbook extends CI_Controller {
                 'cabeceras' => [
                         'templates/cabeceras/cabecera_base', 
                         'templates/cabeceras/cabecera_usuario', 
-                        'templates/cabeceras/cabecera_xeditable'
+                        'templates/cabeceras/cabecera_popup'
                     ],
                 'contenidos' => ['lists/all_listbook'],
                 'footer' => 'templates/footers/base_footer'

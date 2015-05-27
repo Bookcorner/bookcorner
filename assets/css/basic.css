@@ -1,7 +1,7 @@
 /*CSS Background*/
 body{
 	background-image:url("../images/background/background.png");
-	background-repeat: repeat-x;
+	background-repeat: repeat;
 }
 
 /* Carousel base class */
