@@ -37,7 +37,7 @@
                                         data-name="status" 
                                         data-type="select" 
                                         data-pk="<?php echo $book['val_id']?>"
-                                        data-url="listbook/updateState/estado/<?php echo $book['book_id']?>" 
+                                        data-url="listbook/updateState/<?php echo $book['val_id']?>" 
                                         data-title="Selecciona un estado" 
                                         data-value="<?php echo $book['val_estado_libro']?>"
                                         aria-describedBy="<?php echo $book['book_id']?>"

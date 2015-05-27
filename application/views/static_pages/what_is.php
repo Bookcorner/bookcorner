@@ -42,7 +42,7 @@
 						<p>Gestiona en un lugar centralizado todos los libros que te has
 							leído, y compártelos con tus amigos de forma sencilla.</p>
 						<p>
-						    <?php echo anchor(base_url('listbook/showListBooks'), '¡Quiero
+						    <?php echo anchor(base_url('lista-libros'), '¡Quiero
 								Gestionar mis listas!', [
 								            'class' => 'btn btn-lg btn-primary',
 								            'role' => 'button'

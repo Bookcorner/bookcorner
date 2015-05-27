@@ -137,31 +137,31 @@ class Bbdd extends CI_Controller {
         $valuation1->val_id = 1;
         $valuation1->val_puntuacion = 1;
         $valuation1->val_nota_libro = 'Págino 250.';
-        $valuation1->val_estado_libro = 'Leyendo';
+        $valuation1->val_estado_libro = 1;
         
         $valuation2 = R::Dispense ( 'valuation' );
         $valuation2->val_id = 2;
         $valuation2->val_puntuacion = 10;
         $valuation2->val_nota_libro = 'Este es el siguiente seguro';
-        $valuation2->val_estado_libro = 'Pendiente';
+        $valuation2->val_estado_libro = 2;
         
         $valuation3 = R::Dispense ( 'valuation' );
         $valuation3->val_id = 3;
         $valuation3->val_puntuacion = 5;
         $valuation3->val_nota_libro = 'No me gustó mucho';
-        $valuation3->val_estado_libro = 'Terminado';
+        $valuation3->val_estado_libro = 4;
         
         $valuation3 = R::Dispense ( 'valuation' );
         $valuation3->val_id = 3;
         $valuation3->val_puntuacion = 5;
         $valuation3->val_nota_libro = 'No me gustó mucho';
-        $valuation3->val_estado_libro = 'Terminado';
+        $valuation3->val_estado_libro = 2;
         
         $valuation4 = R::Dispense ( 'valuation' );
         $valuation4->val_id = 4;
         $valuation4->val_puntuacion = 0;
         $valuation4->val_nota_libro = 'Introduce una nota';
-        $valuation4->val_estado_libro = 'Pendiente';
+        $valuation4->val_estado_libro = 3;
         
         $valuation5 = R::Dispense ( 'valuation' );
         $valuation5->val_id = 5;
@@ -203,61 +203,61 @@ class Bbdd extends CI_Controller {
         $valuation11->val_id = 11;
         $valuation11->val_puntuacion = 0;
         $valuation11->val_nota_libro = 'Introduce una nota';
-        $valuation11->val_estado_libro = 'Pendiente';
+        $valuation11->val_estado_libro = 1;
         
         $valuation12 = R::Dispense ( 'valuation' );
         $valuation12->val_id = 12;
         $valuation12->val_puntuacion = 0;
         $valuation12->val_nota_libro = 'Introduce una nota';
-        $valuation12->val_estado_libro = 'Pendiente';
+        $valuation12->val_estado_libro = 2;
         
         $valuation13 = R::Dispense ( 'valuation' );
         $valuation13->val_id = 13;
         $valuation13->val_puntuacion = 0;
         $valuation13->val_nota_libro = 'Introduce una nota';
-        $valuation13->val_estado_libro = 'Pendiente';
+        $valuation13->val_estado_libro = 3;
         
         $valuation14 = R::Dispense ( 'valuation' );
         $valuation14->val_id = 14;
         $valuation14->val_puntuacion = 0;
         $valuation14->val_nota_libro = 'Introduce una nota';
-        $valuation14->val_estado_libro = 'Pendiente';
+        $valuation14->val_estado_libro = 4;
         
         $valuation15 = R::Dispense ( 'valuation' );
         $valuation15->val_id = 15;
         $valuation15->val_puntuacion = 0;
         $valuation15->val_nota_libro = 'Introduce una nota';
-        $valuation15->val_estado_libro = 'Pendiente';
+        $valuation15->val_estado_libro = 2;
         
         $valuation16 = R::Dispense ( 'valuation' );
         $valuation16->val_id = 16;
         $valuation16->val_puntuacion = 0;
         $valuation16->val_nota_libro = 'Introduce una nota';
-        $valuation16->val_estado_libro = 'Pendiente';
+        $valuation16->val_estado_libro = 1;
         
         $valuation17 = R::Dispense ( 'valuation' );
         $valuation17->val_id = 17;
         $valuation17->val_puntuacion = 0;
         $valuation17->val_nota_libro = 'Introduce una nota';
-        $valuation17->val_estado_libro = 'Pendiente';
+        $valuation17->val_estado_libro = 3;
         
         $valuation18 = R::Dispense ( 'valuation' );
         $valuation18->val_id = 18;
         $valuation18->val_puntuacion = 0;
         $valuation18->val_nota_libro = 'Introduce una nota';
-        $valuation18->val_estado_libro = 'Pendiente';
+        $valuation18->val_estado_libro = 1;
         
         $valuation19 = R::Dispense ( 'valuation' );
         $valuation19->val_id = 19;
         $valuation19->val_puntuacion = 0;
         $valuation19->val_nota_libro = 'Introduce una nota';
-        $valuation19->val_estado_libro = 'Pendiente';
+        $valuation19->val_estado_libro = 1;
         
         $valuation20 = R::Dispense ( 'valuation' );
         $valuation20->val_id = 20;
         $valuation20->val_puntuacion = 0;
         $valuation20->val_nota_libro = 'Introduce una nota';
-        $valuation20->val_estado_libro = 'Pendiente';
+        $valuation20->val_estado_libro = 3;
         
         // Create book
         $book1 = R::Dispense ( 'book' );
