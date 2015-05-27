@@ -9,13 +9,12 @@
 	src="<?php echo asset_url()?>js/bootstrap.min.js"></script>
 <script type="text/javascript"
 	src="<?php echo asset_url()?>js/validator.min.js"></script>
-<script type="text/javascript"
-	src="<?php echo asset_url()?>js/jquery-ui.min.js"></script>
-<script> $('#myForm').validator() </script>
-<script> $(function() {
-    $( "#accordion" ).accordion({
-        collapsible: true
-      });
-    }); </script>
+<script> 
 
+$( document ).ready(function() {
+	$('#myForm').validator() 
+	$('#formPass').validator() 
+	});
+});
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
