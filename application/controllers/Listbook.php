@@ -35,16 +35,17 @@ class Listbook extends CI_Controller {
         $bookstatus = $_POST ['value'];
         $this->load->model ( 'listbooks_model' );
         $this->listbooks_model->updateBookState ( $bookstatus, $val_id );
-        
     }
-    
     public function updateBookScore($val_id) {
         $bookscore = $_POST ['value'];
         $this->load->model ( 'listbooks_model' );
-        $this->listbooks_model->updateBookScore( $bookscore, $val_id );
+        $this->listbooks_model->updateBookScore ( $bookscore, $val_id );
     }
-    
-    
+    public function updateBookNote($val_id) {
+        $booknote = $_POST ['value'];
+        $this->load->model ( 'listbooks_model' );
+        $this->listbooks_model->updateBookNote ( $booknote, $val_id );
+    }
 }
 
     

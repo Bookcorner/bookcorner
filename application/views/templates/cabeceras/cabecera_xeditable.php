@@ -30,5 +30,9 @@ $(document).ready(function() {
               {value: 11, text: '-'}
            ]
     });
+
+    $("a[data-name='note']").editable({  
+    	placement: 'bottom'
+    });    
 });
 </script>

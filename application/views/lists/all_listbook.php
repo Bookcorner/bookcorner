@@ -57,12 +57,17 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <button id="idNotas" type="button" class="btn btn-default muestratext" 
-                                        data-container="body" data-toggle="popover" 
-                                        data-placement="bottom" 
-                                        data-content="<?php echo $book['val_nota_libro']?>">
-                                        <span class="glyphicon glyphicon-edit"></span>
-                                    </button>
+                                    <a href="#"
+                                        data-name="note" 
+                                        data-type="textarea"
+                                        data-pk=""
+                                        data-url="listbook/updateBookNote/<?php echo $book['val_id']?>" 
+                                        data-title="Introduce tus notas:" 
+                                        data-value="<?php echo $book['val_nota_libro']?>"
+                                        aria-describedBy="<?php echo $book['book_id']?>"
+                                        class="btn btn-default btn-md">
+                                        <i class="glyphicon glyphicon-edit"></i>
+                                    </a>
                                 </td>
         				    </tr>    
         		        <?php endforeach;?>

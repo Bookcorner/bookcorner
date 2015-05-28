@@ -28,4 +28,10 @@ class Listbooks_model extends CI_Model {
                 'id' => $val_id
         ] );
     }
+    function updateBookNote($booknote, $val_id) {
+        R::exec( 'UPDATE valuation SET val_nota_libro = :booknote WHERE val_id = :id', [
+                'booknote' => $booknote,
+                'id' => $val_id
+        ] );
+    }
 }
