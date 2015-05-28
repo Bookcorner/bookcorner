@@ -17,21 +17,82 @@ class Listbooks_model extends CI_Model {
         return $booksInList;
     }
     function updateBookState($bookstatus, $val_id) {
-        R::exec( 'UPDATE valuation SET val_estado_libro = :bookstatus WHERE val_id = :id', [
-                'bookstatus' => $bookstatus, 
-                'id' => $val_id
+        R::exec ( 'UPDATE valuation SET val_estado_libro = :bookstatus WHERE val_id = :id', [ 
+                'bookstatus' => $bookstatus,
+                'id' => $val_id 
         ] );
     }
     function updateBookScore($bookscore, $val_id) {
-        R::exec( 'UPDATE valuation SET val_puntuacion = :bookscore WHERE val_id = :id', [
+        R::exec ( 'UPDATE valuation SET val_puntuacion = :bookscore WHERE val_id = :id', [ 
                 'bookscore' => $bookscore,
-                'id' => $val_id
+                'id' => $val_id 
         ] );
     }
     function updateBookNote($booknote, $val_id) {
-        R::exec( 'UPDATE valuation SET val_nota_libro = :booknote WHERE val_id = :id', [
+        R::exec ( 'UPDATE valuation SET val_nota_libro = :booknote WHERE val_id = :id', [ 
                 'booknote' => $booknote,
-                'id' => $val_id
+                'id' => $val_id 
         ] );
+    }
+    function getListbookFrom($userId) {
+        R::load ( 'user', $userId );
+        $listbook_id = R::exec ( 'SELECT listbook_id FROM user WHERE user_id = :user_id', [ 
+                'user_id' => $userId 
+        ] );
+        return $listbook_id;
+    }
+    function addBookToList($book_id, $listbook_id) {
+        R::begin ();
+        $isBookCreated = false;
+        
+        try {
+            $valuation = $this->createDefaultValuationRow ();
+            
+            $book = R::load ( 'book', $book_id );
+            $listbook = R::load ( 'listbook', $listbook_id );
+            
+            $this->makeBookAndListbookRelations ( $book, $listbook, $valuation );
+            
+            $this->storeBookListAdded ( $book, $listbook, $valuation );
+            R::commit ();
+            $isBookCreated = true;
+            return $isBookCreated;
+        } catch ( Exception $e ) {
+            R::rollback ();
+            $isBookCreated = false;
+            return $isBookCreated;
+        }
+    }
+    private function getLastValId() {
+        $lastValId = R::count ( 'valuation' ) + 1;
+        return $lastValId;
+    }
+    private function createDefaultValuationRow() {
+        $valuation = R::Dispense ( 'valuation' );
+        $valuation->val_id = $this->getLastValId ();
+        $valuation->val_puntuacion = 11;
+        $valuation->val_nota_libro = 'Introduce una nota';
+        $valuation->val_estado_libro = 2;
+        return $valuation;
+    }
+    private function makeBookAndListbookRelations($book, $listbook, $valuation) {
+        $listbook->ownValuationList [] = $valuation;
+        $book->ownValuationList [] = $valuation;
+        $book->sharedListbookList [] = $listbook;
+    }
+    private function storeBookListAdded($book, $listbook, $valuation) {
+        R::store ( $listbook );
+        R::store ( $valuation );
+        
+        R::storeAll ( [ 
+                $book 
+        ] );
+    }
+    function getBookFromListbook($book_id, $listbook_id) {
+        $book = R::findOne ( 'book_listbook', 'WHERE listbook_id = :listbook_id AND book_id = :book_id', [ 
+                'listbook_id' => $listbook_id,
+                'book_id' => $book_id 
+        ] );
+        return $book;
     }
 }

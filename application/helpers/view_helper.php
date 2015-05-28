@@ -4,15 +4,15 @@ if (! defined ( 'BASEPATH' ))
 
 /**
  * Carga la vista completa de la página, con su cabecera, header, y footer.
- * Recibe dos datos por parámetro, que vana ser dos arrays bidimensionales, 
+ * Recibe dos datos por parámetro, que vana ser dos arrays bidimensionales,
  * para pasar los datos y cargar las vistas que sean necesarias en una sola función.
  *
  * @param Array[][] $views
- *            donde la clave es el la parte de contenido que estás 
- *            cargando(cabeceras, contenidos) y el valor es un 
+ *            donde la clave es el la parte de contenido que estás
+ *            cargando(cabeceras, contenidos) y el valor es un
  *            array de string con la ruta al nombre del archivo de cada vista desde la carpeta views.
  * @param Array $data
- *            dónde la clave es la variable que su usara para cargar el dato en la vista, 
+ *            dónde la clave es la variable que su usara para cargar el dato en la vista,
  *            y el valor es el tipo de dato que se pasará para procesar en la vista.
  */
 function loadCustomViews($views, $data = null) {
@@ -22,28 +22,28 @@ function loadCustomViews($views, $data = null) {
         $CI->load->view ( $cabecera );
     }
     $CI->load->view ( 'templates/cabeceras/fin_cabecera' );
-    loadMenu();
+    loadMenu ();
     foreach ( $views ['contenidos'] as $contenido ) {
         $CI->load->view ( $contenido );
     }
-    $CI->load->view ( $views['footer'] );
+    $CI->load->view ( $views ['footer'] );
     $CI->load->view ( 'templates/end' );
 }
 
 /**
  * Carga el menú apropiado entre los menús posibles.
  */
-function loadMenu(){
+function loadMenu() {
     $CI = & get_instance ();
     
-    if (check_session_exist ('title')) {
+    if (check_session_exist ( 'title' )) {
         $data ['id'] = $CI->session->userdata ( 'id' );
         $data ['nickname'] = $CI->session->userdata ( 'username' );
         $data ['username'] = $CI->session->userdata ( 'name' );
         $data ['surname'] = $CI->session->userdata ( 'surname' );
         $data ['avatar'] = $CI->session->userdata ( 'avatar' );
         $data ['role'] = $CI->session->userdata ( 'role' );
-    
+        
         $CI->load->view ( 'templates/menus/menu_logout', $data );
     } else {
         $CI->load->view ( 'templates/menus/menu_login', $data );
@@ -64,7 +64,7 @@ function loadBasicViews($contentURI, $data = array()) {
     $CI->load->view ( 'templates/cabeceras/cabecera_base', $data );
     $CI->load->view ( 'templates/cabeceras/fin_cabecera' );
     
-    if (check_session_exist ('title')) {
+    if (check_session_exist ( 'title' )) {
         $data ['id'] = $CI->session->userdata ( 'id' );
         $data ['nickname'] = $CI->session->userdata ( 'username' );
         $data ['username'] = $CI->session->userdata ( 'name' );

@@ -84,8 +84,14 @@
 		</div>
 		<!-- FIN DE MENU-->
 	</div>
+	
+    <div class="row">
+        <div class="col-xs-12">
+            <?php if($this->session->flashdata('signUpError')) { ?> <div class="alert alert-danger text-center" role="alert"> <?= $this->session->flashdata('signUpError') ?> </div> <?php } ?>
+            <?php if($this->session->flashdata('signInError')) { ?> <div class="alert alert-warning text-center" role="alert"> <?= $this->session->flashdata('signInError') ?> </div> <?php } ?>
+            <?php if($this->session->flashdata('ok')) { ?> <div class="alert alert-info text-center" role="alert"> <?= $this->session->flashdata('ok') ?> </div> <?php } ?>
+            <?php if($this->session->flashdata('signUpSuccess')) { ?> <div class="alert alert-success text-center" role="alert"> <?= $this->session->flashdata('signUpSuccess') ?> </div> <?php } ?>
+            <?php if($this->session->flashdata('bookAlreadyAdded')) { ?> <div class="alert alert-warning text-center" role="alert"> <?= $this->session->flashdata('bookAlreadyAdded') ?> </div> <?php } ?>
+        </div>
+    </div>
 </div>
-
-<?php if($this->session->flashdata('signUpError')) { ?> <div class="alert alert-danger text-center" role="alert"> <?= $this->session->flashdata('signUpError') ?> </div> <?php } ?>
-<?php if($this->session->flashdata('signInError')) { ?> <div class="alert alert-warning text-center" role="alert"> <?= $this->session->flashdata('signInError') ?> </div> <?php } ?>
-<?php if($this->session->flashdata('ok')) { ?> <div class="alert alert-info text-center" role="alert"> <?= $this->session->flashdata('ok') ?> </div> <?php } ?>

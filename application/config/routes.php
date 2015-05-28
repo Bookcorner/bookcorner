@@ -67,6 +67,7 @@ $route['registrarse'] = 'user/signup';
 $route['activar/:any'] = 'user/activate';
 $route['cancelar/:any'] = 'user/cancel';
 $route['lista-libros'] = 'listbook/showListBooks';
+$route['anadir-libro'] = 'listbook/addBookToList';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
