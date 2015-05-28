@@ -30,9 +30,10 @@
                     </div>
 				</div>
 				<div class ="panel-footer">
-                    <button type="button" class="btn btn-default" aria-label="Left Align">
-                        <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Añadir a mi lista
-                    </button>
+                    <a href="listbook/addBookToList/<?php echo $book['book_id']?>" class="btn btn-default">
+				        <i class="glyphicon glyphicon-plus-sign" aria-hidden="true"></i>
+				        Añadir a mi lista
+				    </a>
                     <button type="button" class="btn btn-default" aria-label="Left Align">
                         <span class="glyphicon glyphicon-hand-up" aria-hidden="true"></span> Votar
                     </button>

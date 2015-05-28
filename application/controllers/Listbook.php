@@ -2,16 +2,14 @@
 defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 class Listbook extends CI_Controller {
     public function showListBooks() {
-        $userId;
         $sessionName = 'id';
         
-        if (check_session_exist ( $sessionName )) {
-            $userId = $this->session->userdata ( $sessionName );
-        } else {
-            $this->session->set_flashdata ( 'signUpError', 'No tiene permiso para acceder' );
+        if (! check_session_exist ( $sessionName )) {
+            $this->session->set_flashdata ( 'signUpError', 'Debes Registrarte Primero' );
             redirect ( base_url (), 'refresh' );
         }
         
+        $userId = $this->session->userdata ( $sessionName );
         $this->load->model ( 'listbooks_model' );
         $data ['title'] = 'Lista de libros';
         $data ['books'] = $this->listbooks_model->getAllBooklistFromUser ( $userId );
@@ -35,33 +33,35 @@ class Listbook extends CI_Controller {
         $bookstatus = $_POST ['value'];
         $this->load->model ( 'listbooks_model' );
         $this->listbooks_model->updateBookState ( $bookstatus, $val_id );
-        
     }
-    
     public function updateBookScore($val_id) {
         $bookscore = $_POST ['value'];
         $this->load->model ( 'listbooks_model' );
-        $this->listbooks_model->updateBookScore( $bookscore, $val_id );
+        $this->listbooks_model->updateBookScore ( $bookscore, $val_id );
     }
-    public function addBookToList($bookId){
+    public function addBookToList($bookId) {
         $sessionName = 'id';
         
-        if (!check_session_exist ( $sessionName )) {
+        if (! check_session_exist ( $sessionName )) {
             $this->session->set_flashdata ( 'signUpError', 'Debes Registrarte Primero' );
             redirect ( base_url (), 'refresh' );
         }
+        
         $userId = $this->session->userdata ( $sessionName );
         $this->load->model ( 'listbooks_model' );
-        $listbook = $this->listbooks_model->getListbookFrom ($userId);
-        $success = $this->listbooks_model->addBookToList( $bookId, $listbook );
-        if ($success){
-            $this->session->set_flashdata ( 'signUpSuccess', 'Libro añadido correctamente.' );            
-        } else {
-            $this->session->set_flashdata ( 'signUpFail', 'Problemas al añadir el libro.' );
+        $listbook_id = $this->listbooks_model->getListbookFrom ( $userId );
+        
+        $isBookAlreadyInList = $this->listbooks_model->getBookFromListbook($bookId, $listbook_id);
+        
+        if ($isBookAlreadyInList){            
+            $this->session->set_flashdata ( 'bookAlreadyAdded', 'Este libro ya está en tu lista.' );
+            redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
         }
+                
+        $success = $this->listbooks_model->addBookToList ( $bookId, $listbook_id );
+        $this->session->set_flashdata ( 'signUpSuccess', 'Libro añadido correctamente.' );
         redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
     }
-    
 }
 
     
