@@ -134,11 +134,15 @@
 						<div class="help-block with-errors"></div>
 					</div>
                     
-					<img id="captcha"
-						src="library/vender/securimage/securimage_show.php"
-						alt="CAPTCHA Image" /> <a href="#"
-						onclick="document.getElementById('captcha').src = 'library/vender/securimage/securimage_show.php?' + Math.random(); return false"
-						class="btn btn-info btn-sm">Show a Different Image</a><br />
+                    <?php 
+                    
+                        $infoCaptcha = generateCaptcha();
+                        $this->session->set_flashdata( 'captcha', $infoCaptcha['randomtext'] );
+                        echo $infoCaptcha['img'];
+                    
+                    ?>
+					
+					<br />
 					<div class="form-group" style="margin-top: 10px;">
 						<input type="text" class="form-control" name="captcha_code"
 							id="captcha_code"
