@@ -5,7 +5,7 @@ class Listbook extends CI_Controller {
         $sessionName = 'id';
         
         if (! check_session_exist ( $sessionName )) {
-            $this->session->set_flashdata ( 'signInError', 'Debes Registrarte Primero' );
+            $this->session->set_flashdata ( 'signInError', getSignInErrorMsg() );
             redirect ( base_url (), 'refresh' );
         }
         
@@ -48,7 +48,7 @@ class Listbook extends CI_Controller {
         $sessionName = 'id';
         
         if (! check_session_exist ( $sessionName )) {
-            $this->session->set_flashdata ( 'signUpError', 'Debes Registrarte Primero' );
+            $this->session->set_flashdata ( 'signInError', getSignInErrorMsg() );
             redirect ( base_url (), 'refresh' );
         }
         
@@ -59,12 +59,12 @@ class Listbook extends CI_Controller {
         $isBookAlreadyInList = $this->listbooks_model->getBookFromListbook ( $bookId, $listbook_id );
         
         if ($isBookAlreadyInList) {
-            $this->session->set_flashdata ( 'bookAlreadyAdded', 'Este libro ya está en tu lista.' );
+            $this->session->set_flashdata ( 'bookAlreadyAdded', getBookAlreadyAddedErrorMsg() );
             redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
         }
         
         $success = $this->listbooks_model->addBookToList ( $bookId, $listbook_id );
-        $this->session->set_flashdata ( 'signUpSuccess', 'Libro añadido correctamente.' );
+        $this->session->set_flashdata ( 'bookAddedSuccess', getBookAddedSuccessMsg() );
         redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
     }
 }
