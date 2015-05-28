@@ -30,8 +30,8 @@
 								'role' => 'search' 
 							] )?>
     							<select class="form-control" name="typeOfSearch">
-    								<option value="author">Autores</option>
-    								<option value="book">Libros</option>
+    							    <option value="book">Libros</option>
+    								<option value="author">Autores</option>    								
     							</select>
     							<div class="form-group">
     								<input type="text" id="idSearchName" name="searchName" class="form-control" placeholder="Buscar...">
@@ -241,5 +241,6 @@
 </div>
 
 <?php if($this->session->flashdata('signUpError')) { ?> <div class="alert alert-danger text-center" role="alert"> <?= $this->session->flashdata('signUpError') ?> </div> <?php } ?>
+<?php if($this->session->flashdata('signInError')) { ?> <div class="alert alert-warning text-center" role="alert"> <?= $this->session->flashdata('signInError') ?> </div> <?php } ?>
 <?php if($this->session->flashdata('ok')) { ?> <div class="alert alert-info text-center" role="alert"> <?= $this->session->flashdata('ok') ?> </div> <?php } ?>
 	        
