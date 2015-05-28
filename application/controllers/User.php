@@ -8,7 +8,7 @@ class User extends CI_Controller {
         if (check_session_exist($session)){
             $userId = $this->session->userdata ( $session );
         } else {
-            $this->session->set_flashdata ( 'signUpError', 'No tiene permiso para acceder' );
+            $this->session->set_flashdata ( 'signInError', 'Inicie sesión para continuar' );
             redirect ( base_url (), 'refresh' );
         }
         

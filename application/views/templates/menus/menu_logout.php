@@ -21,7 +21,18 @@
 						<li class="<?php if ($title == 'Home') { echo 'active'; }?>"><?php echo anchor(base_url('home'), 'Home')?></li>
 						<li class="<?php if ($title == 'Libros') { echo 'active'; }?>"><?php echo anchor(base_url('libros'), 'Libros')?></li>
 						<li class="<?php if ($title == 'Autores') { echo 'active'; }?>"><?php echo anchor(base_url('autores'), 'Autores')?></li>
-						<li class="<?php if ($title == 'Lista de libros') { echo 'active'; }?>"><?php echo anchor(base_url('lista-libros'), 'Listas')?></li>
+												
+						<li class="dropdown <?php if ($title == 'Lista de libros' || $title == 'Lista de autores') echo "active" ?>">
+    						<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+        						Listas 
+                            </a>
+    						<ul class="dropdown-menu" role="menu">
+    							<li><?php echo anchor(base_url('lista-libros'), 'Lista de Libros')?></li>
+    							<li class="divider"></li>
+    							<li><?php echo anchor(base_url('lista-autores'), 'Lista de Autores')?></li>
+    						</ul>
+						</li>
+											
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li>
@@ -31,8 +42,8 @@
 								'role' => 'search' 
 							] )?>
 								<select class="form-control" name="typeOfSearch">
+								    <option value="book">Libros</option>
 									<option value="author">Autores</option>
-									<option value="book">Libros</option>
 								</select>
 								<div class="form-group">
     								<input type="text" id="idSearchName" name="searchName" class="form-control" placeholder="Buscar...">
@@ -76,4 +87,5 @@
 </div>
 
 <?php if($this->session->flashdata('signUpError')) { ?> <div class="alert alert-danger text-center" role="alert"> <?= $this->session->flashdata('signUpError') ?> </div> <?php } ?>
+<?php if($this->session->flashdata('signInError')) { ?> <div class="alert alert-warning text-center" role="alert"> <?= $this->session->flashdata('signInError') ?> </div> <?php } ?>
 <?php if($this->session->flashdata('ok')) { ?> <div class="alert alert-info text-center" role="alert"> <?= $this->session->flashdata('ok') ?> </div> <?php } ?>
