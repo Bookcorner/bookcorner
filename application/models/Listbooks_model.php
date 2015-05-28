@@ -28,4 +28,24 @@ class Listbooks_model extends CI_Model {
                 'id' => $val_id
         ] );
     }
+    function addBookToList($book_id, $listbook){
+        $valuation = R::Dispense('valuation');
+        $valuation->val_id = getLastValId();
+        $valuation->val_puntuacion = 11;
+        $valuation->val_nota_libro = 'Introduce una nota';
+        $valuation->val_estado_libro = 2;
+        
+        $book = R::load('book', $book_id);
+        
+        $listbook->ownValuationList [] = $valuation;
+        $book->ownValuationList [] = $valuation;
+        $book->sharedListbookList [] = $listbook;
+        
+        R::store ($valuation);
+        R::store ($listbook);
+        R::store ($book);
+    }
+    
+    private function getLastValId(){
+    }
 }

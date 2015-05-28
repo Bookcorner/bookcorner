@@ -43,7 +43,24 @@ class Listbook extends CI_Controller {
         $this->load->model ( 'listbooks_model' );
         $this->listbooks_model->updateBookScore( $bookscore, $val_id );
     }
-    
+    public function addBookToList($bookId){
+        $sessionName = 'id';
+        
+        if (!check_session_exist ( $sessionName )) {
+            $this->session->set_flashdata ( 'signUpError', 'Debes Registrarte Primero' );
+            redirect ( base_url (), 'refresh' );
+        }
+        $userId = $this->session->userdata ( $sessionName );
+        $this->load->model ( 'listbooks_model' );
+        $listbook = $this->listbooks_model->getListbookFrom ($userId);
+        $success = $this->listbooks_model->addBookToList( $bookId, $listbook );
+        if ($success){
+            $this->session->set_flashdata ( 'signUpSuccess', 'Libro añadido correctamente.' );            
+        } else {
+            $this->session->set_flashdata ( 'signUpFail', 'Problemas al añadir el libro.' );
+        }
+        redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+    }
     
 }
 
