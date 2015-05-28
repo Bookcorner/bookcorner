@@ -42,8 +42,8 @@
 								'role' => 'search' 
 							] )?>
 								<select class="form-control" name="typeOfSearch">
+								    <option value="book">Libros</option>
 									<option value="author">Autores</option>
-									<option value="book">Libros</option>
 								</select>
 								<div class="form-group">
     								<input type="text" id="idSearchName" name="searchName" class="form-control" placeholder="Buscar...">
