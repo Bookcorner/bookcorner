@@ -5,7 +5,7 @@ class BooksModelTest extends PHPUnit_Framework_TestCase {
 	public function setUp() {
 		$this->CI = &get_instance();
 	}
-
+	
 	public function testWhenSearchExistingBookThenBookShouldBeReturned() {
 		$bookname = 'El Nombre del Viento';
 		
@@ -26,21 +26,20 @@ class BooksModelTest extends PHPUnit_Framework_TestCase {
 	}	
 	
 	public function testWhenSearchUncompletedBooknameThenAvailableBooksShouldBeReturned() {
-		$bookname = 'El ';
+		$bookname = 'El nom d vien';
 		
 		$this->CI->load->model('books_model');
 		$booksSearched = $this->CI->books_model->searchBooks($bookname);
 	
 		$this->assertNotNull($booksSearched);
-		$this->assertEquals(sizeof($booksSearched), 2);
+		$this->assertEquals(1, sizeof($booksSearched));
 		
 	}
 	
 	public function testWhenSearchSearchAllAuthorsIsCalledThenAuthorsShouldBeReturned() {
 	    $this->CI->load->model('books_model');
-	    $booksSearched = $this->CI->books_model->searchAllBooks();
+	    $booksSearched = $this->CI->books_model->searchAllBooksOrderedByName();
 	
 	    $this->assertNotNull($booksSearched);
 	}
-	
 }

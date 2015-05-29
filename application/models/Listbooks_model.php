@@ -35,10 +35,8 @@ class Listbooks_model extends CI_Model {
         ] );
     }
     function getListbookFrom($userId) {
-        R::load ( 'user', $userId );
-        $listbook_id = R::exec ( 'SELECT listbook_id FROM user WHERE user_id = :user_id', [ 
-                'user_id' => $userId 
-        ] );
+        $user = R::load ( 'user', $userId );
+        $listbook_id = $user->listbook_id;
         return $listbook_id;
     }
     function addBookToList($book_id, $listbook_id) {

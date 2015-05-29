@@ -6,7 +6,7 @@
 	verbose="false" bootstrap="tests/bootstrap.php">
 	<testsuites>
 		<testsuite name="CITools Test Suite">
-			<directory>./tests/</directory>
+			<directory>./tests/models</directory>
 		</testsuite>
 	</testsuites>
 	<filter>

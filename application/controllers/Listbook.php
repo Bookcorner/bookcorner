@@ -55,6 +55,7 @@ class Listbook extends CI_Controller {
         $userId = $this->session->userdata ( $sessionName );
         $this->load->model ( 'listbooks_model' );
         $listbook_id = $this->listbooks_model->getListbookFrom ( $userId );
+        echo 'LISTBOOK ID: '.$listbook_id;
         
         $isBookAlreadyInList = $this->listbooks_model->getBookFromListbook ( $bookId, $listbook_id );
         
