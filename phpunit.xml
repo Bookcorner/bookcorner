@@ -10,9 +10,6 @@
 		</testsuite>
 	</testsuites>
 	<filter>
-		<whitelist>
-			<directory></directory>
-		</whitelist>
 		<whitelist processUncoveredFilesFromWhitelist="true">
 			<directory suffix=".php">./system/</directory>
 			<file>build/logs/clover.xml</file>
