@@ -42,12 +42,18 @@ class User extends CI_Controller {
         $this->form_validation->set_rules ( 'surname', 'Apellido', 'required' );
         $this->form_validation->set_rules ( 'user', 'Usuario', 'required' );
         $this->form_validation->set_rules ( 'genre', 'Género', 'required' );
+        $this->form_validation->set_rules ( 'captchaControl', 'Captcha', 'required' );
         $this->form_validation->set_rules ( 'pass', 'Contraseña', 'required' );
         $this->form_validation->set_rules ( 'repass', 'Confirmar Contraseña', 'required' );
-        $this->form_validation->set_rules ( 'email', 'Email', 'required' );
+        $this->form_validation->set_rules ( 'email', 'Email', 'required|valid_email' );
         $this->form_validation->set_rules ( 'reemail', 'Email', 'required' );
-    
-        if ($this->form_validation->run () == true) {
+        
+        $captcha = $this->session->flashdata('captcha');
+        $captcha == strtolower($captcha);
+        $captchaUser = set_value( 'captchaControl' );
+        $captchaUser = strtolower($captchaUser);
+        
+        if ($this->form_validation->run () == true ) {
             $this->load->model ( 'users_model' );
     
             $username = set_value ( 'user' );
@@ -59,8 +65,15 @@ class User extends CI_Controller {
              * 1 -> nickname in use
              * 2 -> email in use
             */
+            
+            $captcha = $this->session->flashdata('captcha');
+            $captcha == strtolower($captcha);
+            $captchaUser = set_value( 'captchaControl' );
+            $captchaUser = strtolower($captchaUser);
     
-            if ($exist_user == 0) {
+            if ($captcha != $captchaUser) {
+                $this->session->set_flashdata ( 'signUpFail', 'Captcha incorrecto' );
+            } else if ($exist_user == 0) {
                 $validation = $this->users_model->getRandomString();
     
                 $newUser = R::Dispense ( 'user' );
@@ -83,12 +96,12 @@ class User extends CI_Controller {
                 }
     
             } else if ($exist_user == 1) {
-                $this->session->set_flashdata ( 'signUpError', 'El nombre de usuario está en uso' );
+                $this->session->set_flashdata ( 'signUpFail', 'El nombre de usuario está en uso' );
             } else if ($exist_user == 2) {
-                $this->session->set_flashdata ( 'signUpError', 'El correo electrónico está en uso' );
+                $this->session->set_flashdata ( 'signUpFail', 'El correo electrónico está en uso' );
             }
         } else {
-            $this->session->set_flashdata ( 'signUpError', 'Formulario incorrecto' );
+            $this->session->set_flashdata ( 'signUpFail', 'Formulario incorrecto' );
         }
     
         redirect ( base_url (), 'refresh' );

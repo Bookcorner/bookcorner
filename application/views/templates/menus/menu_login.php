@@ -143,7 +143,7 @@
 														<input id="idEmail" name="email"
 															pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$"
 															class="input-large form-control" type="text"
-															placeholder="email"
+															placeholder="Email"
 															data-error="Dirección de correo no válida" required />
 													</div>
 													<div class="help-block with-errors"></div>
@@ -155,18 +155,18 @@
 													<div class="controls">
 														<input id="idReemail" name="reemail" data-match="#idEmail"
 															class="input-large form-control" type="text"
-															placeholder="email"
+															placeholder="Email"
 															data-match-error="Error, el email no coincide" required />
 													</div>
 													<div class="help-block with-errors"></div>
 												</div>
 												
-												<div class="form-group">
-												    <?php 
-												        $infoCaptcha = generateCaptcha();
-												        $this->session->set_flashdata( 'captcha', $infoCaptcha['randomtext'] );
-												        echo $infoCaptcha['img'];
-												    ?>
+												<div class="form-group form-inline">
+												    <label class="control-label" for=idCaptchaControl> Introduce Captcha: </label>
+												    <div class="controls">												        				    
+    												    <?= getCaptcha() ?>
+    												</div>
+    												<div class="help-block with-errors"></div>
 												</div>
 
 												<!-- Button -->

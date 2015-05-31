@@ -1,6 +1,6 @@
 <?php
 
-$randomtext = isset($_REQUEST['randomtext']) ? $_REQUEST['randomtext'] : 'You shall not pass';
+$randomtext = isset($_REQUEST['randomtext']) ? $_REQUEST['randomtext'] : 'keepout';
 
 $dir = 'fonts/';
 
