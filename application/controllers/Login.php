@@ -69,7 +69,7 @@ class Login extends CI_Controller {
     private function createUserSession($user) {
         $sessionData = array (
                 'title' => 'bookcorner',
-                'id' => $user->user_id,
+                'id' => $user->id,
                 'role' => $user->userrole_id,
                 'username' => $user->user_nickname,
                 'name' => $user->user_name,

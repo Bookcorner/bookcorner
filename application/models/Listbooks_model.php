@@ -93,4 +93,8 @@ class Listbooks_model extends CI_Model {
         ] );
         return $book;
     }
+    function getListbookName($listbookId){
+        $listbookBean = R::load('listbook', $listbookId);
+        return $listbookBean->listbook_name;
+    }
 }

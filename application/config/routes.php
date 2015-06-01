@@ -68,6 +68,11 @@ $route['activar/:any'] = 'user/activate';
 $route['cancelar/:any'] = 'user/cancel';
 $route['lista-libros'] = 'listbook/showListBooks';
 $route['anadir-libro'] = 'listbook/addBookToList';
+$route['adminusers'] = 'admin/showUsersMasterTable';
+$route['adminbooks'] = 'admin/showBooksMasterTable';
+$route['adminauthors'] = 'admin/showAuthorsMasterTable';
+$route['admingenre'] = 'admin/showGenrebookMasterTable';
+$route['adminlistbook'] = 'admin/showListbookMasterTable';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

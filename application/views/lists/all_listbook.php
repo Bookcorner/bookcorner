@@ -12,7 +12,7 @@
 		<div class="col-xs-12">
 			<div class="panel table-responsive">
 				<div class="panel-heading">
-					<h4 class="lead text-center">Poner el nombre de la lista del usuario</h4>
+					<h4 class="lead text-center"><?php echo $listbook_name?></h4>
 				</div>
 				<div class="panel-body">
 					<table class="table table-hover">
