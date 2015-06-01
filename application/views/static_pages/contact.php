@@ -134,13 +134,13 @@
 						<div class="help-block with-errors"></div>
 					</div>
                     
-                    <?php 
-                    
-                        $infoCaptcha = generateCaptcha();
-                        $this->session->set_flashdata( 'captcha', $infoCaptcha['randomtext'] );
-                        echo $infoCaptcha['img'];
-                    
-                    ?>
+                    <div class="form-group form-inline">
+					    <label class="control-label" for=idCaptchaControl> Introduce Captcha: </label>
+					    <div class="controls">												        				    
+						    <?= getCaptcha() ?>
+						</div>
+						<div class="help-block with-errors"></div>
+					</div>
 					
 					<br />
 					<div class="form-group" style="margin-top: 10px;">
