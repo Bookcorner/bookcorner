@@ -13,6 +13,9 @@ function getCaptcha() {
         'alt' => 'captcha'
     );
     
+    $imgen = file_get_contents(base_url().'captcha/get_captcha.php?randomtext='.$randomText);
+    $img_base64 = chunk_split(base64_encode($imgen));    
+    
     $input = array (
             'name' => 'captchaControl',
             'class' => 'form-control',
@@ -24,6 +27,7 @@ function getCaptcha() {
             'placeholder' => 'Captcha' 
     ); 
     
-    echo img ( $img );
+    //echo img ( $img );
+    echo "<img src =\"data:image/jpeg;base64,$img_base64\" />";
     echo form_input ( $input );
 }
