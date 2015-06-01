@@ -143,16 +143,7 @@
 					</div>
 					
 					<br />
-					<div class="form-group" style="margin-top: 10px;">
-						<input type="text" class="form-control" name="captcha_code"
-							id="captcha_code"
-							placeholder="For security, please enter the code displayed in the box." />
-						<span class="help-block" style="display: none;">Please enter the
-							code displayed within the image.</span>
-					</div>
-
-					<span class="help-block" style="display: none;">Please enter a the
-						security code.</span>
+						
 					<button type="submit" id="feedbackSubmit"
 						class="btn btn-primary btn-lg"
 						style="display: block; margin-top: 10px;">Send Feedback</button>

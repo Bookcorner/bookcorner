@@ -24,7 +24,8 @@ function getCaptcha() {
             'style' => 'width:25%',
             'type' => 'text',
             'required' => 'required',
-            'placeholder' => 'Captcha' 
+            'placeholder' => 'Captcha',
+            'data-error' => 'Introduzca el texto de la imagen'
     ); 
     
     //echo img ( $img );
