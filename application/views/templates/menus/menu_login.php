@@ -105,7 +105,7 @@
 														<input id="idUsername" name="user" class="form-control"
 															pattern="^{1,20}$" type="text"
 															placeholder="Usuario (tu nombre visible en la página)"
-															data-error="Nombre de usuario no válida" class="input-large" required />
+															data-error="Nombre de usuario no válido" class="input-large" required />
 													</div>
 													<div class="help-block with-errors"></div>
 												</div>

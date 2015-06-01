@@ -28,22 +28,51 @@
 			<div class="page">
 				<div class="col-xs-12">
 					<div class="col-xs-10">
-						<form>
-							<label for="newusername">Introduce un nuevo nombre de usuario</label>
-							<input type="text" name="newusername" id="newusername"
-								class="form-control"
-								placeholder="nombre de usuario"> <br />
-							<button class="btn btn-primary">Cambiar nombre de usuario</button>
-						</form>
+						<?php
+    
+    echo form_open ( base_url () . '', [ 
+            'class' => 'form-horizontal',
+            'data-toggle' => 'validator',
+            'method' => 'post',
+            'accept-charset' => 'UTF-8',
+            'id' => 'idFormSignIn' 
+    ] )?>	
+						<div class="form-group">
+							<label class="control-label" for="idNewUsername">Nombre de usuario:</label>
+							<div class="controls">
+								<input id="idNewUsername" name="newUsername" class="form-control"
+									pattern="^{1,20}$" type="text" placeholder="Nombre de usuario"
+									data-error="Nombre de usuario no válido" required />
+							</div>
+							<div class="help-block with-errors"></div>
+						</div>
+						<button class="btn btn-primary">Cambiar nombre de usuario</button>
+						<?php echo form_close()?>
 						<hr />
-						<form>
-							<label for="newmail">Introduce la nueva dirección de correo electrónico</label> 
-							<input id="idEmail" name="email"
-								pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$"
-								class="input-large form-control" type="text" placeholder="email"
-								data-error="Dirección de correo no válida" required /> <br />
-							<button class="btn btn-primary">Cambiar email</button>
-						</form>
+						<?php
+    
+    echo form_open ( base_url () . '', [ 
+            'class' => 'form-horizontal',
+            'data-toggle' => 'validator',
+            'method' => 'post',
+            'accept-charset' => 'UTF-8',
+            'id' => 'idFormSignIn' 
+    ] )?>	
+    
+                        <div class="form-group">
+							<label class="control-label" for="idEmail">Email:</label>
+							<div class="controls">
+								<input id="idEmail" name="email"
+									pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$"
+									class="input-large form-control" type="text"
+									placeholder="Email" data-error="Dirección de correo no válida"
+									required />
+							</div>
+							<div class="help-block with-errors"></div>
+						</div>
+
+						<button class="btn btn-primary">Cambiar email</button>
+						<?php echo form_close()?>
 						<hr />
 						<button class="btn btn-default goto-page-2">
 							Volver <i class="glyphicon glyphicon-chevron-left"></i>
@@ -66,26 +95,49 @@
 				<div class="col-xs-12">
 					<div class="col-xs-10">
 						<h2>Cambiar datos de usuario</h2>
-						<form data-toggle="validator" id="formPass">
 						
-							<label for="oldpass">Introduce la antigua contraseña</label> 
-							<input type="password" name="oldpass" id="oldpass"
-								placeholder="********" class="form-control"> <br />
-								
-							<label for="newpass">Introduce la nueva contraseña</label>
-							<input type="password" name="newpass" id="newpass" pattern="^{5,12}$"
+            	<?php
+            
+            echo form_open ( base_url () . '', [ 
+                    'class' => 'form-horizontal',
+                    'data-toggle' => 'validator',
+                    'method' => 'post',
+                    'accept-charset' => 'UTF-8',
+                    'id' => 'idFormSignIn' 
+            ] )?>						
+	                            
+						<div class="form-group">
+							<label for="oldpass">Introduce la antigua contraseña</label> <input
+								type="password" name="oldPass" id="idOldPass"
 								placeholder="********" class="form-control"
-								data-error="Contraseña no válida" class="input-large" required>
-							<br />
-							<label for="renewpass">Introduce la nueva contraseña otra vez</label> 
-							<input type="password" name="renewpass"
-								id="renewpass" data-match="#idPass" class="form-control"
-								placeholder="********" class="input-large"
-								data-match-error="Error, la contraseña no coincide" required> <br />
-								
-							<button class="btn btn-primary">Cambiar contraseña</button>
-						</form>
-						<hr/>
+								data-error="Contraseña no válida" class="input-large" required />
+							<br /> <label class="control-label" for="idPass">Introduce nueva
+								contraseña:</label>
+							<div class="controls">
+								<input id="idNewPass" name="newPass" class="form-control"
+									pattern="^{5,12}$" type="password" placeholder="********"
+									data-error="Contraseña no válida" class="input-large" required />
+
+							</div>
+							<div class="help-block with-errors"></div>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label" for="idNewRepass">Introduce contraseña
+								de nuevo:</label>
+							<div class="controls">
+								<input id="idNewRepass" name="newRepass" data-match="#idNewPass"
+									class="form-control" type="password" placeholder="********"
+									class="input-large"
+									data-match-error="Error, la contraseña no coincide" required />
+							</div>
+							<div class="help-block with-errors"></div>
+						</div>
+
+						<button class="btn btn-primary">Cambiar contraseña</button>
+
+						<?php echo form_close()?>
+						<br />
 						<button class="btn btn-default goto-page-3">
 							Más opciones <i class="glyphicon glyphicon-chevron-right"></i>
 						</button>
