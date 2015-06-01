@@ -47,12 +47,7 @@ class User extends CI_Controller {
         $this->form_validation->set_rules ( 'repass', 'Confirmar Contraseña', 'required' );
         $this->form_validation->set_rules ( 'email', 'Email', 'required|valid_email' );
         $this->form_validation->set_rules ( 'reemail', 'Email', 'required' );
-        
-        $captcha = $this->session->flashdata('captcha');
-        $captcha == strtolower($captcha);
-        $captchaUser = set_value( 'captchaControl' );
-        $captchaUser = strtolower($captchaUser);
-        
+    
         if ($this->form_validation->run () == true ) {
             $this->load->model ( 'users_model' );
     
@@ -65,9 +60,9 @@ class User extends CI_Controller {
              * 1 -> nickname in use
              * 2 -> email in use
             */
-            
-            $captcha = $this->session->flashdata('captcha');
-            $captcha == strtolower($captcha);
+    
+            $captcha = $this->session->flashdata('captcha-signup');
+            $captcha = strtolower($captcha);
             $captchaUser = set_value( 'captchaControl' );
             $captchaUser = strtolower($captchaUser);
     
@@ -88,11 +83,33 @@ class User extends CI_Controller {
                 $newUser->userrole_id = 1; // registrado, no es moderador ni admin
                 $newUser->userstatus_id = 2; // inactivo, enviar correo de activacion
     
-                $sendMail = $this->sendMailSignup($email, set_value ( 'name' ), $username, $validation);
+                $nameReceiver = $newUser->user_name;
+                $url = $_SERVER ['REQUEST_SCHEME'] . '://' . $_SERVER ['SERVER_NAME'] ;
+    
+                if ($_SERVER ['SERVER_NAME'] == 'localhost' || $_SERVER ['SERVER_NAME'] == '127.0.0.1') {
+                    $url .= '/bookcorner';
+                }
+    
+                $message = "Email de thecornerbook@gmail.com <br /><br />Hola, $nameReceiver:<br/>
+                Se ha registrado en BookCorner, este es un mensaje de activación. <br/><br/>
+    
+                <h2> Si ha realizado este registro puede confirmar la operación mediante este link: $url/activar/$validation </h2>
+    
+                <br/> <br/><br/> <br/><br/> <br/>
+    
+                <h3> Si no ha realizado este registro puede cancelar la operación mediante este link: $url/cancelar/$validation </h3>
+    
+                <br/> <br/>
+                Atentamente, El equipo de BookCorner";
+    
+                $sendMail = $this->sendMail($email, $message, 'Correo de Activación');
                 // enviamos el correo de registro
     
                 if ($sendMail) {
+                    $this->session->set_flashdata ( 'ok', 'Se ha registrado satisfactoriamente, le enviaremos un correo de activación.' );
                     $this->users_model->saveUser($newUser);
+                } else {
+                    $this->session->set_flashdata ( 'signUpError', 'No se le ha podido enviar el correo, vuelva a intentarlo' );
                 }
     
             } else if ($exist_user == 1) {
@@ -107,14 +124,54 @@ class User extends CI_Controller {
         redirect ( base_url (), 'refresh' );
     }
     
-    private function sendMailSignup($emailReceiver, $nameReceiver, $nicknameReceiver, $validation) {
+    public function sendContact() {
+        $this->form_validation->set_rules ( 'name', 'Nombre', 'required' );
+        $this->form_validation->set_rules ( 'email', 'Email', 'required|valid_email' );
+        $this->form_validation->set_rules ( 'message', 'Mensaje', 'required' );
+        $this->form_validation->set_rules ( 'captchaControl', 'Captcha', 'required' );
+    
+        if ($this->form_validation->run () == true ) {
+    
+            $captcha = $this->session->flashdata('captcha-feedback');
+            $captcha = strtolower($captcha);
+            $captchaUser = set_value( 'captchaControl' );
+            $captchaUser = strtolower($captchaUser);
+    
+            $email = set_value( 'email' );
+            $message = set_value( 'message' );
+    
+            if ($captcha != $captchaUser) {
+                $this->session->set_flashdata ( 'sendmailerror', 'Captcha incorrecto' );
+            } else {
+    
+                $messageEmail = "Email de $email : <br /><br /> $message";
+    
+                $sendMail = $this->sendMail('thecornerbook@gmail.com', $messageEmail, 'Correo de Contacto');
+                // enviamos el correo de contactar
+    
+                if ($sendMail) {
+                    $this->session->set_flashdata ( 'ok', 'Se ha enviado el correo satisfactoriamente' );
+                } else {
+                    $this->session->set_flashdata ( 'sendmailerror', 'No se ha podido enviar el correo' );
+                }
+    
+            }
+        } else {
+            $this->session->set_flashdata ( 'sendmailerror', 'Formulario incorrecto' );
+        }
+        redirect ( base_url ('contacto'), 'refresh' );
+    
+    }
+    
+    //private function sendMailSignup($emailReceiver, $nameReceiver, $nicknameReceiver, $validation) {
+    private function sendMail($emailReceiver, $message, $subject) {
         $bookcornerEmail = 'thecornerbook@gmail.com';
         $bookcornerPass = 'alumnoadmin';
     
         $this->load->library('email');
-        
+    
         $configGmail = null;
-        
+    
         if ($_SERVER ['SERVER_NAME'] == 'localhost' || $_SERVER ['SERVER_NAME'] == '127.0.0.1') {
     
             $configGmail = array(
@@ -127,9 +184,9 @@ class User extends CI_Controller {
                     'charset' => 'utf-8',
                     'newline' => "\r\n"
             );
-            
+    
         } else {
-        
+    
             $configGmail = array(
                     //'protocol' => 'smtp',
                     'smtp_host' => 'ssl://smtp.gmail.com',//'ssl://smtp.googlemail.com'//ssl://smtp.gmail.com
@@ -143,7 +200,7 @@ class User extends CI_Controller {
                     'smtp_crypto' => 'tls', // tls or ssl
                     'wordwrap' => TRUE
             );
-        
+    
         }
     
         $this->email->initialize($configGmail);
@@ -151,35 +208,13 @@ class User extends CI_Controller {
         $this->email->from($bookcornerEmail, 'Mr Book Corner');
         $this->email->to($emailReceiver);
     
-        $this->email->subject('Activación de cuenta');
-        
-        $url = $_SERVER ['REQUEST_SCHEME'] . '://' . $_SERVER ['SERVER_NAME'] ;
-        
-        if ($_SERVER ['SERVER_NAME'] == 'localhost' || $_SERVER ['SERVER_NAME'] == '127.0.0.1') {
-            $url .= '/bookcorner';
-        }
+        $this->email->subject($subject);
     
-        $message = "Hola, $nameReceiver:<br/>
-        Se ha registrado en BookCorner, este es un mensaje de activación. <br/><br/>
-        
-        <h2> Si ha realizado este registro puede confirmar la operación mediante este link: $url/activar/$validation </h2>
-        
-        <br/> <br/><br/> <br/><br/> <br/>
-        
-        <h3> Si no ha realizado este registro puede cancelar la operación mediante este link: $url/cancelar/$validation </h3>
-                
-        <br/> <br/>
-        Atentamente, El equipo de BookCorner";
-    
-        $this->email->message("Email de $bookcornerEmail <br /><br />$message");
+        $this->email->message($message);
     
         if ($this->email->send()) {
-             
-            $this->session->set_flashdata ( 'ok', 'Se ha registrado satisfactoriamente, le enviaremos un correo de activación.' );
             return true;
         } else {
-    
-            $this->session->set_flashdata ( 'signUpError', 'No se le ha podido enviar el correo, vuelva a intentarlo' );
             return false;
         }
     

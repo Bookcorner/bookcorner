@@ -1,3 +1,4 @@
+<?php if($this->session->flashdata('sendmailerror')) { ?> <div class="alert alert-info text-center" role="alert"> <?= $this->session->flashdata('sendmailerror') ?> </div> <?php } ?>
 <div class="container">
 	<!-- BREADCRUMB -->
 	<div>
@@ -98,7 +99,7 @@
 				<div class="panel-body">
 					<!-- CONTACT FORM -->
 				    <?php
-        echo form_open ( 'email/contact', [ 
+        echo form_open ( 'contactar', [ 
                 'role' => 'form',
                 'data-toggle' => 'validator',
                 'method' => 'post',
@@ -137,7 +138,7 @@
                     <div class="form-group form-inline">
 					    <label class="control-label" for=idCaptchaControl> Introduce Captcha: </label>
 					    <div class="controls">												        				    
-						    <?= getCaptcha() ?>
+						    <?= getCaptcha('feedback') ?>
 						</div>
 						<div class="help-block with-errors"></div>
 					</div>
@@ -146,7 +147,7 @@
 						
 					<button type="submit" id="feedbackSubmit"
 						class="btn btn-primary btn-lg"
-						style="display: block; margin-top: 10px;">Send Feedback</button>
+						style="display: block; margin-top: 10px;">Enviar Feedback</button>
 					<?php echo form_close()?>
 					<!-- END CONTACT FORM -->
 				</div>

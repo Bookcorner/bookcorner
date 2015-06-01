@@ -2,19 +2,14 @@
 if (! defined ( 'BASEPATH' ))
     exit ( 'No direct script access allowed' );
 
-function getCaptcha() {
+function getCaptcha($idCaptcha) {
     $CI = & get_instance ();
     $CI->load->helper ( 'string' );
     $randomText = random_string ( 'alnum', 6 );
-    $CI->session->set_flashdata ( 'captcha', $randomText );
-    
-    $img = array (
-        'src' => base_url().'captcha/get_captcha.php?randomtext='.$randomText,
-        'alt' => 'captcha'
-    );
+    $CI->session->set_flashdata ( "captcha-$idCaptcha", $randomText );
     
     $imgen = file_get_contents(base_url().'captcha/get_captcha.php?randomtext='.$randomText);
-    $img_base64 = chunk_split(base64_encode($imgen));    
+    $img_base64 = chunk_split(base64_encode($imgen));
     
     $input = array (
             'name' => 'captchaControl',
