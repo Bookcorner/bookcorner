@@ -8,8 +8,6 @@
 	</div>
 	<!-- FIN BREADCRUMB -->
 	<!-- CONTENIDO PPAL-->
-	<div class="panel">
-	<br>
 	<div class="row">
 		<div class="col-xs-8">
    			<div class="row">
@@ -136,6 +134,5 @@
 				<!-- /.panel-body -->
 			</div>
 		</div>
-	</div>
 	</div>
 </div>
