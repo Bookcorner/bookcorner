@@ -13,30 +13,30 @@
              <div class="panel-group" id="idAllBooks" role="tablist" aria-multiselectable="true">
 		     <?php foreach ($books as $book):?>
 		     <div class="panel">
-                <div class="panel-heading" role="tab" id="head<?php echo 'libro'.$book['book_id']?>">
+                <div class="panel-heading" role="tab" id="head<?php echo 'libro'.$book['id']?>">
                     <div class="panel-title overflow">
                         <h4 class="alignleft"><?php echo $book['book_name']?></h4>
                         <a data-toggle="collapse" 
                                 data-parent="#idAllBooks" 
-                                href="<?php echo '#libro'.$book['book_id']?>" 
+                                href="<?php echo '#libro'.$book['id']?>" 
                                 aria-expanded="false" 
-                                aria-controls="<?php echo 'autor'.$book['book_id']?>" 
+                                aria-controls="<?php echo 'autor'.$book['id']?>" 
                                 class="collapsed alignright">
                                 <span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span>
                         </a>
                     </div>
                 </div>
-                <div id="<?php echo 'libro'.$book['book_id']?>" 
+                <div id="<?php echo 'libro'.$book['id']?>" 
                     class="panel-collapse collapse" 
                     role="tabpanel" 
-                    aria-labelledby="head<?php echo 'libro'.$book['book_id']?>">
+                    aria-labelledby="head<?php echo 'libro'.$book['id']?>">
                     <div class="panel-body">
                         <div class="col-md-10 col-md-push-2">
                             <h2>
-                            <?php echo anchor('book/'.$book['book_id'], $book['book_name'], [
+                            <?php echo anchor('book/'.$book['id'], $book['book_name'], [
                                 'class' => 'nolink'
                             ])?></h2>
-                            <p><?php echo substr($book['book_desc'], 0, 300)?>...<?php echo anchor('book/'.$book['book_id'], 'leer más')?></p>
+                            <p><?php echo substr($book['book_desc'], 0, 300)?>...<?php echo anchor('book/'.$book['id'], 'leer más')?></p>
                         </div>
     
                         <div class="col-md-2 col-md-pull-10">
@@ -49,7 +49,7 @@
     				</div>
     			 </div>
 				 <div class ="panel-footer">
-				    <a href="listbook/addBookToList/<?php echo $book['book_id']?>" class="btn btn-default">
+				    <a href="listbook/addBookToList/<?php echo $book['id']?>" class="btn btn-default">
 				        <i class="glyphicon glyphicon-plus-sign" aria-hidden="true"></i>
 				        Añadir a mi lista
 				    </a>

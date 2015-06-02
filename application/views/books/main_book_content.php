@@ -15,10 +15,10 @@
                 <div class="panel-body">
                     <div class="col-md-10 col-md-push-2">
                         <h2>
-                        <?php echo anchor('book/'.$book['book_id'], $book['book_name'], [
+                        <?php echo anchor('book/'.$book['id'], $book['book_name'], [
                             'class' => 'nolink'
                         ])?></h2>
-                        <p><?php echo substr($book['book_desc'], 0, 300)?>...<?php echo anchor('book/'.$book['book_id'], 'leer más')?></p>
+                        <p><?php echo substr($book['book_desc'], 0, 300)?>...<?php echo anchor('book/'.$book['id'], 'leer más')?></p>
                     </div>
 
                     <div class="col-md-2 col-md-pull-10">
@@ -30,7 +30,7 @@
                     </div>
 				</div>
 				<div class ="panel-footer">
-                    <a href="listbook/addBookToList/<?php echo $book['book_id']?>" class="btn btn-default">
+                    <a href="listbook/addBookToList/<?php echo $book['id']?>" class="btn btn-default">
 				        <i class="glyphicon glyphicon-plus-sign" aria-hidden="true"></i>
 				        Añadir a mi lista
 				    </a>

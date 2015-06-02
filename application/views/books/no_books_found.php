@@ -1,6 +1,27 @@
 <!-- CONTENIDO PPAL-->
-<div class="col-xs-12">
-	<div class="col-xs-6 col-xs-offset-2">
-		<?php echo $books?>
-	</div>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+        	<div class="col-xs-7">
+        		<h2 class="alert alert-danger">
+        			¡OJO! <span class="text-muted"> OOPS! El libro que buscas no está en nuestra disposición </span>
+        		</h2>
+        		<p class="lead">
+        			Lamentablemente no tenemos el libro que estás buscando. ¿Quieres añadirlo tú?
+        		</p>
+        		<p class="text-center"><?php echo anchor(base_url('user/reportMissing'), '¡Quiero añadirlo!', [
+								            'class' => 'btn btn-lg btn-primary',
+								            'role' => 'button'
+						    ])?></p>
+        	</div>
+        	<div class="col-xs-5">
+                <?php echo img ( array (
+                    'src' => asset_url () . '/images/error/cant_find.jpeg',
+                    'class' => 'featurette-image img-responsive center-block',
+                    'alt' => 'Libros',
+                    'data-src' => 'holder.js/500x500/auto' 
+                ) )?>
+            </div>
+        </div>
+    </div>
 </div>

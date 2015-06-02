@@ -15,7 +15,6 @@ class Author extends CI_Controller {
         $data ['title'] = 'Autores';
         
         if (empty ( $authors )) {
-            $data ['authors'] = 'Ningún autor coincide con la búsqueda';
             $viewUri = 'authors/no_author_found';
             loadBasicViews ( $viewUri, $data );
         } else {

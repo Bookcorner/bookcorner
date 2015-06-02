@@ -5,31 +5,31 @@ class Listbooks_model extends CI_Model {
         parent::__construct ();
     }
     function getAllBooklistFromUser($userId) {
-        $booksInList = R::getAll ( 'SELECT b.book_id, b.book_isbn, b.book_name, v.val_puntuacion, v.val_nota_libro, v.val_estado_libro, v.val_id, v.id
+        $booksInList = R::getAll ( 'SELECT b.book_isbn, b.book_name, v.val_estado_libro, v.val_puntuacion, v.val_nota_libro, v.id, v.book_id
                     FROM book_listbook lb, book b, valuation v 
-                    WHERE lb.listbook_id = (SELECT listbook_id FROM `user` WHERE user_id = :userId)
-	                   AND lb.book_id = b.book_id
-                       AND v.book_id = b.book_id
-                       AND v.listbook_id = (SELECT listbook_id FROM `user` WHERE user_id = :userId)
+                    WHERE lb.listbook_id = (SELECT listbook_id FROM `user` WHERE id = :userId)
+	                   AND lb.book_id = b.id
+                       AND v.book_id = b.id
+                       AND v.listbook_id = (SELECT listbook_id FROM `user` WHERE id = :userId)
                     ORDER BY book_name', [ 
                 ':userId' => $userId 
         ] );
         return $booksInList;
     }
     function updateBookState($bookstatus, $val_id) {
-        R::exec ( 'UPDATE valuation SET val_estado_libro = :bookstatus WHERE val_id = :id', [ 
+        R::exec ( 'UPDATE valuation SET val_estado_libro = :bookstatus WHERE id = :id', [ 
                 'bookstatus' => $bookstatus,
                 'id' => $val_id 
         ] );
     }
     function updateBookScore($bookscore, $val_id) {
-        R::exec ( 'UPDATE valuation SET val_puntuacion = :bookscore WHERE val_id = :id', [ 
+        R::exec ( 'UPDATE valuation SET val_puntuacion = :bookscore WHERE id = :id', [ 
                 'bookscore' => $bookscore,
                 'id' => $val_id 
         ] );
     }
     function updateBookNote($booknote, $val_id) {
-        R::exec ( 'UPDATE valuation SET val_nota_libro = :booknote WHERE val_id = :id', [ 
+        R::exec ( 'UPDATE valuation SET val_nota_libro = :booknote WHERE id = :id', [ 
                 'booknote' => $booknote,
                 'id' => $val_id 
         ] );
@@ -61,13 +61,8 @@ class Listbooks_model extends CI_Model {
             return $isBookCreated;
         }
     }
-    private function getLastValId() {
-        $lastValId = R::count ( 'valuation' ) + 1;
-        return $lastValId;
-    }
     private function createDefaultValuationRow() {
         $valuation = R::Dispense ( 'valuation' );
-        $valuation->val_id = $this->getLastValId ();
         $valuation->val_puntuacion = 11;
         $valuation->val_nota_libro = 'Introduce una nota';
         $valuation->val_estado_libro = 2;
