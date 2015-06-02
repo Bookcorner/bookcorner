@@ -1,5 +1,7 @@
 <?php echo link_tag(asset_url().'css/bootstrap.min.css', 'stylesheet')?>
 <?php echo link_tag(asset_url().'css/bootstrap-theme.min.css', 'stylesheet')?>
+<?php echo link_tag(asset_url().'grocery_crud/themes/bootstrap/css/font-awesome/css/font-awesome.css', 'stylesheet')?>
+<?php echo link_tag(asset_url().'grocery_crud/themes/bootstrap/css/font-awesome/css/font-awesome.min.css', 'stylesheet')?>
 <?php echo link_tag(asset_url().'css/images.css', 'stylesheet')?>
 <?php echo link_tag(asset_url().'css/basic.css', 'stylesheet')?>
 <?php echo link_tag(asset_url().'css/custom.css', 'stylesheet')?>

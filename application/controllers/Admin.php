@@ -144,7 +144,6 @@ class Admin extends CI_Controller {
         $crud->set_rules ( 'author_desc', 'Sinopsis', 'required' );
         $crud->set_rules ( 'author_img', 'Imagen', 'required' );
         $crud->set_rules ( 'authorstate_id', 'Estado', 'required' );
-        $crud->set_rules ( 'authorbooks', 'Libros Escritos', 'required' );
     }
     public function showGenrebookMasterTable() {
         $crud = new grocery_CRUD ();
