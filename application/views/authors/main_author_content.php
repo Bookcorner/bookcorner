@@ -30,9 +30,9 @@
 			         </div>
                 </div>
                 <div class ="panel-footer">
-                    <button type="button" class="btn btn-default" aria-label="Left Align">
-                        <span class="glyphicon glyphicon-hand-up" aria-hidden="true"></span> Votar
-                    </button>
+                    <a href="votar-autor" class="btn btn-warning"> 
+                        <i class="fa fa-thumbs-up"></i> Votar Autor
+                    </a>
                 </div>
             </div>
             <?php endforeach;?>
