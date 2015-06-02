@@ -17,6 +17,43 @@
             </div>
 		</div>
 
+		<div id="page-4" class="book-page">
+			<nav class="book-menu" role="">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="book-menu-element open-page-1"><a href="#">Datos de
+							usuario</a></li>
+					<li class="book-menu-element open-page-2"><a href="#">Editar datos</a></li>
+				</ul>
+			</nav>
+			<div class="page">
+				<?php
+    
+    echo form_open ( base_url () . '', [ 
+            'class' => 'form-horizontal',
+            'data-toggle' => 'validator',
+            'method' => 'post',
+            'accept-charset' => 'UTF-8',
+            'id' => 'idFormSignIn' 
+    ] )?>	
+					
+					 <span class="btn btn-default btn-file">
+						 Pincha para cargar la imagen<input id="idNewAvatar" name="newAvatar" type="file" required/>
+					 </span>
+					<div class="help-block with-errors"></div>
+				
+				
+               
+				<button class="btn btn-primary">Cambiar avatar</button>
+						<?php echo form_close()?>
+						<br />
+						<button class="btn btn-default goto-page-3">
+							Ir a nombre de usuario / email <i class="glyphicon glyphicon-chevron-left"></i>
+						</button>
+			</div>
+			<div class="page-number">- 4 -</div>
+		</div>
+
+
 		<div id="page-3" class="book-page">
 			<nav class="book-menu" role="">
 				<ul class="nav navbar-nav navbar-right">
@@ -38,16 +75,19 @@
             'id' => 'idFormSignIn' 
     ] )?>	
 						<div class="form-group">
-							<label class="control-label" for="idNewUsername">Nombre de usuario:</label>
+							<label class="control-label" for="idNewUsername">Nombre de
+								usuario:</label>
 							<div class="controls">
-								<input id="idNewUsername" name="newUsername" class="form-control"
-									pattern="^{1,20}$" type="text" placeholder="Nombre de usuario"
+								<input id="idNewUsername" name="newUsername"
+									class="form-control" pattern="^{1,20}$" type="text"
+									placeholder="Nombre de usuario"
 									data-error="Nombre de usuario no válido" required />
 							</div>
 							<div class="help-block with-errors"></div>
 						</div>
 						<button class="btn btn-primary">Cambiar nombre de usuario</button>
 						<?php echo form_close()?>
+						
 						<hr />
 						<?php
     
@@ -75,7 +115,11 @@
 						<?php echo form_close()?>
 						<hr />
 						<button class="btn btn-default goto-page-2">
-							Volver <i class="glyphicon glyphicon-chevron-left"></i>
+							Ir a contraseña <i class="glyphicon glyphicon-chevron-left"></i>
+						</button>
+						<hr />
+						<button class="btn btn-default goto-page-4">
+							Ir a avatar<i class="glyphicon glyphicon-chevron-right"></i>
 						</button>
 					</div>
 				</div>
@@ -123,8 +167,8 @@
 						</div>
 
 						<div class="form-group">
-							<label class="control-label" for="idNewRepass">Introduce contraseña
-								de nuevo:</label>
+							<label class="control-label" for="idNewRepass">Introduce
+								contraseña de nuevo:</label>
 							<div class="controls">
 								<input id="idNewRepass" name="newRepass" data-match="#idNewPass"
 									class="form-control" type="password" placeholder="********"
@@ -139,7 +183,7 @@
 						<?php echo form_close()?>
 						<br />
 						<button class="btn btn-default goto-page-3">
-							Más opciones <i class="glyphicon glyphicon-chevron-right"></i>
+							Ir a nombre de usuario / email <i class="glyphicon glyphicon-chevron-right"></i>
 						</button>
 					</div>
 				</div>

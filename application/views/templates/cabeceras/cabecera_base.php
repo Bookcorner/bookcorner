@@ -19,6 +19,7 @@ $( document ).ready(function() {
 	$('#formPass').validator(); 
 });
 </script>
-
+<script type="text/javascript"
+	src="<?php echo asset_url()?>js/custom.js"></script>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
