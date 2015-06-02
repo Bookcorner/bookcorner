@@ -150,7 +150,7 @@ class User extends CI_Controller {
             $email = set_value( 'email' );
             $message = set_value( 'message' );
     
-            if ($isCaptchaOk) {
+            if (!$isCaptchaOk) {
                 $this->session->set_flashdata ( 'sendmailerror', captchaErrorMsg() );
                 
             } else {
