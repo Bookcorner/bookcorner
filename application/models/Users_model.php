@@ -88,16 +88,16 @@ class Users_model extends CI_Model {
         ] );
         
         if ($userBean == null) {
-            $this->session->set_flashdata ( 'signUpError', 'No corresponde la clave de validación' );
+            return 0;
         } else {
             if ($userBean->userstatus_id == 2) {
                 $userBean->userstatus_id = 1;
                 R::store ( $userBean );
-                $this->session->set_flashdata ( 'ok', 'Usuario activado correctamente' );
+                return 2;
             } else if ($userBean->userstatus_id == 1) {
-                $this->session->set_flashdata ( 'signUpError', 'El usuario ya estaba activado' );
+                return 1;
             } else if ($userBean->userstatus_id == 3) {
-                $this->session->set_flashdata ( 'signUpError', 'El usuario está baneado, no puede activarlo' );
+                return 3;
             }
         }
     }
@@ -107,7 +107,7 @@ class Users_model extends CI_Model {
         ] );
         
         if ($userBean == null) {
-            $this->session->set_flashdata ( 'signUpError', 'No corresponde la clave de validación' );
+            return 0;
         } else {
             if ($userBean->userstatus_id == 2) {
                 $id = $userBean->id;
@@ -117,11 +117,11 @@ class Users_model extends CI_Model {
                 
                 R::trash ( $userBean );
                 R::trash ( $userList );
-                $this->session->set_flashdata ( 'ok', 'Registro cancelado correctamente' );
+                return 2;
             } else if ($userBean->userstatus_id == 1) {
-                $this->session->set_flashdata ( 'signUpError', 'El usuario ya estaba activado' );
+                return 1;
             } else if ($userBean->userstatus_id == 3) {
-                $this->session->set_flashdata ( 'signUpError', 'El usuario está baneado, no puede borrarlo' );
+                return 3;
             }
         }
     }

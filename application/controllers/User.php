@@ -241,6 +241,17 @@ class User extends CI_Controller {
         */
     
         $validation = $this->users_model->activateUser($string);
+        
+        if ($validation == 0) {
+            $this->session->set_flashdata ( 'signUpError', 'No corresponde la clave de validación' );
+        } else if ($validation == 2) {
+            $this->session->set_flashdata ( 'ok', 'Usuario activado correctamente' );
+        } else if ($validation == 1) {
+            $this->session->set_flashdata ( 'signUpError', 'El usuario ya estaba activado' );
+        } else if ($validation == 3) {
+            $this->session->set_flashdata ( 'signUpError', 'El usuario está baneado, no puede activarlo' );
+        }
+        
         redirect( base_url(), 'refresh' );
     
     }
@@ -255,6 +266,17 @@ class User extends CI_Controller {
         */
         
         $validation = $this->users_model->cancelUser($string);
+        
+        if ($validation == 0) {
+            $this->session->set_flashdata ( 'signUpError', 'No corresponde la clave de validación' );
+        } else if ($validation == 2) {
+            $this->session->set_flashdata ( 'ok', 'Registro cancelado correctamente' );
+        } else if ($validation == 1) {
+            $this->session->set_flashdata ( 'signUpError', 'El usuario ya estaba activado' );
+        } else if ($validation == 3) {
+            $this->session->set_flashdata ( 'signUpError', 'El usuario está baneado, no puede borrarlo' );
+        }
+        
         redirect( base_url(), 'refresh' );
     
     }    
