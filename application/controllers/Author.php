@@ -27,6 +27,8 @@ class Author extends CI_Controller {
     public function showAuthor() {
         $data ['title'] = 'Se sacara de la bbdd';
         
+        $id_of_author = $this->uri->segment(2);
+        
         $viewUri = 'authors/info_author';
         loadBasicViews ( $viewUri, $data );
     }
