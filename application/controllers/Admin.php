@@ -3,7 +3,7 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 class Admin extends CI_Controller {
     public function index() {
         if (get_userrole () != 3) {
-            $this->session->set_flashdata ( 'signUpError', 'No tiene permiso para acceder' );
+            $this->session->set_flashdata ( 'signUpFail', 'No tiene permiso para acceder' );
             redirect ( base_url (), 'refresh' );
         }
         
