@@ -8,6 +8,8 @@
 	</div>
 	<!-- FIN BREADCRUMB -->
 	<!-- CONTENIDO PPAL-->
+	<div class="panel">
+	<br>
 	<div class="row">
 		<div class="col-xs-8">
    			<div class="row">
@@ -107,7 +109,7 @@
 		<div class="col-xs-4">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<i class="fa fa-bell fa-fw"></i> Administración Tablas
+					<i class="fa fa-database" fa-fw"></i> Administración Tablas
 				</div>
 				<!-- /.panel-heading -->
 				<div class="panel-body">
@@ -134,5 +136,6 @@
 				<!-- /.panel-body -->
 			</div>
 		</div>
+	</div>
 	</div>
 </div>

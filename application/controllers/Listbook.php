@@ -14,7 +14,7 @@ class Listbook extends CI_Controller {
         $this->load->model ( 'listbooks_model' );
         $listbookId = $this->listbooks_model->getListbookFrom ( $userId );
         $data['listbook_name'] = $this->listbooks_model->getListbookName($listbookId);
-
+        $data['nickname'] = $this->session->userdata ( 'nickname' );
         $data ['books'] = $this->listbooks_model->getAllBooklistFromUser ( $userId );
         
         $views = [ 
