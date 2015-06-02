@@ -22,9 +22,9 @@
 						<li class="<?php if ($title == 'Libros') { echo 'active'; }?>"><?php echo anchor(base_url('libros'), 'Libros')?></li>
 						<li class="<?php if ($title == 'Autores') { echo 'active'; }?>"><?php echo anchor(base_url('autores'), 'Autores')?></li>
 												
-						<li class="dropdown <?php if ($title == 'Lista de libros' || $title == 'Lista de autores') echo "active" ?>">
+						<li class="dropdown <?php if ($title == 'Lista de libros' || $title == 'Lista de autores') echo 'active' ?>">
     						<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-        						Listas 
+        						Listas
                             </a>
     						<ul class="dropdown-menu" role="menu">
     							<li><?php echo anchor(base_url('lista-libros'), 'Lista de Libros')?></li>

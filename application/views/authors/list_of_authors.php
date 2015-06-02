@@ -40,11 +40,11 @@
                             </div>
         					<div class="col-md-10 col-md-pull-2">
                                 <h2 class="text-right">
-                                    <?php echo anchor('author/'.$author['id'], $author['author_fullname'], [
+                                    <?php echo anchor('autor/'.$author['id'], $author['author_fullname'], [
                                         'class' => 'nolink'
                                     ])?>
                                 </h2>
-                                <p><?php echo substr($author['author_desc'], 0, 300)?>...<?php echo anchor('authors/'.$author['id'], 'leer más')?></p>  
+                                <p><?php echo substr($author['author_desc'], 0, 300)?>...<?php echo anchor('autor/'.$author['id'], 'leer más')?></p>  
         			         </div>
                         </div>
                     </div>

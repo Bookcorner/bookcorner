@@ -24,4 +24,13 @@ class Book extends CI_Controller {
         }
     }
     
+    public function showBook() {
+        $data ['title'] = 'Se sacara de la bbdd';
+        
+        $id_of_book = $this->uri->segment(2);
+        
+        $viewUri = 'books/info_book';
+        loadBasicViews ( $viewUri, $data );
+    }
+    
 }

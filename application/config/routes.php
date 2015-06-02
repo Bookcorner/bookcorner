@@ -58,7 +58,9 @@ $route['contacto'] = 'home/goToContact';
 $route['informacion-legal'] = 'home/legalInformation';
 
 $route['libros'] = 'book/index';
+$route['libro/:num'] = 'book/showBook';
 $route['autores'] = 'author/index';
+$route['autor/:num'] = 'author/showAuthor';
 $route['busqueda'] = 'search/searchAuthorOrBook';
 $route['busqueda-autores'] = 'author/showAuthorsSearched';
 $route['busqueda-libros'] = 'book/showBooksSearched';
