@@ -12,34 +12,35 @@
 		<div class="col-xs-12">
 		     <?php foreach ($books as $book):?>
 		     <div class="panel">
-                <div class="panel-body">
-                    <div class="col-md-10 col-md-push-2">
-                        <h2>
-                        <?php echo anchor('libro/'.$book['id'], $book['book_name'], [
-                            'class' => 'nolink'
-                        ])?></h2>
-                        <p><?php echo substr($book['book_desc'], 0, 300)?>...<?php echo anchor('libro/'.$book['id'], 'leer más')?></p>
-                    </div>
+				<div class="panel-body">
+					<div class="col-md-10 col-md-push-2">
+						<h2>
+                            <?php
+                            echo anchor ( 'libro/' . $book ['id'], $book ['book_name'], [ 
+                                    'class' => 'nolink' 
+                            ] )?>
+                        </h2>
+						<p><?php echo substr($book['book_desc'], 0, 300)?>...<?php echo anchor('libro/'.$book['id'], 'leer más')?></p>
+					</div>
 
-                    <div class="col-md-2 col-md-pull-10">
-                        <?php echo img ( array (
-                            'src' => asset_url () . 'images/books/' . $book ['book_img'],
-                            'class' => 'img-rounded smallbook',
-                            'alt' => $book ['book_name'] 
+					<div class="col-md-2 col-md-pull-10">
+                        <?php
+                        echo img ( array (
+                                'src' => asset_url () . 'images/books/' . $book ['book_img'],
+                                'class' => 'img-rounded smallbook',
+                                'alt' => $book ['book_name'] 
                         ) )?>
                     </div>
 				</div>
-				<div class ="panel-footer">
-                    <a href="listbook/addBookToList/<?php echo $book['id']?>" class="btn btn-default">
-				        <i class="glyphicon glyphicon-plus-sign" aria-hidden="true"></i>
-				        Añadir a mi lista
-				    </a>
-                    <button type="button" class="btn btn-default" aria-label="Left Align">
-                        <span class="glyphicon glyphicon-hand-up" aria-hidden="true"></span> Votar
-                    </button>
-                    
-                </div>
-            </div>
+				<div class="panel-footer">
+					<a href="listbook/addBookToList/<?php echo $book['id']?>"
+						class="btn btn-success"> <i class="fa fa-plus"></i> Añadir a mi
+						lista
+					</a> <a href="anadir-libro" class="btn btn-warning"> <i
+						class="fa fa-thumbs-up"></i> Votar Libro
+					</a>
+				</div>
+			</div>
             <?php endforeach;?>
         </div>
 	</div>
