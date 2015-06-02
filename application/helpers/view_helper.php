@@ -21,7 +21,7 @@ function loadCustomViews($views, $data = null) {
     foreach ( $views ['cabeceras'] as $cabecera ) {
         $CI->load->view ( $cabecera );
     }
-    $CI->load->view ( 'templates/cabeceras/fin_cabecera' );
+    $CI->load->view ( 'templates/cabeceras/fin_cabecera', $data );
     loadMenu ();
     foreach ( $views ['contenidos'] as $contenido ) {
         $CI->load->view ( $contenido );
@@ -33,7 +33,7 @@ function loadCustomViews($views, $data = null) {
 /**
  * Carga el menú apropiado entre los menús posibles.
  */
-function loadMenu($data = ['title' => 'administración']) {
+function loadMenu($data = array()) {
     $CI = & get_instance ();
     
     if (check_session_exist ( 'title' )) {
