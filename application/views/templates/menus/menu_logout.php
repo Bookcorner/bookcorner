@@ -18,21 +18,45 @@
 				</div>
 				<div class="collapse navbar-collapse" id="idHeader">
 					<ul class="nav navbar-nav">
-						<li class="<?php if ($title == 'Home') { echo 'active'; }?>"><?php echo anchor(base_url('home'), 'Home')?></li>
-						<li class="<?php if ($title == 'Libros') { echo 'active'; }?>"><?php echo anchor(base_url('libros'), 'Libros')?></li>
-						<li class="<?php if ($title == 'Autores') { echo 'active'; }?>"><?php echo anchor(base_url('autores'), 'Autores')?></li>
-												
-						<li class="dropdown <?php if ($title == 'Lista de libros' || $title == 'Lista de autores') echo 'active' ?>">
-    						<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-        						Listas
-                            </a>
-    						<ul class="dropdown-menu" role="menu">
-    							<li><?php echo anchor(base_url('lista-libros'), 'Lista de Libros')?></li>
-    							<li class="divider"></li>
-    							<li><?php echo anchor(base_url('lista-autores'), 'Lista de Autores')?></li>
-    						</ul>
+						<li class="<?php if ($title == 'Home') { echo 'active'; }?>">
+						  <a href="<?php echo base_url('home')?>">
+    						  <i class="fa fa-home fa-2x"></i>
+						      Home
+						  </a>
 						</li>
-											
+						<li class="<?php if ($title == 'Libros') { echo 'active'; }?>">
+						  <a href="<?php echo base_url('libros')?>">
+    						  <i class="fa fa-book fa-2x"></i>
+						      Libros
+						  </a>
+						</li>
+						<li class="<?php if ($title == 'Autores') { echo 'active'; }?>">
+						  <a href="<?php echo base_url('autores')?>">
+    						  <i class="fa fa-pencil-square-o fa-2x"></i>
+						      Autores
+						  </a>
+						</li>						
+						<li class="dropdown <?php if ($title == 'Lista de libros' || $title == 'Lista de autores') echo 'active' ?>">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    						  <i class="fa fa-list fa-2x"></i>
+						      Listas
+						    </a>
+    						<ul class="dropdown-menu" role="menu">
+    							<li>
+                                    <a href="<?php echo base_url('lista-libros')?>">
+                                        <i class="fa fa-book"></i>
+                                        Lista de libros
+                                    </a>
+                                </li>
+    							<li class="divider"></li>
+    							<li>
+                                    <a href="<?php echo base_url('lista-autores')?>">
+                                        <i class="fa fa-users"></i>
+                                        Lista de autores
+                                    </a>
+                                </li>
+    						</ul>
+						</li>				
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li>
@@ -64,7 +88,10 @@
 							<ul class="dropdown-menu" style="padding: 15px; min-width: 150px;">
 								<li role="presentation" class="dropdown-header"><?php echo "$username $surname"?></li>
 								<li role="presentation">
-								    <?php echo anchor(base_url('informacion-de-usuario'), 'Perfil', ['role' => 'menuitem'])?>
+								    <a href="<?php echo base_url('informacion-de-usuario')?>" role="menuitem">
+								        <i class="fa fa-user"></i>
+								        Perfil
+								    </a>
 								</li>
 								<li role="presentation" class="divider"></li>
 								<li role="presentation">								    
@@ -75,7 +102,12 @@
 								        ]);
 								    } ?>
 								</li>
-								<li><?php echo anchor(base_url('login/logout'), 'Salir')?></li>
+								<li>
+								    <a href="<?php echo base_url('salir')?>">
+								        <i class="fa fa-sign-out"></i>
+								        Salir
+								    </a>
+                                </li>
 							</ul>
 						</li>
 					</ul>

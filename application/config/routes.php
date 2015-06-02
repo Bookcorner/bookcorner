@@ -76,6 +76,8 @@ $route['adminbooks'] = 'admin/showBooksMasterTable';
 $route['adminauthors'] = 'admin/showAuthorsMasterTable';
 $route['admingenre'] = 'admin/showGenrebookMasterTable';
 $route['adminlistbook'] = 'admin/showListbookMasterTable';
+$route['salir'] = 'login/logout';
+
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

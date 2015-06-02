@@ -18,9 +18,24 @@
 				</div>
 				<div class="collapse navbar-collapse" id="idHeader">
 					<ul class="nav navbar-nav">
-						<li class="<?php if ($title == 'Home') { echo 'active'; }?>"><?php echo anchor(base_url('home'), 'Home')?></li>
-						<li class="<?php if ($title == 'Libros') { echo 'active'; }?>"><?php echo anchor(base_url('libros'), 'Libros')?></li>
-						<li class="<?php if ($title == 'Autores') { echo 'active'; }?>"><?php echo anchor(base_url('autores'), 'Autores')?></li>
+						<li class="<?php if ($title == 'Home') { echo 'active'; }?>">
+						  <a href="<?php echo base_url('home')?>">
+    						  <i class="fa fa-home fa-2x"></i>
+						      Home
+						  </a>
+						</li>
+						<li class="<?php if ($title == 'Libros') { echo 'active'; }?>">
+						  <a href="<?php echo base_url('libros')?>">
+    						  <i class="fa fa-book fa-2x"></i>
+						      Libros
+						  </a>
+						</li>
+						<li class="<?php if ($title == 'Autores') { echo 'active'; }?>">
+						  <a href="<?php echo base_url('autores')?>">
+    						  <i class="fa fa-pencil-square-o fa-2x"></i>
+						      Autores
+						  </a>
+						</li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li>
@@ -42,7 +57,10 @@
 							<?php echo form_close()?>
 						</li>
 						<li>
-						  <a href="" data-toggle="modal" data-target="#myModal">Registrarse</a>
+						  <a href="" data-toggle="modal" data-target="#myModal">
+    						  <i class="fa fa-edit"></i>
+						      Registrarse
+						  </a>
 						</li>
 						<!-- Modal -->
 						<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
@@ -174,9 +192,14 @@
 													<label class="control-label" for="idConfirmsignup"></label>
 													<div class="controls">
 														<button id="idConfirmsignup" name="confirmsignup"
-															class="btn btn-success">Registrar</button>
+															class="btn btn-success">
+															<i class="fa fa-sign-in"></i>
+															Registrar</button>
 														<button type="button" class="btn btn-danger"
-															data-dismiss="modal">Cancelar</button>
+															data-dismiss="modal">
+															<i class="fa fa-ban"></i>
+															Cancelar
+                                                        </button>
 													</div>
 												</div>
 											</fieldset>
@@ -225,7 +248,10 @@
 												    </label>
 											    </div>
 											    <div class="form-group">
-												    <button type="submit" class="btn btn-success btn-block">Acceder</button>
+												    <button type="submit" class="btn btn-success btn-block">
+												        <i class="fa fa-sign-in"></i> 
+												        Acceder
+                                                    </button>
 											    </div>
 											<?php echo form_close()?>
 										</div>
