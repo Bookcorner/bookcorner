@@ -1,6 +1,13 @@
 <?php
 defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 class User extends CI_Controller {
+    
+    public function __construct() {        
+        parent::__construct ();
+        $this->load->model ( 'users_model' );
+        
+    }
+    
     public function showUserInfo() {        
         $userId;
         $session = 'id';
@@ -12,7 +19,6 @@ class User extends CI_Controller {
             redirect ( base_url (), 'refresh' );
         }
         
-        $this->load->model ( 'users_model' );
         $data ['title'] = 'Información de Usuario';
         $data ['userInfo'] = $this->users_model->getUserInfo ( $userId );
 
@@ -40,10 +46,9 @@ class User extends CI_Controller {
     public function signup() {
         
         $this->setSignUpFormRules();
-        $isFormValidationOk = $this->form_validation->run () == TRUE;
+        $isFormValidationOk = $this->form_validation->run();
         
         if ($isFormValidationOk) {
-            $this->load->model ( 'users_model' );
     
             $username = set_value ( 'user' );
             $email = set_value ( 'email' );
@@ -54,29 +59,32 @@ class User extends CI_Controller {
             $isNicknameUsed = ($user == 1);
             $isMailUsed = ($user == 2);
             
-            $isCaptchaOk = $this->checkCaptchaMatch();
+            $isCaptchaOk = $this->checkCaptchaMatch('signup');
             
             if (!$isCaptchaOk) {
                 $this->session->set_flashdata ( 'signUpFail', captchaErrorMsg() );
-            } 
-            if ($isNicknameUsed) {
+            } else if ($isNicknameUsed) {
                 $this->session->set_flashdata ( 'signUpFail', 'El nombre de usuario está en uso' );
-            }
-            if ($isMailUsed) {
+            } else if ($isMailUsed) {
                 $this->session->set_flashdata ( 'signUpFail', 'El correo electrónico está en uso' );
-            }
-            if ($isUserOk) {
+            } else if ($isUserOk) {
                 $newUser = $this->dispenseNewUser();
                 $nameReceiver = $newUser->user_name;
+                $validation = $newUser->user_validation;
                 
-                //Eto que e
+                /*
+                 * El protocolo sera http o https
+                 */
                 $url = $_SERVER ['REQUEST_SCHEME'] . '://' . $_SERVER ['SERVER_NAME'] ;
-    
+                
+                /*
+                 * Si esta en local en apache, habra que añadir /bookcorner/
+                 */
                 if ($_SERVER ['SERVER_NAME'] == 'localhost' || $_SERVER ['SERVER_NAME'] == '127.0.0.1') {
                     $url .= '/bookcorner';
                 }
     
-                $message = getMailMsg();
+                $message = getMailActivationMsg($nameReceiver, $url, $validation);
                 $sendMail = $this->sendMail($email, $message, 'Correo de Activación');
                 // enviamos el correo de registro
                 if ($sendMail) {
@@ -103,8 +111,8 @@ class User extends CI_Controller {
         $this->form_validation->set_rules ( 'email', 'Email', 'required|valid_email' );
         $this->form_validation->set_rules ( 'reemail', 'Email', 'required' );
     }
-    private function checkCaptchaMatch(){
-        $captcha = $this->session->flashdata('captcha-signup');
+    private function checkCaptchaMatch($idCaptcha){
+        $captcha = $this->session->flashdata("captcha-$idCaptcha");
         $captcha = strtolower($captcha);
         $captchaUser = set_value( 'captchaControl' );
         $captchaUser = strtolower($captchaUser);
@@ -116,10 +124,10 @@ class User extends CI_Controller {
         $newUser = R::Dispense ( 'user' );
         $newUser->user_name = set_value ( 'name' );
         $newUser->user_surname = set_value ( 'surname' );
-        $newUser->user_nickname = $username;
-        $newUser->user_pwd = md5 ( set_value ( 'pass' ) );
+        $newUser->user_nickname = set_value ( 'user' );
+        $newUser->user_pwd = encrypt( set_value ( 'pass' ) );
         $newUser->user_validation = $validation;
-        $newUser->user_email = $email;
+        $newUser->user_email = set_value ( 'email' );
         $newUser->user_avatar = 'basic.jpg'; // imagen basica
         $newUser->user_genre = 'M';
         $newUser->userrole_id = 1; // registrado, no es moderador ni admin
@@ -132,19 +140,19 @@ class User extends CI_Controller {
         $this->form_validation->set_rules ( 'email', 'Email', 'required|valid_email' );
         $this->form_validation->set_rules ( 'message', 'Mensaje', 'required' );
         $this->form_validation->set_rules ( 'captchaControl', 'Captcha', 'required' );
+        
+        $isFormValidationOk = $this->form_validation->run();
     
-        if ($this->form_validation->run () == true ) {
-    
-            $captcha = $this->session->flashdata('captcha-feedback');
-            $captcha = strtolower($captcha);
-            $captchaUser = set_value( 'captchaControl' );
-            $captchaUser = strtolower($captchaUser);
+        if ($isFormValidationOk) {
+            
+            $isCaptchaOk = $this->checkCaptchaMatch('feedback');
     
             $email = set_value( 'email' );
             $message = set_value( 'message' );
     
-            if ($captcha != $captchaUser) {
+            if ($isCaptchaOk) {
                 $this->session->set_flashdata ( 'sendmailerror', captchaErrorMsg() );
+                
             } else {
     
                 $messageEmail = "Email de $email : <br /><br /> $message";
@@ -232,7 +240,6 @@ class User extends CI_Controller {
          * al routear, los parametros empiezan en el 2, no en el 3
         */
     
-        $this->load->model('users_model');
         $validation = $this->users_model->activateUser($string);
         redirect( base_url(), 'refresh' );
     
@@ -246,8 +253,7 @@ class User extends CI_Controller {
          *
          * al routear, los parametros empiezan en el 2, no en el 3
         */
-    
-        $this->load->model('users_model');
+        
         $validation = $this->users_model->cancelUser($string);
         redirect( base_url(), 'refresh' );
     

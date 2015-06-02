@@ -13,7 +13,7 @@ function getBookAddedSuccessMsg() {
 function captchaErrorMsg() {
     return 'Captcha incorrecto';
 }
-function getMailMsg() {
+function getMailActivationMsg($nameReceiver, $url, $validation) {
     return "Email de thecornerbook@gmail.com <br /><br />Hola, $nameReceiver:<br/>
                 Se ha registrado en BookCorner, este es un mensaje de activación. <br/><br/>
     

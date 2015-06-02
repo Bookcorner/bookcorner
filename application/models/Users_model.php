@@ -57,9 +57,7 @@ class Users_model extends CI_Model {
         $username = $userbean->user_nickname;
         
         $listbookNewUser = R::Dispense ( 'listbook' );
-        $listbookNewUser->listbook_id = $id;
         $listbookNewUser->listbook_name = "Listbook of $username";
-        $userbean->user_id = $id;
         
         $listbookNewUser->ownUserList [] = $userbean;
         R::store ( $userbean );
