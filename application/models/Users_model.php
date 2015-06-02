@@ -18,7 +18,7 @@ class Users_model extends CI_Model {
         return $userBean;
     }
     function getUserInfo($userId) {
-        $userBean = R::findOne ( 'user', ' user_id = ? ', [ 
+        $userBean = R::findOne ( 'user', ' id = ? ', [ 
                 $userId 
         ] );
         return $userBean;
@@ -29,7 +29,7 @@ class Users_model extends CI_Model {
         ] );
         
         if ($countUser != 0) {
-            return 1;
+            return 1;   //nickname in use
         }
         
         $countUser = R::count ( 'user', ' user_email = ? ', [ 
@@ -37,10 +37,10 @@ class Users_model extends CI_Model {
         ] );
         
         if ($countUser != 0) {
-            return 2;
+            return 2;   //email in use
         }
         
-        return 0;
+        return 0;   //User exist
     }
     public function getAllModerators() {
         $mod_users = R::find ( 'user', 'userrole_id = 2' );

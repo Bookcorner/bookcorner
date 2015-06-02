@@ -38,6 +38,61 @@ class User extends CI_Controller {
     }
     
     public function signup() {
+        
+        $this->setSignUpFormRules();
+        $isFormValidationOk = $this->form_validation->run () == TRUE;
+        
+        if ($isFormValidationOk) {
+            $this->load->model ( 'users_model' );
+    
+            $username = set_value ( 'user' );
+            $email = set_value ( 'email' );
+    
+            $user = $this->users_model->check_exist_user ( $username, $email );
+            
+            $isUserOk = ($user == 0);
+            $isNicknameUsed = ($user == 1);
+            $isMailUsed = ($user == 2);
+            
+            $isCaptchaOk = $this->checkCaptchaMatch();
+            
+            if (!$isCaptchaOk) {
+                $this->session->set_flashdata ( 'signUpFail', captchaErrorMsg() );
+            } 
+            if ($isNicknameUsed) {
+                $this->session->set_flashdata ( 'signUpFail', 'El nombre de usuario está en uso' );
+            }
+            if ($isMailUsed) {
+                $this->session->set_flashdata ( 'signUpFail', 'El correo electrónico está en uso' );
+            }
+            if ($isUserOk) {
+                $newUser = $this->dispenseNewUser();
+                $nameReceiver = $newUser->user_name;
+                
+                //Eto que e
+                $url = $_SERVER ['REQUEST_SCHEME'] . '://' . $_SERVER ['SERVER_NAME'] ;
+    
+                if ($_SERVER ['SERVER_NAME'] == 'localhost' || $_SERVER ['SERVER_NAME'] == '127.0.0.1') {
+                    $url .= '/bookcorner';
+                }
+    
+                $message = getMailMsg();
+                $sendMail = $this->sendMail($email, $message, 'Correo de Activación');
+                // enviamos el correo de registro
+                if ($sendMail) {
+                    $this->session->set_flashdata ( 'ok', 'Se ha registrado satisfactoriamente, le enviaremos un correo de activación.' );
+                    $this->users_model->saveUser($newUser);
+                } else {
+                    $this->session->set_flashdata ( 'signUpError', 'No se le ha podido enviar el correo, vuelva a intentarlo' );
+                }
+            } 
+        } else {
+            $this->session->set_flashdata ( 'signUpFail', 'Formulario incorrecto' );
+        }
+    
+        redirect ( base_url (), 'refresh' );
+    }
+    private function setSignUpFormRules(){
         $this->form_validation->set_rules ( 'name', 'Nombre', 'required' );
         $this->form_validation->set_rules ( 'surname', 'Apellido', 'required' );
         $this->form_validation->set_rules ( 'user', 'Usuario', 'required' );
@@ -47,81 +102,29 @@ class User extends CI_Controller {
         $this->form_validation->set_rules ( 'repass', 'Confirmar Contraseña', 'required' );
         $this->form_validation->set_rules ( 'email', 'Email', 'required|valid_email' );
         $this->form_validation->set_rules ( 'reemail', 'Email', 'required' );
-    
-        if ($this->form_validation->run () == true ) {
-            $this->load->model ( 'users_model' );
-    
-            $username = set_value ( 'user' );
-            $email = set_value ( 'email' );
-    
-            $exist_user = $this->users_model->check_exist_user ( $username, $email );
-            /*
-             * 0 -> ok
-             * 1 -> nickname in use
-             * 2 -> email in use
-            */
-    
-            $captcha = $this->session->flashdata('captcha-signup');
-            $captcha = strtolower($captcha);
-            $captchaUser = set_value( 'captchaControl' );
-            $captchaUser = strtolower($captchaUser);
-    
-            if ($captcha != $captchaUser) {
-                $this->session->set_flashdata ( 'signUpFail', 'Captcha incorrecto' );
-            } else if ($exist_user == 0) {
-                $validation = $this->users_model->getRandomString();
-    
-                $newUser = R::Dispense ( 'user' );
-                $newUser->user_name = set_value ( 'name' );
-                $newUser->user_surname = set_value ( 'surname' );
-                $newUser->user_nickname = $username;
-                $newUser->user_pwd = md5 ( set_value ( 'pass' ) );
-                $newUser->user_validation = $validation;
-                $newUser->user_email = $email;
-                $newUser->user_avatar = 'basic.jpg'; // imagen basica
-                $newUser->user_genre = 'M';
-                $newUser->userrole_id = 1; // registrado, no es moderador ni admin
-                $newUser->userstatus_id = 2; // inactivo, enviar correo de activacion
-    
-                $nameReceiver = $newUser->user_name;
-                $url = $_SERVER ['REQUEST_SCHEME'] . '://' . $_SERVER ['SERVER_NAME'] ;
-    
-                if ($_SERVER ['SERVER_NAME'] == 'localhost' || $_SERVER ['SERVER_NAME'] == '127.0.0.1') {
-                    $url .= '/bookcorner';
-                }
-    
-                $message = "Email de thecornerbook@gmail.com <br /><br />Hola, $nameReceiver:<br/>
-                Se ha registrado en BookCorner, este es un mensaje de activación. <br/><br/>
-    
-                <h2> Si ha realizado este registro puede confirmar la operación mediante este link: $url/activar/$validation </h2>
-    
-                <br/> <br/><br/> <br/><br/> <br/>
-    
-                <h3> Si no ha realizado este registro puede cancelar la operación mediante este link: $url/cancelar/$validation </h3>
-    
-                <br/> <br/>
-                Atentamente, El equipo de BookCorner";
-    
-                $sendMail = $this->sendMail($email, $message, 'Correo de Activación');
-                // enviamos el correo de registro
-    
-                if ($sendMail) {
-                    $this->session->set_flashdata ( 'ok', 'Se ha registrado satisfactoriamente, le enviaremos un correo de activación.' );
-                    $this->users_model->saveUser($newUser);
-                } else {
-                    $this->session->set_flashdata ( 'signUpError', 'No se le ha podido enviar el correo, vuelva a intentarlo' );
-                }
-    
-            } else if ($exist_user == 1) {
-                $this->session->set_flashdata ( 'signUpFail', 'El nombre de usuario está en uso' );
-            } else if ($exist_user == 2) {
-                $this->session->set_flashdata ( 'signUpFail', 'El correo electrónico está en uso' );
-            }
-        } else {
-            $this->session->set_flashdata ( 'signUpFail', 'Formulario incorrecto' );
-        }
-    
-        redirect ( base_url (), 'refresh' );
+    }
+    private function checkCaptchaMatch(){
+        $captcha = $this->session->flashdata('captcha-signup');
+        $captcha = strtolower($captcha);
+        $captchaUser = set_value( 'captchaControl' );
+        $captchaUser = strtolower($captchaUser);
+        return ($captcha == $captchaUser);
+    }
+    private function dispenseNewUser(){
+        $validation = $this->users_model->getRandomString();
+        
+        $newUser = R::Dispense ( 'user' );
+        $newUser->user_name = set_value ( 'name' );
+        $newUser->user_surname = set_value ( 'surname' );
+        $newUser->user_nickname = $username;
+        $newUser->user_pwd = md5 ( set_value ( 'pass' ) );
+        $newUser->user_validation = $validation;
+        $newUser->user_email = $email;
+        $newUser->user_avatar = 'basic.jpg'; // imagen basica
+        $newUser->user_genre = 'M';
+        $newUser->userrole_id = 1; // registrado, no es moderador ni admin
+        $newUser->userstatus_id = 2; // inactivo, enviar correo de activacion
+        return $newUser;
     }
     
     public function sendContact() {
@@ -141,7 +144,7 @@ class User extends CI_Controller {
             $message = set_value( 'message' );
     
             if ($captcha != $captchaUser) {
-                $this->session->set_flashdata ( 'sendmailerror', 'Captcha incorrecto' );
+                $this->session->set_flashdata ( 'sendmailerror', captchaErrorMsg() );
             } else {
     
                 $messageEmail = "Email de $email : <br /><br /> $message";
