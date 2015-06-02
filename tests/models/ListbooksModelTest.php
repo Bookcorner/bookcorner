@@ -60,4 +60,12 @@ class ListbooksModelTest extends PHPUnit_Framework_TestCase {
         $listbookId = $this->CI->listbooks_model->getListbookFrom ( $userId );
         $this->assertEquals ( $listbookIDEspected, $listbookId );
     }
+    public function testWhenGetListbookNameCalledThenListbookNameShouldBeReturned() {
+        $userId = 1;
+        $listbookId = 1;
+        $listbookNameExpected = 'Listbook of admin';
+        $this->CI->load->model ( 'listbooks_model' );
+        $listbookName = $this->CI->listbooks_model->getListbookName ( $listbookId );
+        $this->assertEquals ( $listbookNameExpected, $listbookName );
+    }
 }

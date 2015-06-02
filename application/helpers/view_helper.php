@@ -33,7 +33,7 @@ function loadCustomViews($views, $data = null) {
 /**
  * Carga el menú apropiado entre los menús posibles.
  */
-function loadMenu() {
+function loadMenu($data = ['title' => 'administración']) {
     $CI = & get_instance ();
     
     if (check_session_exist ( 'title' )) {
@@ -78,6 +78,17 @@ function loadBasicViews($contentURI, $data = array()) {
     }
     
     $CI->load->view ( $contentURI, $data );
+    $CI->load->view ( 'templates/footers/base_footer' );
+    $CI->load->view ( 'templates/end' );
+}
+
+function loadAdminView($view, $data = ['title' => 'Administración']){
+    $CI = & get_instance ();
+    $CI->load->view ( 'templates/cabeceras/inicio_cabecera', $data);
+    $CI->load->view ( 'templates/cabeceras/cabecera_admin', $data);
+    $CI->load->view ( 'templates/cabeceras/fin_cabecera' );
+    loadMenu ();
+    $CI->load->view ( 'admin/adminview', $data);
     $CI->load->view ( 'templates/footers/base_footer' );
     $CI->load->view ( 'templates/end' );
 }

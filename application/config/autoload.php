@@ -61,7 +61,7 @@ $autoload['packages'] = array();
 */
 
 //$autoload['libraries'] = array();
-$autoload['libraries'] = array('database', 'form_validation', 'session');
+$autoload['libraries'] = array('database', 'form_validation', 'session', 'grocery_CRUD');
 
 // load RedBeanPHP
 include(APPPATH.'libraries/rb.php');

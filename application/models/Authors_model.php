@@ -15,4 +15,5 @@ class Authors_model extends CI_Model {
         $authorsBeans = R::find ( 'author', 'ORDER BY author_fullname' );
         return $authorsBeans;
     }
+    
 }

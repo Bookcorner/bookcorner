@@ -58,27 +58,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | The $query_builder variables lets you determine whether or not to load
 | the query builder class.
 */
-
-$hostname = '';
-$username = '';
-$password = '';
-$database = '';
-
-if ($_SERVER ['SERVER_NAME'] == 'localhost' || $_SERVER ['SERVER_NAME'] == '127.0.0.1') {
-
-    $hostname = "127.0.0.1";
-    $username = "root";
-    $password = "";
-    $database = "bookcorner";
-
-} else {
-    
-    $hostname = "mysql.hostinger.es";
-    $username = "u223979541_admin";
-    $password = "alumnoadmin93";
-    $database = "u223979541_book";
-    
-}
+$hostname = "127.0.0.1";
+$username = "root";
+$password = "";
+$database = "bookcorner";
 
 $active_group = 'default';
 $query_builder = TRUE;

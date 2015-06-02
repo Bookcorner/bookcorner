@@ -9,9 +9,12 @@ class Listbook extends CI_Controller {
             redirect ( base_url (), 'refresh' );
         }
         
+        $data ['title'] = 'Lista de libros';
         $userId = $this->session->userdata ( $sessionName );
         $this->load->model ( 'listbooks_model' );
-        $data ['title'] = 'Lista de libros';
+        $listbookId = $this->listbooks_model->getListbookFrom ( $userId );
+        $data['listbook_name'] = $this->listbooks_model->getListbookName($listbookId);
+
         $data ['books'] = $this->listbooks_model->getAllBooklistFromUser ( $userId );
         
         $views = [ 
@@ -55,7 +58,6 @@ class Listbook extends CI_Controller {
         $userId = $this->session->userdata ( $sessionName );
         $this->load->model ( 'listbooks_model' );
         $listbook_id = $this->listbooks_model->getListbookFrom ( $userId );
-        echo 'LISTBOOK ID: '.$listbook_id;
         
         $isBookAlreadyInList = $this->listbooks_model->getBookFromListbook ( $bookId, $listbook_id );
         

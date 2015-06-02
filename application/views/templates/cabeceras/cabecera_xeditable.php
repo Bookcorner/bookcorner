@@ -2,9 +2,10 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 
 <script>
+$.fn.editable.defaults.mode = 'inline';
+
 $(document).ready(function() {
     $("a[data-name='status']").editable({  
-    	placement: 'bottom',
         source: [
               {value: 1, text: 'Leyendo'},
               {value: 2, text: 'Pendiente'},
@@ -14,8 +15,7 @@ $(document).ready(function() {
     });
 
     $("a[data-name='score']").editable({  
-    	placement: 'bottom',
-        source: [
+    	source: [
               {value: 0, text: '0'},
               {value: 1, text: '1'},
               {value: 2, text: '2'},
@@ -31,8 +31,6 @@ $(document).ready(function() {
            ]
     });
 
-    $("a[data-name='note']").editable({  
-    	placement: 'bottom'
-    });    
+    $("a[data-name='note']").editable();    
 });
 </script>

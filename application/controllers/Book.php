@@ -15,7 +15,6 @@ class Book extends CI_Controller {
         $data ['title'] = 'Libros';
         
         if (empty ( $books )) {
-            $data ['books'] = 'Ningún libro coincide con la búsqueda';
             $viewUri = 'books/no_books_found';
             loadBasicViews ( $viewUri, $data );
         } else {

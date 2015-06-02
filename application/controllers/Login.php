@@ -34,20 +34,17 @@ class Login extends CI_Controller {
     
                     if ($isRememberChecked) {
                         $this->config->set_item('sess_expire_on_close', FALSE);
-                        $userSession = $this->createUserSession ( $validUser );
+                        $userSession = $this->createUserDataSession ( $validUser );
                         $this->session->set_userdata ( $userSession );
                     } else {
                         $this->config->set_item('sess_expire_on_close', TRUE);
-                        $userSession = $this->createUserSession ( $validUser );
+                        $userSession = $this->createUserDataSession ( $validUser );
                         $this->session->set_userdata ( $userSession );
                     }
                 }
-                
             }
         }
-        
         redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
-        
     }
     
     public function logout() {
@@ -66,10 +63,10 @@ class Login extends CI_Controller {
      * @param Object $user            
      * @return multitype:string data for the session
      */
-    private function createUserSession($user) {
+    private function createUserDataSession($user) {
         $sessionData = array (
                 'title' => 'bookcorner',
-                'id' => $user->user_id,
+                'id' => $user->id,
                 'role' => $user->userrole_id,
                 'username' => $user->user_nickname,
                 'name' => $user->user_name,
