@@ -16,6 +16,12 @@ function captchaErrorMsg() {
 function bookNotExistErrorMsg() {
     return 'El libro no existe';
 }
+function bookRemovedSuccessMsg() {
+    return 'El libro ha sido quitado';
+}
+function bookNotAddedErrorMsg() {
+    return 'El libro no está en tu lista';
+}
 function getMailActivationMsg($nameReceiver, $url, $validation) {
     return "Email de thecornerbook@gmail.com <br /><br />Hola, $nameReceiver:<br/>
                 Se ha registrado en BookCorner, este es un mensaje de activación. <br/><br/>

@@ -47,8 +47,38 @@ class Listbook extends CI_Controller {
         $this->load->model ( 'listbooks_model' );
         $this->listbooks_model->updateBookNote ( $booknote, $val_id );
     }
-    public function removeBookFromList($bookId) {
-        echo "me has mandado $bookId";
+    public function removeBookFromList() {
+        $bookId = $this->uri->segment(2);
+        $sessionName = 'id';
+        
+        if (! check_session_exist ( $sessionName )) {
+            $this->session->set_flashdata ( 'signInError', getSignInErrorMsg () );
+            redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+        }
+        
+        $userId = $this->session->userdata ( $sessionName );
+        $this->load->model ( 'listbooks_model' );
+        $listbook_id = $this->listbooks_model->getListbookFrom ( $userId );
+        
+        $isBookAlreadyInList = $this->listbooks_model->getBookFromListbook ( $bookId, $listbook_id );
+        
+        if (!$isBookAlreadyInList) {
+            $this->session->set_flashdata ( 'bookNotAdded', bookNotAddedErrorMsg () );
+            redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+        }
+        
+        $this->load->model ( 'books_model' );
+        $existBook = $this->books_model->getBook ( $bookId );
+        
+        if (!$existBook) {
+            $this->session->set_flashdata ( 'bookAlreadyAdded', bookNotExistErrorMsg () );
+            redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+        }
+        
+        $success = $this->listbooks_model->removeBookFromList ( $bookId, $listbook_id );
+        $this->session->set_flashdata ( 'bookRemovedSuccess', bookRemovedSuccessMsg () );
+        redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+        
     }
     public function addBookToList() {
         $bookId = $this->uri->segment(2);

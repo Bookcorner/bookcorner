@@ -61,6 +61,21 @@ class Listbooks_model extends CI_Model {
             return $isBookCreated;
         }
     }
+    function removeBookFromList($book_id, $listbook_id) {        
+        $bookFromlist = $book = R::findOne ( 'book_listbook', 'WHERE listbook_id = :listbook_id AND book_id = :book_id', [ 
+                'listbook_id' => $listbook_id,
+                'book_id' => $book_id 
+        ] );        
+        R::trash ( $bookFromlist );
+        
+        $bookValuation = R::findOne ( 'valuation', 'WHERE listbook_id = :listbook_id AND book_id = :book_id', [ 
+                'listbook_id' => $listbook_id,
+                'book_id' => $book_id 
+        ] );
+        
+        R::trash ( $bookValuation );
+        
+    }
     private function createDefaultValuationRow() {
         $valuation = R::Dispense ( 'valuation' );
         $valuation->val_puntuacion = 11;

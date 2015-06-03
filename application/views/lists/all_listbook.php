@@ -27,10 +27,11 @@
 							</tr>
 						</thead>
         				<tbody>
-        		        <?php foreach ($books as $book):?>
+        		        <?php $num = 0; foreach ($books as $book):?>
+        		          <?php echo $num++; ?>
                             <tr>
                                 <td><?php echo $book['book_isbn']?></td>
-        				        <td><?php echo $book['book_name']?></td>
+        				        <td><?php echo anchor('libro/'.$book['book_id'],$book['book_name'])?></td>
                                 <td>
                                     <a href="#"
                                         data-name="status" 
