@@ -103,7 +103,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="row panel">
+	<div class="row">
         <?php echo $output->output; ?>
 	</div>
 </div>

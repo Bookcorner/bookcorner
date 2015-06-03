@@ -18,7 +18,7 @@ class Admin extends CI_Controller {
         $this->createUserAlias ( $crud );
         
         $crud->columns ( 'user_name', 'user_surname', 'user_nickname', 'user_email', 'user_avatar', 'user_genre', 'listbook_id', 'userrole_id', 'userstatus_id' );
-        
+        $crud->fields ( 'user_name', 'user_surname', 'user_nickname', 'user_pwd', 'user_email', 'user_avatar', 'user_genre', 'listbook_id', 'userrole_id', 'userstatus_id' );
         $this->createUserRules ( $crud );
         
         $crud->required_fields ( 'user_name', 'user_surname', 'user_pwd', 'user_validation', 'user_nickname', 'user_email', 'user_avatar', 'user_genre', 'listbook_id', 'userrole_id', 'userstatus_id' );
@@ -44,7 +44,6 @@ class Admin extends CI_Controller {
         $crud->set_rules ( 'user_surname', 'Apellido', 'required' );
         $crud->set_rules ( 'user_nickname', 'Alias', 'required|min_length[3]' );
         $crud->set_rules ( 'user_pwd', 'Contraseña', 'required|min_length[4]' );
-        $crud->set_rules ( 'user_validation', 'String Validación', 'required' );
         $crud->set_rules ( 'user_email', 'Correo Electrónico', 'required|valid_email' );
         $crud->set_rules ( 'user_avatar', 'Avatar', 'required' );
         $crud->set_rules ( 'user_genre', 'Género (H/M)', 'required|exact_length[1]' );
