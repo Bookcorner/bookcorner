@@ -40,6 +40,12 @@
 										class="fa fa-plus"></i> Añadir a mi lista
 									</a>
 								</div>
+								<?php } else { ?>
+							     <div class="col-xs-6">
+								    <a href="<?= base_url() ?>quitar-libro/<?= $book->id ?>" class="btn btn-danger"> <i
+										class="fa fa-minus"></i> Quitar de mi lista
+									</a>
+								 </div>
 								<?php } ?>
 								<div class="col-xs-6">
 									<a href="anadir-libro" class="btn btn-warning"> <i
