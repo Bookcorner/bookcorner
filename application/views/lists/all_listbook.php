@@ -27,8 +27,7 @@
 							</tr>
 						</thead>
         				<tbody>
-        		        <?php $num = 0; foreach ($books as $book):?>
-        		          <?php echo $num++; ?>
+        		        <?php foreach ($books as $book):?>
                             <tr>
                                 <td><?php echo $book['book_isbn']?></td>
         				        <td><?php echo anchor('libro/'.$book['book_id'],$book['book_name'])?></td>
