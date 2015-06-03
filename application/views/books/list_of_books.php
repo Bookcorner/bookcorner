@@ -51,7 +51,7 @@
 						<a href="anadir-libro/<?php echo $book['id']?>" class="btn btn-success"> 
                             <i class="fa fa-plus"></i> Añadir a mi lista
 						</a>
-						<a href="anadir-libro" class="btn btn-warning"> 
+						<a href="votar-libro/<?= $book->id ?>" class="btn btn-warning"> 
                             <i class="fa fa-thumbs-up"></i> Votar Libro
 						</a>
 					</div>

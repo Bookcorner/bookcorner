@@ -48,8 +48,8 @@
 								 </div>
 								<?php } ?>
 								<div class="col-xs-6">
-									<a href="anadir-libro" class="btn btn-warning"> <i
-										class="fa fa-thumbs-up"></i> Votar Libro
+									<a href="<?= base_url() ?>votar-libro/<?= $book->id ?>" class="btn btn-warning"> 
+									<i class="fa fa-thumbs-up"></i> Votar Libro
 									</a>
 								</div>
 							</div>
