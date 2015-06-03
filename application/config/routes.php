@@ -69,14 +69,18 @@ $route['registrarse'] = 'user/signup';
 $route['activar/:any'] = 'user/activate';
 $route['cancelar/:any'] = 'user/cancel';
 $route['lista-libros'] = 'listbook/showListBooks';
-$route['anadir-libro'] = 'listbook/addBookToList';
+$route['anadir-libro/:num'] = 'listbook/addBookToList';
+$route['quitar-libro/:num'] = 'listbook/removeBookFromList';
 $route['contactar'] = 'user/sendContact';
+$route['salir'] = 'login/logout';
+
+// admin
 $route['adminusers'] = 'admin/showUsersMasterTable';
 $route['adminbooks'] = 'admin/showBooksMasterTable';
 $route['adminauthors'] = 'admin/showAuthorsMasterTable';
 $route['admingenre'] = 'admin/showGenrebookMasterTable';
 $route['adminlistbook'] = 'admin/showListbookMasterTable';
-$route['salir'] = 'login/logout';
+
 
 
 $route['404_override'] = '';

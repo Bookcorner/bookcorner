@@ -5,7 +5,7 @@ class Listbook extends CI_Controller {
         $sessionName = 'id';
         
         if (! check_session_exist ( $sessionName )) {
-            $this->session->set_flashdata ( 'signInError', getSignInErrorMsg() );
+            $this->session->set_flashdata ( 'signInError', getSignInErrorMsg () );
             redirect ( base_url (), 'refresh' );
         }
         
@@ -13,8 +13,8 @@ class Listbook extends CI_Controller {
         $userId = $this->session->userdata ( $sessionName );
         $this->load->model ( 'listbooks_model' );
         $listbookId = $this->listbooks_model->getListbookFrom ( $userId );
-        $data['listbook_name'] = $this->listbooks_model->getListbookName($listbookId);
-        $data['nickname'] = $this->session->userdata ( 'nickname' );
+        $data ['listbook_name'] = $this->listbooks_model->getListbookName ( $listbookId );
+        $data ['nickname'] = $this->session->userdata ( 'nickname' );
         $data ['books'] = $this->listbooks_model->getAllBooklistFromUser ( $userId );
         
         $views = [ 
@@ -47,11 +47,14 @@ class Listbook extends CI_Controller {
         $this->load->model ( 'listbooks_model' );
         $this->listbooks_model->updateBookNote ( $booknote, $val_id );
     }
+    public function removeBookFromList($bookId) {
+        echo "me has mandado $bookId";
+    }
     public function addBookToList($bookId) {
         $sessionName = 'id';
         
         if (! check_session_exist ( $sessionName )) {
-            $this->session->set_flashdata ( 'signInError', getSignInErrorMsg() );
+            $this->session->set_flashdata ( 'signInError', getSignInErrorMsg () );
             redirect ( base_url (), 'refresh' );
         }
         
@@ -62,12 +65,12 @@ class Listbook extends CI_Controller {
         $isBookAlreadyInList = $this->listbooks_model->getBookFromListbook ( $bookId, $listbook_id );
         
         if ($isBookAlreadyInList) {
-            $this->session->set_flashdata ( 'bookAlreadyAdded', getBookAlreadyAddedErrorMsg() );
+            $this->session->set_flashdata ( 'bookAlreadyAdded', getBookAlreadyAddedErrorMsg () );
             redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
         }
         
         $success = $this->listbooks_model->addBookToList ( $bookId, $listbook_id );
-        $this->session->set_flashdata ( 'bookAddedSuccess', getBookAddedSuccessMsg() );
+        $this->session->set_flashdata ( 'bookAddedSuccess', getBookAddedSuccessMsg () );
         redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
     }
 }

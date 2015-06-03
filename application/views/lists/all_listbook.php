@@ -23,6 +23,7 @@
 								<th>Estado</th>
 								<th>Puntuación</th>
 								<th>Notas</th>
+								<th>Eliminar</th>
 							</tr>
 						</thead>
         				<tbody>
@@ -65,6 +66,11 @@
                                         aria-describedBy="<?php echo $book['book_id']?>"
                                         class="btn btn-default btn-md">
                                         <i class="glyphicon glyphicon-edit"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="quitar-libro/<?php echo $book['book_id']?>" class="btn btn-default">
+                                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                                     </a>
                                 </td>
         				    </tr>    
