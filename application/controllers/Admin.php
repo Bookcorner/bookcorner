@@ -18,7 +18,7 @@ class Admin extends CI_Controller {
         $this->createUserAlias ( $crud );
         
         $crud->columns ( 'user_name', 'user_surname', 'user_nickname', 'user_email', 'user_avatar', 'user_genre', 'listbook_id', 'userrole_id', 'userstatus_id' );
-        $crud->fields ( 'user_name', 'user_surname', 'user_nickname', 'user_pwd', 'user_email', 'user_avatar', 'user_genre', 'listbook_id', 'userrole_id', 'userstatus_id' );
+        $crud->fields ( 'user_name', 'user_surname', 'user_nickname', 'user_pwd', 'user_email', 'user_avatar', 'user_genre', 'userrole_id', 'userstatus_id' );
         $this->createUserRules ( $crud );
         
         $crud->required_fields ( 'user_name', 'user_surname', 'user_pwd', 'user_validation', 'user_nickname', 'user_email', 'user_avatar', 'user_genre', 'listbook_id', 'userrole_id', 'userstatus_id' );
@@ -30,9 +30,33 @@ class Admin extends CI_Controller {
         
         $crud->set_crud_url_path ( site_url ( strtolower ( __CLASS__ . "/" . __FUNCTION__ ) ), site_url ( strtolower ( __CLASS__ . "/showUsersMasterTable" ) ) );
         
+        $crud->callback_before_insert(array($this,'encrypt_password_callback'));
+        $crud->callback_before_update(array($this,'encrypt_password_callback'));
+        $crud->callback_after_insert(array($this,'create_listbook_user'));
+        $crud->callback_after_update(array($this,'update_user_listbook_name'));
+        
         $data['title'] = 'Admin Usuarios';
         $data['output'] = $crud->render ();
         loadAdminView( 'admin/adminview', $data );
+    }
+    
+    function encrypt_password_callback($post_array) {
+        $post_array['user_pwd'] = encrypt($post_array['user_pwd']);
+        return $post_array;
+    }
+    function create_listbook_user($post_array, $primary_key){
+        $user = R::load('user', $primary_key);
+        $listbook = R::Dispense('listbook');
+        $listbook->listbook_name = 'Lista de '.$post_array['user_nickname'];
+        $listbook->ownUserList [] = $user;
+        R::store ( $listbook );
+    }
+    function update_user_listbook_name($post_array, $primary_key){
+        $user = R::load('user', $primary_key);
+        $listbookId = $user->listbook_id;
+        $listbook = R::load('listbook', $listbookId);
+        $listbook->listbook_name = 'Lista de '.$post_array['user_nickname'];
+        R::store ( $listbook );
     }
     private function createUserRelations($crud) {
         $crud->set_relation ( 'listbook_id', 'listbook', 'listbook_name' );

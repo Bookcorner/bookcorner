@@ -27,7 +27,7 @@
     //page js
     $this->set_js_lib($this->default_theme_path.'/bootstrap/js/datagrid/gcrud.datagrid.js');
     $this->set_js_lib($this->default_theme_path.'/bootstrap/js/datagrid/list.js');
-
+    
     $colspans = (count($columns) + 2);
 
     $list_displaying = str_replace(

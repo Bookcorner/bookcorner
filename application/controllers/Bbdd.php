@@ -15,7 +15,6 @@ class Bbdd extends CI_Controller {
         $user1->user_email = 'administrator@gmail.com';
         $user1->user_avatar = 'boss.jpg';
         $user1->user_genre = 'M';
-        $user1->listbook_id = 1;
         
         $user2 = R::Dispense ( 'user' );
         $user2->user_name = 'mr.comando';
