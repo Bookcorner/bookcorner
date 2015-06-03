@@ -29,3 +29,19 @@ function getMailActivationMsg($nameReceiver, $url, $validation) {
 function getUserAlreadyActivateMsg(){
     return 'El usuario ya está activado';
 }
+
+function getUsernameAlreadyExistsMsg(){
+    return 'El nombre de usuario ya existe, escoja otro.';
+}
+
+function getUsernameChangeOkMsg(){
+    return 'El nombre de usuario ha sido modificado con éxito.';
+}
+
+function getEmailAlreadyExistsMsg(){
+    return 'La dirección de correo electrónico ya está registrada.';
+}
+
+function getEmailChangeOkMsg(){
+    return 'La dirección de correo electrónico ha sido modificada con éxito.';
+}

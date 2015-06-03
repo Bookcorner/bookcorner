@@ -33,7 +33,7 @@
             'data-toggle' => 'validator',
             'method' => 'post',
             'accept-charset' => 'UTF-8',
-            'id' => 'idFormSignIn' 
+            'id' => 'idFormNewAvatar' 
     ] )?>	
 					
 					 <span class="btn btn-default btn-file">
@@ -67,12 +67,12 @@
 					<div class="col-xs-10">
 						<?php
     
-    echo form_open ( base_url () . '', [ 
+    echo form_open ( base_url () . 'actualizar-username', [ 
             'class' => 'form-horizontal',
             'data-toggle' => 'validator',
             'method' => 'post',
             'accept-charset' => 'UTF-8',
-            'id' => 'idFormSignIn' 
+            'id' => 'idFormNewUsername' 
     ] )?>	
 						<div class="form-group">
 							<label class="control-label" for="idNewUsername">Nombre de
@@ -91,18 +91,18 @@
 						<hr />
 						<?php
     
-    echo form_open ( base_url () . '', [ 
+    echo form_open ( base_url () . 'actualizar-mail', [ 
             'class' => 'form-horizontal',
             'data-toggle' => 'validator',
             'method' => 'post',
             'accept-charset' => 'UTF-8',
-            'id' => 'idFormSignIn' 
+            'id' => 'idFormNewEmail' 
     ] )?>	
     
                         <div class="form-group">
-							<label class="control-label" for="idEmail">Email:</label>
+							<label class="control-label" for="idNewEmail">Email:</label>
 							<div class="controls">
-								<input id="idEmail" name="email"
+								<input id="idNewEmail" name="newEmail"
 									pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$"
 									class="input-large form-control" type="text"
 									placeholder="Email" data-error="Dirección de correo no válida"
@@ -147,7 +147,7 @@
                     'data-toggle' => 'validator',
                     'method' => 'post',
                     'accept-charset' => 'UTF-8',
-                    'id' => 'idFormSignIn' 
+                    'id' => 'idFormNewPassword' 
             ] )?>						
 	                            
 						<div class="form-group">

@@ -281,4 +281,52 @@ class User extends CI_Controller {
     
     }    
     
+    public function editUsername(){
+        $session = 'id';
+        if (check_session_exist($session)){
+            $userId = $this->session->userdata ( $session );
+        } else {
+            $this->session->set_flashdata ( 'signInError', 'Inicie sesión para continuar' );
+            redirect ( base_url (), 'refresh' );
+        }
+        
+        $username = set_value('newUsername');
+        $this->load->model('users_model');
+        $isNicknameInUse = $this->users_model->check_username_exists($username);
+        if($isNicknameInUse){
+            $this->session->set_flashdata ( 'updateUsernameError', getUsernameAlreadyExistsMsg());
+            redirect (  $_SERVER ['HTTP_REFERER'], 'refresh' );
+        }
+        else{
+            $id = $this->session->userdata( 'id' );
+            $this->users_model->update_username($username, $id);
+            $this->session->set_flashdata ( 'updateUsernameOk', getUsernameChangeOkMsg());
+            redirect (  $_SERVER ['HTTP_REFERER'], 'refresh' );
+        }
+    }
+    
+    public function editEmail(){
+        $session = 'id';
+        if (check_session_exist($session)){
+            $userId = $this->session->userdata ( $session );
+        } else {
+            $this->session->set_flashdata ( 'signInError', 'Inicie sesión para continuar' );
+            redirect ( base_url (), 'refresh' );
+        }
+    
+        $email= set_value('newEmail');
+        $this->load->model('users_model');
+        $isEmailInUse = $this->users_model->check_email_exists($email);
+        if($isEmailInUse){
+            $this->session->set_flashdata ( 'updateEmailError', getEmailAlreadyExistsMsg());
+            redirect (  $_SERVER ['HTTP_REFERER'], 'refresh' );
+        }
+        else{
+            $id = $this->session->userdata( 'id' );
+            $this->users_model->update_email($email, $id);
+            $this->session->set_flashdata ( 'updateEmailOk', getEmailChangeOkMsg());
+            redirect (  $_SERVER ['HTTP_REFERER'], 'refresh' );
+        }
+    }
+    
 }
