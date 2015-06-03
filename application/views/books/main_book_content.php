@@ -33,7 +33,7 @@
                     </div>
 				</div>
 				<div class="panel-footer">
-					<a href="listbook/addBookToList/<?php echo $book['id']?>"
+					<a href="anadir-libro/<?php echo $book['id']?>"
 						class="btn btn-success"> <i class="fa fa-plus"></i> Añadir a mi
 						lista
 					</a> <a href="anadir-libro" class="btn btn-warning"> <i

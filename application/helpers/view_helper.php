@@ -23,6 +23,7 @@ function loadCustomViews($views, $data = null) {
     }
     $CI->load->view ( 'templates/cabeceras/fin_cabecera', $data );
     loadMenu ();
+    
     foreach ( $views ['contenidos'] as $contenido ) {
         $CI->load->view ( $contenido );
     }
@@ -48,6 +49,7 @@ function loadMenu($data = array()) {
     } else {
         $CI->load->view ( 'templates/menus/menu_login', $data );
     }
+    $CI->load->view ( 'templates/cabeceras/cabecera_message', $data );
 }
 
 /**
@@ -64,18 +66,7 @@ function loadBasicViews($contentURI, $data = array()) {
     $CI->load->view ( 'templates/cabeceras/cabecera_base', $data );
     $CI->load->view ( 'templates/cabeceras/fin_cabecera' );
     
-    if (check_session_exist ( 'title' )) {
-        $data ['id'] = $CI->session->userdata ( 'id' );
-        $data ['nickname'] = $CI->session->userdata ( 'username' );
-        $data ['username'] = $CI->session->userdata ( 'name' );
-        $data ['surname'] = $CI->session->userdata ( 'surname' );
-        $data ['avatar'] = $CI->session->userdata ( 'avatar' );
-        $data ['role'] = $CI->session->userdata ( 'role' );
-        
-        $CI->load->view ( 'templates/menus/menu_logout', $data );
-    } else {
-        $CI->load->view ( 'templates/menus/menu_login', $data );
-    }
+    loadMenu ();
     
     $CI->load->view ( $contentURI, $data );
     $CI->load->view ( 'templates/footers/base_footer' );

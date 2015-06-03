@@ -1,4 +1,3 @@
-<?php if($this->session->flashdata('sendmailerror')) { ?> <div class="alert alert-info text-center" role="alert"> <?= $this->session->flashdata('sendmailerror') ?> </div> <?php } ?>
 <div class="container">
 	<!-- BREADCRUMB -->
 	<div>

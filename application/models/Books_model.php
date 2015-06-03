@@ -11,6 +11,12 @@ class Books_model extends CI_Model {
         ] );
         return $booksBeans;
     }
+    function getBook($bookId) {
+        $bookBean = R::findOne ( 'book', ' id = ? ', [
+                $bookId
+        ] );
+        return $bookBean;
+    }
     function searchAllBooksOrderedByName() {
         $booksBeans = R::find ( 'book', 'ORDER BY book_name' );
         return $booksBeans;

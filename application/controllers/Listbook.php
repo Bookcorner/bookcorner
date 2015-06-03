@@ -50,12 +50,13 @@ class Listbook extends CI_Controller {
     public function removeBookFromList($bookId) {
         echo "me has mandado $bookId";
     }
-    public function addBookToList($bookId) {
+    public function addBookToList() {
+        $bookId = $this->uri->segment(2);
         $sessionName = 'id';
         
         if (! check_session_exist ( $sessionName )) {
             $this->session->set_flashdata ( 'signInError', getSignInErrorMsg () );
-            redirect ( base_url (), 'refresh' );
+            redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
         }
         
         $userId = $this->session->userdata ( $sessionName );
@@ -66,6 +67,13 @@ class Listbook extends CI_Controller {
         
         if ($isBookAlreadyInList) {
             $this->session->set_flashdata ( 'bookAlreadyAdded', getBookAlreadyAddedErrorMsg () );
+            redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+        }
+        $this->load->model ( 'books_model' );
+        $existBook = $this->books_model->getBook ( $bookId );
+        
+        if (!$existBook) {
+            $this->session->set_flashdata ( 'bookAlreadyAdded', bookNotExistErrorMsg () );
             redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
         }
         
