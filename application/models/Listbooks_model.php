@@ -107,4 +107,12 @@ class Listbooks_model extends CI_Model {
         $listbookBean = R::load('listbook', $listbookId);
         return $listbookBean->listbook_name;
     }
+    function updateListbooknameFromUser($userId, $listbookName){
+        
+        $user = R::load('user', $userId);
+        $userId = $user->listbook_id;
+        $listbook = R::load('listbook', $userId);
+        $listbook->listbook_name = 'Lista de '.$listbookName;
+        R::store ( $listbook );
+    }
 }

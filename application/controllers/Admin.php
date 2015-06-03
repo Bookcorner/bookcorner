@@ -52,11 +52,8 @@ class Admin extends CI_Controller {
         R::store ( $listbook );
     }
     function update_user_listbook_name($post_array, $primary_key){
-        $user = R::load('user', $primary_key);
-        $listbookId = $user->listbook_id;
-        $listbook = R::load('listbook', $listbookId);
-        $listbook->listbook_name = 'Lista de '.$post_array['user_nickname'];
-        R::store ( $listbook );
+        $this->load->model('listbooks_model');
+        $this->listbooks_model->updateListbooknameFromUser($primary_key, $post_array['user_nickname']);
     }
     private function createUserRelations($crud) {
         $crud->set_relation ( 'listbook_id', 'listbook', 'listbook_name' );
