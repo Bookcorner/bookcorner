@@ -25,9 +25,25 @@ class Book extends CI_Controller {
     }
     
     public function showBook() {
-        $data ['title'] = 'Se sacara de la bbdd';
-        
         $id_of_book = $this->uri->segment(2);
+        $this->load->model( 'Books_model' );
+        $this->load->model( 'Listbooks_model' );
+        
+        $book = $this->Books_model->getBook($id_of_book);
+        $user_id = $this->session->userdata ( 'id' );
+        
+        $data ['title'] = $book->book_name;
+        $data ['book'] = $book;
+        
+        $isBookAlreadyInList = $this->Listbooks_model->getBookFromListbook ( $id_of_book, $user_id );
+        
+        $data ['author'] = $this->Books_model->getAuthorOfBook($id_of_book);
+        
+        $data ['bookInList'] = false;
+        
+        if ($isBookAlreadyInList) {
+            $data ['bookInList'] = true;
+        }
         
         $viewUri = 'books/info_book';
         loadBasicViews ( $viewUri, $data );

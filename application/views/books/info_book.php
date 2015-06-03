@@ -13,14 +13,14 @@
 		<div class="col-xs-12">
 			<div class="panel">
 				<div class="panel-heading">
-					<p class="lead text-center">Nombre del libro</p>
+					<p class="lead text-center"><?= $book->book_name ?></p>
 				</div>
 				<div class="panel-body">
 					<div class="row">
 						<div class="col-xs-5">
                         <?php
                         echo img ( array (
-                                'src' => asset_url () . '/images/books/' . 'book_img',
+                                'src' => asset_url () . '/images/books/' . $book->book_img,
                                 'class' => 'img-rounded bigbook',
                                 'alt' => 'bookname' 
                         ) )?>
@@ -28,17 +28,19 @@
 						<div class="col-xs-7">
 							<div class="row">
 								<div class="col-xs-12">
-									<p>Titulo: Nombre del libro</p>
-									<p>Autor: Nombre del autor</p>
-									<p>Descripción: Descripción del libro</p>
+									<p>Titulo: <?= $book->book_name ?></p>
+									<p>Autor: <?= anchor( base_url().'autor/'.$author->id,$author->author_fullname) ?></p>
+									<p>Descripción: <?= $book->book_desc ?></p>
 								</div>
 							</div>
 							<div class="row">
+							    <?php if(!$bookInList) { ?>
 								<div class="col-xs-6">
-									<a href="anadir-libro" class="btn btn-success"> <i
+									<a href="<?= base_url() ?>anadir-libro/<?= $book->id ?>" class="btn btn-success"> <i
 										class="fa fa-plus"></i> Añadir a mi lista
 									</a>
 								</div>
+								<?php } ?>
 								<div class="col-xs-6">
 									<a href="anadir-libro" class="btn btn-warning"> <i
 										class="fa fa-thumbs-up"></i> Votar Libro

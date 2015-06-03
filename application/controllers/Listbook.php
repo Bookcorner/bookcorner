@@ -11,11 +11,11 @@ class Listbook extends CI_Controller {
         
         $data ['title'] = 'Lista de libros';
         $userId = $this->session->userdata ( $sessionName );
-        $this->load->model ( 'listbooks_model' );
-        $listbookId = $this->listbooks_model->getListbookFrom ( $userId );
-        $data ['listbook_name'] = $this->listbooks_model->getListbookName ( $listbookId );
+        $this->load->model ( 'Listbooks_model' );
+        $listbookId = $this->Listbooks_model->getListbookFrom ( $userId );
+        $data ['listbook_name'] = $this->Listbooks_model->getListbookName ( $listbookId );
         $data ['nickname'] = $this->session->userdata ( 'nickname' );
-        $data ['books'] = $this->listbooks_model->getAllBooklistFromUser ( $userId );
+        $data ['books'] = $this->Listbooks_model->getAllBooklistFromUser ( $userId );
         
         $views = [ 
                 'cabeceras' => [ 
@@ -34,18 +34,18 @@ class Listbook extends CI_Controller {
     }
     public function updateBookState($val_id) {
         $bookstatus = $_POST ['value'];
-        $this->load->model ( 'listbooks_model' );
-        $this->listbooks_model->updateBookState ( $bookstatus, $val_id );
+        $this->load->model ( 'Listbooks_model' );
+        $this->Listbooks_model->updateBookState ( $bookstatus, $val_id );
     }
     public function updateBookScore($val_id) {
         $bookscore = $_POST ['value'];
-        $this->load->model ( 'listbooks_model' );
-        $this->listbooks_model->updateBookScore ( $bookscore, $val_id );
+        $this->load->model ( 'Listbooks_model' );
+        $this->Listbooks_model->updateBookScore ( $bookscore, $val_id );
     }
     public function updateBookNote($val_id) {
         $booknote = $_POST ['value'];
-        $this->load->model ( 'listbooks_model' );
-        $this->listbooks_model->updateBookNote ( $booknote, $val_id );
+        $this->load->model ( 'Listbooks_model' );
+        $this->Listbooks_model->updateBookNote ( $booknote, $val_id );
     }
     public function removeBookFromList() {
         $bookId = $this->uri->segment(2);
@@ -57,10 +57,10 @@ class Listbook extends CI_Controller {
         }
         
         $userId = $this->session->userdata ( $sessionName );
-        $this->load->model ( 'listbooks_model' );
-        $listbook_id = $this->listbooks_model->getListbookFrom ( $userId );
+        $this->load->model ( 'Listbooks_model' );
+        $listbook_id = $this->Listbooks_model->getListbookFrom ( $userId );
         
-        $isBookAlreadyInList = $this->listbooks_model->getBookFromListbook ( $bookId, $listbook_id );
+        $isBookAlreadyInList = $this->Listbooks_model->getBookFromListbook ( $bookId, $listbook_id );
         
         if (!$isBookAlreadyInList) {
             $this->session->set_flashdata ( 'bookNotAdded', bookNotAddedErrorMsg () );
@@ -75,7 +75,7 @@ class Listbook extends CI_Controller {
             redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
         }
         
-        $success = $this->listbooks_model->removeBookFromList ( $bookId, $listbook_id );
+        $success = $this->Listbooks_model->removeBookFromList ( $bookId, $listbook_id );
         $this->session->set_flashdata ( 'bookRemovedSuccess', bookRemovedSuccessMsg () );
         redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
         
@@ -90,10 +90,10 @@ class Listbook extends CI_Controller {
         }
         
         $userId = $this->session->userdata ( $sessionName );
-        $this->load->model ( 'listbooks_model' );
-        $listbook_id = $this->listbooks_model->getListbookFrom ( $userId );
+        $this->load->model ( 'Listbooks_model' );
+        $listbook_id = $this->Listbooks_model->getListbookFrom ( $userId );
         
-        $isBookAlreadyInList = $this->listbooks_model->getBookFromListbook ( $bookId, $listbook_id );
+        $isBookAlreadyInList = $this->Listbooks_model->getBookFromListbook ( $bookId, $listbook_id );
         
         if ($isBookAlreadyInList) {
             $this->session->set_flashdata ( 'bookAlreadyAdded', getBookAlreadyAddedErrorMsg () );
@@ -107,7 +107,7 @@ class Listbook extends CI_Controller {
             redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
         }
         
-        $success = $this->listbooks_model->addBookToList ( $bookId, $listbook_id );
+        $success = $this->Listbooks_model->addBookToList ( $bookId, $listbook_id );
         $this->session->set_flashdata ( 'bookAddedSuccess', getBookAddedSuccessMsg () );
         redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
     }
