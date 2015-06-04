@@ -84,3 +84,11 @@ a.nolink{
 .overflow{
 	overflow: auto;
 }
+
+.no-padding{
+	padding:0px;
+}
+
+.padding-top{
+	padding-top:0.5px;
+}

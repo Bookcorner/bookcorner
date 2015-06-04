@@ -45,11 +45,8 @@ class Admin extends CI_Controller {
         return $post_array;
     }
     function create_listbook_user($post_array, $primary_key){
-        $user = R::load('user', $primary_key);
-        $listbook = R::Dispense('listbook');
-        $listbook->listbook_name = 'Lista de '.$post_array['user_nickname'];
-        $listbook->ownUserList [] = $user;
-        R::store ( $listbook );
+        $this->load->model('listbooks_model');
+        $this->listbooks_model->createListbookForUser($primary_key, $post_array['user_nickname']);
     }
     function update_user_listbook_name($post_array, $primary_key){
         $this->load->model('listbooks_model');

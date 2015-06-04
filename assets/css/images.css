@@ -14,10 +14,16 @@
 }
 
 /*CSS Logo*/
-.logo{
+.logo-lg{
 	width: 140px;
 	height: 50px;
 }
+.logo-sm{
+	width: 100px;
+	height: 50px;
+}
+
+
 .contenedor-logo{
     padding-top: 0px !important;
     padding-left: 0px !important;

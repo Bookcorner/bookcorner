@@ -1,83 +1,129 @@
 <div class="container">
-	<!--MENU-->
-	<div class="row">
-		<div class="col-xs-12">
-			<nav class="navbar navbar-default" role="navigation">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse"
-						data-target="#idHeader">
-						<span class="sr-only">Toggle navigation</span> <span
-							class="icon-bar"></span> <span class="icon-bar"></span> <span
-							class="icon-bar"></span>
-					</button>
-					<?php echo anchor(base_url('que-es-bookcorner'), 
-					        img(array(
-					                'src' => asset_url(). '/images/logo/logo2.png',
-					                'class' => 'logo')),
-					        ['class' => 'navbar-brand contenedor-logo'])?>
-				</div>
-				<div class="collapse navbar-collapse" id="idHeader">
-					<ul class="nav navbar-nav">
-						<li class="<?php if ($title == 'Home') { echo 'active'; }?>">
-						  <a href="<?php echo base_url('home')?>">
-    						  <i class="fa fa-home fa-2x"></i>
-						      Home
-						  </a>
-						</li>
-						<li class="<?php if ($title == 'Libros') { echo 'active'; }?>">
-						  <a href="<?php echo base_url('libros')?>">
-    						  <i class="fa fa-book fa-2x"></i>
-						      Libros
-						  </a>
-						</li>
-						<li class="<?php if ($title == 'Autores') { echo 'active'; }?>">
-						  <a href="<?php echo base_url('autores')?>">
-    						  <i class="fa fa-pencil-square-o fa-2x"></i>
-						      Autores
-						  </a>
-						</li>						
-						<li class="dropdown <?php if ($title == 'Lista de libros' || $title == 'Lista de autores') echo 'active' ?>">
-                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    						  <i class="fa fa-list fa-2x"></i>
-						      Listas
-						    </a>
-    						<ul class="dropdown-menu" role="menu">
-    							<li>
-                                    <a href="<?php echo base_url('lista-libros')?>">
-                                        <i class="fa fa-book"></i>
-                                        Lista de libros
-                                    </a>
-                                </li>
-    							<li class="divider"></li>
-    							<li>
-                                    <a href="<?php echo base_url('lista-autores')?>">
-                                        <i class="fa fa-users"></i>
-                                        Lista de autores
-                                    </a>
-                                </li>
-    						</ul>
-						</li>				
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<li>
-							<?php echo form_open ( 'busqueda', [ 
-								'id' => 'idSearchForm',
-								'class' => 'navbar-form navbar-left',
-								'role' => 'search' 
-							] )?>
-								<select class="form-control" name="typeOfSearch">
-								    <option value="book">Libros</option>
-									<option value="author">Autores</option>
-								</select>
-								<div class="form-group">
-    								<input type="text" id="idSearchName" name="searchName" class="form-control" placeholder="Buscar...">
-    							</div>
-								<button type="submit" class="btn btn-default">
-									<i class="glyphicon glyphicon-search"></i>
-								</button>
-							<?php echo form_close()?>
-						</li>
-						<li class="dropdown">
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+            <!-- IMAGEN -->
+			<div class="navbar-header visible-lg visible-md">
+				<a class="navbar-brand" href="#"> <img alt="Brand" src="...">
+				</a>
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#idFormAndLogin">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-header visible-sm no-padding col-sm-1">
+				<a class="navbar-brand" href="#"> <img alt="Brand" src="...">
+				</a>
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#idFormAndLogin">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+			</div>
+			<!-- FIN IMAGEN -->
+			<!-- OPCIONES MENU -->
+			<!-- LG -->
+			<ul class="nav navbar-nav visible-lg">
+				<li class="<?php if ($title == 'Home') { echo 'active'; }?>">
+					<a href="<?php echo base_url('home')?>">
+    					<i class="fa fa-home"></i>
+						Home
+					</a>
+				</li>
+				<li class="<?php if ($title == 'Libros') { echo 'active'; }?>">
+					<a href="<?php echo base_url('libros')?>">
+    					<i class="fa fa-book"></i>
+						Libros
+					</a>
+				</li>
+				<li class="<?php if ($title == 'Autores') { echo 'active'; }?>">
+					<a href="<?php echo base_url('autores')?>">
+    					<i class="fa fa-pencil-square-o"></i>
+						Autores
+					</a>
+				</li>
+				<li class="<?php if ($title == 'Lista de libros') { echo 'active'; }?>">
+					<a href="<?php echo base_url('lista-libros')?>">
+    					<i class="fa fa-list-alt"></i>
+						Listas
+					</a>
+				</li>
+			</ul>
+			<!-- MD -->
+			<ul class="nav navbar-nav visible-md">
+				<li class="<?php if ($title == 'Home') { echo 'active'; }?>">
+					<a href="<?php echo base_url('home')?>">
+						Home
+					</a>
+				</li>
+				<li class="<?php if ($title == 'Libros') { echo 'active'; }?>">
+					<a href="<?php echo base_url('libros')?>">
+						Libros
+					</a>
+				</li>
+				<li class="<?php if ($title == 'Autores') { echo 'active'; }?>">
+					<a href="<?php echo base_url('autores')?>">
+						Autores
+					</a>
+				</li>
+				<li class="<?php if ($title == 'Lista de libros') { echo 'active'; }?>">
+					<a href="<?php echo base_url('lista-libros')?>">
+						Listas
+					</a>
+				</li>
+			</ul>
+			<!-- SM -->
+			<ul class="nav navbar-nav visible-sm">
+				<li class="<?php if ($title == 'Home') { echo 'active'; }?>">
+					<a href="<?php echo base_url('home')?>">
+    					<i class="fa fa-home"></i>
+					</a>
+				</li>
+				<li class="<?php if ($title == 'Libros') { echo 'active'; }?>">
+					<a href="<?php echo base_url('libros')?>">
+    					<i class="fa fa-book"></i>
+					</a>
+				</li>
+				<li class="<?php if ($title == 'Autores') { echo 'active'; }?>">
+					<a href="<?php echo base_url('autores')?>">
+    					<i class="fa fa-pencil-square-o"></i>
+					</a>
+				</li>
+				<li class="<?php if ($title == 'Lista de libros') { echo 'active'; }?>">
+					<a href="<?php echo base_url('lista-libros')?>">
+    					<i class="fa fa-list-alt"></i>
+					</a>
+				</li>
+			</ul>
+            <!-- FIN OPCIONES MENU -->
+			<div class="collapse navbar-collapse navbar-right"
+				id="idFormAndLogin">
+				<!-- BUSCADOR -->
+                <?php
+                echo form_open ( 'busqueda', [ 
+                        'id' => 'idSearchForm',
+                        'class' => 'navbar-form navbar-left no-padding',
+                        'role' => 'search' 
+                ] )?>
+                    <select class="form-control" name="typeOfSearch">
+    					<option value="book">Libros</option>
+    					<option value="author">Autores</option>
+    				</select>
+    				<div class="form-group">
+    					<input type="text" id="idSearchName" name="searchName"
+    						class="form-control" placeholder="Buscar...">
+    				</div>
+    				<button type="submit" class="btn btn-default">
+    					<i class="glyphicon glyphicon-search"></i>
+    				</button>
+        		<?php echo form_close()?>
+        		<!-- FIN BUSCADOR -->
+        		<!-- REGISTRO -->
+                    <!-- LG MD -->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
 							<a href="#" class="dropdown-toggle img-responsive contenedor-avatar" data-toggle="dropdown">
 							     <?php echo img(array(
 							             'src' => asset_url(). '/images/users/'.$avatar,
@@ -110,10 +156,9 @@
                                 </li>
 							</ul>
 						</li>
-					</ul>
-				</div>
-			</nav>
+    				</ul>	
+    			<!-- REGISTRO -->
+			</div>
 		</div>
-		<!-- FIN DE MENU-->
-	</div>
+	</nav>
 </div>

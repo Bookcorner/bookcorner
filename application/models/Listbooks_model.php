@@ -61,11 +61,11 @@ class Listbooks_model extends CI_Model {
             return $isBookCreated;
         }
     }
-    function removeBookFromList($book_id, $listbook_id) {        
+    function removeBookFromList($book_id, $listbook_id) {
         $bookFromlist = $book = R::findOne ( 'book_listbook', 'WHERE listbook_id = :listbook_id AND book_id = :book_id', [ 
                 'listbook_id' => $listbook_id,
                 'book_id' => $book_id 
-        ] );        
+        ] );
         R::trash ( $bookFromlist );
         
         $bookValuation = R::findOne ( 'valuation', 'WHERE listbook_id = :listbook_id AND book_id = :book_id', [ 
@@ -74,7 +74,6 @@ class Listbooks_model extends CI_Model {
         ] );
         
         R::trash ( $bookValuation );
-        
     }
     private function createDefaultValuationRow() {
         $valuation = R::Dispense ( 'valuation' );
@@ -103,16 +102,22 @@ class Listbooks_model extends CI_Model {
         ] );
         return $book;
     }
-    function getListbookName($listbookId){
-        $listbookBean = R::load('listbook', $listbookId);
+    function getListbookName($listbookId) {
+        $listbookBean = R::load ( 'listbook', $listbookId );
         return $listbookBean->listbook_name;
     }
-    function updateListbooknameFromUser($userId, $listbookName){
-        
-        $user = R::load('user', $userId);
+    function updateListbooknameFromUser($userId, $listbookName) {
+        $user = R::load ( 'user', $userId );
         $userId = $user->listbook_id;
-        $listbook = R::load('listbook', $userId);
-        $listbook->listbook_name = 'Lista de '.$listbookName;
+        $listbook = R::load ( 'listbook', $userId );
+        $listbook->listbook_name = 'Lista de ' . $listbookName;
+        R::store ( $listbook );
+    }
+    function createListbookForUser($userId, $listbookName) {
+        $user = R::load ( 'user', $userId );
+        $listbook = R::Dispense ( 'listbook' );
+        $listbook->listbook_name = 'Lista de ' . $listbookName;
+        $listbook->ownUserList [] = $user;
         R::store ( $listbook );
     }
 }
