@@ -49,4 +49,50 @@ class UsersModelTest extends PHPUnit_Framework_TestCase {
         
         $this->assertNotEmpty ( $user );
     }
+    /*
+    public function testWhenCheckIfValidUsernameExistsIsCalledThenUserNicknameShouldBeEquals() {
+        $this->CI->load->model ( 'users_model' );
+        $username = 'admin';
+        $user = $this->CI->users_model->check_username_exists ( $username );
+        
+        $this->assertEquals ( $username, $user->user_nickname );
+    }
+    public function testWhenCheckIfValidEmailExistsIsCalledThenEmailShouldBeEquals() {
+        $this->CI->load->model ( 'users_model' );
+        $email = 'administrator@gmail.com';
+        $user = $this->CI->users_model->check_email_exists ( $email);
+    
+        $this->assertEquals ( $email, $user->user_email );
+    }
+    */
+    public function testWhenUpdateUsernameIsCalledThenUsernameShouldBeChanged(){
+        $newUsername = "AdminImpostor";
+        $oldUsername = "admin";
+        $userId = 1;
+        $this->CI->load->model ( 'users_model' );
+        $this->CI->users_model->update_username ($newUsername, $userId);
+        $user = $this->CI->users_model->getUserInfo ($userId);
+        $this->assertEquals($newUsername, $user->user_nickname);
+        $this->CI->users_model->update_username ($oldUsername, $userId);
+    }
+    public function testWhenUpdateEmailIsCalledThenEmailShouldBeChanged(){
+        $newEmail = "AdminImpostor@gmail.com";
+        $oldEmail = "administrator@gmail.com";
+        $userId = 1;
+        $this->CI->load->model ( 'users_model' );
+        $this->CI->users_model->update_email ($newEmail, $userId);
+        $user = $this->CI->users_model->getUserInfo ($userId);
+        $this->assertEquals($newEmail, $user->user_email);
+        $this->CI->users_model->update_email ($oldEmail, $userId);
+    }
+    public function testWhenUpdatePassIsCalledThenPassShouldBeChanged(){
+        $newPwdEncrypted = encrypt("NewPass.*27");
+        $oldPwd = encrypt("theboss");
+        $userId = 1;
+        $this->CI->load->model ( 'users_model' );
+        $this->CI->users_model->update_pass ($newPwdEncrypted, $userId);
+        $user = $this->CI->users_model->getUserInfo ($userId);
+        $this->assertEquals($newPwdEncrypted, $user->user_pwd);
+        $this->CI->users_model->update_pass ($oldPwd, $userId);
+    }
 }

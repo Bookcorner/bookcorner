@@ -36,10 +36,27 @@ class BooksModelTest extends PHPUnit_Framework_TestCase {
 		
 	}
 	
-	public function testWhenSearchSearchAllAuthorsIsCalledThenAuthorsShouldBeReturned() {
+	public function testWhenSearchSearchAllBooksIsCalledThenBooksShouldBeReturned() {
 	    $this->CI->load->model('books_model');
 	    $booksSearched = $this->CI->books_model->searchAllBooksOrderedByName();
 	
 	    $this->assertNotNull($booksSearched);
 	}
+	
+	public function testWhenGetBookIsCalledThenBookShouldBeReturned() {
+	    $this->CI->load->model('books_model');
+	    $id = 1;
+	    $booksSearched = $this->CI->books_model->getBook($id);
+	
+	    $this->assertNotNull($booksSearched);
+	}
+	
+	public function testWhenGetAuthorOfBookIsCalledThenAuthorShouldBeReturned() {
+	    $this->CI->load->model('books_model');
+	    $id = 1;
+	    $authorSearched = $this->CI->books_model->getAuthorOfBook($id);
+	
+	    $this->assertNotNull($authorSearched);
+	}
+
 }

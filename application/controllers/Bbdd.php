@@ -91,22 +91,22 @@ class Bbdd extends CI_Controller {
         
         // Create listbook
         $listbook1 = R::Dispense ( 'listbook' );
-        $listbook1->listbook_name = 'Listbook of admin';
+        $listbook1->listbook_name = 'Lista de admin';
         
         $listbook2 = R::Dispense ( 'listbook' );
-        $listbook2->listbook_name = 'List of moderator';
+        $listbook2->listbook_name = 'Lista de moderator';
         
         $listbook3 = R::Dispense ( 'listbook' );
-        $listbook3->listbook_name = 'List of registrate';
+        $listbook3->listbook_name = 'Lista de registrate';
         
         $listbook4 = R::Dispense ( 'listbook' );
-        $listbook4->listbook_name = 'List of Marcant94';
+        $listbook4->listbook_name = 'Lista de Marcant94';
         
         $listbook5 = R::Dispense ( 'listbook' );
-        $listbook5->listbook_name = 'List of Juanana';
+        $listbook5->listbook_name = 'Lista de Juanana';
         
         $listbook6 = R::Dispense ( 'listbook' );
-        $listbook6->listbook_name = 'List of rcortes';
+        $listbook6->listbook_name = 'Lista de rcortes';
         
         // Create Validation
         $valuation1 = R::Dispense ( 'valuation' );
