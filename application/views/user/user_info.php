@@ -155,12 +155,16 @@
             ] )?>
 	                            
 						<div class="form-group">
-							<label for="oldpass">Introduce la antigua contraseña</label> <input
-								type="password" name="oldPass" id="idOldPass"
+							<label for="oldpass">Introduce la antigua contraseña</label> 
+							<div>
+							    <input type="password" name="oldPass" id="idOldPass"
 								placeholder="********" class="form-control"
 								data-error="Contraseña no válida" class="input-large" required />
-							<br /> <label class="control-label" for="idPass">Introduce nueva
-								contraseña:</label>
+							</div>
+							<div class="help-block with-errors"></div>
+							<br /> 
+							
+							<label class="control-label" for="idPass">Introduce nueva contraseña:</label>
 							<div class="controls">
 								<input id="idNewPass" name="newPass" class="form-control"
 									pattern="^{5,12}$" type="password" placeholder="********"
@@ -171,8 +175,7 @@
 						</div>
 
 						<div class="form-group">
-							<label class="control-label" for="idNewRepass">Introduce
-								contraseña de nuevo:</label>
+							<label class="control-label" for="idNewRepass">Introduce contraseña de nuevo:</label>
 							<div class="controls">
 								<input id="idNewRepass" name="newRepass" data-match="#idNewPass"
 									class="form-control" type="password" placeholder="********"
