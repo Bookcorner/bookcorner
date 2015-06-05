@@ -40,7 +40,7 @@
 				</li>
 				<li class="<?php if ($title == 'Autores') { echo 'active'; }?>">
 					<a href="<?php echo base_url('autores')?>">
-    					<i class="fa fa-pencil-square-o"></i>
+    					<i class="fa fa-user"></i>
 						Autores
 					</a>
 				</li>
@@ -88,7 +88,7 @@
 				</li>
 				<li class="<?php if ($title == 'Autores') { echo 'active'; }?>">
 					<a href="<?php echo base_url('autores')?>">
-    					<i class="fa fa-pencil-square-o"></i>
+    					<i class="fa fa-user"></i>
 					</a>
 				</li>
 				<li class="<?php if ($title == 'Lista de libros') { echo 'active'; }?>">
