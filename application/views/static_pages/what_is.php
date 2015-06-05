@@ -103,7 +103,6 @@
 		</a>
 	</div>
 	<!-- FIN CAROUSEL -->
-	<div class="row">
 		<hr>
 		<div class="row">
 			<div class="col-md-7">
@@ -194,6 +193,5 @@
 				))?>
 			</div>
 		</div>
-	</div>
 	<!-- /END THE FEATURETTES -->
 </div>
