@@ -21,7 +21,13 @@
                         <?php
                         echo img ( array (
                                 'src' => asset_url () . '/images/books/' . $book->book_img,
-                                'class' => 'img-rounded bigbook',
+                                'class' => 'img-rounded bigbook visible-lg visible-md',
+                                'alt' => $book->book_name 
+                        ) )?>
+                        <?php
+                        echo img ( array (
+                                'src' => asset_url () . '/images/books/' . $book->book_img,
+                                'class' => 'img-rounded mediumbook visible-sm',
                                 'alt' => $book->book_name 
                         ) )?>
                         </div>
