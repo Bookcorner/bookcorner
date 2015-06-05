@@ -54,3 +54,11 @@ function getEmailAlreadyExistsMsg(){
 function getEmailChangeOkMsg(){
     return 'La dirección de correo electrónico ha sido modificada con éxito.';
 }
+
+function getPassChangeOkMsg(){
+    return 'La contraseña ha sido modificada con éxito.';
+}
+
+function getPassNoMatchMsg(){
+    return 'La antigua contraseña no coincide.';
+}

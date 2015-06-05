@@ -329,4 +329,30 @@ class User extends CI_Controller {
         }
     }
     
+    public function editPass(){
+        $session = 'id';
+        if (check_session_exist($session)){
+            $userId = $this->session->userdata ( $session );
+        } else {
+            $this->session->set_flashdata ( 'signInError', 'Inicie sesión para continuar' );
+            redirect ( base_url (), 'refresh' );
+        }
+    
+        $oldPass = md5(set_value('oldPass'));
+        $newPass = md5(set_value('newPass'));
+        $this->load->model('users_model');
+        $isOldPassCorrect= $this->users_model->check_oldpass_matches($oldPass);
+        if($isOldPassCorrect){
+            $id = $this->session->userdata( 'id' );
+            $this->users_model->update_pass($newPass, $id);
+            $this->session->set_flashdata ( 'updatePassOk', getPassChangeOkMsg());
+            redirect (  $_SERVER ['HTTP_REFERER'], 'refresh' );
+        }
+        else{
+            $this->session->set_flashdata ( 'updatePassError', getPassNoMatchMsg());
+            redirect (  $_SERVER ['HTTP_REFERER'], 'refresh' );
+            
+        }
+    }
+    
 }

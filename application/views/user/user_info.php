@@ -45,9 +45,13 @@
                
 				<button class="btn btn-primary">Cambiar avatar</button>
 						<?php echo form_close()?>
-						<br />
+						<hr />
+						
+						<button class="btn btn-danger">Eliminar mi cuenta</button>
+						
+						<hr/>
 						<button class="btn btn-default goto-page-3">
-							Ir a nombre de usuario / email <i class="glyphicon glyphicon-chevron-left"></i>
+							Volver a nombre de usuario / email <i class="glyphicon glyphicon-chevron-left"></i>
 						</button>
 			</div>
 			<div class="page-number">- 4 -</div>
@@ -115,11 +119,11 @@
 						<?php echo form_close()?>
 						<hr />
 						<button class="btn btn-default goto-page-2">
-							Ir a contraseña <i class="glyphicon glyphicon-chevron-left"></i>
+							Volver a contraseña <i class="glyphicon glyphicon-chevron-left"></i>
 						</button>
 						<hr />
 						<button class="btn btn-default goto-page-4">
-							Ir a avatar<i class="glyphicon glyphicon-chevron-right"></i>
+							Ir a avatar y otros<i class="glyphicon glyphicon-chevron-right"></i>
 						</button>
 					</div>
 				</div>
@@ -138,17 +142,17 @@
 			<div class="page">
 				<div class="col-xs-12">
 					<div class="col-xs-10">
-						<h2>Cambiar datos de usuario</h2>
+						<h3><b>Cambiar datos de usuario</b></h3>
 						
             	<?php
             
-            echo form_open ( base_url () . '', [ 
+            echo form_open ( base_url () . 'actualizar-pass', [ 
                     'class' => 'form-horizontal',
                     'data-toggle' => 'validator',
                     'method' => 'post',
                     'accept-charset' => 'UTF-8',
                     'id' => 'idFormNewPassword' 
-            ] )?>						
+            ] )?>
 	                            
 						<div class="form-group">
 							<label for="oldpass">Introduce la antigua contraseña</label> <input

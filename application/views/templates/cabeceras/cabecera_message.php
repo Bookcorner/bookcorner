@@ -12,6 +12,8 @@
         <?php if($this->session->flashdata('updateUsernameOk')) { ?> <div class="alert alert-success text-center" role="alert"> <?= $this->session->flashdata('updateUsernameOk') ?> </div> <?php } ?>
         <?php if($this->session->flashdata('updateEmailError')) { ?> <div class="alert alert-danger text-center" role="alert"> <?= $this->session->flashdata('updateEmailError') ?> </div> <?php } ?>
         <?php if($this->session->flashdata('updateEmailOk')) { ?> <div class="alert alert-success text-center" role="alert"> <?= $this->session->flashdata('updateEmailOk') ?> </div> <?php } ?>
+        <?php if($this->session->flashdata('updatePassError')) { ?> <div class="alert alert-danger text-center" role="alert"> <?= $this->session->flashdata('updatePassError') ?> </div> <?php } ?>
+        <?php if($this->session->flashdata('updatePassOk')) { ?> <div class="alert alert-success text-center" role="alert"> <?= $this->session->flashdata('updatePassOk') ?> </div> <?php } ?>
         <?php if($this->session->flashdata('sendmailerror')) { ?> <div class="alert alert-info text-center" role="alert"> <?= $this->session->flashdata('sendmailerror') ?> </div> <?php } ?>
     </div>
 </div>

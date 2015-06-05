@@ -52,6 +52,20 @@ class Users_model extends CI_Model {
         ] );
     }
     
+    function check_oldpass_matches($pass){
+        $userBean = R::findLike( 'user', [
+                'user_pwd' => [$pass]
+        ]);
+        return $userBean;
+    }
+    
+    function update_pass($pass, $val_id){
+        R::exec ( 'UPDATE user SET user_pwd= :pwd WHERE id = :id', [
+                'pwd' => $pass,
+                'id' => $val_id
+        ] );
+    }
+    
     function check_exist_user($username, $email) {
         $countUser = R::count ( 'user', ' user_nickname = ? ', [ 
                 $username 
