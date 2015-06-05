@@ -3,7 +3,7 @@
 		<div class="container-fluid">
             <!-- IMAGEN -->
 			<div class="navbar-header visible-lg visible-md">
-				<a class="navbar-brand" href="#">
+				<a class="navbar-brand" href="<? echo base_url('que-es-bookcorner')?>">
 				    <?php echo img ( array (
                           'src' => asset_url () . '/images/logo/bc.png',
                           'class' => 'Brand logo-lg-md' 
@@ -17,7 +17,11 @@
 				</button>
 			</div>
 			<div class="navbar-header visible-sm no-padding col-sm-1">
-				<a class="navbar-brand" href="#"> <img alt="Brand" src="...">
+				<a class="navbar-brand no-padding" href="<? echo base_url('que-es-bookcorner')?>"> 
+				    <?php echo img ( array (
+                          'src' => asset_url () . '/images/logo/bc.png',
+                          'class' => 'Brand logo-sm' 
+                    ) )?>
 				</a>
 				<button type="button" class="navbar-toggle collapsed"
 					data-toggle="collapse" data-target="#idFormAndLogin">
