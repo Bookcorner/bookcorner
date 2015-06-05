@@ -4,7 +4,7 @@
 		<ol class="breadcrumb">
 			<li><?php echo anchor(base_url('home'), 'Home')?></li>
 			<li><?php echo anchor(base_url('libros'), 'Libros')?></li>
-			<li><?php echo anchor( '#', 'Titulo del libro')?></li>
+			<li><?php echo anchor( base_url('libro/'.$book['id']), $book->book_name)?></li>
 		</ol>
 	</div>
 	<!-- FIN BREADCRUMB -->
@@ -22,7 +22,7 @@
                         echo img ( array (
                                 'src' => asset_url () . '/images/books/' . $book->book_img,
                                 'class' => 'img-rounded bigbook',
-                                'alt' => 'bookname' 
+                                'alt' => $book->book_name 
                         ) )?>
                         </div>
 						<div class="col-xs-7">

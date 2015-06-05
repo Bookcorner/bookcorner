@@ -1,5 +1,6 @@
+<div class="container">
 <div class="row">
-    <div class="col-xs-12">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <?php if($this->session->flashdata('signInError')) { ?> <div class="alert alert-danger text-center" role="alert"> <?= $this->session->flashdata('signInError') ?> </div> <?php } ?>
         <?php if($this->session->flashdata('signUpSuccess')) { ?> <div class="alert alert-success text-center" role="alert"> <?= $this->session->flashdata('signUpSuccess') ?> </div> <?php } ?>
         <?php if($this->session->flashdata('signUpFail')) { ?> <div class="alert alert-danger text-center" role="alert"> <?= $this->session->flashdata('signUpFail') ?> </div> <?php } ?>
@@ -16,4 +17,5 @@
         <?php if($this->session->flashdata('updatePassOk')) { ?> <div class="alert alert-success text-center" role="alert"> <?= $this->session->flashdata('updatePassOk') ?> </div> <?php } ?>
         <?php if($this->session->flashdata('sendmailerror')) { ?> <div class="alert alert-info text-center" role="alert"> <?= $this->session->flashdata('sendmailerror') ?> </div> <?php } ?>
     </div>
+</div>
 </div>
