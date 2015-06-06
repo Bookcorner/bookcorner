@@ -109,7 +109,7 @@ class Listbook extends CI_Controller {
         
         $success = $this->Listbooks_model->addBookToList ( $bookId, $listbook_id );
         $this->session->set_flashdata ( 'bookAddedSuccess', getBookAddedSuccessMsg () );
-        redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+        redirect ( base_url('lista-libros'), 'refresh' );
     }
 }
 

@@ -1,5 +1,5 @@
 <div class="container">
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-default navbar-inverse">
 		<div class="container-fluid">
             <!-- IMAGEN -->
 			<div class="navbar-header visible-lg visible-md">

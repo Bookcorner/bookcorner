@@ -1,6 +1,5 @@
 <!-- FOOOTER -->
 <div class="container">
-	<div class="row">
 		<div id="footer">
 			<div class="col-xs-12 col-ls-12">
 				<footer>
@@ -20,6 +19,5 @@
 				</footer>
 			</div>
 		</div>
-	</div>
 </div>
 <!-- FIN FOOTER -->

@@ -76,6 +76,7 @@ $route['anadir-libro/:num'] = 'listbook/addBookToList';
 $route['quitar-libro/:num'] = 'listbook/removeBookFromList';
 $route['contactar'] = 'user/sendContact';
 $route['salir'] = 'login/logout';
+$route['ver-votos'] = 'vote/showAllvotes';
 
 // admin
 $route['adminusers'] = 'admin/showUsersMasterTable';

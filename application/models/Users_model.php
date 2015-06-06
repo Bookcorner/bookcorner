@@ -17,6 +17,7 @@ class Users_model extends CI_Model {
         
         return $userBean;
     }
+    
     function getUserInfo($userId) {
         $userBean = R::findOne ( 'user', ' id = ? ', [ 
                 $userId 
@@ -24,55 +25,65 @@ class Users_model extends CI_Model {
         return $userBean;
     }
     
-    function check_username_exists($username){
-        $userBean = R::findLike( 'user', [
-            'user_nickname' => [$username]
-        ]);
-        return $userBean;
+    public function getAllModerators() {
+        $mod_users = R::find ( 'user', 'userrole_id = 2' );
+        return $mod_users;
     }
     
-    function update_username($username, $val_id){
-         R::exec ( 'UPDATE user SET user_nickname = :username WHERE id = :id', [ 
+    public function getAllAdministrators() {
+        $admin_users = R::find ( 'user', 'userrole_id = 3' );
+        return $admin_users;
+    }
+    
+    function check_username_exists($username) {
+        $userBean = R::findLike ( 'user', [ 
+                'user_nickname' => [ 
+                        $username 
+                ] 
+        ] );
+        return $userBean;
+    }
+    function update_username($username, $val_id) {
+        R::exec ( 'UPDATE user SET user_nickname = :username WHERE id = :id', [ 
                 'username' => $username,
                 'id' => $val_id 
         ] );
     }
-    
-    function check_email_exists($email){
-        $userBean = R::findLike( 'user', [
-                'user_email' => [$email]
-        ]);
+    function check_email_exists($email) {
+        $userBean = R::findLike ( 'user', [ 
+                'user_email' => [ 
+                        $email 
+                ] 
+        ] );
         return $userBean;
     }
-    
-    function update_email($email, $val_id){
-        R::exec ( 'UPDATE user SET user_email= :email WHERE id = :id', [
+    function update_email($email, $val_id) {
+        R::exec ( 'UPDATE user SET user_email= :email WHERE id = :id', [ 
                 'email' => $email,
-                'id' => $val_id
+                'id' => $val_id 
         ] );
     }
-    
-    function check_oldpass_matches($pass){
-        $userBean = R::findLike( 'user', [
-                'user_pwd' => [$pass]
-        ]);
+    function check_oldpass_matches($pass) {
+        $userBean = R::findLike ( 'user', [ 
+                'user_pwd' => [ 
+                        $pass 
+                ] 
+        ] );
         return $userBean;
     }
-    
-    function update_pass($pass, $val_id){
-        R::exec ( 'UPDATE user SET user_pwd= :pwd WHERE id = :id', [
+    function update_pass($pass, $val_id) {
+        R::exec ( 'UPDATE user SET user_pwd= :pwd WHERE id = :id', [ 
                 'pwd' => $pass,
-                'id' => $val_id
+                'id' => $val_id 
         ] );
     }
-    
     function check_exist_user($username, $email) {
         $countUser = R::count ( 'user', ' user_nickname = ? ', [ 
                 $username 
         ] );
         
         if ($countUser != 0) {
-            return 1;   //nickname in use
+            return 1; // nickname in use
         }
         
         $countUser = R::count ( 'user', ' user_email = ? ', [ 
@@ -80,18 +91,10 @@ class Users_model extends CI_Model {
         ] );
         
         if ($countUser != 0) {
-            return 2;   //email in use
+            return 2; // email in use
         }
         
-        return 0;   //User exist
-    }
-    public function getAllModerators() {
-        $mod_users = R::find ( 'user', 'userrole_id = 2' );
-        return $mod_users;
-    }
-    public function getAllAdministrators() {
-        $admin_users = R::find ( 'user', 'userrole_id = 3' );
-        return $admin_users;
+        return 0; // User exist
     }
     function saveUser($userBean) {
         $id = R::store ( $userBean );
@@ -100,7 +103,7 @@ class Users_model extends CI_Model {
         $username = $userbean->user_nickname;
         
         $listbookNewUser = R::Dispense ( 'listbook' );
-        $listbookNewUser->listbook_name = "Listbook of $username";
+        $listbookNewUser->listbook_name = "Lista de $username";
         
         $listbookNewUser->ownUserList [] = $userbean;
         R::store ( $userbean );
