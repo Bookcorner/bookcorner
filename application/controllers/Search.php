@@ -4,27 +4,17 @@ class Search extends CI_Controller {
     public function searchAuthorOrBook() {
         $typeOfSearch = set_value ( 'typeOfSearch' );
         $searchName = set_value ( 'searchName' );
+        if (empty($searchName)){
+            $searchName = "EmptyField";
+        }
         
         switch ($typeOfSearch) {
             case 'author' :
-                $this->load->model ( 'authors_model' );
-                $authors = $this->authors_model->searchAuthors ( $searchName );
-                $this->passAuthorsToAuthorController ( $authors );
+                redirect ( 'busqueda-autores/'.$searchName );
                 break;
             case 'book' :
-                $this->load->model ( 'books_model' );
-                $books = $this->books_model->searchBooks ( $searchName );
-                $this->passBooksToBookController ( $books );
+                redirect ( 'busqueda-libros/'.$searchName );
                 break;
         }
-    }
-    
-    private function passAuthorsToAuthorController($authors) {
-        $this->session->set_flashdata ( 'authorData', $authors );
-        redirect ( 'busqueda-autores' );
-    }
-    private function passBooksToBookController($books) {
-        $this->session->set_flashdata ( 'bookData', $books );
-        redirect ( 'busqueda-libros' );
     }
 }

@@ -11,7 +11,11 @@ class Book extends CI_Controller {
         loadBasicViews ( $viewUri, $data );
     }
     public function showBooksSearched() {
-        $books = $this->session->flashdata ( 'bookData' );
+        $searchName = $this->uri->segment(2);
+        
+        $this->load->model('books_model');
+        $books = $this->books_model->searchBooks ( $searchName );
+        
         $data ['title'] = 'Libros';
         
         if (empty ( $books )) {

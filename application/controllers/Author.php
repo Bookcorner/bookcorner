@@ -11,7 +11,11 @@ class Author extends CI_Controller {
         loadBasicViews ( $viewUri, $data );
     }
     public function showAuthorsSearched() {
-        $authors = $this->session->flashdata ( 'authorData' );
+        $searchName = $this->uri->segment(2);
+
+        $this->load->model ( 'authors_model' );
+        $authors = $this->authors_model->searchAuthors ( $searchName );
+        
         $data ['title'] = 'Autores';
         
         if (empty ( $authors )) {

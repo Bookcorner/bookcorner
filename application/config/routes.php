@@ -60,12 +60,12 @@ $route['informacion-legal'] = 'home/legalInformation';
 //book
 $route['libros'] = 'book/index';
 $route['libro/:num'] = 'book/showBook';
-$route['busqueda-libros'] = 'book/showBooksSearched';
+$route['busqueda-libros/:any'] = 'book/showBooksSearched';
 
 //author
 $route['autores'] = 'author/index';
 $route['autor/:num'] = 'author/showAuthor';
-$route['busqueda-autores'] = 'author/showAuthorsSearched';
+$route['busqueda-autores/:any'] = 'author/showAuthorsSearched';
 
 //search
 $route['busqueda'] = 'search/searchAuthorOrBook';
