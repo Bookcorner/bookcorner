@@ -45,10 +45,14 @@
 			</div>
             <?php endforeach;?>
         </div>
-        <div class="panel">
-            <div class="panel-body">
-                ¿No encontraste el libro que buscabas? Ayúdanos añadiendólo a la <a href="<?php echo base_url('reportes')?>">base de datos de libros</a>
+	</div>
+	<div class="row">
+        <div class="col-xs-12">
+            <div class="panel">
+                <div class="panel-body">
+                    ¿No encontraste el libro que buscabas? Ayúdanos añadiendólo a la <a href="<?php echo base_url('reportes')?>">base de datos de libros</a>
+                </div>
             </div>
         </div>
-	</div>
+    </div>
 </div>
