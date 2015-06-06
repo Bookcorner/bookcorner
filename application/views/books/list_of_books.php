@@ -30,7 +30,7 @@
 						class="panel-collapse collapse" role="tabpanel"
 						aria-labelledby="head<?php echo 'libro'.$book['id']?>">
 						<div class="panel-body">
-							<div class="col-md-10 col-md-push-2">
+							<div class="col-md-9 col-md-push-3">
 								<h2>
                             <?php echo anchor('libro/'.$book['id'], $book['book_name'], [
                                 'class' => 'nolink'
@@ -38,7 +38,7 @@
 								<p><?php echo substr($book['book_desc'], 0, 300)?>...<?php echo anchor('libro/'.$book['id'], 'leer más')?></p>
 							</div>
 
-							<div class="col-md-2 col-md-pull-10">
+							<div class="col-md-3 col-md-pull-9">
                             <?php echo img ( array (
                                 'src' => asset_url () . '/images/books/' . $book ['book_img'],
                                 'class' => 'img-rounded smallbook',
