@@ -131,29 +131,30 @@
                         'class' => 'navbar-form navbar-left no-padding',
                         'role' => 'search' 
                 ] )?>
+    				<div class="form-group">
                     <select class="form-control" name="typeOfSearch">
     					<option value="book">Libros</option>
     					<option value="author">Autores</option>
     				</select>
-    				<div class="form-group">
-    					<input type="text" id="idSearchName" name="searchName"
+    				
+    				<input type="text" id="idSearchName" name="searchName"
     						class="form-control" placeholder="Buscar...">
-    				</div>
+    				
     				<button type="submit" class="btn btn-default">
     					<i class="glyphicon glyphicon-search"></i>
     				</button>
+    				</div>
         		<?php echo form_close()?>
         		<!-- FIN BUSCADOR -->
         		<!-- REGISTRO -->
-                    <!-- LG MD -->
-                    <ul class="nav navbar-nav navbar-right">
+                    <!-- TODOS -->
+                    <ul class="nav navbar-nav">
                         <li class="dropdown">
 							<a href="#" class="dropdown-toggle img-responsive contenedor-avatar" data-toggle="dropdown">
 							     <?php echo img(array(
 							             'src' => asset_url(). '/images/users/'.$avatar,
 							             'class' => 'avatar'
 							     ))?>
-
 							</a>
 							<ul class="dropdown-menu" style="padding: 15px; min-width: 150px;">
 								<li role="presentation" class="dropdown-header"><?php echo "$username $surname"?></li>
@@ -186,7 +187,7 @@
                                 </li>
 							</ul>
 						</li>
-    				</ul>	
+    				</ul>
     			<!-- REGISTRO -->
 			</div>
 		</div>
