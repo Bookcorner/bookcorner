@@ -58,12 +58,6 @@
 						Listas
 					</a>
 				</li>
-				<li class="<?php if ($title == 'Reporte') { echo 'active'; }?>">
-					<a href="<?php echo base_url('reportes')?>">
-    					<i class="fa fa-ambulance"></i>
-						Reportes
-					</a>
-				</li>
 			</ul>
 			<!-- MD -->
 			<ul class="nav navbar-nav visible-md">
@@ -87,11 +81,6 @@
 						Listas
 					</a>
 				</li>
-				<li class="<?php if ($title == 'Reporte') { echo 'active'; }?>">
-					<a href="<?php echo base_url('reportes')?>">
-						Reportes
-					</a>
-				</li>
 			</ul>
 			<!-- SM -->
 			<ul class="nav navbar-nav visible-sm">
@@ -113,11 +102,6 @@
 				<li class="<?php if ($title == 'Lista de libros') { echo 'active'; }?>">
 					<a href="<?php echo base_url('lista-libros')?>">
     					<i class="fa fa-list-alt"></i>
-					</a>
-				</li>
-				<li class="<?php if ($title == 'Reporte') { echo 'active'; }?>">
-					<a href="<?php echo base_url('reportes')?>">
-    					<i class="fa fa-ambulance"></i>
 					</a>
 				</li>
 			</ul>
@@ -148,7 +132,7 @@
         		<!-- FIN BUSCADOR -->
         		<!-- REGISTRO -->
                     <!-- TODOS -->
-                    <ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
 							<a href="#" class="dropdown-toggle img-responsive contenedor-avatar" data-toggle="dropdown">
 							     <?php echo img(array(
@@ -168,6 +152,12 @@
 								    <a href="<?php echo base_url('informacion-de-usuario')?>" role="menuitem">
 								        <i class="fa fa-thumbs-up"></i>
 								        Votar
+								    </a>
+								</li>
+								<li role="presentation">
+								    <a href="<?php echo base_url('reportes')?>" role="menuitem">
+								        <i class="fa fa-ambulance"></i>
+								        Reportes
 								    </a>
 								</li>
 								<li role="presentation" class="divider"></li>
