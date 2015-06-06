@@ -6,8 +6,9 @@ class Books_model extends CI_Model {
     }
     function searchBooks($bookname) {
         $booknameFormatted = prepareForSearchableWord ( $bookname );
-        $booksBeans = R::find ( 'book', ' book_name LIKE :bookname ORDER BY book_name', [ 
-                'bookname' => $booknameFormatted 
+        $booksBeans = R::find ( 'book', ' book_name LIKE :bookname AND bookstate_id = :bookstatus ORDER BY book_name', [ 
+                'bookname' => $booknameFormatted,
+                'bookstatus' => 1
         ] );
         return $booksBeans;
     }
@@ -23,7 +24,9 @@ class Books_model extends CI_Model {
         return $authorOfBookBean;
     }
     function searchAllBooksOrderedByName() {
-        $booksBeans = R::find ( 'book', 'ORDER BY book_name' );
+        $booksBeans = R::find ( 'book', 'bookstate_id = :bookstatus ORDER BY book_name', [
+                'bookstatus' => 1
+        ] );
         return $booksBeans;
     }
     public function createBookTable_management() {

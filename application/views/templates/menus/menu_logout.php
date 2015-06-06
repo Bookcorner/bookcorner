@@ -58,6 +58,12 @@
 						Listas
 					</a>
 				</li>
+				<li class="<?php if ($title == 'Reporte') { echo 'active'; }?>">
+					<a href="<?php echo base_url('reportes')?>">
+    					<i class="fa fa-ambulance"></i>
+						Reportes
+					</a>
+				</li>
 			</ul>
 			<!-- MD -->
 			<ul class="nav navbar-nav visible-md">
@@ -81,6 +87,11 @@
 						Listas
 					</a>
 				</li>
+				<li class="<?php if ($title == 'Reporte') { echo 'active'; }?>">
+					<a href="<?php echo base_url('reportes')?>">
+						Reportes
+					</a>
+				</li>
 			</ul>
 			<!-- SM -->
 			<ul class="nav navbar-nav visible-sm">
@@ -102,6 +113,11 @@
 				<li class="<?php if ($title == 'Lista de libros') { echo 'active'; }?>">
 					<a href="<?php echo base_url('lista-libros')?>">
     					<i class="fa fa-list-alt"></i>
+					</a>
+				</li>
+				<li class="<?php if ($title == 'Reporte') { echo 'active'; }?>">
+					<a href="<?php echo base_url('reportes')?>">
+    					<i class="fa fa-ambulance"></i>
 					</a>
 				</li>
 			</ul>

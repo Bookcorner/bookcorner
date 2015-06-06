@@ -56,6 +56,11 @@
                 </div>
                 <?php endforeach;?>
             </div>
+            <div class="panel">
+                <div class="panel-body">
+                    ¿No encontraste el autor que buscabas? Ayúdanos añadiendólo a la <a href="<?php echo base_url('reportes')?>">base de datos de autores</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -77,6 +77,8 @@ $route['quitar-libro/:num'] = 'listbook/removeBookFromList';
 $route['contactar'] = 'user/sendContact';
 $route['salir'] = 'login/logout';
 $route['ver-votos'] = 'vote/showAllvotes';
+$route['reportes'] = 'report/index';
+
 
 // admin
 $route['adminusers'] = 'admin/showUsersMasterTable';
