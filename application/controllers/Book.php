@@ -11,7 +11,7 @@ class Book extends CI_Controller {
         loadBasicViews ( $viewUri, $data );
     }
     public function showBooksSearched() {
-        $searchName = $this->uri->segment(2);
+        $searchName = prepareForSearchableWord($this->uri->segment(2));
         
         $this->load->model('books_model');
         $books = $this->books_model->searchBooks ( $searchName );

@@ -10,5 +10,6 @@ if (! defined ( 'BASEPATH' ))
  */
 function prepareForSearchableWord($string) {
     $searchFormatted = '%' . $string . '%';
-    return str_replace ( ' ', '%', $searchFormatted );
+    
+    return str_replace ( '%20', '%', $searchFormatted );
 }
