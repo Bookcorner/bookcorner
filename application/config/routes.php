@@ -52,18 +52,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'home/goToWhatIs';
 
 // static pages
-$route['quienes-somos'] = 'home/goToWhoAreWe';
 $route['que-es-bookcorner'] = 'home/goToWhatIs';
+$route['quienes-somos'] = 'home/goToWhoAreWe';
 $route['contacto'] = 'home/goToContact';
 $route['informacion-legal'] = 'home/legalInformation';
 
+//book
 $route['libros'] = 'book/index';
 $route['libro/:num'] = 'book/showBook';
+$route['busqueda-libros'] = 'book/showBooksSearched';
+
+//author
 $route['autores'] = 'author/index';
 $route['autor/:num'] = 'author/showAuthor';
-$route['busqueda'] = 'search/searchAuthorOrBook';
 $route['busqueda-autores'] = 'author/showAuthorsSearched';
-$route['busqueda-libros'] = 'book/showBooksSearched';
+
+//search
+$route['busqueda'] = 'search/searchAuthorOrBook';
+
+//user
 $route['informacion-de-usuario'] = 'user/showUserInfo';
 $route['registrarse'] = 'user/signup';
 $route['actualizar-pass'] = 'user/editPass';
@@ -71,13 +78,22 @@ $route['actualizar-username'] = 'user/editUsername';
 $route['actualizar-mail'] = 'user/editEmail';
 $route['activar/:any'] = 'user/activate';
 $route['cancelar/:any'] = 'user/cancel';
+$route['contactar'] = 'user/sendContact';
+
+//listbook
 $route['lista-libros'] = 'listbook/showListBooks';
 $route['anadir-libro/:num'] = 'listbook/addBookToList';
 $route['quitar-libro/:num'] = 'listbook/removeBookFromList';
-$route['contactar'] = 'user/sendContact';
+
+//login
 $route['salir'] = 'login/logout';
+
+//vote
 $route['ver-votos'] = 'vote/showAllvotes';
+
+//reporte
 $route['reportes'] = 'report/index';
+$route['crear-libro-y-autor'] = 'report/addBookAndPossibleAuthor';
 
 
 // admin

@@ -43,7 +43,7 @@
                         </div>
 					</div>
 				</div>
-				<div class="panel-footer">
+				<div class="panel-footer hidden">
 					<div class="row">
 						<div class="col-xs-12">
 							<p>Comentarios:</p>
@@ -72,7 +72,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row hidden">
 		<div class="col-xs-12">
 			<div class="panel">
 				<div class="panel-heading">

@@ -18,7 +18,7 @@
 				</div>
 				<div class="panel-body">
                     <?php
-                    echo form_open ( base_url () . 'registrarse', [ 
+                    echo form_open ( base_url () . 'crear-libro-y-autor', [ 
                             'class' => 'form-horizontal',
                             'data-toggle' => 'validator',
                             'method' => 'post',
