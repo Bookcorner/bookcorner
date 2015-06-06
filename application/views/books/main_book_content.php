@@ -24,12 +24,14 @@
 					</div>
 					
 					<div class="col-sm-1 col-sm-pull-9">
-                        <?php
-                        echo img ( array (
-                                'src' => asset_url () . 'images/books/' . $book ['book_img'],
-                                'class' => 'img-rounded smallbook',
-                                'alt' => $book ['book_name'] 
-                        ) )?>
+					   <a href="<?= 'libro/'.$book['id'] ?>">
+                            <?php
+                            echo img ( array (
+                                    'src' => asset_url () . 'images/books/' . $book ['book_img'],
+                                    'class' => 'img-rounded smallbook',
+                                    'alt' => $book ['book_name'] 
+                            ) )?>
+                        </a>
                     </div>
 				</div>
 				<div class="panel-footer">

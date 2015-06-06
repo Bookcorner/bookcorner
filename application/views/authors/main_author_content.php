@@ -14,11 +14,13 @@
 		     <div class="panel">
 				<div class="panel-body">
                     <div class="col-md-2 col-md-push-10">
-					    <?php echo img ( array (
-                            'src' => asset_url () . '/images/authors/' . $author ['author_img'],
-                            'class' => 'img-circle smallauthor',
-                            'alt' => $author ['author_fullname'] 
-                        ) )?>
+                        <a href="<?= 'autor/'.$author['id'] ?>">
+    					    <?php echo img ( array (
+                                'src' => asset_url () . '/images/authors/' . $author ['author_img'],
+                                'class' => 'img-circle smallauthor',
+                                'alt' => $author ['author_fullname'] 
+                            ) )?>
+                        </a>
                     </div>
 					<div class="col-md-10 col-md-pull-2">
                         <h2 class="text-right">

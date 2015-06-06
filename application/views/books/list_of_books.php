@@ -39,11 +39,13 @@
 							</div>
 
 							<div class="col-md-2 col-md-pull-10">
-                            <?php echo img ( array (
-                                'src' => asset_url () . '/images/books/' . $book ['book_img'],
-                                'class' => 'img-rounded smallbook',
-                                'alt' => $book ['book_name'] 
-                            ) )?>
+							<a href="<?= 'libro/'.$book['id'] ?>">
+                                <?php echo img ( array (
+                                    'src' => asset_url () . '/images/books/' . $book ['book_img'],
+                                    'class' => 'img-rounded smallbook',
+                                    'alt' => $book ['book_name'] 
+                                ) )?>
+                            </a>
                         </div>
 						</div>
 					</div>
