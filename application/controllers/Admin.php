@@ -17,7 +17,7 @@ class Admin extends CI_Controller {
         
         $this->createUserAlias ( $crud );
         
-        $crud->columns ( 'user_name', 'user_surname', 'user_nickname', 'user_email', 'user_avatar', 'user_genre', 'listbook_id', 'userrole_id', 'userstatus_id' );
+        $crud->columns ( 'user_nickname', 'user_email', 'user_avatar', 'user_genre', 'listbook_id', 'userrole_id', 'userstatus_id' );
         $crud->fields ( 'user_name', 'user_surname', 'user_nickname', 'user_pwd', 'user_email', 'user_avatar', 'user_genre', 'userrole_id', 'userstatus_id' );
         $this->createUserRules ( $crud );
         
