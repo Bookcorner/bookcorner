@@ -8,7 +8,7 @@ class User extends CI_Controller {
         
     }
     
-    public function showUserInfo() {        
+    public function showUserInfo() {
         $userId;
         $session = 'id';
         
@@ -34,13 +34,6 @@ class User extends CI_Controller {
         ];
         
         loadCustomViews($views, $data);
-    }
-    
-    public function showUserConfig() {        
-        $data ['title'] = 'Información de Usuario';
-        
-        $viewURI = 'user/user_config';
-        loadBasicViews ( $viewURI, $data );
     }
     
     public function signup() {
