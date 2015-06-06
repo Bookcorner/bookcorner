@@ -19,3 +19,9 @@
     </div>
 </div>
 </div>
+
+<script type="text/javascript">
+$( document ).ready(function() {
+	$('.alert').append('<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>');
+});
+</script>
