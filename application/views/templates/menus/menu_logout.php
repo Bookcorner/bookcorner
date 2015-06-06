@@ -162,12 +162,10 @@
 								</li>
 								<li role="presentation" class="divider"></li>
 								<li role="presentation">								    
-								    <?php if($role == 3) {
-								        echo anchor(base_url('Admin'), 'Admin', [
-								                'role' => 'menuitem',
-								                'tabindex' => '-1'
-								        ]);
-								    } ?>
+								    <a href="<?php echo base_url('Admin')?>">
+								        <i class="fa fa-cog fa-spin"></i>
+								        Admin
+								    </a>
 								</li>
 								<li>
 								    <a href="<?php echo base_url('salir')?>">
