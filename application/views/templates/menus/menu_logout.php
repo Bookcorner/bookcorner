@@ -3,7 +3,7 @@
 		<div class="container-fluid">
             <!-- IMAGEN -->
 			<div class="navbar-header visible-lg visible-md">
-				<a class="navbar-brand" href="<? echo base_url('que-es-bookcorner')?>">
+				<a class="navbar-brand" href="<?= base_url('que-es-bookcorner')?>">
 				    <?php echo img ( array (
                           'src' => asset_url () . '/images/logo/bc.png',
                           'class' => 'Brand logo-lg-md' 
@@ -17,7 +17,7 @@
 				</button>
 			</div>
 			<div class="navbar-header visible-sm no-padding col-sm-1">
-				<a class="navbar-brand no-padding" href="<? echo base_url('que-es-bookcorner')?>"> 
+				<a class="navbar-brand no-padding" href="<?= base_url('que-es-bookcorner')?>"> 
 				    <?php echo img ( array (
                           'src' => asset_url () . '/images/logo/bc.png',
                           'class' => 'Brand logo-sm' 
