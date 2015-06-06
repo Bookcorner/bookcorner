@@ -258,8 +258,8 @@
 												<fieldset>
 												<!-- Name input-->
 												<div class="form-group">
-													<label class="control-label" for="idName">Nombre:</label>
-													<div class="controls">
+													<label class="control-label col-xs-2" for="idName">Nombre:</label>
+													<div class="controls col-xs-9">
 														<input id="idName" name="name" class="form-control"
 															type="text" placeholder="Nombre" class="input-large"
 															required />
@@ -268,8 +268,8 @@
 												</div>
 
 												<div class="form-group">
-													<label class="control-label" for="idSurname">Apellido:</label>
-													<div class="controls">
+													<label class="control-label col-xs-2" for="idSurname">Apellido:</label>
+													<div class="controls col-xs-9">
 														<input id="idSurname" name="surname" class="form-control"
 															type="text" placeholder="Apellido" class="input-large"
 															required />
@@ -278,8 +278,8 @@
 												</div>
 												
 												<div class="form-group">
-												    <label class="control-label" for="idGenre">Género:</label>
-												    <div class="controls">
+												    <label class="control-label col-xs-2" for="idGenre">Género:</label>
+												    <div class="controls col-xs-9">
 												        <label class="radio-inline"><input type="radio" value="M" name="genre" checked>Hombre</label>
                                                         <label class="radio-inline"><input type="radio" value="F" name="genre">Mujer</label>
 												    </div>
@@ -287,9 +287,9 @@
 
 												<!-- Username input-->
 												<div class="form-group">
-													<label class="control-label" for="idUsername">Nombre de
+													<label class="control-label col-xs-2" for="idUsername">Nombre de
 														usuario:</label>
-													<div class="controls">
+													<div class="controls col-xs-9">
 														<input id="idUsername" name="user" class="form-control"
 															pattern="^{1,20}$" type="text"
 															placeholder="Usuario (tu nombre visible en la página)"
@@ -300,8 +300,8 @@
 
 												<!-- Password input-->
 												<div class="form-group">
-													<label class="control-label" for="idPass">Contraseña:</label>
-													<div class="controls">
+													<label class="control-label col-xs-2" for="idPass">Contraseña:</label>
+													<div class="controls col-xs-9">
 														<input id="idPass" name="pass" class="form-control"
 															pattern="^{5,12}$" type="password" placeholder="********"
 															data-error="Contraseña no válida" class="input-large"
@@ -312,9 +312,9 @@
 												</div>
 
 												<div class="form-group">
-													<label class="control-label" for="idRepass">Introduce
+													<label class="control-label col-xs-2" for="idRepass">Introduce
 														contraseña de nuevo:</label>
-													<div class="controls">
+													<div class="controls col-xs-9">
 														<input id="idRepass" name="repass" data-match="#idPass"
 															class="form-control" type="password"
 															placeholder="********" class="input-large"
@@ -326,8 +326,8 @@
 
 												<!-- Email input-->
 												<div class="form-group">
-													<label class="control-label" for="idEmail">Email:</label>
-													<div class="controls">
+													<label class="control-label col-xs-2" for="idEmail">Email:</label>
+													<div class="controls col-xs-9">
 														<input id="idEmail" name="email"
 															pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$"
 															class="input-large form-control" type="text"
@@ -338,9 +338,9 @@
 												</div>
 
 												<div class="form-group">
-													<label class="control-label" for="idReemail">Introduce
+													<label class="control-label col-xs-2" for="idReemail">Introduce
 														email de nuevo:</label>
-													<div class="controls">
+													<div class="controls col-xs-9">
 														<input id="idReemail" name="reemail" data-match="#idEmail"
 															class="input-large form-control" type="text"
 															placeholder="Email"
@@ -350,8 +350,8 @@
 												</div>
 												
 												<div class="form-group form-inline">
-												    <label class="control-label" for=idCaptchaControl> Introduce Captcha: </label>
-												    <div class="controls">												        				    
+												    <label class="control-label col-xs-2" for=idCaptchaControl> Introduce Captcha: </label>
+												    <div class="controls col-xs-9">												        				    
     												    <?= getCaptcha('signup') ?>
     												</div>
     												<div class="help-block with-errors"></div>
@@ -359,8 +359,8 @@
 
 												<!-- Button -->
 												<div class="form-group">
-													<label class="control-label" for="idConfirmsignup"></label>
-													<div class="controls">
+													<label class="control-label col-xs-2" for="idConfirmsignup"></label>
+													<div class="controls col-xs-9">
 														<button id="idConfirmsignup" name="confirmsignup"
 															class="btn btn-success">
 															<i class="fa fa-sign-in"></i>

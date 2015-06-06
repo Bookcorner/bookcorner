@@ -3,11 +3,11 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 class Book extends CI_Controller {
     public function index() {
         $data ['title'] = 'Libros';
-        $viewUri = 'books/main_book_content';
         
         $this->load->model ( 'books_model' );
         $data['books'] = $this->books_model->searchAllBooksOrderedByName();
         
+        $viewUri = 'books/main_book_content';
         loadBasicViews ( $viewUri, $data );
     }
     public function showBooksSearched() {
@@ -47,6 +47,5 @@ class Book extends CI_Controller {
         
         $viewUri = 'books/info_book';
         loadBasicViews ( $viewUri, $data );
-    }
-    
+    }    
 }

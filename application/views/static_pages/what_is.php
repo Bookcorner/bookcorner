@@ -64,7 +64,7 @@
 							encuentres hoy, esté mañana disponible. Para que el sitio crezca,
 							es necesaria tu ayuda. ¿Nos echas un cable?</p>
 						<p>
-						    <?php echo anchor(base_url('user/reportMissing'), '¡Quiero ayudar!', [
+						    <?php echo anchor(base_url('reportes'), '¡Quiero ayudar!', [
 								            'class' => 'btn btn-lg btn-primary',
 								            'role' => 'button'
 						    ])?>
