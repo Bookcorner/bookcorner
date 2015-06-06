@@ -13,7 +13,7 @@
 		     <?php foreach ($books as $book):?>
 		     <div class="panel">
 				<div class="panel-body">
-					<div class="col-md-10 col-md-push-2">
+					<div class="col-sm-9 col-sm-push-3">
 						<h2>
                             <?php
                             echo anchor ( 'libro/' . $book ['id'], $book ['book_name'], [ 
@@ -22,8 +22,8 @@
                         </h2>
 						<p><?php echo substr($book['book_desc'], 0, 300)?>...<?php echo anchor('libro/'.$book['id'], 'leer más')?></p>
 					</div>
-
-					<div class="col-md-2 col-md-pull-10">
+					
+					<div class="col-sm-1 col-sm-pull-9">
                         <?php
                         echo img ( array (
                                 'src' => asset_url () . 'images/books/' . $book ['book_img'],
