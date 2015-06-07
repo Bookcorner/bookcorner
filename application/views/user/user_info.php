@@ -13,7 +13,7 @@ $( document ).ready(function() {
 	$( "#dialog" ).dialog({
       autoOpen: false,
       buttons: {
-          "Borrar cuenta": function() {            
+          "Borrar cuenta": function() {
             
             $.ajax({
     			url: "<?= base_url() ?>eliminar",
@@ -24,14 +24,14 @@ $( document ).ready(function() {
     			    password: $('#confirmPassword').val()
     			},
     			success: function( data ) {
-    				$('#message-container').append('<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="message-container"><div class="alert alert-info text-center" role="alert">'+data+'<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button></div></div>');
+    				$('#message-container').html('<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="message-container"><div class="alert alert-info text-center" role="alert">'+data+'<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button></div></div>');
 
     			    if (data == "Cuenta borrada") {
     			    	window.location.replace("<?= base_url() ?>");
     			    }
     				
     			}, error: function( data ) {
-    				$('#message-container').append('<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="message-container"><div class="alert alert-danger text-center" role="alert">'+data+'<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button></div></div>');
+    				$('#message-container').html('<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="message-container"><div class="alert alert-danger text-center" role="alert">'+data+'<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button></div></div>');
     			}
     		});
             
