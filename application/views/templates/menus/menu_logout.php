@@ -149,12 +149,6 @@
 								    </a>
 								</li>
 								<li role="presentation">
-								    <a href="<?php echo base_url('informacion-de-usuario')?>" role="menuitem">
-								        <i class="fa fa-thumbs-up"></i>
-								        Votar
-								    </a>
-								</li>
-								<li role="presentation">
 								    <a href="<?php echo base_url('reportes')?>" role="menuitem">
 								        <i class="fa fa-ambulance"></i>
 								        Reportes

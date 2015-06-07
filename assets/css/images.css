@@ -5,6 +5,8 @@
 .avatar {
 	width: 40px !important;
 	height: 40px !important;
+	border-radius:5px;
+	margin-top:6px;
 }
 
 .contenedor-avatar{

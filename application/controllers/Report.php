@@ -2,9 +2,11 @@
 defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 class Report extends CI_Controller {
     public function index() {
-        if (get_userrole () != 3) {
+    $sessionName = 'id';
+        
+        if (! check_session_exist ( $sessionName )) {
             $this->session->set_flashdata ( 'signInError', getSignInErrorMsg () );
-            redirect ( base_url (), 'refresh' );
+            redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
         }
         
         $data ['title'] = 'Reporte';

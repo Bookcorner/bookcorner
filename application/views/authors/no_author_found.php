@@ -10,7 +10,7 @@
         			Lamentablemente no tenemos el Autor que estás buscando. ¿Quieres añadirlo tú?
         		</p>
         		<p class="text-center">
-                    <?php echo anchor(base_url('user/reportMissing'), '¡Quiero añadirlo!', [
+                    <?php echo anchor(base_url('reportes'), '¡Quiero añadirlo!', [
 					   'class' => 'btn btn-lg btn-primary',
 						'role' => 'button'
 					])?>
