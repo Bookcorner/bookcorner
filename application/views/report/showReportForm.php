@@ -87,7 +87,7 @@
 									<h4 class="panel-title">
 										<a data-toggle="collapse" data-parent="elecionAutor"
 											href="#collapseOne" aria-expanded="false"
-											aria-controls="collapseOne"> Comprueba si existe el autor </a>
+											aria-controls="collapseOne"> Comprueba si existe el autor <i class="fa fa-chevron-down"></i></a>
 									</h4>
 								</div>
 								<div id="collapseOne" class="panel-collapse collapse in"
@@ -119,7 +119,7 @@
 									<h4 class="panel-title">
 										<a class="collapsed" data-toggle="collapse"
 											data-parent="#eleccionAutor" href="#collapseTwo"
-											aria-expanded="false" aria-controls="collapseTwo"> ¿No encuentras el autor? ¡Añádelo! </a>
+											aria-expanded="false" aria-controls="collapseTwo"> ¿No encuentras el autor? ¡Añádelo Aquí! <i class="fa fa-chevron-down"></i> </a>
 									</h4>
 								</div>
 								<div id="collapseTwo" class="panel-collapse collapse"
