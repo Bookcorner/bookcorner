@@ -1,19 +1,71 @@
+<script type="text/javascript">
+$( document ).ready(function() {
+	
+	$('#deleteAccount').on({
+		'click': function() {
+			$( "#dialog" ).dialog( "open" );
+			$('.ui-dialog-titlebar-close').text("X").addClass('close').removeClass('ui-dialog-titlebar-close');
+			$('button:contains("Borrar cuenta")').addClass('btn btn-default');
+			$('button:contains("Cancelar")').addClass('btn btn-default');
+		}
+	});
+
+	$( "#dialog" ).dialog({
+      autoOpen: false,
+      buttons: {
+          "Borrar cuenta": function() {            
+            
+            $.ajax({
+    			url: "<?= base_url() ?>eliminar",
+    			type: 'POST',
+    			async: true,
+    			data: {
+    				idUser: <?= $id ?>,
+    			    password: $('#confirmPassword').val()
+    			},
+    			success: function( data ) {
+    				$('#message-container').append('<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="message-container"><div class="alert alert-info text-center" role="alert">'+data+'<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button></div></div>');
+
+    			    if (data == "Cuenta borrada") {
+    			    	window.location.replace("<?= base_url() ?>");
+    			    }
+    				
+    			}, error: function( data ) {
+    				$('#message-container').append('<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="message-container"><div class="alert alert-danger text-center" role="alert">'+data+'<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button></div></div>');
+    			}
+    		});
+            
+          },
+          "Cancelar": function() {
+            $( this ).dialog( "close" );
+          }
+        }
+    });
+	
+});
+</script>
+
+<div id="dialog" title="Borrar cuenta">
+    <p>Introduzca su contraseña para confirmar</p>
+    <input id="confirmPassword" name="confirmPassword" class="form-control" type="password"
+    	placeholder="Contraseña"
+    	data-error="Contraseña no valida" required />
+</div>
+
 <div id="book" class="view-cover book">
-	<div class="main">
+	<div class="main ">
 		<div class="book-font">
 			<div class="book-cover">
-            			<?php
-            echo img ( [ 
+                <?= img ( [ 
                     'src' => asset_url () . '/animatedbooks/img/cover.jpg',
                     'class' => 'coverImg' 
-            ] )?>
+                ]) ?>
             </div>
 			<div class="book-cover-back">
-            			<?php
-            echo img ( [ 
+                <?= img ( [ 
                     'src' => asset_url () . '/images/users/' . $userInfo->user_avatar,
                     'class' => 'book, circle' 
-            ] )?>
+                ]) ?>
             </div>
 		</div>
 
@@ -26,15 +78,13 @@
 				</ul>
 			</nav>
 			<div class="page">
-				<?php
-    
-    echo form_open ( base_url () . '', [ 
-            'class' => 'form-horizontal',
-            'data-toggle' => 'validator',
-            'method' => 'post',
-            'accept-charset' => 'UTF-8',
-            'id' => 'idFormNewAvatar' 
-    ] )?>	
+                <?= form_open ( base_url () . '', [ 
+                    'class' => 'form-horizontal',
+                    'data-toggle' => 'validator',
+                    'method' => 'post',
+                    'accept-charset' => 'UTF-8',
+                    'id' => 'idFormNewAvatar' 
+                ]) ?>
 					
 					 <span class="btn btn-default btn-file">
 						 Pincha para cargar la imagen<input id="idNewAvatar" name="newAvatar" type="file" required/>
@@ -46,8 +96,9 @@
 				<button class="btn btn-primary">Cambiar avatar</button>
 						<?php echo form_close()?>
 						<hr />
-						
-						<button class="btn btn-danger">Eliminar mi cuenta</button>
+						<button class="btn btn-danger" id="deleteAccount">						  
+						   Eliminar mi cuenta
+						</button>
 						
 						<hr/>
 						<button class="btn btn-default goto-page-3">
@@ -69,15 +120,13 @@
 			<div class="page">
 				<div class="col-xs-12">
 					<div class="col-xs-10">
-						<?php
-    
-    echo form_open ( base_url () . 'actualizar-username', [ 
-            'class' => 'form-horizontal',
-            'data-toggle' => 'validator',
-            'method' => 'post',
-            'accept-charset' => 'UTF-8',
-            'id' => 'idFormNewUsername' 
-    ] )?>	
+                        <?= form_open ( base_url () . 'actualizar-username', [ 
+                            'class' => 'form-horizontal',
+                            'data-toggle' => 'validator',
+                            'method' => 'post',
+                            'accept-charset' => 'UTF-8',
+                            'id' => 'idFormNewUsername' 
+                        ]) ?>	
 						<div class="form-group">
 							<label class="control-label" for="idNewUsername">Nombre de
 								usuario:</label>
@@ -93,15 +142,13 @@
 						<?php echo form_close()?>
 						
 						<hr />
-						<?php
-    
-    echo form_open ( base_url () . 'actualizar-mail', [ 
-            'class' => 'form-horizontal',
-            'data-toggle' => 'validator',
-            'method' => 'post',
-            'accept-charset' => 'UTF-8',
-            'id' => 'idFormNewEmail' 
-    ] )?>	
+                            <?= form_open ( base_url () . 'actualizar-mail', [ 
+                                'class' => 'form-horizontal',
+                                'data-toggle' => 'validator',
+                                'method' => 'post',
+                                'accept-charset' => 'UTF-8',
+                                'id' => 'idFormNewEmail' 
+                            ]) ?>	
     
                         <div class="form-group">
 							<label class="control-label" for="idNewEmail">Email:</label>
@@ -142,18 +189,14 @@
 			<div class="page">
 				<div class="col-xs-12">
 					<div class="col-xs-10">
-						<h3><b>Cambiar datos de usuario</b></h3>
-						
-            	<?php
-            
-            echo form_open ( base_url () . 'actualizar-pass', [ 
-                    'class' => 'form-horizontal',
-                    'data-toggle' => 'validator',
-                    'method' => 'post',
-                    'accept-charset' => 'UTF-8',
-                    'id' => 'idFormNewPassword' 
-            ] )?>
-	                            
+						<h3><b>Cambiar datos de usuario</b></h3>						
+                            <?= form_open ( base_url () . 'actualizar-pass', [ 
+                                'class' => 'form-horizontal',
+                                'data-toggle' => 'validator',
+                                'method' => 'post',
+                                'accept-charset' => 'UTF-8',
+                                'id' => 'idFormNewPassword' 
+                            ] )?>	                            
 						<div class="form-group">
 							<label for="oldpass">Introduce la antigua contraseña</label> 
 							<div>

@@ -4,7 +4,7 @@ class User extends CI_Controller {
     
     public function __construct() {        
         parent::__construct ();
-        $this->load->model ( 'users_model' );
+        $this->load->model ( 'Users_model' );
         
     }
     
@@ -20,7 +20,7 @@ class User extends CI_Controller {
         }
         
         $data ['title'] = 'Información de Usuario';
-        $data ['userInfo'] = $this->users_model->getUserInfo ( $userId );
+        $data ['userInfo'] = $this->Users_model->getUserInfo ( $userId );
 
         $views =  [
                 'cabeceras' => [
@@ -46,7 +46,7 @@ class User extends CI_Controller {
             $username = set_value ( 'user' );
             $email = set_value ( 'email' );
     
-            $user = $this->users_model->check_exist_user ( $username, $email );
+            $user = $this->Users_model->check_exist_user ( $username, $email );
             
             $isUserOk = ($user == 0);
             $isNicknameUsed = ($user == 1);
@@ -82,7 +82,7 @@ class User extends CI_Controller {
                 // enviamos el correo de registro
                 if ($sendMail) {
                     $this->session->set_flashdata ( 'ok', 'Se ha registrado satisfactoriamente, le enviaremos un correo de activación.' );
-                    $this->users_model->saveUser($newUser);
+                    $this->Users_model->saveUser($newUser);
                 } else {
                     $this->session->set_flashdata ( 'signUpError', 'No se le ha podido enviar el correo, vuelva a intentarlo' );
                 }
@@ -112,7 +112,7 @@ class User extends CI_Controller {
         return ($captcha == $captchaUser);
     }
     private function dispenseNewUser(){
-        $validation = $this->users_model->getRandomString();
+        $validation = $this->Users_model->getRandomString();
         
         $newUser = R::Dispense ( 'user' );
         $newUser->user_name = set_value ( 'name' );
@@ -233,7 +233,7 @@ class User extends CI_Controller {
          * al routear, los parametros empiezan en el 2, no en el 3
         */
     
-        $validation = $this->users_model->activateUser($string);
+        $validation = $this->Users_model->activateUser($string);
         
         if ($validation == 0) {
             $this->session->set_flashdata ( 'signUpError', 'No corresponde la clave de validación' );
@@ -258,7 +258,7 @@ class User extends CI_Controller {
          * al routear, los parametros empiezan en el 2, no en el 3
         */
         
-        $validation = $this->users_model->cancelUser($string);
+        $validation = $this->Users_model->cancelUser($string);
         
         if ($validation == 0) {
             $this->session->set_flashdata ( 'signUpError', 'No corresponde la clave de validación' );
@@ -284,15 +284,15 @@ class User extends CI_Controller {
         }
         
         $username = set_value('newUsername');
-        $this->load->model('users_model');
-        $isNicknameInUse = $this->users_model->check_username_exists($username);
+        $this->load->model('Users_model');
+        $isNicknameInUse = $this->Users_model->check_username_exists($username);
         if($isNicknameInUse){
             $this->session->set_flashdata ( 'updateUsernameError', getUsernameAlreadyExistsMsg());
             redirect (  $_SERVER ['HTTP_REFERER'], 'refresh' );
         }
         else{
             $id = $this->session->userdata( 'id' );
-            $this->users_model->update_username($username, $id);
+            $this->Users_model->update_username($username, $id);
             $this->session->set_flashdata ( 'updateUsernameOk', getUsernameChangeOkMsg());
             redirect (  $_SERVER ['HTTP_REFERER'], 'refresh' );
         }
@@ -308,7 +308,6 @@ class User extends CI_Controller {
         }
     
         $email= set_value('newEmail');
-        $this->load->model('users_model');
         $isEmailInUse = $this->users_model->check_email_exists($email);
         if($isEmailInUse){
             $this->session->set_flashdata ( 'updateEmailError', getEmailAlreadyExistsMsg());
@@ -316,10 +315,44 @@ class User extends CI_Controller {
         }
         else{
             $id = $this->session->userdata( 'id' );
-            $this->users_model->update_email($email, $id);
+            $this->Users_model->update_email($email, $id);
             $this->session->set_flashdata ( 'updateEmailOk', getEmailChangeOkMsg());
             redirect (  $_SERVER ['HTTP_REFERER'], 'refresh' );
         }
+    }
+    
+    public function deleteAccount() {
+        
+        if ( isset( $_POST['idUser'] ) && isset( $_POST['password'] ) ) {            
+            $sessionId = $this->session->userdata ( 'id' );
+            $ajaxId = $_POST['idUser'];
+            
+            if ($sessionId == $ajaxId) {
+                $userBean = $this->Users_model->getUserInfo($sessionId);
+                $pwd = $userBean->user_pwd;
+                $validation = $userBean->user_validation;
+                $ajaxPwd = encrypt($_POST['password']);
+                
+                if ($pwd == $ajaxPwd) {
+                    if (strlen($validation) > 1) {
+                        $this->Users_model->deleteUser($sessionId);
+                        $this->session->sess_destroy();
+                        echo "Cuenta borrada";
+                    } else {                        
+                        echo "Es un superadmin, su cuenta es vitalicia";
+                    }                    
+                } else {
+                    echo "La contraseña es incorrecta";
+                }
+                
+            } else {
+                echo "El id no coincide";
+            }           
+            
+        } else {
+            redirect( base_url(), 'refresh' );
+        }
+        
     }
     
     public function editPass(){
@@ -333,11 +366,10 @@ class User extends CI_Controller {
     
         $oldPass = md5(set_value('oldPass'));
         $newPass = md5(set_value('newPass'));
-        $this->load->model('users_model');
-        $isOldPassCorrect= $this->users_model->check_oldpass_matches($oldPass);
+        $isOldPassCorrect= $this->Users_model->check_oldpass_matches($oldPass);
         if($isOldPassCorrect){
             $id = $this->session->userdata( 'id' );
-            $this->users_model->update_pass($newPass, $id);
+            $this->Users_model->update_pass($newPass, $id);
             $this->session->set_flashdata ( 'updatePassOk', getPassChangeOkMsg());
             redirect (  $_SERVER ['HTTP_REFERER'], 'refresh' );
         }

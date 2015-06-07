@@ -79,6 +79,7 @@ $route['actualizar-mail'] = 'user/editEmail';
 $route['activar/:any'] = 'user/activate';
 $route['cancelar/:any'] = 'user/cancel';
 $route['contactar'] = 'user/sendContact';
+$route['eliminar'] = 'user/deleteAccount';
 
 //listbook
 $route['lista-libros'] = 'listbook/showListBooks';

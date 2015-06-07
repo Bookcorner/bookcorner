@@ -11,7 +11,7 @@ class Bbdd extends CI_Controller {
         $user1->user_surname = 'nistrate';
         $user1->user_nickname = 'admin';
         $user1->user_pwd = encrypt( 'theboss' );
-        $user1->user_validation = 'jsxDMJt2F0QXO7vrcRAenCLE';
+        $user1->user_validation = '';
         $user1->user_email = 'administrator@gmail.com';
         $user1->user_avatar = 'boss.jpg';
         $user1->user_genre = 'M';
