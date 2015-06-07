@@ -39,7 +39,7 @@
                                         data-url="listbook/updateBookState/<?php echo $book['id']?>" 
                                         data-title="Selecciona un estado" 
                                         data-value="<?php echo $book['val_estado_libro']?>"
-                                        aria-describedBy="<?php echo $book['book_id']?>"
+                                        aria-describedBy="<?php echo $book['id']?>"
                                         class="btn btn-default btn-md">
                                     </a>
                                 </td>
@@ -51,7 +51,7 @@
                                         data-url="listbook/updateBookScore/<?php echo $book['id']?>" 
                                         data-title="Puntuación" 
                                         data-value="<?php echo $book['val_puntuacion']?>"
-                                        aria-describedBy="<?php echo $book['book_id']?>"
+                                        aria-describedBy="<?php echo $book['id']?>"
                                         class="btn btn-default btn-md">
                                     </a>
                                 </td>
@@ -63,7 +63,7 @@
                                         data-url="listbook/updateBookNote/<?php echo $book['id']?>" 
                                         data-title="Introduce tus notas:" 
                                         data-value="<?php echo $book['val_nota_libro']?>"
-                                        aria-describedBy="<?php echo $book['book_id']?>"
+                                        aria-describedBy="<?php echo $book['id']?>"
                                         class="btn btn-default btn-md">
                                         <i class="glyphicon glyphicon-edit"></i>
                                     </a>

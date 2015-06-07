@@ -51,5 +51,27 @@ class Book extends CI_Controller {
         
         $viewUri = 'books/info_book';
         loadBasicViews ( $viewUri, $data );
-    }  
+    }
+    public function updateBookisbn($bookId){
+        $newIsbn = $_POST['value'];
+        $this->load->model('Books_model');
+        $this->Books_model->updateBookisbn($bookId, $newIsbn);
+    }
+    public function updateBookname($bookId){
+        $newName = $_POST['value'];
+        $this->load->model('Books_model');
+        $this->Books_model->updateBookname($bookId, $newName);
+    }
+    public function updateBookdesc($bookId){
+        $newDesc = $_POST['value'];
+        $this->load->model('Books_model');
+        $this->Books_model->updateBookdesc($bookId, $newDesc);
+    }
+    public function setBookAvailable(){
+        $bookId = $this->uri->segment(2);
+        $this->load->model('Books_model');
+        $this->Books_model->setAvailableBook($bookId);
+        $this->session->set_flashdata ( 'verifySuccess', getVerifySuccessMsg () );
+        redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+    }
 }

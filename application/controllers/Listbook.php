@@ -20,7 +20,6 @@ class Listbook extends CI_Controller {
         $views = [ 
                 'cabeceras' => [ 
                         'templates/cabeceras/cabecera_base',
-                        'templates/cabeceras/cabecera_usuario',
                         'templates/cabeceras/cabecera_popup',
                         'templates/cabeceras/cabecera_xeditable' 
                 ],

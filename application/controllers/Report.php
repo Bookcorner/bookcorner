@@ -93,4 +93,33 @@ class Report extends CI_Controller {
         $config['remove_spaces']  = TRUE;
         return $config;
     }
+    public function showMainReports(){
+        $sessionName = 'id';
+        
+        if (! check_session_exist ( $sessionName )) {
+            $this->session->set_flashdata ( 'signInError', getSignInErrorMsg () );
+            redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+        }
+        
+        $this->load->model('authors_model');
+        $this->load->model('books_model');
+        
+        $data['authors'] = $this->authors_model->searchAllAuthorsPending();
+        $data['books'] = $this->books_model->searchAllBooksPending();
+        $data['title'] = 'Validar Libros y Autores';
+        $contentURI = 'report/showAuthorsAndBooksReported';
+        $views = [ 
+                'cabeceras' => [ 
+                        'templates/cabeceras/cabecera_base',
+                        'templates/cabeceras/cabecera_popup',
+                        'templates/cabeceras/cabecera_reportxeditable' 
+                ],
+                'contenidos' => [ 
+                        'report/showAuthorsAndBooksReported' 
+                ],
+                'footer' => 'templates/footers/base_footer' 
+        ];
+        
+        loadCustomViews ( $views, $data );
+    }
 }

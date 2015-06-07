@@ -71,3 +71,6 @@ function getBookImageErrorMsg(){
 function getAuthorImageErrorMsg(){
     return 'La imagen del autor no ha sido subida correctamente. Asegurese de que el tamaño no supera los 5 MB y la resolución sea de 1024x768 como máximo';
 }
+function getVerifySuccessMsg(){
+    return 'El libro/autor ya se encuentra disponible. ¡Gracias por tu ayuda!';
+}

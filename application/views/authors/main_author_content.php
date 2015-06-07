@@ -31,7 +31,7 @@
                         <p><?php echo substr($author['author_desc'], 0, 300)?>...<?php echo anchor('autor/'.$author['id'], 'leer más')?></p>  
 			         </div>
                 </div>
-                <div class ="panel-footer">
+                <div class ="panel-footer hidden">
                     <a href="votar-autor" class="btn btn-warning"> 
                         <i class="fa fa-thumbs-up"></i> Votar Autor
                     </a>
