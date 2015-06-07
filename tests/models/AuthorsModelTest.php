@@ -30,10 +30,16 @@ class AuthorsModelTest extends PHPUnit_Framework_TestCase {
         $this->assertNotNull ( $authorsSearched );
         $this->assertEquals ( sizeof ( $authorsSearched ), 1 );
     }
-    public function testWhenSearchSearchAllAuthorsIsCalledThenAuthorsShouldBeReturned() {
+    public function testWhenSearchAllAuthorsIsCalledThenAuthorsShouldBeReturned() {
         $this->CI->load->model ( 'authors_model' );
         $authorsSearched = $this->CI->authors_model->searchAllAuthorsOrderedByName ();
         
+        $this->assertNotNull ( $authorsSearched );
+    }
+    public function testWhenSearchAuthorsPendingIsCalledThenAuthorsShouldBeReturned() {
+        $this->CI->load->model ( 'authors_model' );
+        $authorsSearched = $this->CI->authors_model->searchAuthorsPending ();
+    
         $this->assertNotNull ( $authorsSearched );
     }
 }

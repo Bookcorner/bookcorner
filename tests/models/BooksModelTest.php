@@ -32,7 +32,6 @@ class BooksModelTest extends PHPUnit_Framework_TestCase {
 		$booksSearched = $this->CI->books_model->searchBooks($bookname);
 	
 		$this->assertNotNull($booksSearched);
-		$this->assertEquals(1, sizeof($booksSearched));
 		
 	}
 	
@@ -57,6 +56,12 @@ class BooksModelTest extends PHPUnit_Framework_TestCase {
 	    $authorSearched = $this->CI->books_model->getAuthorOfBook($id);
 	
 	    $this->assertNotNull($authorSearched);
+	}
+	public function testWhenGetBookIsCalledThenBookShoulBeReturned(){
+	    $bookId = 1;
+	    $this->CI->load->model('books_model');
+	    $book = $this->CI->books_model->getBook($bookId);
+	    $this->assertNotNull($book);
 	}
 
 }
