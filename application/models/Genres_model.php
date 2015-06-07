@@ -8,4 +8,8 @@ class Genres_model extends CI_Model {
         $genres = R::find ( 'genrebook', 'ORDER BY genrebook_name');
         return $genres;
     }
+    function countGenres() {
+        $numOfGenres = R::count( 'genrebook' );
+        return $numOfGenres;
+    }
 }

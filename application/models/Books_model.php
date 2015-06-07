@@ -79,4 +79,8 @@ class Books_model extends CI_Model {
         R::store($pendingState);
         R::store($author);
     }
+    function countBooks() {
+        $numOfBooks = R::count( 'book' );
+        return $numOfBooks;
+    }
 }

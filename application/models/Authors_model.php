@@ -40,4 +40,8 @@ class Authors_model extends CI_Model {
         ] );
         return $authorsBean;
     }
+    function countAuthors() {
+       $numOfAuthors = R::count( 'author' );
+       return $numOfAuthors;
+    }
 }

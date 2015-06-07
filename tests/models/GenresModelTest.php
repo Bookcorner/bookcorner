@@ -10,4 +10,9 @@ class GenresModelTest extends PHPUnit_Framework_TestCase {
         
         $this->assertNotNull ( $authorSearched );
     }
+    public function testWhenCountGenresIsCalledThenNumberShouldBeReturned(){
+        $this->CI->load->model ( 'genres_model' );
+        $number_of_genres = $this->CI->genres_model->countGenres ();
+        $this->assertNotNull($number_of_genres);
+    }
 }

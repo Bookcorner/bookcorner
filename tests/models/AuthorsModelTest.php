@@ -42,4 +42,9 @@ class AuthorsModelTest extends PHPUnit_Framework_TestCase {
     
         $this->assertNotNull ( $authorsSearched );
     }
+    public function testWhenCountAuthorsIsCalledThenNumberShouldBeReturned(){
+        $this->CI->load->model ( 'authors_model' );
+        $number_of_authors = $this->CI->authors_model->countAuthors ();
+        $this->assertNotNull($number_of_authors);
+    }
 }

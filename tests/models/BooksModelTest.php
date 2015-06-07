@@ -63,5 +63,10 @@ class BooksModelTest extends PHPUnit_Framework_TestCase {
 	    $book = $this->CI->books_model->getBook($bookId);
 	    $this->assertNotNull($book);
 	}
-
+    
+	public function testWhenCountBooksIsCalledThenNumberShouldBeReturned(){
+	    $this->CI->load->model ( 'books_model' );
+	    $number_of_books = $this->CI->books_model->countBooks ();
+	    $this->assertNotNull($number_of_books);
+	}
 }
