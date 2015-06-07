@@ -159,14 +159,16 @@
 								        <i class="fa fa-ambulance"></i>
 								        Reportes
 								    </a>
-								</li>
+								</li>								
 								<li role="presentation" class="divider"></li>
-								<li role="presentation">								    
+								<?php if ($role == 3) { ?>
+								<li role="presentation">
 								    <a href="<?php echo base_url('Admin')?>">
 								        <i class="fa fa-cog fa-spin"></i>
 								        Admin
 								    </a>
 								</li>
+								<?php } ?>
 								<li>
 								    <a href="<?php echo base_url('salir')?>">
 								        <i class="fa fa-sign-out"></i>

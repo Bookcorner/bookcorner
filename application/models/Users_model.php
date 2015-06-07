@@ -17,24 +17,20 @@ class Users_model extends CI_Model {
         
         return $userBean;
     }
-    
     function getUserInfo($userId) {
         $userBean = R::findOne ( 'user', ' id = ? ', [ 
                 $userId 
         ] );
         return $userBean;
     }
-    
     public function getAllModerators() {
         $mod_users = R::find ( 'user', 'userrole_id = 2' );
         return $mod_users;
     }
-    
     public function getAllAdministrators() {
         $admin_users = R::find ( 'user', 'userrole_id = 3' );
         return $admin_users;
     }
-    
     function check_username_exists($username) {
         $userBean = R::findLike ( 'user', [ 
                 'user_nickname' => [ 
@@ -146,6 +142,18 @@ class Users_model extends CI_Model {
                 return 3;
             }
         }
+    }
+    function deleteUser($id) {
+        $userBean = R::findOne ( 'user', ' id = ? ', [ 
+                $id 
+        ] );
+        
+        $userList = R::findOne ( 'listbook', ' id = ? ', [ 
+                $id 
+        ] );
+        
+        R::trash ( $userBean );
+        R::trash ( $userList );
     }
     function cancelUser($string) {
         $userBean = R::findOne ( 'user', ' user_validation = ? ', [ 
