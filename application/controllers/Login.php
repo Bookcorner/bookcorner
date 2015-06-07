@@ -33,6 +33,8 @@ class Login extends CI_Controller {
     
                     if ($isRememberChecked) {
                         $this->config->set_item('sess_expire_on_close', FALSE);
+                        $this->config->set_item('sess_expiration', 2592000);
+                        
                         $userSession = $this->createUserDataSession ( $validUser );
                         $this->session->set_userdata ( $userSession );
                     } else {

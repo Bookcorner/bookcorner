@@ -38,7 +38,7 @@
 								<p><?php echo substr($book['book_desc'], 0, 300)?>...<?php echo anchor('libro/'.$book['id'], 'leer más')?></p>
 							</div>
 							<div class="col-md-3 col-md-pull-9">
-							<a href="<?= 'libro/'.$book['id'] ?>">
+							<a href="<?= base_url().'libro/'.$book['id'] ?>">
                                 <?php echo img ( array (
                                     'src' => asset_url () . '/images/books/' . $book ['book_img'],
                                     'class' => 'img-rounded smallbook',
