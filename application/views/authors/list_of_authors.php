@@ -50,7 +50,7 @@
         			         </div>
                         </div>
                     </div>
-                    <div class ="panel-footer">
+                    <div class ="panel-footer hidden">
                         <a href="votar-autor" class="btn btn-warning"> 
                             <i class="fa fa-thumbs-up"></i> Votar Autor
                         </a>

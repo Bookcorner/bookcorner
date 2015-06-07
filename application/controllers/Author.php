@@ -37,5 +37,21 @@ class Author extends CI_Controller {
         $viewUri = 'authors/info_author';
         loadBasicViews ( $viewUri, $data );
     }
-    
+    public function updateAuthorname($authorId){
+        $newAuthorName = $_POST['value'];
+        $this->load->model('Authors_model');
+        $this->Authors_model->updateAuthorname($authorId, $newAuthorName);
+    }
+    public function updateAuthordesc($authorId){
+        $newAuthorDesc = $_POST['value'];
+        $this->load->model('Authors_model');
+        $this->Authors_model->updateAuthordesc($authorId, $newAuthorDesc);
+    }
+    public function setAuthorAvailable(){
+        $authorId = $this->uri->segment(2);
+        $this->load->model('Authors_model');
+        $this->Authors_model->setAvailableAuthor($authorId);
+        $this->session->set_flashdata ( 'verifySuccess', getVerifySuccessMsg () );
+        redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );   
+    }
 }

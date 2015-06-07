@@ -19,6 +19,7 @@
         <?php if($this->session->flashdata('bookCreatedSuccess')) { ?> <div class="alert alert-success text-center" role="alert"> <?= $this->session->flashdata('bookCreatedSuccess') ?> </div> <?php } ?>
         <?php if($this->session->flashdata('bookImageError')) { ?> <div class="alert alert-danger text-center" role="alert"> <?= $this->session->flashdata('bookImageError') ?> </div> <?php } ?>
         <?php if($this->session->flashdata('authorImageError')) { ?> <div class="alert alert-danger text-center" role="alert"> <?= $this->session->flashdata('authorImageError') ?> </div> <?php } ?>
+        <?php if($this->session->flashdata('verifySuccess')) { ?> <div class="alert alert-success text-center" role="alert"> <?= $this->session->flashdata('verifySuccess') ?> </div> <?php } ?>
     </div>
 </div>
 </div>

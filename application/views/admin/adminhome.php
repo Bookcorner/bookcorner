@@ -20,7 +20,7 @@
    								</div>
    								<div class="col-xs-9 text-right">
    									<div class="huge"><h1><?php echo $number_of_users?></h1></div>
-   									<div>Usuarios!</div>
+   									<div>Usuarios</div>
    								</div>
    							</div>
    						</div>
@@ -42,7 +42,7 @@
    								</div>
    								<div class="col-xs-9 text-right">
    									<div class="huge"><h1><?php echo $number_of_books?></h1></div>
-   									<div>Libros!</div>
+   									<div>Libros</div>
    								</div>
    							</div>
    						</div>
@@ -66,7 +66,7 @@
     							</div>
     							<div class="col-xs-9 text-right">
     								<div class="huge"><h1><?php echo $number_of_authors?></h1></div>
-    								<div>Autores!</div>
+    								<div>Autores</div>
     							</div>
     						</div>
     					</div>
@@ -89,7 +89,7 @@
     							</div>
     							<div class="col-xs-6 text-right">
     								<div class="huge"><h1><?php echo $number_of_genres?></h1></div>
-    								<div>Géneros Literarios!</div>
+    								<div>Géneros Literarios</div>
     							</div>
     						</div>
     					</div>

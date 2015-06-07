@@ -79,8 +79,36 @@ class Books_model extends CI_Model {
         R::store($pendingState);
         R::store($author);
     }
-    function countBooks() {
+    public function countBooks() {
         $numOfBooks = R::count( 'book' );
         return $numOfBooks;
+    }
+    
+    public function searchAllBooksPending() {
+        $bookBean = R::getAll ( 'SELECT b.id, b.book_isbn, b.book_name, b.book_desc, b.book_img, a.author_fullname, a.id as author_id 
+                                FROM book b, author a, author_book ab 
+                                WHERE b.id = ab.book_id AND ab.author_id = a.id AND b.bookstate_id = 2');
+        return $bookBean;
+    }
+    public function updateBookisbn($bookId, $newIsbn){
+        $book = R::load('book', $bookId);
+        $book->book_isbn = $newIsbn;
+        R::store($book);
+    }
+    public function updateBookname($bookId, $newName){
+        $book = R::load('book', $bookId);
+        $book->book_name = $newName;
+        R::store($book);
+    }
+    public function updateBookdesc($bookId, $newDescription){
+        $book = R::load('book', $bookId);
+        $book->book_desc = $newDescription;
+        R::store($book);
+    }
+    function setAvailableBook($bookId){
+        $book = R::load('book', $bookId);
+        $available = 1;
+        $book->bookstate_id = $available;
+        R::store($book);
     }
 }

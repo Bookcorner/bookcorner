@@ -61,11 +61,13 @@ $route['informacion-legal'] = 'home/legalInformation';
 $route['libros'] = 'book/index';
 $route['libro/:num'] = 'book/showBook';
 $route['busqueda-libros/:any'] = 'book/showBooksSearched';
+$route['verificar-libro/:num'] = 'book/setBookAvailable';
 
 //author
 $route['autores'] = 'author/index';
 $route['autor/:num'] = 'author/showAuthor';
 $route['busqueda-autores/:any'] = 'author/showAuthorsSearched';
+$route['verificar-autor/:num'] = 'author/setAuthorAvailable';
 
 //search
 $route['busqueda'] = 'search/searchAuthorOrBook';
@@ -95,6 +97,7 @@ $route['ver-votos'] = 'vote/showAllvotes';
 //reporte
 $route['reportes'] = 'report/index';
 $route['crear-libro-y-autor'] = 'report/addBookAndPossibleAuthor';
+$route['moderar'] = 'report/showMainReports';
 
 
 // admin

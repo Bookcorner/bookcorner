@@ -159,7 +159,16 @@
 								        <i class="fa fa-ambulance"></i>
 								        Reportes
 								    </a>
-								</li>								
+								</li>
+								<li role="presentation">
+								    <?php if ($role == 2 || $role == 3):?>
+								    <a href="<?php echo base_url('moderar')?>" role="menuitem">
+								        <i class="fa fa-eye"></i>
+								        Moderar
+								    </a>
+								    <?php endif;?>
+								</li>
+															
 								<li role="presentation" class="divider"></li>
 								<?php if ($role == 3) { ?>
 								<li role="presentation">

@@ -40,8 +40,30 @@ class Authors_model extends CI_Model {
         ] );
         return $authorsBean;
     }
+    function searchAllAuthorsPending() {
+        $authorsBean = R::find ( 'author', 'authorstate_id = :authorstate ORDER BY author_fullname', [
+                'authorstate' => 2
+        ] );
+        return $authorsBean;
+    }
     function countAuthors() {
        $numOfAuthors = R::count( 'author' );
        return $numOfAuthors;
+    }
+    function updateAuthorname($authorId, $newName){
+        $author = R::load('author', $authorId);
+        $author->author_fullname = $newName;
+        R::store($author);
+    }
+    function updateAuthordesc($authorId, $newDesc){
+        $author = R::load('author', $authorId);
+        $author->author_desc = $newDesc;
+        R::store($author);
+    }
+    function setAvailableAuthor($authorId){
+        $author = R::load('author', $authorId);
+        $available = 1;
+        $author->authorstate_id = $available;
+        R::store($author);
     }
 }
