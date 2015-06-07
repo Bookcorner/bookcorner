@@ -6,6 +6,7 @@ class Book extends CI_Controller {
         
         $this->load->model ( 'books_model' );
         $data['books'] = $this->books_model->searchAllBooksOrderedByName();
+        $data ['section'] = 'libros';
         
         $viewUri = 'books/main_book_content';
         loadBasicViews ( $viewUri, $data );
@@ -37,6 +38,7 @@ class Book extends CI_Controller {
         $user_id = $this->session->userdata ( 'id' );
         
         $data ['title'] = $book->book_name;
+        $data ['section'] = 'libros';
         $data ['book'] = $book;
         
         $isBookAlreadyInList = $this->Listbooks_model->getBookFromListbook ( $id_of_book, $user_id );

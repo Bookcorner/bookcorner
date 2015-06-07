@@ -24,12 +24,6 @@
                                 'class' => 'img-rounded bigbook visible-lg visible-md',
                                 'alt' => $book->book_name 
                         ) )?>
-                        <?php
-                        echo img ( array (
-                                'src' => asset_url () . '/images/books/' . $book->book_img,
-                                'class' => 'img-rounded mediumbook visible-sm',
-                                'alt' => $book->book_name 
-                        ) )?>
                         </div>
 						<div class="col-xs-7">
 							<div class="row">
@@ -54,7 +48,7 @@
 								 </div>
 								<?php } ?>
 								<div class="col-xs-6">
-									<a href="<?= base_url() ?>votar-libro/<?= $book->id ?>" class="btn btn-warning"> 
+									<a href="<?= base_url('lista-libros') ?>" class="btn btn-warning"> 
 									<i class="fa fa-thumbs-up"></i> Votar Libro
 									</a>
 								</div>
