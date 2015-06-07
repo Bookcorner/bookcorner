@@ -7,6 +7,16 @@ class Admin extends CI_Controller {
             redirect ( base_url (), 'refresh' );
         }
         
+        $this->load->model('users_model');
+        $this->load->model('authors_model');
+        $this->load->model('books_model');
+        $this->load->model('genres_model');
+        
+        $data['number_of_users'] = $this->users_model->countUsers();
+        $data['number_of_authors'] = $this->authors_model->countAuthors();
+        $data['number_of_books'] = $this->books_model->countBooks();
+        $data['number_of_genres'] = $this->genres_model->countGenres();
+        
         $data ['title'] = 'Administración';
         loadBasicViews ( 'admin/adminhome', $data );
     }
@@ -31,7 +41,7 @@ class Admin extends CI_Controller {
         $crud->set_crud_url_path ( site_url ( strtolower ( __CLASS__ . "/" . __FUNCTION__ ) ), site_url ( strtolower ( __CLASS__ . "/showUsersMasterTable" ) ) );
         
         $crud->callback_before_insert(array($this,'encrypt_password_callback'));
-        $crud->callback_before_update(array($this,'encrypt_password_callback'));
+        //$crud->callback_before_update(array($this,'encrypt_password_callback'));
         $crud->callback_after_insert(array($this,'create_listbook_user'));
         $crud->callback_after_update(array($this,'update_user_listbook_name'));
         

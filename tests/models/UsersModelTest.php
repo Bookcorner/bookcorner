@@ -95,4 +95,9 @@ class UsersModelTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals($newPwdEncrypted, $user->user_pwd);
         $this->CI->users_model->update_pass ($oldPwd, $userId);
     }
+    public function testWhenCountUsersIsCalledThenNumberShouldBeReturned(){
+        $this->CI->load->model ( 'users_model' );
+        $number_of_users = $this->CI->users_model->countUsers ();
+        $this->assertNotNull($number_of_users);
+    }
 }

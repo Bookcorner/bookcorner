@@ -179,4 +179,8 @@ class Users_model extends CI_Model {
             }
         }
     }
+    function countUsers(){
+        $numOfUsers = R::count( 'user' );
+        return $numOfUsers;
+    }
 }

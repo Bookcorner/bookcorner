@@ -19,7 +19,7 @@
    									<i class="fa fa-users fa-5x"></i>
    								</div>
    								<div class="col-xs-9 text-right">
-   									<div class="huge">26</div>
+   									<div class="huge"><h1><?php echo $number_of_users?></h1></div>
    									<div>Usuarios!</div>
    								</div>
    							</div>
@@ -41,7 +41,7 @@
    									<i class="fa fa-book fa-5x"></i>
    								</div>
    								<div class="col-xs-9 text-right">
-   									<div class="huge">123</div>
+   									<div class="huge"><h1><?php echo $number_of_books?></h1></div>
    									<div>Libros!</div>
    								</div>
    							</div>
@@ -65,7 +65,7 @@
     								<i class="fa fa-pencil-square-o fa-5x"></i>
     							</div>
     							<div class="col-xs-9 text-right">
-    								<div class="huge">124</div>
+    								<div class="huge"><h1><?php echo $number_of_authors?></h1></div>
     								<div>Autores!</div>
     							</div>
     						</div>
@@ -88,7 +88,7 @@
     								<i class="fa fa-male fa-5x"></i>
     							</div>
     							<div class="col-xs-6 text-right">
-    								<div class="huge">300</div>
+    								<div class="huge"><h1><?php echo $number_of_genres?></h1></div>
     								<div>Géneros Literarios!</div>
     							</div>
     						</div>

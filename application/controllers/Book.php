@@ -51,5 +51,5 @@ class Book extends CI_Controller {
         
         $viewUri = 'books/info_book';
         loadBasicViews ( $viewUri, $data );
-    }    
+    }  
 }
