@@ -41,7 +41,7 @@ class Admin extends CI_Controller {
         $crud->set_crud_url_path ( site_url ( strtolower ( __CLASS__ . "/" . __FUNCTION__ ) ), site_url ( strtolower ( __CLASS__ . "/showUsersMasterTable" ) ) );
         
         $crud->callback_before_insert(array($this,'encrypt_password_callback'));
-        $crud->callback_before_update(array($this,'encrypt_password_callback'));
+        //$crud->callback_before_update(array($this,'encrypt_password_callback'));
         $crud->callback_after_insert(array($this,'create_listbook_user'));
         $crud->callback_after_update(array($this,'update_user_listbook_name'));
         
