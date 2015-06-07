@@ -57,4 +57,26 @@ class Books_model extends CI_Model {
             show_error ( $e->getMessage () );
         }
     }
+    public function createNewBookAndAssociateWithAuthor($bookisbn, $bookname, $bookdesc, $bookimg, $genrebook ,$idAuthorOfTheBook){
+        $pendingState = R::load('bookstate', 2);
+        $author = R::load('author', $idAuthorOfTheBook);
+    
+        $newBook = R::Dispense('book');
+        $newBook->book_isbn = $bookisbn;
+        $newBook->book_name = $bookname;
+        $newBook->book_desc = $bookdesc;
+        $newBook->book_img = $bookimg;
+    
+        $pendingState->ownBookList [] = $newBook;
+        $author->sharedBookList [] = $newBook;
+        foreach ($genrebook as $genreId){
+            $genre = R::load('genrebook', $genreId);
+            $genre->sharedBookList [] = $newBook;
+            R::store($genre);            
+        }
+        
+        R::storeAll([$newBook]);
+        R::store($pendingState);
+        R::store($author);
+    }
 }

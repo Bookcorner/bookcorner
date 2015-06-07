@@ -11,14 +11,14 @@
 	<div class="row">
 		<div class="col-xs-12">
 			<div class="panel">
-				<div class="panel-header alert alert-warning">
+				<div class="panel-header">
 					<h3 class="lead text-center">
 						<strong>Añadir un nuevo libro</strong>
 					</h3>
 				</div>
 				<div class="panel-body">
                     <?php
-                    echo form_open ( base_url () . 'crear-libro-y-autor', [ 
+                    echo form_open_multipart ( base_url () . 'crear-libro-y-autor', [ 
                             'class' => 'form-horizontal',
                             'data-toggle' => 'validator',
                             'method' => 'post',
@@ -45,6 +45,17 @@
 							</div>
 							<div class="help-block with-errors"></div>
 						</div>
+						<div class="form-group">
+							<label class="control-label col-xs-2" for="idBookgenre">Géneros:</label>
+							<div class="controls col-xs-9">
+								<select id="idBookgenre" name="genrebooks[]" class="form-control control-label" multiple>
+                                    <?php foreach ($genres as $genre):?>
+                                        <option value="<?php echo $genre->id?>"><?php echo $genre->genrebook_name?></option>
+                                    <?php endforeach;?>
+                                </select>
+							</div>
+							<div class="help-block with-errors"></div>
+						</div>
 
 						<div class="form-group">
 							<label class="control-label col-xs-2" for="idBookDesc">Descripción:</label>
@@ -62,7 +73,7 @@
 								Portada:</label>
 							<div class="controls col-xs-9">
 								<span class="btn btn-default btn-file"> <i
-									class="fa fa-picture-o"></i> Elegir una imagen... <input
+									class="fa fa-picture-o"></i> Elegir una imagen...(5 MB máx) <input
 									id="idBookImg" name="bookimg" class="form-control" type="file"
 									required />
 								</span>
@@ -90,6 +101,7 @@
 												<select id="idBookAuthor" name="bookauthor"
 													class="form-control control-label">
 													<option value="none">-- Elige un Autor --</option>
+													<option value="none">AUTOR INEXISTENTE</option>
                                                     <?php foreach ($authors as $author):?>
                                                         <option
 														value="<?php echo $author->id?>"><?php echo $author->author_fullname?></option>
@@ -114,7 +126,7 @@
 									role="tabpanel" aria-labelledby="creacionAutor">
 									<div class="panel-body">
 										<div class="panel">
-											<div class="panel-header alert alert-warning">
+											<div class="panel-header">
 												<h3 class="lead text-center">
 													<strong>Añadir un nuevo autor</strong>
 												</h3>
@@ -137,7 +149,7 @@
 													<div class="form-group">
 														<label class="control-label col-xs-2" for="idAuthorDesc">Sinopsis:</label>
 														<div class="controls col-xs-9">
-															<textarea id="idBookDesc" name="bookdesc"
+															<textarea id="idBookDesc" name="authordesc"
 																class="form-control" type="textarea"
 																placeholder="Cuéntanos sobre la vida del autor brevemente"
 																class="input" rows="10" required></textarea>
@@ -146,14 +158,15 @@
 													</div>
 
 													<div class="form-group">
-														<label class="control-label col-xs-2" for="idBookDesc">Imagen
+														<label class="control-label col-xs-2" for="idAuthorImg">Imagen
 															del Autor:</label>
 														<div class="controls col-xs-9">
-															<span class="btn btn-default btn-file"> <i
-																class="fa fa-picture-o"></i> Elegir una imagen... <input
-																type="file">
-															</span>
-														</div>
+                            								<span class="btn btn-default btn-file"> <i
+                            									class="fa fa-picture-o"></i> Elegir una imagen...(5MB máx) <input
+                            									id="idBookImg" name="authorimg" class="form-control" type="file"
+                            									required />
+                            								</span>
+                            							</div>
 														<div class="help-block with-errors"></div>
 													</div>
 												</fieldset>
