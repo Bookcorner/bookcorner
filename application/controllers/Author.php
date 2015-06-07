@@ -5,16 +5,16 @@ class Author extends CI_Controller {
         $data ['title'] = 'Autores';
         $viewUri = 'authors/main_author_content';
         
-        $this->load->model ( 'authors_model' );
-        $data['authors'] = $this->authors_model->searchAllAuthorsOrderedByName();
+        $this->load->model ( 'Authors_model' );
+        $data['authors'] = $this->Authors_model->searchAllAuthorsOrderedByName();
         
         loadBasicViews ( $viewUri, $data );
     }
     public function showAuthorsSearched() {
         $searchName = prepareForSearchableWord($this->uri->segment(2));
 
-        $this->load->model ( 'authors_model' );
-        $authors = $this->authors_model->searchAuthors ( $searchName );
+        $this->load->model ( 'Authors_model' );
+        $authors = $this->Authors_model->searchAuthors ( $searchName );
         
         $data ['title'] = 'Autores';
         
@@ -30,6 +30,7 @@ class Author extends CI_Controller {
     
     public function showAuthor() {
         $data ['title'] = 'Se sacara de la bbdd';
+        $this->load->model ( 'Authors_model' );
         
         $id_of_author = $this->uri->segment(2);
         
