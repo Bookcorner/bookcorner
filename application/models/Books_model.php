@@ -105,10 +105,14 @@ class Books_model extends CI_Model {
         $book->book_desc = $newDescription;
         R::store($book);
     }
-    function setAvailableBook($bookId){
+    public function setAvailableBook($bookId){
         $book = R::load('book', $bookId);
         $available = 1;
         $book->bookstate_id = $available;
         R::store($book);
+    }
+    public function countBooksReports() {
+        $number_of_books_pending = R::count ( 'book', 'bookstate_id = 2');
+        return $number_of_books_pending;
     }
 }
