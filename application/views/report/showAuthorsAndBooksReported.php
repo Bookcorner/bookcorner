@@ -19,7 +19,7 @@
 							<a data-toggle="collapse" data-parent="#idModBookAuthors"
 								href="#idReportBooks" aria-expanded="false"
 								aria-controls="idReportBooks"> Moderar libros <i
-								class="fa fa-chevron-down"></i></a>
+								class="fa fa-chevron-down"></i> <span class="badge"><?php echo $booksReports?></span></a>
 						</h4>
 					</div>
 
@@ -93,7 +93,7 @@
 							<a class="collapsed" data-toggle="collapse"
 								data-parent="#idModBookAuthors" href="#idReportAuthors"
 								aria-expanded="false" aria-controls="idReportAuthors"> Moderar
-								autores <i class="fa fa-chevron-down"></i>
+								autores <i class="fa fa-chevron-down"></i> <span class="badge"><?php echo $authorsReports?></span>
 							</a>
 						</h4>
 					</div>
