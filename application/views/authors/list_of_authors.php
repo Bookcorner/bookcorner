@@ -18,7 +18,7 @@
                             <h4 class="alignleft"><?php echo $author['author_fullname']?></h4>
                             <a data-toggle="collapse" 
                                     data-parent="#idAllAuthors" 
-                                    href="<?php echo '#autor'.$author['author_id']?>" 
+                                    href="<?php echo '#autor'.$author['id']?>" 
                                     aria-expanded="false" 
                                     aria-controls="<?php echo 'autor'.$author['id']?>" 
                                     class="collapsed alignright">
