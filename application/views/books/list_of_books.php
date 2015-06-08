@@ -49,7 +49,7 @@
 						</div>
 					</div>
 					<div class="panel-footer">
-						<a href="anadir-libro/<?php echo $book['id']?>" class="btn btn-success"> 
+						<a href="<?= base_url().'anadir-libro/'.$book['id'] ?>" class="btn btn-success"> 
                             <i class="fa fa-plus"></i> Añadir a mi lista
 						</a>
 						<a href="<?= base_url('lista-libros') ?>" class="btn btn-warning"> 

@@ -3,8 +3,8 @@
 	<div>
 		<ol class="breadcrumb">
 			<li><?php echo anchor(base_url('home'), 'Home')?></li>
-			<li><?php echo anchor(base_url('libros'), 'Libros')?></li>
-			<li><?php echo anchor( '#', 'Titulo del Autor')?></li>
+			<li><?php echo anchor(base_url('autores'), 'Autores')?></li>
+			<li><?php echo anchor(base_url('autor/'.$author['id']), $author->author_fullname)?></li>
 		</ol>
 	</div>
 	<!-- FIN BREADCRUMB -->
@@ -13,16 +13,20 @@
 		<div class="col-xs-12">
 			<div class="panel">
 				<div class="panel-heading">
-					<p class="lead text-center">Nombre del Autor</p>
+					<p class="lead text-center"><?= $author->author_fullname ?></p>
 				</div>
 				<div class="panel-body">
 					<div class="row">
 						<div class="col-xs-7">
 							<div class="row">
 								<div class="col-xs-12">
-									<p>Titulo: Nombre del autor</p>
-									<p>Libros Escritos: Lista de los libros escritos</p>
-									<p>Sinopsis: Descripción del Autor</p>
+									<p>Nombre: <?= $author->author_fullname ?></p>
+									<p>Libros Escritos:
+									   <ol style="list-style-type:none;">
+									       <?php foreach ($books as $book){echo '<li>'.anchor(base_url('libro/'.$book['book_id']), $book['book_name']).'</li>';}?>
+									   </ol>
+									</p>
+									<p>Sinopsis: <?= $author->author_desc ?></p>
 								</div>
 							</div>
 							<div class="row">
@@ -36,7 +40,7 @@
 						<div class="col-xs-5">
                         <?php
                         echo img ( array (
-                                'src' => asset_url () . '/images/authors/' . 'author_img',
+                                'src' => asset_url () . '/images/authors/' . $author->author_img,
                                 'class' => 'img-rounded bigauthor',
                                 'alt' => 'authorname' 
                         ) )?>

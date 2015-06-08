@@ -6,13 +6,13 @@ class Author extends CI_Controller {
         $viewUri = 'authors/main_author_content';
         
         $this->load->model ( 'Authors_model' );
-        $data['authors'] = $this->Authors_model->searchAllAuthorsOrderedByName();
+        $data ['authors'] = $this->Authors_model->searchAllAuthorsOrderedByName ();
         
         loadBasicViews ( $viewUri, $data );
     }
     public function showAuthorsSearched() {
-        $searchName = prepareForSearchableWord($this->uri->segment(2));
-
+        $searchName = prepareForSearchableWord ( $this->uri->segment ( 2 ) );
+        
         $this->load->model ( 'Authors_model' );
         $authors = $this->Authors_model->searchAuthors ( $searchName );
         
@@ -27,31 +27,33 @@ class Author extends CI_Controller {
             loadBasicViews ( $viewUri, $data );
         }
     }
-    
     public function showAuthor() {
         $data ['title'] = 'Se sacara de la bbdd';
         $this->load->model ( 'Authors_model' );
         
-        $id_of_author = $this->uri->segment(2);
+        $id_of_author = $this->uri->segment ( 2 );
+        $data ['author'] = $this->Authors_model->getAuthor ( $id_of_author );
+        
+        $data ['books'] = $this->Authors_model->getAllBooksFromAuthor($id_of_author);
         
         $viewUri = 'authors/info_author';
         loadBasicViews ( $viewUri, $data );
     }
-    public function updateAuthorname($authorId){
-        $newAuthorName = $_POST['value'];
-        $this->load->model('Authors_model');
-        $this->Authors_model->updateAuthorname($authorId, $newAuthorName);
+    public function updateAuthorname($authorId) {
+        $newAuthorName = $_POST ['value'];
+        $this->load->model ( 'Authors_model' );
+        $this->Authors_model->updateAuthorname ( $authorId, $newAuthorName );
     }
-    public function updateAuthordesc($authorId){
-        $newAuthorDesc = $_POST['value'];
-        $this->load->model('Authors_model');
-        $this->Authors_model->updateAuthordesc($authorId, $newAuthorDesc);
+    public function updateAuthordesc($authorId) {
+        $newAuthorDesc = $_POST ['value'];
+        $this->load->model ( 'Authors_model' );
+        $this->Authors_model->updateAuthordesc ( $authorId, $newAuthorDesc );
     }
-    public function setAuthorAvailable(){
-        $authorId = $this->uri->segment(2);
-        $this->load->model('Authors_model');
-        $this->Authors_model->setAvailableAuthor($authorId);
+    public function setAuthorAvailable() {
+        $authorId = $this->uri->segment ( 2 );
+        $this->load->model ( 'Authors_model' );
+        $this->Authors_model->setAvailableAuthor ( $authorId );
         $this->session->set_flashdata ( 'verifySuccess', getVerifySuccessMsg () );
-        redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );   
+        redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
     }
 }
