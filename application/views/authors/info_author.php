@@ -31,7 +31,7 @@
 							</div>
 							<div class="row">
 								<div class="col-xs-6">
-									<a href="votar-autor" class="btn btn-warning"> <i
+									<a href="votar-autor" class="btn btn-warning hidden"> <i
 										class="fa fa-thumbs-up"></i> Votar Autor
 									</a>
 								</div>
