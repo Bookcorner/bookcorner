@@ -308,7 +308,7 @@ class User extends CI_Controller {
         }
     
         $email= set_value('newEmail');
-        $isEmailInUse = $this->users_model->check_email_exists($email);
+        $isEmailInUse = $this->Users_model->check_email_exists($email);
         if($isEmailInUse){
             $this->session->set_flashdata ( 'updateEmailError', getEmailAlreadyExistsMsg());
             redirect (  $_SERVER ['HTTP_REFERER'], 'refresh' );
