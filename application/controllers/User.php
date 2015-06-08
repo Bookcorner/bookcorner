@@ -323,7 +323,7 @@ class User extends CI_Controller {
     
     public function deleteAccount() {
         
-        if ( isset( $_POST['idUser'] ) && isset( $_POST['password'] ) ) {            
+        if ( isset( $_POST['idUser'] ) && isset( $_POST['password'] ) ) {
             $sessionId = $this->session->userdata ( 'id' );
             $ajaxId = $_POST['idUser'];
             
@@ -332,9 +332,8 @@ class User extends CI_Controller {
                 $pwd = $userBean->user_pwd;
                 $validation = $userBean->user_validation;
                 $ajaxPwd = encrypt($_POST['password']);
-                
                 if ($pwd == $ajaxPwd) {
-                    if (strlen($validation) > 1) {
+                    if ($validation != 'GOD') {
                         $this->Users_model->deleteUser($sessionId);
                         $this->session->sess_destroy();
                         echo "Cuenta borrada";
@@ -343,8 +342,7 @@ class User extends CI_Controller {
                     }                    
                 } else {
                     echo "La contraseña es incorrecta";
-                }
-                
+                }                
             } else {
                 echo "El id no coincide";
             }           

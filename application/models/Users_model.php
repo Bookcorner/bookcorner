@@ -143,6 +143,19 @@ class Users_model extends CI_Model {
             }
         }
     }
+    function deleteAvatar($userId) {
+        $userBean = $this->getUserInfo ( $userId );
+        $avatar = $userBean->user_avatar;
+        if ($avatar != 'basic.jpg') {
+            $file = 'assets/images/users/' . $avatar;
+            $do = unlink ( $file );
+            if ($do) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
     function deleteUser($id) {
         $userBean = R::findOne ( 'user', ' id = ? ', [ 
                 $id 
@@ -151,6 +164,12 @@ class Users_model extends CI_Model {
         $userList = R::findOne ( 'listbook', ' id = ? ', [ 
                 $id 
         ] );
+        
+        $avatar = $userBean->user_avatar;
+        if ($avatar != 'basic.jpg') {
+            $file = 'assets/images/users/' . $avatar;
+            $do = unlink ( $file );
+        }
         
         R::trash ( $userBean );
         R::trash ( $userList );
@@ -179,8 +198,8 @@ class Users_model extends CI_Model {
             }
         }
     }
-    function countUsers(){
-        $numOfUsers = R::count( 'user' );
+    function countUsers() {
+        $numOfUsers = R::count ( 'user' );
         return $numOfUsers;
     }
 }
