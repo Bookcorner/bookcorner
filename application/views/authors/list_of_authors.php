@@ -32,7 +32,7 @@
                         aria-labelledby="head<?php echo 'autor'.$author['id']?>">
         				<div class="panel-body">
                             <div class="col-md-2 col-md-push-10">
-                                <a href="<?= 'autor/'.$author['id'] ?>">
+                                <a href="<?= base_url().'autor/'.$author['id'] ?>">
             					    <?php echo img ( array (
                                         'src' => asset_url () . '/images/authors/' . $author ['author_img'],
                                         'class' => 'img-circle smallauthor',
