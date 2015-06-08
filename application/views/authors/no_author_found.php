@@ -18,7 +18,7 @@
         	</div>
         	<div class="col-xs-5">
                 <?php echo img ( array (
-                    'src' => asset_url () . '/images/error/cant_find.jpeg',
+                    'src' => asset_url () . '/images/error/cant_find.png',
                     'class' => 'featurette-image img-responsive center-block',
                     'alt' => 'Libros',
                     'data-src' => 'holder.js/500x500/auto' 
