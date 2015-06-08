@@ -37,6 +37,10 @@ class Book extends CI_Controller {
         $book = $this->Books_model->getBook($id_of_book);
         $user_id = $this->session->userdata ( 'id' );
         
+        if (!$book) {
+            redirect ( 'busqueda-libros/'.$id_of_book );
+        }
+        
         $data ['title'] = $book->book_name;
         $data ['section'] = 'libros';
         $data ['book'] = $book;
