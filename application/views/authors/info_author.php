@@ -41,7 +41,7 @@
                         <?php
                         echo img ( array (
                                 'src' => asset_url () . '/images/authors/' . $author->author_img,
-                                'class' => 'img-rounded bigauthor',
+                                'class' => 'img-rounded bigauthor img-circle',
                                 'alt' => 'authorname' 
                         ) )?>
                         </div>
