@@ -143,6 +143,11 @@ class Users_model extends CI_Model {
             }
         }
     }
+    function updateAvatarName($userId, $newName) {
+        $userBean = $this->getUserInfo ( $userId );
+        $userBean->user_avatar = $newName;
+        R::store ( $userBean );
+    }
     function deleteAvatar($userId) {
         $userBean = $this->getUserInfo ( $userId );
         $avatar = $userBean->user_avatar;

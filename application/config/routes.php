@@ -78,10 +78,12 @@ $route['registrarse'] = 'user/signup';
 $route['actualizar-pass'] = 'user/editPass';
 $route['actualizar-username'] = 'user/editUsername';
 $route['actualizar-mail'] = 'user/editEmail';
+$route['actualizar-avatar'] = 'user/editAvatar';
 $route['activar/:any'] = 'user/activate';
 $route['cancelar/:any'] = 'user/cancel';
 $route['contactar'] = 'user/sendContact';
 $route['eliminar'] = 'user/deleteAccount';
+
 
 //listbook
 $route['lista-libros'] = 'listbook/showListBooks';

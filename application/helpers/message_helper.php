@@ -19,6 +19,9 @@ function bookNotExistErrorMsg() {
 function bookRemovedSuccessMsg() {
     return 'El libro ha sido quitado';
 }
+function getAvatarChangeOkMsg() {
+    return 'El avatar ha sido modificado con éxito';
+}
 function bookNotAddedErrorMsg() {
     return 'El libro no está en tu lista';
 }

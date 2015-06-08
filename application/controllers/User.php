@@ -321,6 +321,41 @@ class User extends CI_Controller {
         }
     }
     
+    public function editAvatar() {
+        $session = 'id';
+        if (check_session_exist($session)){
+            if (isset($_FILES['newAvatar']) && $_FILES['newAvatar']['error'] == 0) {
+                $userId = $this->session->userdata ( $session );
+                $userBean = $this->Users_model->getUserInfo($userId);                
+                
+                $photo = $_FILES['newAvatar'];
+                $nameArray = explode('.',$photo['name']);
+                $ext = end($nameArray);
+                $newName = $userBean->user_nickname;
+                $newName .= '.'.$ext;
+                
+                $deleteAvatar = $this->Users_model->deleteAvatar($userId);
+                move_uploaded_file( $_FILES['newAvatar']['tmp_name'], 'assets/images/users/'.$newName );
+                $this->Users_model->updateAvatarName($userId, $newName);
+                
+                $newSessionAvatar = array("avatar" => $newName);
+                $this->session->set_userdata($newSessionAvatar);
+                
+                $this->session->set_flashdata ( 'updateAvatarOk', getAvatarChangeOkMsg());
+                redirect (  $_SERVER ['HTTP_REFERER'], 'refresh' );
+            } else if ($_FILES['newAvatar']['size'] == 0) {
+                $this->session->set_flashdata ( 'updateAvatarError', 'La foto no puede ocupar mas de 5MB' );
+                redirect (  $_SERVER ['HTTP_REFERER'], 'refresh' );
+            } else {
+                $this->session->set_flashdata ( 'updateAvatarError', 'No se ha subido la foto correctamente' );
+                redirect (  $_SERVER ['HTTP_REFERER'], 'refresh' );
+            }            
+        } else {
+            $this->session->set_flashdata ( 'signInError', 'Inicie sesión para continuar' );
+            redirect ( base_url (), 'refresh' );
+        }
+    }
+    
     public function deleteAccount() {
         
         if ( isset( $_POST['idUser'] ) && isset( $_POST['password'] ) ) {
