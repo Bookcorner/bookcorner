@@ -107,7 +107,8 @@ $route['adminauthors'] = 'admin/showAuthorsMasterTable';
 $route['admingenre'] = 'admin/showGenrebookMasterTable';
 $route['adminlistbook'] = 'admin/showListbookMasterTable';
 
+// error
+$route['error-prohibido'] = 'error/showForbiddenError';
 
-
-$route['404_override'] = '';
+$route['404_override'] = 'error';
 $route['translate_uri_dashes'] = FALSE;
