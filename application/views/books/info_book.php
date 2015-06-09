@@ -24,6 +24,12 @@
                                 'class' => 'img-rounded bigbook visible-lg visible-md',
                                 'alt' => $book->book_name 
                         ) )?>
+                        <?php
+                        echo img ( array (
+                                'src' => asset_url () . '/images/books/' . $book->book_img,
+                                'class' => 'img-rounded mediumbook visible-sm visible-xs',
+                                'alt' => $book->book_name 
+                        ) )?>
                         </div>
 						<div class="col-xs-7">
 							<div class="row">

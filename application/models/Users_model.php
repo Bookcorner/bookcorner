@@ -207,4 +207,9 @@ class Users_model extends CI_Model {
         $numOfUsers = R::count ( 'user' );
         return $numOfUsers;
     }
+    function getPwd($userId){
+        $user = R::load('user', $userId);
+        $pwd = $user->user_pwd;
+        return $pwd;
+    }
 }

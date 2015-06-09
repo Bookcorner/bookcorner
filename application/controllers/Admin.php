@@ -41,9 +41,14 @@ class Admin extends CI_Controller {
         $crud->set_crud_url_path ( site_url ( strtolower ( __CLASS__ . "/" . __FUNCTION__ ) ), site_url ( strtolower ( __CLASS__ . "/showUsersMasterTable" ) ) );
         
         $crud->callback_before_insert(array($this,'encrypt_password_callback'));
-        //$crud->callback_before_update(array($this,'encrypt_password_callback'));
+        $crud->callback_before_update(array($this,'check_password_change_and_encrypt'));
         $crud->callback_after_insert(array($this,'create_listbook_user'));
         $crud->callback_after_update(array($this,'update_user_listbook_name'));
+        
+        $this->load->model('Users_model');
+        
+        $old_pwd = $this->Users_model->getPwd(1);
+        echo $old_pwd;
         
         $data['title'] = 'Admin Usuarios';
         $data['output'] = $crud->render ();
@@ -52,6 +57,16 @@ class Admin extends CI_Controller {
     
     function encrypt_password_callback($post_array) {
         $post_array['user_pwd'] = encrypt($post_array['user_pwd']);
+        return $post_array;
+    }
+    function check_password_change_and_encrypt($post_array, $primaryKey) {
+        $this->load->model('Users_model');
+        $old_pwd = $this->Users_model->getPwd($primaryKey);
+        $new_pwd = $post_array['user_pwd'];
+        
+        if ($old_pwd != $new_pwd){
+            $post_array['user_pwd'] = encrypt($post_array['user_pwd']);            
+        }
         return $post_array;
     }
     function create_listbook_user($post_array, $primary_key){
