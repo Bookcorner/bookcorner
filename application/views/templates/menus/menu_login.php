@@ -351,8 +351,8 @@
 												
 												<div class="form-group form-inline">
 												    <label class="control-label col-xs-2" for=idCaptchaControl> Introduce Captcha: </label>
-												    <div class="controls col-xs-9">												        				    
-    												    <?= getCaptcha('signup') ?>
+												    <div class="controls col-xs-9">
+												        <?php getCaptcha(); ?>
     												</div>
     												<div class="help-block with-errors"></div>
 												</div>

@@ -367,7 +367,7 @@ $config['sess_regenerate_destroy'] = FALSE;
 
 // para usar sesiones seguras con la bbdd
 $config['sess_use_database'] = TRUE;
-$config['sess_table_name'] = 'ci_sessions';
+$config['sess_table_name'] = 'cisessions';
 
 /*
 |--------------------------------------------------------------------------

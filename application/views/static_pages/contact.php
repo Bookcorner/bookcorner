@@ -137,7 +137,7 @@
                     <div class="form-group form-inline">
 					    <label class="control-label" for=idCaptchaControl> Introduce Captcha: </label>
 					    <div class="controls">												        				    
-						    <?= getCaptcha('feedback') ?>			    
+						    <?php getCaptcha(); ?>
 						</div>
 						<div class="help-block with-errors"></div>
 					</div>

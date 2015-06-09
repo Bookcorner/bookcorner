@@ -39,7 +39,7 @@ class User extends CI_Controller {
     public function signup() {
         
         $this->setSignUpFormRules();
-        $isFormValidationOk = $this->form_validation->run();
+        $isFormValidationOk = $this->form_validation->run() == true;
         
         if ($isFormValidationOk) {
     
@@ -52,7 +52,7 @@ class User extends CI_Controller {
             $isNicknameUsed = ($user == 1);
             $isMailUsed = ($user == 2);
             
-            $isCaptchaOk = $this->checkCaptchaMatch('signup');
+            $isCaptchaOk = $this->checkCaptchaMatch();
             
             if (!$isCaptchaOk) {
                 $this->session->set_flashdata ( 'signUpFail', captchaErrorMsg() );
@@ -91,7 +91,7 @@ class User extends CI_Controller {
             $this->session->set_flashdata ( 'signUpFail', 'Formulario incorrecto' );
         }
     
-        redirect ( base_url (), 'refresh' );
+        redirect ( base_url(), 'refresh' );
     }
     private function setSignUpFormRules(){
         $this->form_validation->set_rules ( 'name', 'Nombre', 'required' );
@@ -104,11 +104,13 @@ class User extends CI_Controller {
         $this->form_validation->set_rules ( 'email', 'Email', 'required|valid_email' );
         $this->form_validation->set_rules ( 'reemail', 'Email', 'required' );
     }
-    private function checkCaptchaMatch($idCaptcha){
-        $captcha = $this->session->flashdata("captcha-$idCaptcha");
-        $captcha = strtolower($captcha);
+    private function checkCaptchaMatch(){
         $captchaUser = set_value( 'captchaControl' );
         $captchaUser = strtolower($captchaUser);
+        
+        $captcha = base64_decode(set_value( 'captchaValue' ));
+        $captcha = strtoupper($captcha);
+        
         return ($captcha == $captchaUser);
     }
     private function dispenseNewUser(){
@@ -134,11 +136,11 @@ class User extends CI_Controller {
         $this->form_validation->set_rules ( 'message', 'Mensaje', 'required' );
         $this->form_validation->set_rules ( 'captchaControl', 'Captcha', 'required' );
         
-        $isFormValidationOk = $this->form_validation->run();
+        $isFormValidationOk = $this->form_validation->run() == true;
     
         if ($isFormValidationOk) {
             
-            $isCaptchaOk = $this->checkCaptchaMatch('feedback');
+            $isCaptchaOk = $this->checkCaptchaMatch();
     
             $email = set_value( 'email' );
             $message = set_value( 'message' );
