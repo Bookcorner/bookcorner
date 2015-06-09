@@ -117,8 +117,20 @@ class Books_model extends CI_Model {
         $book->bookstate_id = $available;
         R::store($book);
     }
+    public function setPendingBook($bookId){
+        $book = R::load('book', $bookId);
+        $pending = 2;
+        $book->bookstate_id = $pending;
+        R::store($book);
+    }
     public function countBooksReports() {
         $number_of_books_pending = R::count ( 'book', 'bookstate_id = 2');
         return $number_of_books_pending;
+    }
+    public function getLastBooks() {
+        $book = R::find('book', 'bookstate_id = :bookstate ORDER BY id DESC LIMIT 5', [
+                'bookstate' => 1
+        ]);
+        return $book;
     }
 }

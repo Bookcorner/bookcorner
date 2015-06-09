@@ -76,8 +76,20 @@ class Authors_model extends CI_Model {
         $author->authorstate_id = $available;
         R::store ( $author );
     }
-    public function countAuthorsReports() {
+    function setAuthorPending($authorId) {
+        $author = R::load ( 'author', $authorId );
+        $pending = 2;
+        $author->authorstate_id = $pending;
+        R::store ( $author );
+    }
+    function countAuthorsReports() {
         $number_of_authors_pending = R::count ( 'author', 'authorstate_id = 2');
         return $number_of_authors_pending;
+    }
+    public function getLastAuthors() {
+        $authors = R::find('author', 'authorstate_id = :authorstate ORDER BY id DESC LIMIT 5', [
+                'authorstate' => 1
+        ]);
+        return $authors;
     }
 }
