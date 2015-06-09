@@ -3,78 +3,93 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 class Admin extends CI_Controller {
     public function index() {
         if (get_userrole () != 3) {
-            $this->session->set_flashdata ( 'signUpError', 'No tiene permiso para acceder' );
-            redirect ( base_url (), 'refresh' );
+            redirect ( base_url ( 'prohibido' ), 'refresh' );
+        } else {
+            
+            $this->load->model ( 'users_model' );
+            $this->load->model ( 'authors_model' );
+            $this->load->model ( 'books_model' );
+            $this->load->model ( 'genres_model' );
+            
+            $data ['number_of_users'] = $this->users_model->countUsers ();
+            $data ['number_of_authors'] = $this->authors_model->countAuthors ();
+            $data ['number_of_books'] = $this->books_model->countBooks ();
+            $data ['number_of_genres'] = $this->genres_model->countGenres ();
+            
+            $data ['title'] = 'Administración';
+            loadBasicViews ( 'admin/adminhome', $data );
         }
-        
-        $this->load->model('users_model');
-        $this->load->model('authors_model');
-        $this->load->model('books_model');
-        $this->load->model('genres_model');
-        
-        $data['number_of_users'] = $this->users_model->countUsers();
-        $data['number_of_authors'] = $this->authors_model->countAuthors();
-        $data['number_of_books'] = $this->books_model->countBooks();
-        $data['number_of_genres'] = $this->genres_model->countGenres();
-        
-        $data ['title'] = 'Administración';
-        loadBasicViews ( 'admin/adminhome', $data );
     }
     public function showUsersMasterTable() {
-        $crud = new grocery_CRUD ();
-        
-        $crud->set_table ( 'user' );
-        
-        $this->createUserAlias ( $crud );
-        
-        $crud->columns ( 'user_nickname', 'user_email', 'user_avatar', 'user_genre', 'listbook_id', 'userrole_id', 'userstatus_id' );
-        $crud->fields ( 'user_name', 'user_surname', 'user_nickname', 'user_pwd', 'user_email', 'user_avatar', 'user_genre', 'userrole_id', 'userstatus_id' );
-        $this->createUserRules ( $crud );
-        
-        $crud->required_fields ( 'user_name', 'user_surname', 'user_pwd', 'user_validation', 'user_nickname', 'user_email', 'user_avatar', 'user_genre', 'listbook_id', 'userrole_id', 'userstatus_id' );
-        
-        $crud->set_field_upload ( 'user_avatar', 'assets/images/users' );
-        $crud->set_subject ( 'Usuario' );
-        
-        $this->createUserRelations ( $crud );
-        
-        $crud->set_crud_url_path ( site_url ( strtolower ( __CLASS__ . "/" . __FUNCTION__ ) ), site_url ( strtolower ( __CLASS__ . "/showUsersMasterTable" ) ) );
-        
-        $crud->callback_before_insert(array($this,'encrypt_password_callback'));
-        $crud->callback_before_update(array($this,'check_password_change_and_encrypt'));
-        $crud->callback_after_insert(array($this,'create_listbook_user'));
-        $crud->callback_after_update(array($this,'update_user_listbook_name'));
-        
-        $this->load->model('Users_model');
-        
-        $old_pwd = $this->Users_model->getPwd(1);
-        
-        $data['title'] = 'Admin Usuarios';
-        $data['output'] = $crud->render ();
-        loadAdminView( 'admin/adminview', $data );
+        if (get_userrole () != 3) {
+            redirect ( base_url ( 'prohibido' ), 'refresh' );
+        } else {
+            $crud = new grocery_CRUD ();
+            
+            $crud->set_table ( 'user' );
+            
+            $this->createUserAlias ( $crud );
+            
+            $crud->columns ( 'user_nickname', 'user_email', 'user_avatar', 'user_genre', 'listbook_id', 'userrole_id', 'userstatus_id' );
+            $crud->fields ( 'user_name', 'user_surname', 'user_nickname', 'user_pwd', 'user_email', 'user_avatar', 'user_genre', 'userrole_id', 'userstatus_id' );
+            $this->createUserRules ( $crud );
+            
+            $crud->required_fields ( 'user_name', 'user_surname', 'user_pwd', 'user_validation', 'user_nickname', 'user_email', 'user_avatar', 'user_genre', 'listbook_id', 'userrole_id', 'userstatus_id' );
+            
+            $crud->set_field_upload ( 'user_avatar', 'assets/images/users' );
+            $crud->set_subject ( 'Usuario' );
+            
+            $this->createUserRelations ( $crud );
+            
+            $crud->set_crud_url_path ( site_url ( strtolower ( __CLASS__ . "/" . __FUNCTION__ ) ), site_url ( strtolower ( __CLASS__ . "/showUsersMasterTable" ) ) );
+            
+            $crud->callback_before_insert ( array (
+                    $this,
+                    'encrypt_password_callback' 
+            ) );
+            $crud->callback_before_update ( array (
+                    $this,
+                    'check_password_change_and_encrypt' 
+            ) );
+            $crud->callback_after_insert ( array (
+                    $this,
+                    'create_listbook_user' 
+            ) );
+            $crud->callback_after_update ( array (
+                    $this,
+                    'update_user_listbook_name' 
+            ) );
+            
+            $this->load->model ( 'Users_model' );
+            
+            $old_pwd = $this->Users_model->getPwd ( 1 );
+            
+            $data ['title'] = 'Admin Usuarios';
+            $data ['output'] = $crud->render ();
+            loadAdminView ( 'admin/adminview', $data );
+        }
     }
-    
-    function encrypt_password_callback($post_array) {
-        $post_array['user_pwd'] = encrypt($post_array['user_pwd']);
+    private function encrypt_password_callback($post_array) {
+        $post_array ['user_pwd'] = encrypt ( $post_array ['user_pwd'] );
         return $post_array;
     }
-    function check_password_change_and_encrypt($post_array, $primaryKey) {
-        $this->load->model('Users_model');
-        $old_pwd = $this->Users_model->getPwd($primaryKey);
-        $new_pwd = $post_array['user_pwd'];
+    private function check_password_change_and_encrypt($post_array, $primaryKey) {
+        $this->load->model ( 'Users_model' );
+        $old_pwd = $this->Users_model->getPwd ( $primaryKey );
+        $new_pwd = $post_array ['user_pwd'];
         
-        if ($old_pwd != $new_pwd){
-            $post_array['user_pwd'] = encrypt($post_array['user_pwd']);            
+        if ($old_pwd != $new_pwd) {
+            $post_array ['user_pwd'] = encrypt ( $post_array ['user_pwd'] );
         }
         return $post_array;
     }
-    function create_listbook_user($post_array, $primary_key){
-        $this->load->model('listbooks_model');
-        $this->listbooks_model->createListbookForUser($primary_key, $post_array['user_nickname']);
+    private function create_listbook_user($post_array, $primary_key) {
+        $this->load->model ( 'listbooks_model' );
+        $this->listbooks_model->createListbookForUser ( $primary_key, $post_array ['user_nickname'] );
     }
-    function update_user_listbook_name($post_array, $primary_key){
-        $this->load->model('listbooks_model');
-        $this->listbooks_model->updateListbooknameFromUser($primary_key, $post_array['user_nickname']);
+    private function update_user_listbook_name($post_array, $primary_key) {
+        $this->load->model ( 'listbooks_model' );
+        $this->listbooks_model->updateListbooknameFromUser ( $primary_key, $post_array ['user_nickname'] );
     }
     private function createUserRelations($crud) {
         $crud->set_relation ( 'listbook_id', 'listbook', 'listbook_name' );
@@ -124,9 +139,9 @@ class Admin extends CI_Controller {
         
         $crud->set_crud_url_path ( site_url ( strtolower ( __CLASS__ . "/" . __FUNCTION__ ) ), site_url ( strtolower ( __CLASS__ . "/showBooksMasterTable" ) ) );
         
-        $data['title'] = 'Admin Libros';
-        $data['output'] = $crud->render ();
-        loadAdminView( 'admin/adminview', $data );
+        $data ['title'] = 'Admin Libros';
+        $data ['output'] = $crud->render ();
+        loadAdminView ( 'admin/adminview', $data );
     }
     private function createBookRelations($crud) {
         $crud->set_relation ( 'bookstate_id', 'bookstate', 'bookstate_name' );
@@ -165,9 +180,9 @@ class Admin extends CI_Controller {
         
         $crud->set_crud_url_path ( site_url ( strtolower ( __CLASS__ . "/" . __FUNCTION__ ) ), site_url ( strtolower ( __CLASS__ . "/showAuthorsMasterTable" ) ) );
         
-        $data['title'] = 'Admin Autores';
-        $data['output'] = $crud->render ();
-        loadAdminView( 'admin/adminview', $data );
+        $data ['title'] = 'Admin Autores';
+        $data ['output'] = $crud->render ();
+        loadAdminView ( 'admin/adminview', $data );
     }
     private function createAuthorRelations($crud) {
         $crud->set_relation ( 'authorstate_id', 'authorstate', 'authorstate_name' );
@@ -187,45 +202,53 @@ class Admin extends CI_Controller {
         $crud->set_rules ( 'authorstate_id', 'Estado', 'required' );
     }
     public function showGenrebookMasterTable() {
-        $crud = new grocery_CRUD ();
-        
-        $crud->set_table ( 'genrebook' );
-        
-        $crud->display_as ( 'genrebook_name', 'Género' );
-        
-        $crud->columns ( 'genrebook_name' );
-        
-        $crud->set_rules ( 'genrebook_name', 'Género', 'required' );
-        
-        $crud->required_fields ( 'genrebook_name' );
-        
-        $crud->set_subject ( 'Género' );
-        
-        $crud->set_crud_url_path ( site_url ( strtolower ( __CLASS__ . "/" . __FUNCTION__ ) ), site_url ( strtolower ( __CLASS__ . "/showGenrebookMasterTable" ) ) );
-        
-        $data['title'] = 'Admin Géneros';
-        $data['output'] = $crud->render ();
-        loadAdminView( 'admin/adminview', $data );
+        if (get_userrole () != 3) {
+            redirect ( base_url ( 'prohibido' ), 'refresh' );
+        } else {
+            $crud = new grocery_CRUD ();
+            
+            $crud->set_table ( 'genrebook' );
+            
+            $crud->display_as ( 'genrebook_name', 'Género' );
+            
+            $crud->columns ( 'genrebook_name' );
+            
+            $crud->set_rules ( 'genrebook_name', 'Género', 'required' );
+            
+            $crud->required_fields ( 'genrebook_name' );
+            
+            $crud->set_subject ( 'Género' );
+            
+            $crud->set_crud_url_path ( site_url ( strtolower ( __CLASS__ . "/" . __FUNCTION__ ) ), site_url ( strtolower ( __CLASS__ . "/showGenrebookMasterTable" ) ) );
+            
+            $data ['title'] = 'Admin Géneros';
+            $data ['output'] = $crud->render ();
+            loadAdminView ( 'admin/adminview', $data );
+        }
     }
     public function showListbookMasterTable() {
-        $crud = new grocery_CRUD ();
-    
-        $crud->set_table ( 'listbook' );
-    
-        $crud->display_as ( 'listbook_name', 'Lista de libros' );
-    
-        $crud->columns ( 'listbook_name' );
-    
-        $crud->set_rules ( 'listbook_name', 'Lista de libros', 'required' );
-    
-        $crud->required_fields ( 'listbook_name' );
-    
-        $crud->set_subject ( 'Lista libros' );
-    
-        $crud->set_crud_url_path ( site_url ( strtolower ( __CLASS__ . "/" . __FUNCTION__ ) ), site_url ( strtolower ( __CLASS__ . "/showListbookMasterTable" ) ) );
-        
-        $data['title'] = 'Admin Listas';
-        $data['output'] = $crud->render ();
-        loadAdminView( 'admin/adminview', $data );
+        if (get_userrole () != 3) {
+            redirect ( base_url ( 'prohibido' ), 'refresh' );
+        } else {
+            $crud = new grocery_CRUD ();
+            
+            $crud->set_table ( 'listbook' );
+            
+            $crud->display_as ( 'listbook_name', 'Lista de libros' );
+            
+            $crud->columns ( 'listbook_name' );
+            
+            $crud->set_rules ( 'listbook_name', 'Lista de libros', 'required' );
+            
+            $crud->required_fields ( 'listbook_name' );
+            
+            $crud->set_subject ( 'Lista libros' );
+            
+            $crud->set_crud_url_path ( site_url ( strtolower ( __CLASS__ . "/" . __FUNCTION__ ) ), site_url ( strtolower ( __CLASS__ . "/showListbookMasterTable" ) ) );
+            
+            $data ['title'] = 'Admin Listas';
+            $data ['output'] = $crud->render ();
+            loadAdminView ( 'admin/adminview', $data );
+        }
     }
 }
