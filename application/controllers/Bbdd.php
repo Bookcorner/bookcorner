@@ -438,6 +438,29 @@ class Bbdd extends CI_Controller {
         $author3->sharedBookList [] = $book4;
         $author4->sharedBookList [] = $book5;
         
+        $comment1 = R::Dispense ( 'comment' );
+        $comment1->num_comment = 1;
+        $comment1->text = 'Este libro me encanta, es una maravilla';
+        $comment1->date_publish = R::isoDateTime();
+        $comment1->sharedBookList[] = $book1;
+        $comment1->sharedUserList[] = $user1;
+        
+        $comment2 = R::Dispense ( 'comment' );
+        $comment2->num_comment = 2;
+        $comment2->text = 'Este libro me sigue gustando, yo flipo';
+        $comment2->date_publish = R::isoDateTime();
+        $comment2->sharedBookList[] = $book1;
+        $comment2->sharedUserList[] = $user1;
+        
+        $comment3 = R::Dispense ( 'comment' );
+        $comment3->num_comment = 1;
+        $comment3->text = 'Guay';
+        $comment3->date_publish = R::isoDateTime();
+        $comment3->sharedBookList[] = $book2;
+        $comment3->sharedUserList[] = $user2;
+        
+        
+        
         // STORE ONE-TO-ONE RELATIONSHIP
         
         // guardamos los usuarios
@@ -529,6 +552,10 @@ class Bbdd extends CI_Controller {
                 $author4 
         ] );
         
+        
+        R::store ( $comment1 );
+        R::store ( $comment2 );
+        R::store ( $comment3 );
 
         // Freeze the database.
         R::freeze ( TRUE );
