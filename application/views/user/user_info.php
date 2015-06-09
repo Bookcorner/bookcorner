@@ -27,7 +27,11 @@ $( document ).ready(function() {
     				$('#message-container').html('<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="message-container"><div class="alert alert-info text-center" role="alert">'+data+'<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button></div></div>');
 
     			    if (data == "Cuenta borrada") {
-    			    	window.location.replace("<?= base_url() ?>");
+
+    			    	setTimeout(function () {
+    			    		window.location.replace("<?= base_url() ?>");
+			    	    }, 3000);
+    			    	
     			    }
     				
     			}, error: function( data ) {
@@ -78,23 +82,24 @@ $( document ).ready(function() {
 				</ul>
 			</nav>
 			<div class="page">
-                <?= form_open ( base_url () . '', [ 
+                <?= form_open ( base_url () . 'actualizar-avatar', [ 
                     'class' => 'form-horizontal',
                     'data-toggle' => 'validator',
                     'method' => 'post',
+                    'enctype' => 'multipart/form-data',
                     'accept-charset' => 'UTF-8',
                     'id' => 'idFormNewAvatar' 
                 ]) ?>
 					
 					 <span class="btn btn-default btn-file">
-						 Pincha para cargar la imagen<input id="idNewAvatar" name="newAvatar" type="file" required/>
+						 Pincha para cargar la imagen
+						 <input type="hidden" name="MAX_FILE_SIZE" value="5242880"> 
+						 <input id="idNewAvatar" name="newAvatar" type="file" required/>
 					 </span>
-					<div class="help-block with-errors"></div>
-				
-				
-               
-				<button class="btn btn-primary">Cambiar avatar</button>
+					<div class="help-block with-errors"></div>               
+				    <button class="btn btn-primary">Cambiar avatar</button>
 						<?php echo form_close()?>
+						
 						<hr />
 						<button class="btn btn-danger" id="deleteAccount">						  
 						   Eliminar mi cuenta

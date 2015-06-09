@@ -8,12 +8,14 @@ class Report extends CI_Controller {
             $this->session->set_flashdata ( 'signInError', getSignInErrorMsg () );
             redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
         }
-        
+
         $data ['title'] = 'Reporte';
-        $this->load->model('authors_model');
-        $data['authors'] = $this->authors_model->searchAllAuthorsOrderedByName();
-        $this->load->model('genres_model');
-        $data['genres'] = $this->genres_model->getAllGenres();
+
+        $this->load->model('Authors_model');
+        $data['authors'] = $this->Authors_model->searchAllAuthorsOrderedByName();
+        
+        $this->load->model('Genres_model');
+        $data['genres'] = $this->Genres_model->getAllGenres();
         
         loadBasicViews ( 'report/showReportForm', $data );
     }
@@ -70,10 +72,12 @@ class Report extends CI_Controller {
                     redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
                 } else {
                     $this->session->set_flashdata ( 'bookImageError', getBookImageErrorMsg () );
+                    redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
                 }
             }
         } else {
             $this->session->set_flashdata ( 'authorImageError', getAuthorImageErrorMsg () );
+            redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
         }
     }
     private function setUploadBookConfig(){
@@ -103,11 +107,14 @@ class Report extends CI_Controller {
             redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
         }
         
-        $this->load->model('authors_model');
-        $this->load->model('books_model');
+        $this->load->model('Authors_model');
+        $this->load->model('Books_model');
         
-        $data['authors'] = $this->authors_model->searchAllAuthorsPending();
-        $data['books'] = $this->books_model->searchAllBooksPending();
+        $data['booksReports'] = $this->Books_model->countBooksReports();
+        $data['authorsReports'] = $this->Authors_model->countAuthorsReports();
+        
+        $data['authors'] = $this->Authors_model->searchAllAuthorsPending();
+        $data['books'] = $this->Books_model->searchAllBooksPending();
         $data['title'] = 'Validar Libros y Autores';
         $contentURI = 'report/showAuthorsAndBooksReported';
         $views = [ 

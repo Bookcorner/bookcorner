@@ -18,6 +18,12 @@ class Books_model extends CI_Model {
         ] );
         return $bookBean;
     }
+    function getGenresBook($id) {
+        //$listOfBooks = R::getAll ('SELECT * FROM author_book ab, book b WHERE ab.author_id = ? AND b.id = ab.book_id', [ $authorId ] );
+        $listOfGenres = R::getAll ('SELECT genrebook_name FROM genrebook gb, book_genrebook bgb WHERE bgb.book_id = ? AND bgb.genrebook_id = gb.id', [ $id ] );
+        
+        return $listOfGenres;
+    }
     function getAuthorOfBook($bookId) {
         $authorOfBookId = R::findOne ( 'author_book', 'book_id = ?', [$bookId] ) -> author_id;
         $authorOfBookBean = R::findOne ( 'author', 'id = ?', [$authorOfBookId] );
@@ -105,10 +111,14 @@ class Books_model extends CI_Model {
         $book->book_desc = $newDescription;
         R::store($book);
     }
-    function setAvailableBook($bookId){
+    public function setAvailableBook($bookId){
         $book = R::load('book', $bookId);
         $available = 1;
         $book->bookstate_id = $available;
         R::store($book);
+    }
+    public function countBooksReports() {
+        $number_of_books_pending = R::count ( 'book', 'bookstate_id = 2');
+        return $number_of_books_pending;
     }
 }

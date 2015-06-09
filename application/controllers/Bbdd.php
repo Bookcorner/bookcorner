@@ -11,7 +11,7 @@ class Bbdd extends CI_Controller {
         $user1->user_surname = 'nistrate';
         $user1->user_nickname = 'admin';
         $user1->user_pwd = encrypt( 'theboss' );
-        $user1->user_validation = '';
+        $user1->user_validation = 'GOD';
         $user1->user_email = 'administrator@gmail.com';
         $user1->user_avatar = 'boss.jpg';
         $user1->user_genre = 'M';
@@ -41,7 +41,7 @@ class Bbdd extends CI_Controller {
         $user4->user_surname = 'Cantelar';
         $user4->user_nickname = 'Marcant94';
         $user4->user_pwd = encrypt( '1234' );
-        $user4->user_validation = '';
+        $user4->user_validation = 'GOD';
         $user4->user_email = 'mcantelar@gmail.com';
         $user4->user_avatar = 'mario.jpg';
         $user4->user_genre = 'M';
@@ -51,7 +51,7 @@ class Bbdd extends CI_Controller {
         $user5->user_surname = 'Ortiz';
         $user5->user_nickname = 'Juanana';
         $user5->user_pwd = encrypt( '4321' );
-        $user5->user_validation = '';
+        $user5->user_validation = 'GOD';
         $user5->user_email = 'juananortizc@gmail.com';
         $user5->user_avatar = 'juanan.png';
         $user5->user_genre = 'M';
@@ -61,7 +61,7 @@ class Bbdd extends CI_Controller {
         $user6->user_surname = 'Cortés';
         $user6->user_nickname = 'rcortes';
         $user6->user_pwd = encrypt( 'asdf' );
-        $user6->user_validation = '';
+        $user6->user_validation = 'GOD';
         $user6->user_email = 'rubencortesmunuera@gmail.com';
         $user6->user_avatar = 'ruben.jpg';
         $user6->user_genre = 'M';

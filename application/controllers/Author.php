@@ -34,6 +34,10 @@ class Author extends CI_Controller {
         $id_of_author = $this->uri->segment ( 2 );
         $data ['author'] = $this->Authors_model->getAuthor ( $id_of_author );
         
+        if (!$data ['author']) {
+            redirect ( 'busqueda-autores/'.$id_of_author );
+        }
+        
         $data ['books'] = $this->Authors_model->getAllBooksFromAuthor($id_of_author);
         
         $viewUri = 'authors/info_author';

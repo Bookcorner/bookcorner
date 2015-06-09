@@ -24,12 +24,23 @@
                                 'class' => 'img-rounded bigbook visible-lg visible-md',
                                 'alt' => $book->book_name 
                         ) )?>
+                        <?php
+                        echo img ( array (
+                                'src' => asset_url () . '/images/books/' . $book->book_img,
+                                'class' => 'img-rounded mediumbook visible-sm visible-xs',
+                                'alt' => $book->book_name 
+                        ) )?>
                         </div>
 						<div class="col-xs-7">
 							<div class="row">
 								<div class="col-xs-12">
 									<p>Titulo: <?= $book->book_name ?></p>
-									<p>Autor: <?= anchor( base_url().'autor/'.$author->id,$author->author_fullname) ?></p>
+									<p>Autor: <?= anchor( base_url().'autor/'.$author->id,$author->author_fullname) ?></p>									
+									<p>Géneros:
+									   <ol style="list-style-type:none;">
+									       <?php foreach ($genres as $genre){ echo '<li>'.$genre['genrebook_name'].'</li>'; }?>
+									   </ol>
+									</p>									
 									<p>Descripción: <?= $book->book_desc ?></p>
 								</div>
 							</div>

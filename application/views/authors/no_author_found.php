@@ -4,7 +4,7 @@
         <div class="col-xs-12">
         	<div class="col-xs-7">
         		<h2 class="alert alert-danger">
-        			¡OJO! <span class="text-muted"> OOPS! El Autor que buscas no está en nuestra disposición </span>
+        			¡OJO! <span class="text-muted"> El Autor que buscas no está en nuestra disposición </span>
         		</h2>
         		<p class="lead">
         			Lamentablemente no tenemos el Autor que estás buscando. ¿Quieres añadirlo tú?

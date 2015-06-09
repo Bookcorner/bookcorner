@@ -45,6 +45,14 @@ function loadMenu($data = array()) {
         $data ['avatar'] = $CI->session->userdata ( 'avatar' );
         $data ['role'] = $CI->session->userdata ( 'role' );
         
+        if ($data['role'] != 1){
+            $CI->load->model('Books_model');
+            $CI->load->model('Authors_model');
+            $booksReports = $CI->Books_model->countBooksReports();
+            $authorsReports = $CI->Authors_model->countAuthorsReports();
+            $data ['number_of_reports'] = $booksReports + $authorsReports;
+        }
+        
         $CI->load->view ( 'templates/menus/menu_logout', $data );
     } else {
         $CI->load->view ( 'templates/menus/menu_login', $data );

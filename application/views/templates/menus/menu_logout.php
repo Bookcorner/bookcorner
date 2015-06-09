@@ -159,6 +159,7 @@
 								    <a href="<?php echo base_url('moderar')?>" role="menuitem">
 								        <i class="fa fa-eye"></i>
 								        Moderar
+								        <span class="badge"><?php echo $number_of_reports?></span>
 								    </a>
 								    <?php endif;?>
 								</li>

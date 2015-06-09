@@ -19,7 +19,7 @@
 	<div class="row">
 		<div class="col-xs-4 col-lg-4 placeholder">
 		    <?php echo img(array(
-                    'src' => asset_url(). '/images/users/juanan.png',
+                    'src' => asset_url(). 'images/users/juanan.png',
 			        'class' => 'img-responsive img-circle',
 			        'alt' => 'Juanan',
 		    ))?>
@@ -28,7 +28,7 @@
 		</div>
 		<div class="col-xs-4 col-lg-4 placeholder">
 			<?php echo img(array(
-                    'src' => asset_url(). '/images/users/mario.jpg',
+                    'src' => asset_url(). 'images/users/mario.jpg',
 			        'class' => 'img-responsive img-circle',
 			        'alt' => 'Mario'
 		    ))?>
@@ -37,7 +37,7 @@
 		</div>
 		<div class="col-xs-4 col-lg-4 placeholder">
 		    <?php echo img(array(
-                    'src' => asset_url(). '/images/users/ruben.jpg',
+                    'src' => asset_url(). 'images/users/ruben.jpg',
 			        'class' => 'img-responsive img-circle',
 			        'alt' => 'Ruben'
 		    ))?>
@@ -54,7 +54,7 @@
         <?php foreach ($administrators as $admin):?>	   
     		<div class="col-xs-4 col-lg-4 placeholder">
     		    <?php echo img(array(
-                        'src' => asset_url(). '/images/users/'. $admin->user_avatar,
+                        'src' => asset_url(). 'images/users/'. $admin->user_avatar,
     			        'class' => 'img-responsive img-circle',
     			        'alt' => $admin->user_nickname
     		    ))?>
@@ -72,7 +72,7 @@
         <?php foreach ($moderators as $moderator):?>	   
     		<div class="col-xs-4 col-lg-4 placeholder">
     		    <?php echo img(array(
-                        'src' => asset_url(). '/images/users/'. $moderator->user_avatar,
+                        'src' => asset_url(). 'images/users/'. $moderator->user_avatar,
     			        'class' => 'img-responsive img-circle',
     			        'alt' => $moderator->user_nickname
     		    ))?>
