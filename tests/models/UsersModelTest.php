@@ -95,6 +95,18 @@ class UsersModelTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals($newPwdEncrypted, $user->user_pwd);
         $this->CI->users_model->update_pass ($oldPwd, $userId);
     }
+    public function testWhenUpdateAvatarnameIsCalledThenAvatarShouldBeChanged(){
+        $newAvatar = 'Avatar';
+        $oldAvatar = 'boss.jpg';
+        
+        $userId = 1;
+        
+        $this->CI->load->model ( 'users_model' );
+        $this->CI->users_model->updateAvatarName ($userId, $newAvatar);
+        $user = $this->CI->users_model->getUserInfo ($userId);
+        $this->assertEquals($newAvatar, $user->user_avatar);
+        $this->CI->users_model->updateAvatarName ($userId, $oldAvatar);
+    }
     public function testWhenCountUsersIsCalledThenNumberShouldBeReturned(){
         $this->CI->load->model ( 'users_model' );
         $number_of_users = $this->CI->users_model->countUsers ();
