@@ -1,3 +1,3 @@
 <div class="container">
-<img src="assets/images/error/forbidden_access.png" class="img-responsive center-block">
+<img src="<?= base_url()?>assets/images/error/forbidden_access.png" class="img-responsive center-block">
 </div>
