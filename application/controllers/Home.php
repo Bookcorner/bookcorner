@@ -4,6 +4,11 @@ class Home extends CI_Controller {
     public function index() {
         $data ['title'] = 'Home';
         $viewUri = 'home/main_content_view';
+        $this->load->model('Books_model');
+        $data['books'] = $this->Books_model->getLastBooks();
+        $this->load->model('Authors_model');
+        $data['authors'] = $this->Authors_model->getLastAuthors();
+        
         loadBasicViews ( $viewUri, $data );
     }
     public function goToWhoAreWe() {

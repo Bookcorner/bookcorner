@@ -95,3 +95,6 @@ a.nolink{
 .destacado{
 	color: white;
 }
+.jumbo{
+	background-image:url("../images/general/bcmainview.jpg");
+}

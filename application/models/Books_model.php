@@ -127,4 +127,10 @@ class Books_model extends CI_Model {
         $number_of_books_pending = R::count ( 'book', 'bookstate_id = 2');
         return $number_of_books_pending;
     }
+    public function getLastBooks() {
+        $book = R::find('book', 'bookstate_id = :bookstate ORDER BY id DESC LIMIT 5', [
+                'bookstate' => 1
+        ]);
+        return $book;
+    }
 }
