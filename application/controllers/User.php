@@ -81,7 +81,7 @@ class User extends CI_Controller {
                 $sendMail = $this->sendMail($email, $message, 'Correo de Activación');
                 // enviamos el correo de registro
                 if ($sendMail) {
-                    $this->session->set_flashdata ( 'ok', 'Se ha registrado satisfactoriamente, le enviaremos un correo de activación.' );
+                    $this->session->set_flashdata ( 'signUpSuccess', 'Se ha registrado satisfactoriamente, le enviaremos un correo de activación.' );
                     $this->Users_model->saveUser($newUser);
                 } else {
                     $this->session->set_flashdata ( 'signUpError', 'No se le ha podido enviar el correo, vuelva a intentarlo' );
@@ -109,7 +109,7 @@ class User extends CI_Controller {
         $captchaUser = strtolower($captchaUser);
         
         $captcha = base64_decode(set_value( 'captchaValue' ));
-        $captcha = strtoupper($captcha);
+        $captcha = strtolower($captcha);
         
         return ($captcha == $captchaUser);
     }
@@ -156,16 +156,17 @@ class User extends CI_Controller {
                 // enviamos el correo de contactar
     
                 if ($sendMail) {
-                    $this->session->set_flashdata ( 'ok', 'Se ha enviado el correo satisfactoriamente' );
+                    $this->session->set_flashdata( 'sendmailok', 'Se ha enviado el correo satisfactoriamente' );
                 } else {
-                    $this->session->set_flashdata ( 'sendmailerror', 'No se ha podido enviar el correo' );
+                    $this->session->set_flashdata( 'sendmailerror', 'No se ha podido enviar el correo' );
                 }
     
             }
         } else {
             $this->session->set_flashdata ( 'sendmailerror', 'Formulario incorrecto' );
         }
-        redirect ( base_url ('contacto'), 'refresh' );
+        
+        redirect ( base_url('contacto'), 'refresh' );
     
     }
     
