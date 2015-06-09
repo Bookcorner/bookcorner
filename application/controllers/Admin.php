@@ -48,7 +48,6 @@ class Admin extends CI_Controller {
         $this->load->model('Users_model');
         
         $old_pwd = $this->Users_model->getPwd(1);
-        echo $old_pwd;
         
         $data['title'] = 'Admin Usuarios';
         $data['output'] = $crud->render ();
