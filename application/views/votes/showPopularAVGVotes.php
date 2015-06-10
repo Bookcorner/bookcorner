@@ -41,7 +41,7 @@
         				                <?php echo $book['book_name']?>
                                     </a></h3>
                                 </td>
-								<td><h3 class="text-center"><?php echo $book['total']?> <i class="fa fa-thumbs-o-up"></i></h3></td>
+								<td><h3 class="text-center"><?php echo round($book['total'], 2, PHP_ROUND_HALF_DOWN)?> <i class="fa fa-thumbs-o-up"></i></h3></td>
 								<td><h3 class="text-center"><?php echo $book['n_usuarios']?> <i class="fa fa-users"></i></h3></td>
 							</tr>    
         		        <?php endforeach;?>

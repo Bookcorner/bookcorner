@@ -1,6 +1,6 @@
 <script type="text/javascript">
 $(document).ready(function() {
-	var states = {1: 'Leyendo', 2: 'Pendiente', 3: 'Abandonado', 4: 'Terminado' };
+	var states = {1: 'Leyendo', 2: 'Pendiente de leer', 3: 'Abandonado', 4: 'Terminado' };
 	$('.bookState').each(function(){
 		var stateValue = $(this).text();
 		$(this).text(states[stateValue]);
