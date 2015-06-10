@@ -11,7 +11,7 @@ class Author extends CI_Controller {
         loadBasicViews ( $viewUri, $data );
     }
     public function showAuthorsSearched() {
-        $searchName = prepareForSearchableWord ( $this->uri->segment ( 2 ) );
+        $searchName = prepareForSearchableWord ( quitDash($this->uri->segment ( 2 )) );
         
         $this->load->model ( 'Authors_model' );
         $authors = $this->Authors_model->searchAuthors ( $searchName );
