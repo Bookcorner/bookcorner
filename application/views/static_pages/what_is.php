@@ -154,7 +154,7 @@
 		<div class="row">
 			<div class="col-md-7">
 				<h2>
-					Crecimiento Constante y Colectivo. <span class="text-muted">Ayuda a
+					Crecimiento constante y colectivo. <span class="text-muted">Ayuda a
 						la página a crecer</span>
 				</h2>
 				<p class="lead">Dado que los libros no paran de salir, es (y será)
