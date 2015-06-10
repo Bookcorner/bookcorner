@@ -10,8 +10,8 @@
 	<!-- CONTENIDO -->
 	<div class="row">
         <!-- CONTENIDO CENTRAL -->
-        <div class="row col-lg-8">
-            <div class="col-lg-12">
+        <div class="row col-lg-8 col-md-8 col-sm-12">
+            <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="jumbotron jumbo">
                     <h1 class="text-center"><span class="destacado">¡Bienvenido a BookCorner!</span></h1>
                     <p class="destacado">En este portal podrás generar listas
@@ -21,18 +21,19 @@
                     ])?></p>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="panel">
     				<div class="panel-heading">
     					<h3>
-    						<i class="icon-time main-color"></i> 5 Libros más votados
+    						5 Libros más votados <i class="fa fa-star-o"></i>
     					</h3>
     				</div>
     				<div class="panel-body">
     					<table>
                             <thead>
                                 <tr>
-                                    <th>Libro</th>
+                                    <th>Portada</th>
+                                    <th class="text-center">Libro</th>
                                     <th>Puntuación</th>
                                 </tr>
                             </thead>
@@ -42,10 +43,13 @@
                                 <td>
                                     <a href="<?php echo 'libro/'.$book['id']?>" class="text-left">
                                         <?php echo img(asset_url().'images/books/'.$book['book_img'], $book['book_name'], ['class' => 'avatar'])?>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="<?php echo 'libro/'.$book['id']?>" class="text-center">
                                         <?php echo $book['book_name']?>
                                     </a>
                                 </td>
-                                
                                 <td class="text-center"><?php echo $book['total']?></td>
                             </tr>
     						<?php endforeach;?>
@@ -60,18 +64,19 @@
                     </div>
     			</div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="panel">
     				<div class="panel-heading">
     					<h3>
-    						<i class="icon-time main-color"></i> Puntuaciones medias más altas
+    						Top Puntuaciones medias
     					</h3>
     				</div>
     				<div class="panel-body">
     					<table>
                             <thead>
                                 <tr>
-                                    <th>Libro</th>
+                                    <th>Portada</th>
+                                    <th class="text-center">Libro</th>
                                     <th class="text-center">Puntuación Media</th>
                                 </tr>
                             </thead>
@@ -81,10 +86,13 @@
                                 <td>
                                     <a href="<?php echo 'libro/'.$book['id']?>" class="text-left">
                                         <?php echo img(asset_url().'images/books/'.$book['book_img'], $book['book_name'], ['class' => 'avatar'])?>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="<?php echo 'libro/'.$book['id']?>" class="text-center">
                                         <?php echo $book['book_name']?>
                                     </a>
                                 </td>
-                                
                                 <td class="text-center"><?php echo $book['total']?></td>
                             </tr>
     						<?php endforeach;?>
@@ -102,12 +110,12 @@
         </div>
         <!-- CONTENIDO CENTRAL -->
         <!-- MENU LATERAL -->
-        <div class="row col-lg-4"> 
-            <div class="col-lg-12">
+        <div class="row col-lg-4 col-md-4 col-sm-12"> 
+            <div class="col-lg-12 col-md-12 col-sm-6">
                 <div class="panel">
     				<div class="panel-heading">
     					<h3>
-    						<i class="icon-time main-color"></i> Libros Recientes
+    						Libros Recientes
     					</h3>
     				</div>
     				<div class="panel-body">
@@ -125,7 +133,7 @@
                     </div>
     			</div>
             </div>
-            <div class="col-lg-12">
+            <div class="col-lg-12 col-md-12 col-sm-6">
     			<div class="panel">
     				<div class="panel-heading">
     					<h3>
