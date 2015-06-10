@@ -18,7 +18,7 @@
 				))?>
 				<div class="container">
 					<div class="carousel-caption">
-						<h1>¿Qué es Bookcorner?.</h1>
+						<h1>¿Qué es Bookcorner?</h1>
 						<p>Te damos la bienvenida a Bookcorner: Lugar de gestión de tus
 							libros y autores preferidos.</p>
 						<p>
@@ -38,7 +38,7 @@
 				))?>
 				<div class="container">
 					<div class="carousel-caption">
-						<h1>Actualiza tu lista de libros.</h1>
+						<h1>Actualiza tu lista de libros</h1>
 						<p>Gestiona en un lugar centralizado todos los libros que te has
 							leído, y compártelos con tus amigos de forma sencilla.</p>
 						<p>
@@ -59,8 +59,8 @@
 				))?>
 				<div class="container">
 					<div class="carousel-caption">
-						<h1>Continuo crecimiento.</h1>
-						<p>El contenido dinámico de bookcorner permite que el libro que no
+						<h1>Continuo crecimiento</h1>
+						<p>El contenido dinámico de Bookcorner permite que el libro que no
 							encuentres hoy, esté mañana disponible. Para que el sitio crezca,
 							es necesaria tu ayuda. ¿Nos echas un cable?</p>
 						<p>
@@ -80,11 +80,11 @@
 				))?>
 				<div class="container">
 					<div class="carousel-caption">
-						<h1>Vota a tus libros y autores preferidos.</h1>
+						<h1>Vota a tus libros y autores preferidos</h1>
 						<p>Comparte tus gustos y opiniones con el resto de la comunidad
 							por medio de los votos de libros y autores</p>
 						<p>
-						    <?php echo anchor(base_url('votar'), '¡Quiero votar!', [
+						    <?php echo anchor(base_url('ver-votos'), '¡Quiero votar!', [
 								            'class' => 'btn btn-lg btn-primary',
 								            'role' => 'button'
 						    ])?>
@@ -108,12 +108,12 @@
 			<div class="col-md-7">
 				<h2>
 					Bookcorner <span class="text-muted"> dedicado única y
-						exclusivamente a los libros. </span>
+						exclusivamente a los libros </span>
 				</h2>
 				<p class="lead">
 					Pretende ser un lugar donde los amantes de los mismos puedan tener
 					un <strong>registro organizado de todos los libros</strong> que han
-					leido o quieren leer, así como poder conocer las tendencias
+					leído o quieren leer, así como poder conocer las tendencias
 					principales de libros de la actualidad.
 				</p>
 			</div>
@@ -131,7 +131,7 @@
 
 		<div class="row">
 			<div class="col-md-7 col-md-push-5">
-				<h2>Actualiza tus listas.</h2>
+				<h2>Actualiza tus listas</h2>
 				<p class="lead">Bookcorner pretende ser un sitio en el que puedas
 					organizar y compartir tus libros preferidos con la comunidad.</p>
 				<p class="lead">Para ello, te proveemos de la gestión total de los
@@ -154,8 +154,8 @@
 		<div class="row">
 			<div class="col-md-7">
 				<h2>
-					Crecimiento Constante y Colectivo. <span class="text-muted">Ayuda a
-						la página a crecer.</span>
+					Crecimiento constante y colectivo. <span class="text-muted">Ayuda a
+						la página a crecer</span>
 				</h2>
 				<p class="lead">Dado que los libros no paran de salir, es (y será)
 					frecuente que el sitio no disponga del libro que quieres añadir a
@@ -179,7 +179,7 @@
 
 		<div class="row">
 			<div class="col-md-7 col-md-push-5">
-				<h2>Vota tus preferidos.</h2>
+				<h2>Vota tus preferidos</h2>
 				<p class="lead">Bookcorner te la posibilidad de votar sobre los
 					autores y libros de la página, pudiendo así conocer la popularidad
 					de cada uno e inevitablemente descubriendo nuevos libros y autores</p>

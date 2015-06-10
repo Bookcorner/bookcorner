@@ -73,7 +73,7 @@
                                                             class="btn btn-default btn-md">
                                                         </a>
             										</td>
-            										<td><?php echo img(asset_url().'images/books/'.$book['book_img'], $book['book_name'])?></td>
+            										<td><?php echo img(asset_url().'images/books/'.$book['book_img'], $book['book_name'], ['class' => 'votebook'])?></td>
             										<td><?php echo $book['author_fullname']?>
             										</td>
             										<td><a href="verificar-libro/<?php echo $book['id']?>"

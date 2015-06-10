@@ -66,6 +66,11 @@ a.circle {
 	width: 150px;
 	height: 220px;
 }
+.votebook{
+	width: 120px;
+	height: 180px;
+	border-radius:2px;
+}
 
 .bigauthor{
 	width: 300px;

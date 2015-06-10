@@ -83,12 +83,12 @@ class Report extends CI_Controller {
                     
                     redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
                 } else {
-                    $this->session->set_flashdata ( 'bookImageError', getBookImageErrorMsg () );
+                    $this->session->set_flashdata ( 'authorImageError', getAuthorImageErrorMsg () );
                     redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
                 }
             }
         } else {
-            $this->session->set_flashdata ( 'authorImageError', getAuthorImageErrorMsg () );
+            $this->session->set_flashdata ( 'bookImageError', getBookImageErrorMsg () );
             redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
         }
     }

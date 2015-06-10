@@ -55,7 +55,7 @@
 				<li class="<?php if ($title == 'Lista de libros') { echo 'active'; }?>">
 					<a href="<?php echo base_url('lista-libros')?>">
     					<i class="fa fa-list-alt"></i>
-						Listas
+						Lista
 					</a>
 				</li>
 			</ul>
@@ -152,6 +152,11 @@
 								    <a href="<?php echo base_url('reportes')?>" role="menuitem">
 								        <i class="fa fa-ambulance"></i>
 								        Reportes
+								    </a>
+								</li>
+								<li role="presentation">
+								    <a href="<?php echo base_url('ver-votos')?>" role="menuitem">
+								        <i class="fa fa-thumbs-o-up"></i> Votaciones 
 								    </a>
 								</li>
 								<li role="presentation">
