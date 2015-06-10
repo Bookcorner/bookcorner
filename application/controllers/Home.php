@@ -8,6 +8,8 @@ class Home extends CI_Controller {
         $data['books'] = $this->Books_model->getLastBooks();
         $this->load->model('Authors_model');
         $data['authors'] = $this->Authors_model->getLastAuthors();
+        $data['popularbooks'] = $this->Books_model->getMostPopularBooks();
+        $data['averagebooks'] = $this->Books_model->getMostPopularAVGBooks();
         
         loadBasicViews ( $viewUri, $data );
     }

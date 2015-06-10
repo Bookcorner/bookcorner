@@ -133,4 +133,27 @@ class Books_model extends CI_Model {
         ]);
         return $book;
     }
+    public function getMostPopularBooks() {
+        $book = R::getAll('SELECT SUM(v.val_puntuacion) as total, b.book_name, b.book_img, b.id
+                FROM valuation v, book b
+                WHERE v.val_puntuacion <= 10 AND v.book_id = b.id 
+                GROUP BY v.book_id
+                LIMIT 5');
+        return $book;
+    }
+    public function getAllPopularBooks() {
+        $book = R::getAll('SELECT SUM(v.val_puntuacion) as total, b.book_name, b.book_img, b.id
+                FROM valuation v, book b
+                WHERE v.val_puntuacion <= 10 AND v.book_id = b.id
+                GROUP BY v.book_id');
+        return $book;
+    } 
+    public function getMostPopularAVGBooks(){
+        $book = R::getAll('SELECT AVG(v.val_puntuacion) as total, b.book_name, b.book_img, b.id
+                FROM valuation v, book b
+                WHERE v.val_puntuacion <= 10 AND v.book_id = b.id
+                GROUP BY v.book_id
+                LIMIT 5');
+        return $book;
+    }
 }
