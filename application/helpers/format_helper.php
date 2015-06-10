@@ -23,11 +23,13 @@ function filter($string) {
     return $string;
 }
 function filterQuitSpecChar($string) {
+    $string = strtr($string, ' ', '_');
     $string = rawurlencode($string);
 
     return $string;
 }
 function quitDash($string) {
+    $string = strtr($string, '_', ' ');
     $string = rawurldecode($string);
     return $string;
 }
