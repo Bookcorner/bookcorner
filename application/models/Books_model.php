@@ -33,10 +33,10 @@ class Books_model extends CI_Model {
     }
     function getAllComments($bookId) {        
         $bookComments = R::getAll( '
-                SELECT c.num_comment, c.text, c.date_publish, c.user_id, u.user_nickname, u.user_avatar
+                SELECT c.num_comment, c.text, c.date_publish, u.user_nickname, u.user_avatar
                 FROM comment c, user u
                 WHERE c.book_id = ? AND c.user_id = u.id
-                ORDER BY c.num_comment DESC', [ $bookId ] );
+                ORDER BY c.num_comment ASC', [ $bookId ] );
         return $bookComments;
     }
     function searchAllBooksOrderedByName() {
