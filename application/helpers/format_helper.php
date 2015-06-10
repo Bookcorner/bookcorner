@@ -13,7 +13,6 @@ function prepareForSearchableWord($string) {
     
     return str_replace ( '%20', '%', $searchFormatted );
 }
-
 function filter($string) {
     $originales = 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðòóôõöøùúûýýþÿŔŕ';
     $modificadas = 'aaaaaaaceeeeiiiidoooooouuuuybsaaaaaaaceeeeiiiidoooooouuuyybyRr';
@@ -23,15 +22,12 @@ function filter($string) {
     
     return $string;
 }
-
 function filterQuitSpecChar($string) {
-    $string = str_replace ( " ", "-", $string );
-
-    $string = filter($string);
+    $string = rawurlencode($string);
 
     return $string;
 }
 function quitDash($string) {
-    $string = str_replace("-", " ", $string);
+    $string = rawurldecode($string);
     return $string;
 }

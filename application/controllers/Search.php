@@ -10,10 +10,10 @@ class Search extends CI_Controller {
         
         switch ($typeOfSearch) {
             case 'author' :
-                redirect ( 'busqueda-autores/'.$searchName );
+                redirect ( 'busqueda-autores/'.filter(filterQuitSpecChar($searchName)) );
                 break;
             case 'book' :
-                redirect ( 'busqueda-libros/'.$searchName );
+                redirect ( 'busqueda-libros/'.filter(filterQuitSpecChar($searchName)) );
                 break;
         }
     }
