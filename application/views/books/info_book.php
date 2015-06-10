@@ -113,8 +113,8 @@
 							comentario:</label>
 						<textarea id="idComment" class="form-control" rows="4"
 							name="comment" maxlength="500"></textarea>
-						<input type="text" name="nickUser" value="<?= $nickname ?>" hidden>
-						<input type="text" name="bookName" value="<?= filterQuitSpecChar($book->book_name); ?>" hidden>
+						<input type="text" name="userId" value="<?= $id ?>" hidden>
+						<input type="text" name="bookId" value="<?= $book->id ?>" hidden>
 					</div>
 
 					<button type="submit" class="btn btn-info">

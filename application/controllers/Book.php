@@ -63,20 +63,21 @@ class Book extends CI_Controller {
         $viewUri = 'books/info_book';
         loadBasicViews ( $viewUri, $data );
     }
-    public function updateBookisbn($bookId){
-        $newIsbn = $_POST['value'];
+    public function addBookComment() {
+        
+        if ( empty($_POST) ){
+            $this->session->set_flashdata ( 'signInError', getSignInErrorMsg () );
+            redirect(base_url(),'refresh');
+        }
+        
+        $data['comment'] = $_POST['comment'];
+        $data['userId'] = $_POST['userId'];
+        $data['bookId'] = $_POST['bookId'];
+        
         $this->load->model('Books_model');
-        $this->Books_model->updateBookisbn($bookId, $newIsbn);
-    }
-    public function updateBookname($bookId){
-        $newName = $_POST['value'];
-        $this->load->model('Books_model');
-        $this->Books_model->updateBookname($bookId, $newName);
-    }
-    public function updateBookdesc($bookId){
-        $newDesc = $_POST['value'];
-        $this->load->model('Books_model');
-        $this->Books_model->updateBookdesc($bookId, $newDesc);
+        $this->Books_model->addComment($data);
+        
+        redirect($_SERVER['HTTP_REFERER'] ,'refresh');
     }
     public function setBookAvailable(){
         $bookId = $this->uri->segment(2);
@@ -85,4 +86,19 @@ class Book extends CI_Controller {
         $this->session->set_flashdata ( 'verifySuccess', getVerifySuccessMsg () );
         redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
     }
+    private function updateBookisbn($bookId){
+        $newIsbn = $_POST['value'];
+        $this->load->model('Books_model');
+        $this->Books_model->updateBookisbn($bookId, $newIsbn);
+    }
+    private function updateBookname($bookId){
+        $newName = $_POST['value'];
+        $this->load->model('Books_model');
+        $this->Books_model->updateBookname($bookId, $newName);
+    }
+    private function updateBookdesc($bookId){
+        $newDesc = $_POST['value'];
+        $this->load->model('Books_model');
+        $this->Books_model->updateBookdesc($bookId, $newDesc);
+    }    
 }

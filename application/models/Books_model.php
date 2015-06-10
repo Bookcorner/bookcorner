@@ -79,6 +79,23 @@ class Books_model extends CI_Model {
             show_error ( $e->getMessage () );
         }
     }
+    public function addComment($data) {        
+        $comment = $data['comment'];
+        $userId = $data['userId'];
+        $bookId = $data['bookId'];
+        
+        $numCommentsOfBook = R::count( 'comment', ' book_id = ? ', [ $bookId ] );
+        
+        $newComment = R::dispense( 'comment' );
+        $newComment->num_comment = ($numCommentsOfBook+1);
+        $newComment->text = $comment;
+        $newComment->date_publish = R::isoDateTime();
+        $newComment->book_id = $bookId;
+        $newComment->user_id = $userId;
+        
+        R::store($newComment);
+        
+    }
     public function createNewBookAndAssociateWithAuthor($bookisbn, $bookname, $bookdesc, $bookimg, $genrebook ,$idAuthorOfTheBook){
         $pendingState = R::load('bookstate', 2);
         $author = R::load('author', $idAuthorOfTheBook);
