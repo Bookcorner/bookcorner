@@ -98,6 +98,8 @@ $route['salir'] = 'login/logout';
 //vote
 $route['ver-votos'] = 'vote/showTablesVotes';
 $route['libros-mas-puntuados'] = 'vote/showAllPopularBooks';
+$route['media-libros-mas-puntuados'] = 'vote/showAllPopularAVGBooks';
+$route['estado-general-libros'] = 'vote/showAllStateBooks';
 
 //reporte
 $route['reportes'] = 'report/index';
