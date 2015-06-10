@@ -49,7 +49,7 @@
 										class="text-left">
                                         <?php echo img(asset_url().'images/books/'.$book['book_img'], $book['book_name'], ['class' => 'avatar'])?>
                                     </a></td>
-									<td><a href="<?php echo 'libro/'.$book['id']?>"
+									<td><a href="<?php echo 'libro/'.filterQuitSpecChar($book['book_name'])?>"
 										class="text-center">
                                         <?php echo $book['book_name']?>
                                     </a></td>
@@ -89,7 +89,7 @@
 										class="text-left">
                                         <?php echo img(asset_url().'images/books/'.$book['book_img'], $book['book_name'], ['class' => 'avatar'])?>
                                     </a></td>
-									<td><a href="<?php echo 'libro/'.$book['id']?>"
+									<td><a href="<?php echo 'libro/'.filterQuitSpecChar($book['book_name'])?>"
 										class="text-center">
                                         <?php echo $book['book_name']?>
                                     </a></td>
