@@ -14,7 +14,7 @@
 			<div class="col-lg-12 col-md-12 col-sm-12">
 				<div class="jumbotron jumbo">
 					<h1 class="text-center">
-						<span class="destacado">¡Bienvenido a BookCorner!</span>
+						<span class="destacado">¡Bienvenido a Bookcorner!</span>
 					</h1>
 					<p class="destacado">En este portal podrás generar listas con tus
 						libros favoritos y compartir tus opiniones con la comunidad.</p>
