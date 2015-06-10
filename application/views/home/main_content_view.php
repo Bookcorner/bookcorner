@@ -93,7 +93,7 @@
 										class="text-center">
                                         <?php echo $book['book_name']?>
                                     </a></td>
-									<td class="text-center"><?php echo $book['total']?></td>
+									<td class="text-center"><?php echo round($book['total'], 1, PHP_ROUND_HALF_DOWN)?></td>
 								</tr>
     						<?php endforeach;?>
                             </tbody>
