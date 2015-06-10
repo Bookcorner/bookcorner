@@ -18,7 +18,7 @@
 				))?>
 				<div class="container">
 					<div class="carousel-caption">
-						<h1>¿Qué es Bookcorner?.</h1>
+						<h1>¿Qué es Bookcorner?</h1>
 						<p>Te damos la bienvenida a Bookcorner: Lugar de gestión de tus
 							libros y autores preferidos.</p>
 						<p>
@@ -38,7 +38,7 @@
 				))?>
 				<div class="container">
 					<div class="carousel-caption">
-						<h1>Actualiza tu lista de libros.</h1>
+						<h1>Actualiza tu lista de libros</h1>
 						<p>Gestiona en un lugar centralizado todos los libros que te has
 							leído, y compártelos con tus amigos de forma sencilla.</p>
 						<p>
@@ -59,7 +59,7 @@
 				))?>
 				<div class="container">
 					<div class="carousel-caption">
-						<h1>Continuo crecimiento.</h1>
+						<h1>Continuo crecimiento</h1>
 						<p>El contenido dinámico de Bookcorner permite que el libro que no
 							encuentres hoy, esté mañana disponible. Para que el sitio crezca,
 							es necesaria tu ayuda. ¿Nos echas un cable?</p>
@@ -80,7 +80,7 @@
 				))?>
 				<div class="container">
 					<div class="carousel-caption">
-						<h1>Vota a tus libros y autores preferidos.</h1>
+						<h1>Vota a tus libros y autores preferidos</h1>
 						<p>Comparte tus gustos y opiniones con el resto de la comunidad
 							por medio de los votos de libros y autores</p>
 						<p>

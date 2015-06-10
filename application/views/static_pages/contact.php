@@ -23,12 +23,6 @@
 						<li>¿Estás interesado en algún creador de la página (laboralmente
 							hablando... :D)?</li>
 					</ul>
-					<p>
-						Sea cual sea tu interés puedes contactarnos <strong>thecornerbook@gmail.com</strong>
-					</p>
-					<p>Estaría bien que esta página tuviera la información puesta
-						arriba a la izquierda, y a la derecha una foto chula de algún
-						libro</p>
 				</div>
 			</div>
 		</div>

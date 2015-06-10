@@ -70,7 +70,7 @@
 
 						<div class="form-group">
 							<label class="control-label col-xs-2" for="idBookImg">Imagen de
-								Portada:</label>
+								Portada (1024x768):</label>
 							<div class="controls col-xs-9">
 								<span class="btn btn-default btn-file"> <i
 									class="fa fa-picture-o"></i> Elegir una imagen...(5 MB máx) <input
@@ -159,7 +159,7 @@
 
 													<div class="form-group">
 														<label class="control-label col-xs-2" for="idAuthorImg">Imagen
-															del Autor:</label>
+															del Autor (1024x768):</label>
 														<div class="controls col-xs-9">
                             								<span class="btn btn-default btn-file"> <i
                             									class="fa fa-picture-o"></i> Elegir una imagen...(5MB máx) <input
