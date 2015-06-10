@@ -104,28 +104,6 @@
         <!-- MENU LATERAL -->
         <div class="row col-lg-4"> 
             <div class="col-lg-12">
-    			<div class="panel">
-    				<div class="panel-heading">
-    					<h3>
-    					   <i class="icon-time main-color"></i> Autores Recientes
-    					</h3>
-    				</div>
-    				<div class="panel-body">
-    					<ul>
-                            <?php foreach ($authors as $author):?>
-    						<li>
-                                <a href="<?php echo 'autor/'.$author['id']?>">
-                                    <?php echo img(asset_url().'images/authors/'.$author['author_img'], $author['author_fullname'], ['class' => 'avatar'])?>
-                                    <?php echo $author['author_fullname']?>
-                                </a>
-                            </li>
-    						<?php endforeach;?>
-    					</ul>
-    					<a href="<?php echo base_url('autores')?>"><i class="fa fa-eye"></i> Ver más...</a>
-    				</div>
-    			</div>
-            </div>
-            <div class="col-lg-12">
                 <div class="panel">
     				<div class="panel-heading">
     					<h3>
@@ -145,6 +123,28 @@
                         </ul>
     					<a href="<?php echo base_url('libros')?>"><i class="fa fa-eye"></i> Ver más...</a>
                     </div>
+    			</div>
+            </div>
+            <div class="col-lg-12">
+    			<div class="panel">
+    				<div class="panel-heading">
+    					<h3>
+    					   <i class="icon-time main-color"></i> Autores Recientes
+    					</h3>
+    				</div>
+    				<div class="panel-body">
+    					<ul>
+                            <?php foreach ($authors as $author):?>
+    						<li>
+                                <a href="<?php echo 'autor/'.$author['id']?>">
+                                    <?php echo img(asset_url().'images/authors/'.$author['author_img'], $author['author_fullname'], ['class' => 'avatar'])?>
+                                    <?php echo $author['author_fullname']?>
+                                </a>
+                            </li>
+    						<?php endforeach;?>
+    					</ul>
+    					<a href="<?php echo base_url('autores')?>"><i class="fa fa-eye"></i> Ver más...</a>
+    				</div>
     			</div>
             </div>
         </div>

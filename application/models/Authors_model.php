@@ -22,6 +22,12 @@ class Authors_model extends CI_Model {
         ] );
         return $authorBean;
     }
+    function getAuthorByName ( $authorName ) {
+        $authorBean = R::findOne ( 'author', ' author_fullname = ? ', [
+                $authorName
+        ] );
+        return $authorBean;
+    }
     function searchAllAuthorsOrderedByName() {
         $authorsBeans = R::find ( 'author', 'authorstate_id = :authorstate ORDER BY author_fullname', [ 
                 'authorstate' => 1 

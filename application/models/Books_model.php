@@ -18,9 +18,17 @@ class Books_model extends CI_Model {
         ] );
         return $bookBean;
     }
+    function getBookByName($bookName) {
+        $bookBean = R::findOne ( 'book', ' book_name = ? ', [
+                $bookName
+        ] );
+        return $bookBean;
+    }
     function getGenresBook($id) {
-        //$listOfBooks = R::getAll ('SELECT * FROM author_book ab, book b WHERE ab.author_id = ? AND b.id = ab.book_id', [ $authorId ] );
-        $listOfGenres = R::getAll ('SELECT genrebook_name FROM genrebook gb, book_genrebook bgb WHERE bgb.book_id = ? AND bgb.genrebook_id = gb.id', [ $id ] );
+        $listOfGenres = R::getAll ('
+                SELECT genrebook_name 
+                FROM genrebook gb, book_genrebook bgb 
+                WHERE bgb.book_id = ? AND bgb.genrebook_id = gb.id', [ $id ] );
         
         return $listOfGenres;
     }
@@ -28,6 +36,14 @@ class Books_model extends CI_Model {
         $authorOfBookId = R::findOne ( 'author_book', 'book_id = ?', [$bookId] ) -> author_id;
         $authorOfBookBean = R::findOne ( 'author', 'id = ?', [$authorOfBookId] );
         return $authorOfBookBean;
+    }
+    function getAllComments($bookId) {        
+        $bookComments = R::getAll( '
+                SELECT c.num_comment, c.text, c.date_publish, u.user_nickname, u.user_avatar
+                FROM comment c, user u
+                WHERE c.book_id = ? AND c.user_id = u.id
+                ORDER BY c.num_comment ASC', [ $bookId ] );
+        return $bookComments;
     }
     function searchAllBooksOrderedByName() {
         $booksBeans = R::find ( 'book', 'bookstate_id = :bookstatus ORDER BY book_name', [
@@ -62,6 +78,23 @@ class Books_model extends CI_Model {
         } catch ( Exception $e ) {
             show_error ( $e->getMessage () );
         }
+    }
+    public function addComment($data) {        
+        $comment = $data['comment'];
+        $userId = $data['userId'];
+        $bookId = $data['bookId'];
+        
+        $numCommentsOfBook = R::count( 'comment', ' book_id = ? ', [ $bookId ] );
+        
+        $newComment = R::dispense( 'comment' );
+        $newComment->num_comment = ($numCommentsOfBook+1);
+        $newComment->text = $comment;
+        $newComment->date_publish = R::isoDateTime();
+        $newComment->book_id = $bookId;
+        $newComment->user_id = $userId;
+        
+        R::store($newComment);
+        
     }
     public function createNewBookAndAssociateWithAuthor($bookisbn, $bookname, $bookdesc, $bookimg, $genrebook ,$idAuthorOfTheBook){
         $pendingState = R::load('bookstate', 2);

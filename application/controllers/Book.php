@@ -30,20 +30,24 @@ class Book extends CI_Controller {
     }
     
     public function showBook() {
-        $id_of_book = $this->uri->segment(2);
+        $name_of_book = quitDash($this->uri->segment(2));
         $this->load->model( 'Books_model' );
         $this->load->model( 'Listbooks_model' );
         
-        $book = $this->Books_model->getBook($id_of_book);
+        $book = $this->Books_model->getBookByName($name_of_book);
+        $id_of_book = $book->id;
+        $comments = $this->Books_model->getAllComments($book->id);
+        
         $user_id = $this->session->userdata ( 'id' );
         
         if (!$book) {
-            redirect ( 'busqueda-libros/'.$id_of_book );
+            redirect ( 'busqueda-libros/'.$name_of_book );
         }
         
         $data ['title'] = $book->book_name;
         $data ['section'] = 'libros';
         $data ['book'] = $book;
+        $data ['comments'] = $comments;
         $data ['genres'] = $this->Books_model->getGenresBook($id_of_book);
         
         $isBookAlreadyInList = $this->Listbooks_model->getBookFromListbook ( $id_of_book, $user_id );
@@ -59,20 +63,21 @@ class Book extends CI_Controller {
         $viewUri = 'books/info_book';
         loadBasicViews ( $viewUri, $data );
     }
-    public function updateBookisbn($bookId){
-        $newIsbn = $_POST['value'];
+    public function addBookComment() {
+        
+        if ( empty($_POST) ){
+            $this->session->set_flashdata ( 'signInError', getSignInErrorMsg () );
+            redirect(base_url(),'refresh');
+        }
+        
+        $data['comment'] = $_POST['comment'];
+        $data['userId'] = $_POST['userId'];
+        $data['bookId'] = $_POST['bookId'];
+        
         $this->load->model('Books_model');
-        $this->Books_model->updateBookisbn($bookId, $newIsbn);
-    }
-    public function updateBookname($bookId){
-        $newName = $_POST['value'];
-        $this->load->model('Books_model');
-        $this->Books_model->updateBookname($bookId, $newName);
-    }
-    public function updateBookdesc($bookId){
-        $newDesc = $_POST['value'];
-        $this->load->model('Books_model');
-        $this->Books_model->updateBookdesc($bookId, $newDesc);
+        $this->Books_model->addComment($data);
+        
+        redirect($_SERVER['HTTP_REFERER'] ,'refresh');
     }
     public function setBookAvailable(){
         $bookId = $this->uri->segment(2);
@@ -81,4 +86,19 @@ class Book extends CI_Controller {
         $this->session->set_flashdata ( 'verifySuccess', getVerifySuccessMsg () );
         redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
     }
+    private function updateBookisbn($bookId){
+        $newIsbn = $_POST['value'];
+        $this->load->model('Books_model');
+        $this->Books_model->updateBookisbn($bookId, $newIsbn);
+    }
+    private function updateBookname($bookId){
+        $newName = $_POST['value'];
+        $this->load->model('Books_model');
+        $this->Books_model->updateBookname($bookId, $newName);
+    }
+    private function updateBookdesc($bookId){
+        $newDesc = $_POST['value'];
+        $this->load->model('Books_model');
+        $this->Books_model->updateBookdesc($bookId, $newDesc);
+    }    
 }

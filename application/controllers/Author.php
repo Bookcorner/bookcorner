@@ -31,11 +31,12 @@ class Author extends CI_Controller {
         $data ['title'] = 'Se sacara de la bbdd';
         $this->load->model ( 'Authors_model' );
         
-        $id_of_author = $this->uri->segment ( 2 );
-        $data ['author'] = $this->Authors_model->getAuthor ( $id_of_author );
+        $name_of_author = quitDash($this->uri->segment( 2 ));        
+        $data ['author'] = $this->Authors_model->getAuthorByName ( $name_of_author );
+        $id_of_author = $data ['author']->id;
         
         if (!$data ['author']) {
-            redirect ( 'busqueda-autores/'.$id_of_author );
+            redirect ( 'busqueda-autores/'.$name_of_author );
         }
         
         $data ['books'] = $this->Authors_model->getAllBooksFromAuthor($id_of_author);

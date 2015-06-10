@@ -4,7 +4,7 @@
 		<ol class="breadcrumb">
 			<li><?php echo anchor(base_url('home'), 'Home')?></li>
 			<li><?php echo anchor(base_url('libros'), 'Libros')?></li>
-			<li><?php echo anchor( base_url('libro/'.$book['id']), $book->book_name)?></li>
+			<li><?php echo anchor( base_url('libro/'.filterQuitSpecChar($book->book_name)), $book->book_name)?></li>
 		</ol>
 	</div>
 	<!-- FIN BREADCRUMB -->
@@ -24,23 +24,17 @@
                                 'class' => 'img-rounded bigbook visible-lg visible-md',
                                 'alt' => $book->book_name 
                         ) )?>
-                        <?php
-                        echo img ( array (
-                                'src' => asset_url () . '/images/books/' . $book->book_img,
-                                'class' => 'img-rounded mediumbook visible-sm visible-xs',
-                                'alt' => $book->book_name 
-                        ) )?>
                         </div>
 						<div class="col-xs-7">
 							<div class="row">
 								<div class="col-xs-12">
 									<p>Titulo: <?= $book->book_name ?></p>
-									<p>Autor: <?= anchor( base_url().'autor/'.$author->id,$author->author_fullname) ?></p>									
+									<p>Autor: <?= anchor( base_url().'autor/'.filterQuitSpecChar($author->author_fullname),$author->author_fullname) ?></p>									
 									<p>Géneros:
 									   <ol style="list-style-type:none;">
 									       <?php foreach ($genres as $genre){ echo '<li>'.$genre['genrebook_name'].'</li>'; }?>
 									   </ol>
-									</p>									
+									</p>
 									<p>Descripción: <?= $book->book_desc ?></p>
 								</div>
 							</div>
@@ -67,6 +61,7 @@
 						</div>
 					</div>
 				</div>
+				<?php if( count($comments)!= 0 ) { ?>
 				<div class="panel-footer">
 					<div class="row">
 						<div class="col-xs-12">
@@ -74,26 +69,26 @@
 						</div>
 					</div>
 					<div class="row">
-						<!-- Comienzo del forechach justo debajo de este comentario -->
-						<div class="col-xs-9 col-xs-push-3">
-							<h4>
-								Nombre del usuario.
-								</h2>
-								<p>Comentario. Debe ser de 500 letras maomeno, que no sean mazo
-									extensos pls</p>
-						
-						</div>
-						<div class="col-xs-3 col-xs-pull-9">
-    				        <?php
-                            echo img ( array (
-                                    'src' => asset_url () . '/images/users/' . 'avatar', //cambiar lo de avatar x el nombre de la imagen
+						<?php foreach($comments as $comment) { ?>
+						<div>
+    						<div class="col-xs-9 col-xs-push-3">
+    							<h4>#<?= $comment['num_comment'];?> <?= anchor(base_url('usuario/'.$comment['user_nickname']),$comment['user_nickname']); ?></h4>
+								<p> <?= $comment['text'] ?> </p>
+    						
+    						</div>
+    						<div class="col-xs-2 col-xs-pull-9">
+        				        <?php
+                                echo img ( array (
+                                    'src' => asset_url () . '/images/users/' . $comment['user_avatar'], //cambiar lo de avatar x el nombre de la imagen
                                     'class' => 'img-rounded smallauthor',
                                     'alt' => 'user_name' 
-                            ) )?>
+                                ) )?>
+                            </div>
                         </div>
-						<!-- Fin del forechach justo encima de este comentario -->
+                        <?php } ?>
 					</div>
 				</div>
+				<?php } ?>
 			</div>
 		</div>
 	</div>
@@ -105,21 +100,33 @@
 				</div>
 				<div class="panel-body">
                     <?php
-                    echo form_open ( 'addBookComments', [ 
+                    echo form_open ( base_url('comentar'), [ 
                             'id' => 'idCommentsForm',
-                            'class' => 'form-horizontal' 
+                            'class' => 'form-horizontal',
+                            'data-toggle' => 'validator',
+                            'method' => 'post',
+                            'accept-charset' => 'UTF-8',
                     ] )?>
+                    <?php if (check_session_exist ('id')) { ?>
 					<div>
 						<label for="idComment" class="control-label lead">Introduce un
 							comentario:</label>
 						<textarea id="idComment" class="form-control" rows="4"
-							name="comment"></textarea>
+							name="comment" maxlength="500"></textarea>
+						<input type="text" name="userId" value="<?= $id ?>" hidden>
+						<input type="text" name="bookId" value="<?= $book->id ?>" hidden>
 					</div>
 
 					<button type="submit" class="btn btn-info">
 						<i class="fa fa-share-square fa-x2"></i> Comentar
 					</button>
-					<?php echo form_close()?>
+					<?php echo form_close(); } else { ?>
+					<div>
+						<label for="idComment" class="control-label lead">
+    						Inicia sesión para comentar
+						</label>
+					</div>
+					<?php } ?>
 	           </div>
 			</div>
 		</div>

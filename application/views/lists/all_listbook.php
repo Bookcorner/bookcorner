@@ -30,7 +30,7 @@
         		        <?php foreach ($books as $book):?>
                             <tr>
                                 <td><?php echo $book['book_isbn']?></td>
-        				        <td><?php echo anchor('libro/'.$book['book_id'],$book['book_name'])?></td>
+        				        <td><?php echo anchor('libro/'.filterQuitSpecChar($book['book_name']),$book['book_name'])?></td>
                                 <td>
                                     <a href="#"
                                         data-name="status" 

@@ -36,6 +36,19 @@ class User extends CI_Controller {
         loadCustomViews($views, $data);
     }
     
+    public function showList() {
+        $userNick = $this->uri->segment(2);
+        $this->load->model('Listbooks_model');
+        
+        $data ['user'] = $this->Users_model->getUserByNick($userNick);        
+        $data ['title'] = 'Lista de '.$userNick;
+        $userId = $data ['user']->id;
+        $data ['books'] = $this->Listbooks_model->getAllBooklistFromUser( $userId );
+        
+        $viewUri = 'user/info_list';
+        loadBasicViews ( $viewUri, $data );
+    }
+    
     public function signup() {
         
         $this->setSignUpFormRules();
@@ -96,7 +109,7 @@ class User extends CI_Controller {
     private function setSignUpFormRules(){
         $this->form_validation->set_rules ( 'name', 'Nombre', 'required' );
         $this->form_validation->set_rules ( 'surname', 'Apellido', 'required' );
-        $this->form_validation->set_rules ( 'user', 'Usuario', 'required' );
+        $this->form_validation->set_rules ( 'user', 'Usuario', 'required|alpha_dash' );
         $this->form_validation->set_rules ( 'genre', 'Género', 'required' );
         $this->form_validation->set_rules ( 'captchaControl', 'Captcha', 'required' );
         $this->form_validation->set_rules ( 'pass', 'Contraseña', 'required' );

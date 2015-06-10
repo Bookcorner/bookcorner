@@ -13,3 +13,25 @@ function prepareForSearchableWord($string) {
     
     return str_replace ( '%20', '%', $searchFormatted );
 }
+
+function filter($string) {
+    $originales = 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðòóôõöøùúûýýþÿŔŕ';
+    $modificadas = 'aaaaaaaceeeeiiiidoooooouuuuybsaaaaaaaceeeeiiiidoooooouuuyybyRr';
+    $string = utf8_decode ( $string );
+    $string = strtr ( $string, utf8_decode ( $originales ), $modificadas );
+    $string = strtolower ( $string );
+    
+    return $string;
+}
+
+function filterQuitSpecChar($string) {
+    $string = str_replace ( " ", "-", $string );
+
+    $string = filter($string);
+
+    return $string;
+}
+function quitDash($string) {
+    $string = str_replace("-", " ", $string);
+    return $string;
+}

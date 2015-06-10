@@ -17,7 +17,9 @@
 					<div class="panel-heading" role="tab"
 						id="head<?php echo 'libro'.$book['id']?>">
 						<div class="panel-title overflow">
-							<h4 class="alignleft"><?php echo $book['book_name']?></h4>
+							 <h4 class="alignleft">
+							     <a href="<?= base_url('libro/'.filterQuitSpecChar($book['book_name']))?>" class='nolink'><?php echo $book['book_name']?> </a>
+							 </h4>
 							<a data-toggle="collapse" data-parent="#idAllBooks"
 								href="<?php echo '#libro'.$book['id']?>" aria-expanded="false"
 								aria-controls="<?php echo 'autor'.$book['id']?>"
@@ -32,13 +34,13 @@
 						<div class="panel-body">
 							<div class="col-md-9 col-md-push-3">
 								<h2>
-                            <?php echo anchor('libro/'.$book['id'], $book['book_name'], [
+                            <?php echo anchor('libro/'.filterQuitSpecChar($book['book_name']), $book['book_name'], [
                                 'class' => 'nolink'
                             ])?></h2>
-								<p><?php echo substr($book['book_desc'], 0, 300)?>...<?php echo anchor('libro/'.$book['id'], 'leer más')?></p>
+								<p><?php echo substr($book['book_desc'], 0, 300)?>...<?php echo anchor('libro/'.filterQuitSpecChar($book['book_name']), 'leer más')?></p>
 							</div>
 							<div class="col-md-3 col-md-pull-9">
-							<a href="<?= base_url().'libro/'.$book['id'] ?>">
+							<a href="<?= base_url().'libro/'.filterQuitSpecChar($book['book_name']) ?>">
                                 <?php echo img ( array (
                                     'src' => asset_url () . '/images/books/' . $book ['book_img'],
                                     'class' => 'img-rounded smallbook',
