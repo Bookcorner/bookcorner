@@ -33,23 +33,7 @@
 								</div>
 							</a>
 						</div>
-						<div class="col-xs-2">
-							<a href="<?php echo base_url('adminlistbook')?>">
-								<div class="panel panel-danger">
-									<div class="panel-heading">
-										<div class="row">
-											<div class="col-xs-3">
-												<i class="fa fa-list fa-5x"></i>
-											</div>
-											<div class="col-xs-9 text-right">
-												<div>Lista de Libros</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="col-xs-2">
+						<div class="col-xs-3">
 							<a href="<?php echo base_url('adminauthors')?>">
 								<div class="panel panel-info">
 									<div class="panel-heading">
@@ -65,7 +49,7 @@
 								</div>
 							</a>
 						</div>
-						<div class="col-xs-2">
+						<div class="col-xs-3">
 							<a href="<?php echo base_url('adminbooks')?>">
 								<div class="panel panel-success">
 									<div class="panel-heading">
@@ -118,21 +102,7 @@
 								</div>
 							</a>
 						</div>
-						<div class="col-xs-2">
-							<a href="<?php echo base_url('adminlistbook')?>">
-								<div class="panel panel-danger">
-									<div class="panel-heading">
-										<div class="row">
-											<div class="col-xs-3">
-												<i class="fa fa-list fa-5x"></i>
-											</div>
-											<div class="col-xs-9 text-right"></div>
-										</div>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="col-xs-2">
+						<div class="col-xs-3">
 							<a href="<?php echo base_url('adminauthors')?>">
 								<div class="panel panel-info">
 									<div class="panel-heading">
@@ -146,7 +116,7 @@
 								</div>
 							</a>
 						</div>
-						<div class="col-xs-2">
+						<div class="col-xs-3">
 							<a href="<?php echo base_url('adminbooks')?>">
 								<div class="panel panel-success">
 									<div class="panel-heading">
@@ -198,21 +168,7 @@
 								</div>
 							</a>
 						</div>
-						<div class="col-xs-2">
-							<a href="<?php echo base_url('adminlistbook')?>">
-								<div class="panel panel-danger">
-									<div class="panel-heading">
-										<div class="row">
-											<div class="col-xs-3">
-												<i class="fa fa-list fa-3x"></i>
-											</div>
-											<div class="col-xs-9 text-right"></div>
-										</div>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="col-xs-2">
+						<div class="col-xs-3">
 							<a href="<?php echo base_url('adminauthors')?>">
 								<div class="panel panel-info">
 									<div class="panel-heading">
@@ -226,7 +182,7 @@
 								</div>
 							</a>
 						</div>
-						<div class="col-xs-2">
+						<div class="col-xs-3">
 							<a href="<?php echo base_url('adminbooks')?>">
 								<div class="panel panel-success">
 									<div class="panel-heading">
@@ -261,7 +217,7 @@
 					<!-- BODY XS -->
 				<div class="panel-body visible-xs">
 					<div class="row">
-						<div class="col-xs-2">
+						<div class="col-xs-6">
 							<a href="<?php echo base_url('adminusers')?>">
 								<div class="panel panel-primary">
 									<div class="panel-heading">
@@ -269,27 +225,13 @@
 											<div class="col-xs-3">
 												<i class="fa fa-users fa-2x"></i>
 											</div>
-											<div class="col-xs-9 text-right"></div>
+											<div class="col-xs-9 text-right">Usuarios</div>
 										</div>
 									</div>
 								</div>
 							</a>
 						</div>
-						<div class="col-xs-2">
-							<a href="<?php echo base_url('adminlistbook')?>">
-								<div class="panel panel-danger">
-									<div class="panel-heading">
-										<div class="row">
-											<div class="col-xs-3">
-												<i class="fa fa-list fa-2x"></i>
-											</div>
-											<div class="col-xs-9 text-right"></div>
-										</div>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="col-xs-2">
+						<div class="col-xs-6">
 							<a href="<?php echo base_url('adminauthors')?>">
 								<div class="panel panel-info">
 									<div class="panel-heading">
@@ -297,13 +239,13 @@
 											<div class="col-xs-3">
 												<i class="fa fa-pencil-square-o fa-2x"></i>
 											</div>
-											<div class="col-xs-9 text-right"></div>
+											<div class="col-xs-9 text-right">Autores</div>
 										</div>
 									</div>
 								</div>
 							</a>
 						</div>
-						<div class="col-xs-2">
+						<div class="col-xs-6">
 							<a href="<?php echo base_url('adminbooks')?>">
 								<div class="panel panel-success">
 									<div class="panel-heading">
@@ -311,22 +253,21 @@
 											<div class="col-xs-3">
 												<i class="fa fa-book fa-2x"></i>
 											</div>
-											<div class="col-xs-9 text-right"></div>
+											<div class="col-xs-9 text-right">Libros</div>
 										</div>
 									</div>
 								</div>
 							</a>
 						</div>
-						<div class="col-xs-4">
+						<div class="col-xs-6">
 							<a href="<?php echo base_url('admingenre')?>">
 								<div class="panel panel-warning">
 									<div class="panel-heading">
 										<div class="row">
-											<div class="col-xs-6">
-												<i class="fa fa-female fa-2x"></i> <i
-													class="fa fa-male fa-2x"></i>
+											<div class="col-xs-3">
+												<i class="fa fa-female fa-2x"></i>
 											</div>
-											<div class="col-xs-6 text-right"></div>
+											<div class="col-xs-9 text-right">Generos</div>
 										</div>
 									</div>
 								</div>

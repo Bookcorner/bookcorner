@@ -96,7 +96,8 @@ $route['quitar-libro/:num'] = 'listbook/removeBookFromList';
 $route['salir'] = 'login/logout';
 
 //vote
-$route['ver-votos'] = 'vote/showAllvotes';
+$route['ver-votos'] = 'vote/showTablesVotes';
+$route['libros-mas-puntuados'] = 'vote/showAllPopularBooks';
 
 //reporte
 $route['reportes'] = 'report/index';

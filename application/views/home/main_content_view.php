@@ -56,7 +56,7 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td colspan="2"><a href="<?php echo base_url('votación')?>"><i class="fa fa-eye"></i> Ver más...</a>
+                                    <td colspan="2"><a href="<?php echo base_url('ver-votos')?>"><i class="fa fa-eye"></i> Ver más...</a>
                                     </td>
                                 </tr>
                             </tfoot>
@@ -99,7 +99,7 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td colspan="2"><a href="<?php echo base_url('votación')?>" class="text-center"><i class="fa fa-eye"></i>Ver más...</a>
+                                    <td colspan="2"><a href="<?php echo base_url('ver-votos')?>" class="text-center"><i class="fa fa-eye"></i>Ver más...</a>
                                     </td>
                                 </tr>
                             </tfoot>

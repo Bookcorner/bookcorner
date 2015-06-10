@@ -46,7 +46,7 @@
    								</div>
    							</div>
    						</div>
-  						<a href="<?php echo base_url('adminlistbook')?>">
+  						<a href="<?php echo base_url('adminbooks')?>">
    							<div class="panel-footer">
    								<span class="pull-left">Ver Detalles</span> <span
    									class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -115,10 +115,7 @@
 						<a href="<?php echo base_url('adminusers')?>"
 							class="list-group-item"> <i class="fa fa-users"></i>
 							Administración Usuarios
-						</a> 
-						<a href="<?php echo base_url('adminlistbook')?>" class="list-group-item"> 
-						  <i class="fa fa-list"></i> Administración Lista de Libros
-						</a> 
+						</a>
 						<a href="<?php echo base_url('adminauthors')?>" class="list-group-item"> 
 						  <i class="fa fa-pencil-square-o"></i> Administración Autores
 						</a> 

@@ -171,6 +171,7 @@ class Books_model extends CI_Model {
                 FROM valuation v, book b
                 WHERE v.val_puntuacion <= 10 AND v.book_id = b.id 
                 GROUP BY v.book_id
+                ORDER BY total DESC
                 LIMIT 5');
         return $book;
     }
@@ -178,7 +179,8 @@ class Books_model extends CI_Model {
         $book = R::getAll('SELECT SUM(v.val_puntuacion) as total, b.book_name, b.book_img, b.id
                 FROM valuation v, book b
                 WHERE v.val_puntuacion <= 10 AND v.book_id = b.id
-                GROUP BY v.book_id');
+                GROUP BY v.book_id
+                ORDER BY total DESC');
         return $book;
     } 
     public function getMostPopularAVGBooks(){
@@ -186,7 +188,24 @@ class Books_model extends CI_Model {
                 FROM valuation v, book b
                 WHERE v.val_puntuacion <= 10 AND v.book_id = b.id
                 GROUP BY v.book_id
+                ORDER BY total DESC
                 LIMIT 5');
+        return $book;
+    }
+    public function getAllPopularAVGBooks(){
+        $book = R::getAll('SELECT AVG(v.val_puntuacion) as total, b.book_name, b.book_img, b.id
+                FROM valuation v, book b
+                WHERE v.val_puntuacion <= 10 AND v.book_id = b.id
+                GROUP BY v.book_id
+                ORDER BY total DESC');
+        return $book;
+    }
+    public function getAllStatesPopularBooks(){
+        $book = R::getAll('SELECT COUNT(v.val_estado_libro) b.book_name, b.book_img, b.id
+                FROM valuation v, book b
+                WHERE v.val_puntuacion <= 10 AND v.book_id = b.id
+                GROUP BY v.val_estado_libro
+                ORDER BY total DESC');
         return $book;
     }
 }
