@@ -35,6 +35,8 @@ class Book extends CI_Controller {
         $this->load->model( 'Listbooks_model' );
         
         $book = $this->Books_model->getBook($id_of_book);
+        $comments = $this->Books_model->getAllComments($book->id);
+        
         $user_id = $this->session->userdata ( 'id' );
         
         if (!$book) {
@@ -44,6 +46,7 @@ class Book extends CI_Controller {
         $data ['title'] = $book->book_name;
         $data ['section'] = 'libros';
         $data ['book'] = $book;
+        $data ['comments'] = $comments;
         $data ['genres'] = $this->Books_model->getGenresBook($id_of_book);
         
         $isBookAlreadyInList = $this->Listbooks_model->getBookFromListbook ( $id_of_book, $user_id );

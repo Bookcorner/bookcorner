@@ -29,6 +29,14 @@ class Books_model extends CI_Model {
         $authorOfBookBean = R::findOne ( 'author', 'id = ?', [$authorOfBookId] );
         return $authorOfBookBean;
     }
+    function getAllComments($bookId) {        
+        $bookComments = R::getAll( '
+                SELECT c.num_comment, c.text, c.date_publish, c.user_id, u.user_nickname, u.user_avatar
+                FROM comment c, user u
+                WHERE c.book_id = ? AND c.user_id = u.id
+                ORDER BY c.num_comment DESC', [ $bookId ] );
+        return $bookComments;
+    }
     function searchAllBooksOrderedByName() {
         $booksBeans = R::find ( 'book', 'bookstate_id = :bookstatus ORDER BY book_name', [
                 'bookstatus' => 1

@@ -24,12 +24,6 @@
                                 'class' => 'img-rounded bigbook visible-lg visible-md',
                                 'alt' => $book->book_name 
                         ) )?>
-                        <?php
-                        echo img ( array (
-                                'src' => asset_url () . '/images/books/' . $book->book_img,
-                                'class' => 'img-rounded mediumbook visible-sm visible-xs',
-                                'alt' => $book->book_name 
-                        ) )?>
                         </div>
 						<div class="col-xs-7">
 							<div class="row">
@@ -67,6 +61,7 @@
 						</div>
 					</div>
 				</div>
+				<?php if( count($comments)!= 0 ) { ?>
 				<div class="panel-footer">
 					<div class="row">
 						<div class="col-xs-12">
@@ -74,26 +69,27 @@
 						</div>
 					</div>
 					<div class="row">
-						<!-- Comienzo del forechach justo debajo de este comentario -->
-						<div class="col-xs-9 col-xs-push-3">
-							<h4>
-								Nombre del usuario.
-								</h2>
-								<p>Comentario. Debe ser de 500 letras maomeno, que no sean mazo
-									extensos pls</p>
-						
-						</div>
-						<div class="col-xs-3 col-xs-pull-9">
-    				        <?php
-                            echo img ( array (
-                                    'src' => asset_url () . '/images/users/' . 'avatar', //cambiar lo de avatar x el nombre de la imagen
-                                    'class' => 'img-rounded smallauthor',
-                                    'alt' => 'user_name' 
-                            ) )?>
+						<?php foreach($comments as $comment) { ?>
+						<div>
+    						<div class="col-xs-9 col-xs-push-3">
+    							<h4> <?= $comment['user_nickname'] ?> </h4>
+								<p> <?= $comment['text'] ?> </p>
+    						
+    						</div>
+    						<div class="col-xs-2 col-xs-pull-9">
+        				        <?php
+                                echo img ( array (
+                                        'src' => asset_url () . '/images/users/' . $comment['user_avatar'], //cambiar lo de avatar x el nombre de la imagen
+                                        'class' => 'img-rounded smallauthor',
+                                        'alt' => 'user_name' 
+                                ) )?>
+                            </div>
                         </div>
+                        <?php } ?>
 						<!-- Fin del forechach justo encima de este comentario -->
 					</div>
 				</div>
+				<?php } ?>
 			</div>
 		</div>
 	</div>

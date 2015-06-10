@@ -386,14 +386,14 @@ class Bbdd extends CI_Controller {
         $listbook6->ownValuationList [] = $valuation20;
         
         //Introducir los comentarios
-        $user1->ownValuationList[] = $comment1;
-        $book1->ownValuationList[] = $comment1;
+        $user1->ownCommentList[] = $comment1;
+        $book1->ownCommentList[] = $comment1;
         
-        $user1->ownValuationList[] = $comment2;
-        $book2->ownValuationList[] = $comment2;        
+        $user1->ownCommentList[] = $comment2;
+        $book2->ownCommentList[] = $comment2;
         
-        $user2->ownValuationList[] = $comment3;
-        $book2->ownValuationList[] = $comment3;
+        $user2->ownCommentList[] = $comment3;
+        $book2->ownCommentList[] = $comment3;
         
         //Introducir los libros que son valorados
         $book1->ownValuationList [] = $valuation1;
