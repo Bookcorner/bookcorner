@@ -97,7 +97,7 @@ class User extends CI_Controller {
                     $this->session->set_flashdata ( 'signUpSuccess', 'Se ha registrado satisfactoriamente, le enviaremos un correo de activación.' );
                     $this->Users_model->saveUser($newUser);
                 } else {
-                    $this->session->set_flashdata ( 'signUpError', 'No se le ha podido enviar el correo, vuelva a intentarlo' );
+                    $this->session->set_flashdata ( 'signUpFail', 'No se le ha podido enviar el correo, vuelva a intentarlo' );
                 }
             } 
         } else {
@@ -251,13 +251,13 @@ class User extends CI_Controller {
         $validation = $this->Users_model->activateUser($string);
         
         if ($validation == 0) {
-            $this->session->set_flashdata ( 'signUpError', 'No corresponde la clave de validación' );
+            $this->session->set_flashdata ( 'signUpFail', 'No corresponde la clave de validación' );
         } else if ($validation == 2) {
-            $this->session->set_flashdata ( 'ok', 'Usuario activado correctamente' );
+            $this->session->set_flashdata ( 'signUpSuccess', 'Usuario activado correctamente' );
         } else if ($validation == 1) {
-            $this->session->set_flashdata ( 'signUpError', 'El usuario ya estaba activado' );
+            $this->session->set_flashdata ( 'signUpFail', 'El usuario ya estaba activado' );
         } else if ($validation == 3) {
-            $this->session->set_flashdata ( 'signUpError', 'El usuario está baneado, no puede activarlo' );
+            $this->session->set_flashdata ( 'signUpFail', 'El usuario está baneado, no puede activarlo' );
         }
         
         redirect( base_url(), 'refresh' );
@@ -276,13 +276,13 @@ class User extends CI_Controller {
         $validation = $this->Users_model->cancelUser($string);
         
         if ($validation == 0) {
-            $this->session->set_flashdata ( 'signUpError', 'No corresponde la clave de validación' );
+            $this->session->set_flashdata ( 'signUpFail', 'No corresponde la clave de validación' );
         } else if ($validation == 2) {
-            $this->session->set_flashdata ( 'ok', 'Registro cancelado correctamente' );
+            $this->session->set_flashdata ( 'signUpSuccess', 'Registro cancelado correctamente' );
         } else if ($validation == 1) {
-            $this->session->set_flashdata ( 'signUpError', 'El usuario ya estaba activado' );
+            $this->session->set_flashdata ( 'signUpFail', 'El usuario ya estaba activado' );
         } else if ($validation == 3) {
-            $this->session->set_flashdata ( 'signUpError', 'El usuario está baneado, no puede borrarlo' );
+            $this->session->set_flashdata ( 'signUpFail', 'El usuario está baneado, no puede borrarlo' );
         }
         
         redirect( base_url(), 'refresh' );
