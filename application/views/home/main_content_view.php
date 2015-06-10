@@ -30,7 +30,7 @@
 					<ul>
                         <?php foreach ($books as $book):?>
 						<li>
-                            <a href="<?php echo 'libro/'.$book['id']?>">
+                            <a href="<?php echo 'libro/'.filterQuitSpecChar($book['book_name'])?>">
                                 <?php echo img(asset_url().'images/books/'.$book['book_img'], $book['book_name'], ['class' => 'avatar'])?>
                                 <?php echo $book['book_name']?>
                             </a>
@@ -50,7 +50,7 @@
 					<ul>
                         <?php foreach ($authors as $author):?>
 						<li>
-                            <a href="<?php echo 'autor/'.$author['id']?>">
+                            <a href="<?php echo 'autor/'.filterQuitSpecChar($author['author_fullname'])?>">
                                 <?php echo img(asset_url().'images/authors/'.$author['author_img'], $author['author_fullname'], ['class' => 'avatar'])?>
                                 <?php echo $author['author_fullname']?>
                             </a>
