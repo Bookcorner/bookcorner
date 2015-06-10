@@ -11,18 +11,3 @@ if (! defined ( 'BASEPATH' ))
 function encrypt($string) {
     return md5 ( $string );
 }
-function filterQuitSpecChar($string) {
-    $string = str_replace ( " ", "-", $string );
-    
-    $originales = 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûýýþÿŔŕ';
-    $modificadas = 'aaaaaaaceeeeiiiidnoooooouuuuybsaaaaaaaceeeeiiiidnoooooouuuyybyRr';
-    $string = utf8_decode ( $string );
-    $string = strtr ( $string, utf8_decode ( $originales ), $modificadas );
-    $string = strtolower ( $string );
-    
-    return $string;
-}
-function quitDash($string) {
-    $string = str_replace("-", " ", $string);
-    return $string;
-}
