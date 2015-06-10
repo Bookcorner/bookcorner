@@ -360,8 +360,8 @@ class User extends CI_Controller {
                 resize_img( ('assets/images/users/'.$newName), 500, 500 );
                 
                 $this->session->set_flashdata ( 'updateAvatarOk', getAvatarChangeOkMsg());
-                redirect (  $_SERVER ['HTTP_REFERER'], 'refresh' );
-            } else if ($_FILES['newAvatar']['size'] == 0) {
+                redirect (  base_url ('informacion-de-usuario'), 'refresh' );
+            } else if (isset($_FILES['newAvatar']) || $_FILES['newAvatar']['size'] == 0) {
                 $this->session->set_flashdata ( 'updateAvatarError', 'La foto no puede ocupar mas de 5MB' );
                 redirect (  base_url ('informacion-de-usuario'), 'refresh' );
             } else {
