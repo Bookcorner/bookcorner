@@ -183,7 +183,6 @@ class User extends CI_Controller {
     
     }
     
-    //private function sendMailSignup($emailReceiver, $nameReceiver, $nicknameReceiver, $validation) {
     private function sendMail($emailReceiver, $message, $subject) {
         $bookcornerEmail = 'thecornerbook@gmail.com';
         $bookcornerPass = 'alumnoadmin';
@@ -342,7 +341,7 @@ class User extends CI_Controller {
         if (check_session_exist($session)){
             if (isset($_FILES['newAvatar']) && $_FILES['newAvatar']['error'] == 0) {
                 $userId = $this->session->userdata ( $session );
-                $userBean = $this->Users_model->getUserInfo($userId);                
+                $userBean = $this->Users_model->getUserInfo($userId);
                 
                 $photo = $_FILES['newAvatar'];
                 $nameArray = explode('.',$photo['name']);
@@ -357,14 +356,17 @@ class User extends CI_Controller {
                 $newSessionAvatar = array("avatar" => $newName);
                 $this->session->set_userdata($newSessionAvatar);
                 
+                $this->load->helper('image_helper');
+                resize_img( ('assets/images/users/'.$newName), 500, 500 );
+                
                 $this->session->set_flashdata ( 'updateAvatarOk', getAvatarChangeOkMsg());
                 redirect (  $_SERVER ['HTTP_REFERER'], 'refresh' );
             } else if ($_FILES['newAvatar']['size'] == 0) {
                 $this->session->set_flashdata ( 'updateAvatarError', 'La foto no puede ocupar mas de 5MB' );
-                redirect (  $_SERVER ['HTTP_REFERER'], 'refresh' );
+                redirect (  base_url ('informacion-de-usuario'), 'refresh' );
             } else {
                 $this->session->set_flashdata ( 'updateAvatarError', 'No se ha subido la foto correctamente' );
-                redirect (  $_SERVER ['HTTP_REFERER'], 'refresh' );
+                redirect (  base_url ('informacion-de-usuario'), 'refresh' );
             }            
         } else {
             $this->session->set_flashdata ( 'signInError', 'Inicie sesión para continuar' );

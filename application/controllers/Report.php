@@ -47,6 +47,12 @@ class Report extends CI_Controller {
                 $this->load->model ( 'books_model' );
                 $this->books_model->createNewBookAndAssociateWithAuthor ( $bookisbn, $bookname, $bookdesc, $imgbookData ['file_name'], $genrebook, $idAuthorOfTheBook );
                 $this->session->set_flashdata ( 'bookCreatedSuccess', getbookCreatedSuccessMsg () );
+                
+                $url = 'assets/images/books/' . $imgbookData ['file_name'];
+                
+                $this->load->helper ( 'image_helper' );
+                resize_img ( $url, 500, 500 );
+                
                 redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
             } else {
                 $authorname = set_value ( 'authorname' );
@@ -68,6 +74,13 @@ class Report extends CI_Controller {
                     $this->load->model ( 'books_model' );
                     $this->books_model->createNewBookAndAssociateWithAuthor ( $bookisbn, $bookname, $bookdesc, $imgbookData ['file_name'], $genrebook, $idAuthorCreated );
                     $this->session->set_flashdata ( 'bookCreatedSuccess', getbookCreatedSuccessMsg () );
+                    
+                    $urlBook = 'assets/images/books/' . $imgbookData ['file_name'];
+                    $urlAuthor = 'assets/images/authors/' . $imgAuthorData ['file_name'];
+                    $this->load->helper ( 'image_helper' );
+                    resize_img ( $urlBook, 500, 500 );
+                    resize_img ( $urlAuthor, 500, 500 );
+                    
                     redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
                 } else {
                     $this->session->set_flashdata ( 'bookImageError', getBookImageErrorMsg () );
@@ -79,6 +92,7 @@ class Report extends CI_Controller {
             redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
         }
     }
+    
     private function setUploadBookConfig() {
         $config ['upload_path'] = './assets/images/books/';
         $config ['allowed_types'] = 'gif|jpg|png|jpeg';
@@ -100,7 +114,7 @@ class Report extends CI_Controller {
     public function showMainReports() {
         $sessionName = 'id';
         
-        if (get_userrole() < 2) {
+        if (get_userrole () < 2) {
             redirect ( base_url ( 'prohibido' ), 'refresh' );
         } else {
             

@@ -1,6 +1,11 @@
 <?php
 if (! defined ( 'BASEPATH' ))
     exit ( 'No direct script access allowed' );
+
+function getFormErrorMsg() {
+    return "El formulario no es correcto";
+}
+
 function getSignInErrorMsg() {
     return 'Debes iniciar sesión primero';
 }

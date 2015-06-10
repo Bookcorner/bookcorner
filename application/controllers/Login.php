@@ -44,6 +44,8 @@ class Login extends CI_Controller {
                     }
                 }
             }
+        } else {
+            $this->session->set_flashdata('formError',getFormErrorMsg());
         }
         redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
     }
