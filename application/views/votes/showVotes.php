@@ -91,53 +91,13 @@
 						</div>
 					</div>
 				</div>
-				<a href="<?php echo base_url('media-libros-mas-puntuados')?>">
+				<a href="<?php echo base_url('estado-general-libros')?>">
 					<div class="panel-footer">
-						<span class="pull-left">Ver la media de la puntuación</span> <span
+						<span class="pull-left">Ver el estado general de los libros</span> <span
 							class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 						<div class="clearfix"></div>
 					</div>
 				</a>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<!-- CONTENIDO PPAL-->
-		<div class="col-xs-12">
-			<div class="panel table-responsive">
-				<div class="panel-heading">
-					<h4 class="lead text-center">
-						<i class="fa fa-star-o fa-2x"></i> Libros más puntuados <i
-							class="fa fa-star-o fa-2x"></i>
-					</h4>
-				</div>
-				<div class="panel-body">
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th>Portada</th>
-								<th class="text-center">Libro</th>
-								<th class="text-center">Puntuación</th>
-							</tr>
-						</thead>
-						<tbody>
-        		        <?php foreach ($popularBooks as $book):?>
-                            <tr>
-								<td><a
-									href="<?php echo 'libro/'.filterQuitSpecChar($book['book_name'])?>"
-									class="text-left">
-                                        <?php echo img(asset_url().'images/books/'.$book['book_img'], $book['book_name'], ['class' => 'votebook'])?>
-                                    </a></td>
-								<td class="text-center"><a
-									href="<?php echo 'libro/'.$book['id']?>">
-        				                <?php echo $book['book_name']?>
-                                    </a></td>
-								<td><h2 class="text-center"><?php echo $book['total']?> Puntos</h2></td>
-							</tr>    
-        		        <?php endforeach;?>
-        		        </tbody>
-					</table>
-				</div>
 			</div>
 		</div>
 	</div>

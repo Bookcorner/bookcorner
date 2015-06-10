@@ -155,6 +155,11 @@
 								    </a>
 								</li>
 								<li role="presentation">
+								    <a href="<?php echo base_url('ver-votos')?>" role="menuitem">
+								        <i class="fa fa-thumbs-o-up"></i> Votaciones 
+								    </a>
+								</li>
+								<li role="presentation">
 								    <?php if ($role == 2 || $role == 3):?>
 								    <a href="<?php echo base_url('moderar')?>" role="menuitem">
 								        <i class="fa fa-eye"></i>

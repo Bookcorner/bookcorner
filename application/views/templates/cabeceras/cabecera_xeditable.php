@@ -8,7 +8,7 @@ $(document).ready(function() {
     $("a[data-name='status']").editable({  
         source: [
               {value: 1, text: 'Leyendo'},
-              {value: 2, text: 'Pendiente'},
+              {value: 2, text: 'Pendiente de leer'},
               {value: 3, text: 'Abandonado'},
               {value: 4, text: 'Terminado'}
            ]

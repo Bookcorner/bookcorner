@@ -27,10 +27,38 @@ class Vote extends CI_Controller {
         $this->load->model('Books_model');
         $data['popularBooks'] = $this->Books_model->getAllPopularBooks();
         $data['title'] = 'Puntuación total Libros';
-        $contentURI = 'votes/showVotes';
+        $contentURI = 'votes/showPopularVotes';
+        loadBasicViews($contentURI, $data);
+    }
+    public function showAllPopularAVGBooks() {
+        $sessionName = 'id';
+    
+        if (! check_session_exist ( $sessionName )) {
+            $this->session->set_flashdata ( 'signInError', getSignInErrorMsg () );
+            redirect ( base_url (), 'refresh' );
+        }
+    
+        $this->load->model('Books_model');
+        $data['averageBooks'] = $this->Books_model->getAllPopularAVGBooks();
+        $data['title'] = 'Puntuación Media Libros';
+        $contentURI = 'votes/showPopularAVGVotes';
         loadBasicViews($contentURI, $data);
     }
     
+    public function showAllStateBooks() {
+        $sessionName = 'id';
+    
+        if (! check_session_exist ( $sessionName )) {
+            $this->session->set_flashdata ( 'signInError', getSignInErrorMsg () );
+            redirect ( base_url (), 'refresh' );
+        }
+    
+        $this->load->model('Books_model');
+        $data['stateBooks'] = $this->Books_model->getAllStatesBooks();
+        $data['title'] = 'Estados de los libros';
+        $contentURI = 'votes/showStateBooksVotes';
+        loadBasicViews($contentURI, $data);
+    }
 }
 
     
