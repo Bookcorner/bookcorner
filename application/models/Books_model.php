@@ -19,8 +19,10 @@ class Books_model extends CI_Model {
         return $bookBean;
     }
     function getGenresBook($id) {
-        //$listOfBooks = R::getAll ('SELECT * FROM author_book ab, book b WHERE ab.author_id = ? AND b.id = ab.book_id', [ $authorId ] );
-        $listOfGenres = R::getAll ('SELECT genrebook_name FROM genrebook gb, book_genrebook bgb WHERE bgb.book_id = ? AND bgb.genrebook_id = gb.id', [ $id ] );
+        $listOfGenres = R::getAll ('
+                SELECT genrebook_name 
+                FROM genrebook gb, book_genrebook bgb 
+                WHERE bgb.book_id = ? AND bgb.genrebook_id = gb.id', [ $id ] );
         
         return $listOfGenres;
     }

@@ -72,7 +72,7 @@
 						<?php foreach($comments as $comment) { ?>
 						<div>
     						<div class="col-xs-9 col-xs-push-3">
-    							<h4> <?= $comment['user_nickname'] ?> </h4>
+    							<h4>#<?= $comment['user_id'];?> <?= anchor(base_url('usuario/'.$comment['user_id']),$comment['user_nickname']); ?></h4>
 								<p> <?= $comment['text'] ?> </p>
     						
     						</div>
