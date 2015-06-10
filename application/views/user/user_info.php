@@ -137,7 +137,7 @@ $( document ).ready(function() {
 								usuario:</label>
 							<div class="controls">
 								<input id="idNewUsername" name="newUsername"
-									class="form-control" pattern="^{1,20}$" type="text"
+									class="form-control" pattern="^[a-z0-9_-]{3,16}$" type="text"
 									placeholder="Nombre de usuario"
 									data-error="Nombre de usuario no válido" required />
 							</div>
