@@ -12,7 +12,7 @@
 		<div class="col-xs-12">
 			<div class="panel table-responsive">
 				<div class="panel-heading">
-					<h4 class="lead text-center">Lista de <?php echo $nickname?></h4>
+					<h4 class="lead text-center">Libros favoritos de <?php echo $nickname?></h4>
 				</div>
 				<div class="panel-body">
 					<table class="table table-hover">
