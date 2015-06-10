@@ -36,7 +36,7 @@
                                         <?php echo img(asset_url().'images/books/'.$book['book_img'], $book['book_name'], ['class' => 'avatar'])?>
                                     </a></td>
 								<td class="text-center">
-								    <h3><a href="<?php echo 'libro/'.$book['id']?>">
+								    <h3><a href="<?php echo 'libro/'.filterQuitSpecChar($book['book_name'])?>">
         				                <?php echo $book['book_name']?>
                                     </a></h3>
                                 </td>
