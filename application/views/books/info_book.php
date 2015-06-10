@@ -107,6 +107,7 @@
                             'method' => 'post',
                             'accept-charset' => 'UTF-8',
                     ] )?>
+                    <?php if (check_session_exist ('id')) { ?>
 					<div>
 						<label for="idComment" class="control-label lead">Introduce un
 							comentario:</label>
@@ -119,7 +120,13 @@
 					<button type="submit" class="btn btn-info">
 						<i class="fa fa-share-square fa-x2"></i> Comentar
 					</button>
-					<?php echo form_close()?>
+					<?php echo form_close(); } else { ?>
+					<div>
+						<label for="idComment" class="control-label lead">
+    						Inicia sesión para comentar
+						</label>
+					</div>
+					<?php } ?>
 	           </div>
 			</div>
 		</div>
