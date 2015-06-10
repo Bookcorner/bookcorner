@@ -84,6 +84,7 @@ $route['activar/:any'] = 'user/activate';
 $route['cancelar/:any'] = 'user/cancel';
 $route['contactar'] = 'user/sendContact';
 $route['eliminar'] = 'user/deleteAccount';
+$route['usuario/:any'] = 'user/showList';
 
 
 //listbook

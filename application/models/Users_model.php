@@ -23,6 +23,12 @@ class Users_model extends CI_Model {
         ] );
         return $userBean;
     }
+    function getUserByNick($userNick) {
+        $userBean = R::findOne ( 'user', ' user_nickname = ? ', [
+                $userNick
+        ] );
+        return $userBean;
+    }
     public function getAllModerators() {
         $mod_users = R::find ( 'user', 'userrole_id = 2' );
         return $mod_users;

@@ -84,7 +84,7 @@
 						<p>Comparte tus gustos y opiniones con el resto de la comunidad
 							por medio de los votos de libros y autores</p>
 						<p>
-						    <?php echo anchor(base_url('user/vote'), '¡Quiero votar!', [
+						    <?php echo anchor(base_url('votar'), '¡Quiero votar!', [
 								            'class' => 'btn btn-lg btn-primary',
 								            'role' => 'button'
 						    ])?>

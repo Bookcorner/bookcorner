@@ -31,7 +31,7 @@
 									<tr>
 										<th>ISBN</th>
 										<th>Título</th>
-										<th>Descrición</th>
+										<th>Descripción</th>
 										<th>Imagen</th>
 										<th>Autor</th>
 										<th>Acciones</th>
