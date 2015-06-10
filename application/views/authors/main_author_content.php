@@ -14,7 +14,7 @@
 		     <div class="panel">
 				<div class="panel-body">
                     <div class="col-md-2 col-md-push-10">
-                        <a href="<?= 'autor/'.$author['id'] ?>">
+                        <a href="<?= 'autor/'.filterQuitSpecChar($author->author_fullname) ?>">
     					    <?php echo img ( array (
                                 'src' => asset_url () . '/images/authors/' . $author ['author_img'],
                                 'class' => 'img-circle smallauthor',
@@ -24,11 +24,11 @@
                     </div>
 					<div class="col-md-10 col-md-pull-2">
                         <h2 class="text-right">
-                            <?php echo anchor('autor/'.$author['id'], $author['author_fullname'], [
+                            <?php echo anchor('autor/'.filterQuitSpecChar($author->author_fullname), $author['author_fullname'], [
                                 'class' => 'nolink'
                             ])?>
                         </h2>
-                        <p><?php echo substr($author['author_desc'], 0, 300)?>...<?php echo anchor('autor/'.$author['id'], 'leer más')?></p>  
+                        <p><?php echo substr($author['author_desc'], 0, 300)?>...<?php echo anchor('autor/'.filterQuitSpecChar($author->author_fullname), 'leer más')?></p>  
 			         </div>
                 </div>
                 <div class ="panel-footer hidden">

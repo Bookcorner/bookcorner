@@ -16,15 +16,15 @@
 					<div class="col-sm-9 col-sm-push-3">
 						<h2>
                             <?php
-                            echo anchor ( 'libro/' . $book ['id'], $book ['book_name'], [ 
+                            echo anchor ( 'libro/' . filterQuitSpecChar($book['book_name']), $book ['book_name'], [ 
                                     'class' => 'nolink' 
                             ] )?>
                         </h2>
-						<p><?php echo substr($book['book_desc'], 0, 300)?>...<?php echo anchor('libro/'.$book['id'], 'leer más')?></p>
+						<p><?php echo substr($book['book_desc'], 0, 300)?>...<?php echo anchor('libro/'.filterQuitSpecChar($book['book_name']), 'leer más')?></p>
 					</div>
 					
 					<div class="col-sm-1 col-sm-pull-9">
-					   <a href="<?= 'libro/'.$book['id'] ?>">
+					   <a href="<?= 'libro/'.filterQuitSpecChar($book['book_name']) ?>">
                             <?php
                             echo img ( array (
                                     'src' => asset_url () . 'images/books/' . $book ['book_img'],

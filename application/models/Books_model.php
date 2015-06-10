@@ -18,6 +18,12 @@ class Books_model extends CI_Model {
         ] );
         return $bookBean;
     }
+    function getBookByName($bookName) {
+        $bookBean = R::findOne ( 'book', ' book_name = ? ', [
+                $bookName
+        ] );
+        return $bookBean;
+    }
     function getGenresBook($id) {
         $listOfGenres = R::getAll ('
                 SELECT genrebook_name 

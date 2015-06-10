@@ -96,7 +96,7 @@ class User extends CI_Controller {
     private function setSignUpFormRules(){
         $this->form_validation->set_rules ( 'name', 'Nombre', 'required' );
         $this->form_validation->set_rules ( 'surname', 'Apellido', 'required' );
-        $this->form_validation->set_rules ( 'user', 'Usuario', 'required' );
+        $this->form_validation->set_rules ( 'user', 'Usuario', 'required|alpha_dash' );
         $this->form_validation->set_rules ( 'genre', 'Género', 'required' );
         $this->form_validation->set_rules ( 'captchaControl', 'Captcha', 'required' );
         $this->form_validation->set_rules ( 'pass', 'Contraseña', 'required' );

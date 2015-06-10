@@ -15,7 +15,9 @@
                 <div class="panel">
                     <div class="panel-heading" role="tab" id="head<?php echo 'autor'.$author['id']?>">
                         <div class="panel-title overflow">
-                            <h4 class="alignleft"><?php echo $author['author_fullname']?></h4>
+                            <h4 class="alignleft">
+                                <a href="<?= base_url('autor/'.filterQuitSpecChar($author->author_fullname)) ?>" class="nolink"><?php echo $author['author_fullname']?></a>
+                            </h4>
                             <a data-toggle="collapse" 
                                     data-parent="#idAllAuthors" 
                                     href="<?php echo '#autor'.$author['id']?>" 
@@ -32,7 +34,7 @@
                         aria-labelledby="head<?php echo 'autor'.$author['id']?>">
         				<div class="panel-body">
                             <div class="col-md-2 col-md-push-10">
-                                <a href="<?= base_url().'autor/'.$author['id'] ?>">
+                                <a href="<?= base_url().'autor/'.filterQuitSpecChar($author->author_fullname) ?>">
             					    <?php echo img ( array (
                                         'src' => asset_url () . '/images/authors/' . $author ['author_img'],
                                         'class' => 'img-circle smallauthor',
@@ -42,11 +44,11 @@
                             </div>
         					<div class="col-md-10 col-md-pull-2">
                                 <h2 class="text-right">
-                                    <?php echo anchor('autor/'.$author['id'], $author['author_fullname'], [
+                                    <?php echo anchor('autor/'.filterQuitSpecChar($author->author_fullname), $author['author_fullname'], [
                                         'class' => 'nolink'
                                     ])?>
                                 </h2>
-                                <p><?php echo substr($author['author_desc'], 0, 300)?>...<?php echo anchor('autor/'.$author['id'], 'leer más')?></p>  
+                                <p><?php echo substr($author['author_desc'], 0, 300)?>...<?php echo anchor('autor/'.filterQuitSpecChar($author->author_fullname), 'leer más')?></p>  
         			         </div>
                         </div>
                     </div>

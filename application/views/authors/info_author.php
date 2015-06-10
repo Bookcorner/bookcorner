@@ -4,7 +4,7 @@
 		<ol class="breadcrumb">
 			<li><?php echo anchor(base_url('home'), 'Home')?></li>
 			<li><?php echo anchor(base_url('autores'), 'Autores')?></li>
-			<li><?php echo anchor(base_url('autor/'.$author['id']), $author->author_fullname)?></li>
+			<li><?php echo anchor(base_url('autor/'.filterQuitSpecChar($author->author_fullname)), $author->author_fullname)?></li>
 		</ol>
 	</div>
 	<!-- FIN BREADCRUMB -->
@@ -23,7 +23,7 @@
 									<p>Nombre: <?= $author->author_fullname ?></p>
 									<p>Libros Escritos:
 									   <ol style="list-style-type:none;">
-									       <?php foreach ($books as $book){echo '<li>'.anchor(base_url('libro/'.$book['book_id']), $book['book_name']).'</li>';}?>
+									       <?php foreach ($books as $book){echo '<li>'.anchor(base_url('libro/'.filterQuitSpecChar($book['book_name'])), $book['book_name']).'</li>';}?>
 									   </ol>
 									</p>
 									<p>Sinopsis: <?= $author->author_desc ?></p>
@@ -44,12 +44,6 @@
                                 'class' => 'img-rounded bigauthor img-circle visible-lg visible-md',
                                 'alt' => 'authorname' 
                         ) )?>
-                        <?php
-                        echo img ( array (
-                                'src' => asset_url () . '/images/authors/' . $author->author_img,
-                                'class' => 'img-rounded mediumauthor img-circle visible-sm visible-xs',
-                                'alt' => 'authorname' 
-                        ) )?>
                         </div>
 					</div>
 				</div>
@@ -64,9 +58,9 @@
 						<div class="col-xs-9 col-xs-push-3">
 							<h4>
 								Nombre del usuario.
-								</h2>
-								<p>Comentario. Debe ser de 500 letras maomeno, que no sean mazo
-									extensos pls</p>
+							</h4>
+							<p>Comentario. Debe ser de 500 letras maomeno, que no sean mazo
+								extensos pls</p>
 						</div>
 						<div class="col-xs-3 col-xs-pull-9">
     				        <?php

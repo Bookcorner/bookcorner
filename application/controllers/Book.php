@@ -30,17 +30,18 @@ class Book extends CI_Controller {
     }
     
     public function showBook() {
-        $id_of_book = $this->uri->segment(2);
+        $name_of_book = quitDash($this->uri->segment(2));
         $this->load->model( 'Books_model' );
         $this->load->model( 'Listbooks_model' );
         
-        $book = $this->Books_model->getBook($id_of_book);
+        $book = $this->Books_model->getBookByName($name_of_book);
+        $id_of_book = $book->id;
         $comments = $this->Books_model->getAllComments($book->id);
         
         $user_id = $this->session->userdata ( 'id' );
         
         if (!$book) {
-            redirect ( 'busqueda-libros/'.$id_of_book );
+            redirect ( 'busqueda-libros/'.$name_of_book );
         }
         
         $data ['title'] = $book->book_name;

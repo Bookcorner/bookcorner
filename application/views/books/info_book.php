@@ -4,7 +4,7 @@
 		<ol class="breadcrumb">
 			<li><?php echo anchor(base_url('home'), 'Home')?></li>
 			<li><?php echo anchor(base_url('libros'), 'Libros')?></li>
-			<li><?php echo anchor( base_url('libro/'.$book['id']), $book->book_name)?></li>
+			<li><?php echo anchor( base_url('libro/'.filterQuitSpecChar($book->book_name)), $book->book_name)?></li>
 		</ol>
 	</div>
 	<!-- FIN BREADCRUMB -->
@@ -29,12 +29,12 @@
 							<div class="row">
 								<div class="col-xs-12">
 									<p>Titulo: <?= $book->book_name ?></p>
-									<p>Autor: <?= anchor( base_url().'autor/'.$author->id,$author->author_fullname) ?></p>									
+									<p>Autor: <?= anchor( base_url().'autor/'.filterQuitSpecChar($author->author_fullname),$author->author_fullname) ?></p>									
 									<p>Géneros:
 									   <ol style="list-style-type:none;">
 									       <?php foreach ($genres as $genre){ echo '<li>'.$genre['genrebook_name'].'</li>'; }?>
 									   </ol>
-									</p>									
+									</p>
 									<p>Descripción: <?= $book->book_desc ?></p>
 								</div>
 							</div>
@@ -79,14 +79,13 @@
     						<div class="col-xs-2 col-xs-pull-9">
         				        <?php
                                 echo img ( array (
-                                        'src' => asset_url () . '/images/users/' . $comment['user_avatar'], //cambiar lo de avatar x el nombre de la imagen
-                                        'class' => 'img-rounded smallauthor',
-                                        'alt' => 'user_name' 
+                                    'src' => asset_url () . '/images/users/' . $comment['user_avatar'], //cambiar lo de avatar x el nombre de la imagen
+                                    'class' => 'img-rounded smallauthor',
+                                    'alt' => 'user_name' 
                                 ) )?>
                             </div>
                         </div>
                         <?php } ?>
-						<!-- Fin del forechach justo encima de este comentario -->
 					</div>
 				</div>
 				<?php } ?>
@@ -101,15 +100,20 @@
 				</div>
 				<div class="panel-body">
                     <?php
-                    echo form_open ( 'addBookComments', [ 
+                    echo form_open ( base_url('comentar'), [ 
                             'id' => 'idCommentsForm',
-                            'class' => 'form-horizontal' 
+                            'class' => 'form-horizontal',
+                            'data-toggle' => 'validator',
+                            'method' => 'post',
+                            'accept-charset' => 'UTF-8',
                     ] )?>
 					<div>
 						<label for="idComment" class="control-label lead">Introduce un
 							comentario:</label>
 						<textarea id="idComment" class="form-control" rows="4"
-							name="comment"></textarea>
+							name="comment" maxlength="500"></textarea>
+						<input type="text" name="nickUser" value="<?= $nickname ?>" hidden>
+						<input type="text" name="bookName" value="<?= filterQuitSpecChar($book->book_name); ?>" hidden>
 					</div>
 
 					<button type="submit" class="btn btn-info">
