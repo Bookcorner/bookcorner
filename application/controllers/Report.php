@@ -97,8 +97,8 @@ class Report extends CI_Controller {
         $config ['upload_path'] = './assets/images/books/';
         $config ['allowed_types'] = 'gif|jpg|png|jpeg';
         $config ['max_size'] = '5000';
-        $config ['max_width'] = '768';
-        $config ['max_height'] = '1024';
+        $config ['max_width'] = '0';
+        $config ['max_height'] = '0';
         $config ['remove_spaces'] = TRUE;
         return $config;
     }
@@ -106,8 +106,8 @@ class Report extends CI_Controller {
         $config ['upload_path'] = './assets/images/authors/';
         $config ['allowed_types'] = 'gif|jpg|png|jpeg';
         $config ['max_size'] = '5000';
-        $config ['max_width'] = '1024';
-        $config ['max_height'] = '768';
+        $config ['max_width'] = '0';
+        $config ['max_height'] = '0';
         $config ['remove_spaces'] = TRUE;
         return $config;
     }
