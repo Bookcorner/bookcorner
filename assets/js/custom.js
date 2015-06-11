@@ -1,13 +1,12 @@
-$(document)
-		.on(
-				'change',
-				'.btn-file :file',
-				function() {
-					var input = $(this), numFiles = input.get(0).files ? input
-							.get(0).files.length : 1, label = input.val()
-							.replace(/\\/g, '/').replace(/.*\//, '');
-					input.trigger('fileselect', [ numFiles, label ]);
-				});
+$(document).on(
+	'change',
+	'.btn-file :file',
+	function() {
+		var input = $(this), numFiles = input.get(0).files ? input
+				.get(0).files.length : 1, label = input.val()
+				.replace(/\\/g, '/').replace(/.*\//, '');
+		input.trigger('fileselect', [ numFiles, label ]);
+	});
 
 function GetCookie(name) {
 	var arg = name + "=";
@@ -31,9 +30,9 @@ function GetCookie(name) {
 function aceptar_cookies() {
 	var expire = new Date();
 	expire = new Date(expire.getTime() + 7776000000);
-	document.cookie = "cookies_surestao=aceptada; expires=" + expire;
+	document.cookie = "accept=acepted; expires=" + expire;
 
-	var visit = GetCookie("cookies_surestao");
+	var visit = GetCookie("accept");
 
 	if (visit == 1) {
 		popbox3();
@@ -41,7 +40,7 @@ function aceptar_cookies() {
 }
 
 $(function() {
-	var visit = GetCookie("cookies_surestao");
+	var visit = GetCookie("accept");
 	if (visit == 1) {
 		popbox3();
 	}
