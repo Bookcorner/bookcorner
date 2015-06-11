@@ -10,3 +10,11 @@ if (! defined ( 'BASEPATH' ))
 function asset_url() {
     return base_url () . 'assets/';
 }
+
+function go_back() {
+    if (isset($_SERVER['HTTP_REFERER'])) {
+        redirect($_SERVER['HTTP_REFERER'], 'refresh');
+    } else {
+        redirect(base_url(), 'refresh');
+    } 
+}

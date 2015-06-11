@@ -6,7 +6,7 @@ class Vote extends CI_Controller {
         
         if (! check_session_exist ( $sessionName )) {
             $this->session->set_flashdata ( 'signInError', getSignInErrorMsg () );
-            redirect ( base_url (), 'refresh' );
+            go_back();
         }
         
         $this->load->model('Books_model');
@@ -21,7 +21,7 @@ class Vote extends CI_Controller {
     
         if (! check_session_exist ( $sessionName )) {
             $this->session->set_flashdata ( 'signInError', getSignInErrorMsg () );
-            redirect ( base_url (), 'refresh' );
+            go_back();
         }
     
         $this->load->model('Books_model');
@@ -35,7 +35,7 @@ class Vote extends CI_Controller {
     
         if (! check_session_exist ( $sessionName )) {
             $this->session->set_flashdata ( 'signInError', getSignInErrorMsg () );
-            redirect ( base_url (), 'refresh' );
+           go_back();
         }
     
         $this->load->model('Books_model');
@@ -50,7 +50,7 @@ class Vote extends CI_Controller {
     
         if (! check_session_exist ( $sessionName )) {
             $this->session->set_flashdata ( 'signInError', getSignInErrorMsg () );
-            redirect ( base_url (), 'refresh' );
+            go_back();
         }
     
         $this->load->model('Books_model');

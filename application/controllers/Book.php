@@ -67,7 +67,7 @@ class Book extends CI_Controller {
         
         if ( empty($_POST) ){
             $this->session->set_flashdata ( 'signInError', getSignInErrorMsg () );
-            redirect(base_url(),'refresh');
+            go_back();
         }
         
         $data['comment'] = $_POST['comment'];
@@ -77,14 +77,14 @@ class Book extends CI_Controller {
         $this->load->model('Books_model');
         $this->Books_model->addComment($data);
         
-        redirect($_SERVER['HTTP_REFERER'] ,'refresh');
+        go_back();
     }
     public function setBookAvailable(){
         $bookId = $this->uri->segment(2);
         $this->load->model('Books_model');
         $this->Books_model->setAvailableBook($bookId);
         $this->session->set_flashdata ( 'verifySuccess', getVerifySuccessMsg () );
-        redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+        go_back();
     }
     private function updateBookisbn($bookId){
         $newIsbn = $_POST['value'];
@@ -106,6 +106,6 @@ class Book extends CI_Controller {
         $this->load->model('Books_model');
         $this->Books_model->deleteBook($bookId);
         $this->session->set_flashdata ( 'rejectSuccess', getRejectSuccessMsg () );
-        redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+        go_back();
     }    
 }

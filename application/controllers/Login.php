@@ -47,12 +47,12 @@ class Login extends CI_Controller {
         } else {
             $this->session->set_flashdata('formError',getFormErrorMsg());
         }
-        redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+        go_back();
     }
     
     public function logout() {
         $this->session->sess_destroy ();
-        redirect ( base_url(), 'refresh' );
+        redirect(base_url(), 'refresh');
     }
     private function setSigninFormRules() {
         $this->form_validation->set_rules ( 'username', 'Usuario', 'required|alpha_numeric' );
