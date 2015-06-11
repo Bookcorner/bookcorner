@@ -17,7 +17,7 @@
 				</div>
 				<div class="panel-body">
 					<div class="row">
-						<div class="col-xs-7">
+						<div class="col-xs-12 col-sm-7 col-md-7 col-lg-8">
 							<div class="row">
 								<div class="col-xs-12">
 									<p><strong>Nombre</strong>: <?= $author->author_fullname ?></p>
@@ -37,11 +37,23 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-xs-5">
+						<div class="col-xs-12 col-sm-5 col-md-5 col-lg-4">
                         <?php
                         echo img ( array (
                                 'src' => asset_url () . '/images/authors/' . $author->author_img,
                                 'class' => 'img-rounded bigauthor img-circle visible-lg visible-md',
+                                'alt' => 'authorname' 
+                        ) )?>
+                        <?php
+                        echo img ( array (
+                                'src' => asset_url () . '/images/authors/' . $author->author_img,
+                                'class' => 'img-rounded mediumauthor img-circle visible-sm',
+                                'alt' => 'authorname' 
+                        ) )?>
+                        <?php
+                        echo img ( array (
+                                'src' => asset_url () . '/images/authors/' . $author->author_img,
+                                'class' => 'img-rounded smallauthor img-circle visible-xs',
                                 'alt' => 'authorname' 
                         ) )?>
                         </div>

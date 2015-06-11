@@ -13,7 +13,7 @@
 		     <?php foreach ($authors as $author):?>
 		     <div class="panel">
 				<div class="panel-body">
-                    <div class="col-md-2 col-md-push-10">
+                    <div class="col-sm-3 col-sm-push-9">
                         <a href="<?= 'autor/'.filterQuitSpecChar($author->author_fullname) ?>">
     					    <?php echo img ( array (
                                 'src' => asset_url () . '/images/authors/' . $author ['author_img'],
@@ -22,7 +22,7 @@
                             ) )?>
                         </a>
                     </div>
-					<div class="col-md-10 col-md-pull-2">
+					<div class="col-sm-9 col-sm-pull-3">
                         <h2 class="text-right">
                             <?php echo anchor('autor/'.filterQuitSpecChar($author->author_fullname), $author['author_fullname'], [
                                 'class' => 'nolink'

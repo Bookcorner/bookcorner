@@ -17,17 +17,29 @@
 				</div>
 				<div class="panel-body">
 					<div class="row">
-						<div class="col-xs-5">
+						<div class="col-sm-5 col-xs-12">
                         <?php
                         echo img ( array (
                                 'src' => asset_url () . '/images/books/' . $book->book_img,
                                 'class' => 'img-rounded bigbook visible-lg visible-md',
                                 'alt' => $book->book_name 
                         ) )?>
+                        <?php
+                        echo img ( array (
+                                'src' => asset_url () . '/images/books/' . $book->book_img,
+                                'class' => 'img-rounded mediumbook visible-sm',
+                                'alt' => $book->book_name 
+                        ) )?>
+                        <?php
+                        echo img ( array (
+                                'src' => asset_url () . '/images/books/' . $book->book_img,
+                                'class' => 'img-rounded smallbook visible-xs',
+                                'alt' => $book->book_name 
+                        ) )?>
                         </div>
-						<div class="col-xs-7">
+						<div class="col-sm-7 col-xs-12">
 							<div class="row">
-								<div class="col-xs-12">
+								<div class="col-sm-12">
 									<p><strong>Titulo</strong>: <?= $book->book_name ?></p>
 									<p><strong>Autor</strong>: <?= anchor( base_url().'autor/'.filterQuitSpecChar($author->author_fullname),$author->author_fullname) ?></p>									
 									<p><strong>Géneros</strong>:

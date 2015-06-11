@@ -10,22 +10,23 @@
 	<!-- CONTENIDO -->
 	<div class="row">
 		<!-- CONTENIDO CENTRAL -->
-		<div class="row col-lg-8 col-md-8 col-sm-12">
-			<div class="col-lg-12 col-md-12 col-sm-12">
+		<div class="row col-lg-8 col-md-8 col-sm-12 col-xs-12">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<div class="jumbotron jumbo">
 					<h1 class="text-center">
 						<span class="destacado">¡Bienvenido a Bookcorner!</span>
 					</h1>
 					<p class="destacado">En este portal podrás generar listas con tus
 						libros favoritos y compartir tus opiniones con la comunidad.</p>
-					<p><?php
-    
+					<p>
+					<?php
     echo anchor ( base_url ( 'que-es-bookcorner' ), 'Saber más', [ 
             'btn btn-default btn-md' 
-    ] )?></p>
+    ] )?>
+                    </p>
 				</div>
 			</div>
-			<div class="col-lg-6 col-md-6 col-sm-6">
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<div class="panel">
 					<div class="panel-heading">
 						<h3>
@@ -49,7 +50,8 @@
 										class="text-left">
                                         <?php echo img(asset_url().'images/books/'.$book['book_img'], $book['book_name'], ['class' => 'avatar'])?>
                                     </a></td>
-									<td><a href="<?php echo 'libro/'.filterQuitSpecChar($book['book_name'])?>"
+									<td><a
+										href="<?php echo 'libro/'.filterQuitSpecChar($book['book_name'])?>"
 										class="text-center">
                                         <?php echo $book['book_name']?>
                                     </a></td>
@@ -67,7 +69,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-6 col-md-6 col-sm-6">
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<div class="panel">
 					<div class="panel-heading">
 						<h3>Top Puntuaciones medias</h3>
@@ -89,7 +91,8 @@
 										class="text-left">
                                         <?php echo img(asset_url().'images/books/'.$book['book_img'], $book['book_name'], ['class' => 'avatar'])?>
                                     </a></td>
-									<td><a href="<?php echo 'libro/'.filterQuitSpecChar($book['book_name'])?>"
+									<td><a
+										href="<?php echo 'libro/'.filterQuitSpecChar($book['book_name'])?>"
 										class="text-center">
                                         <?php echo $book['book_name']?>
                                     </a></td>
@@ -110,8 +113,8 @@
 		</div>
 		<!-- CONTENIDO CENTRAL -->
 		<!-- MENU LATERAL -->
-		<div class="row col-lg-4 col-md-4 col-sm-12">
-			<div class="col-lg-12 col-md-12 col-sm-6">
+		<div class="row col-lg-4 col-md-4 col-sm-12 col-xs-12">
+			<div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
 				<div class="panel">
 					<div class="panel-heading">
 						<h3>Libros Recientes</h3>
@@ -131,7 +134,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-12 col-md-12 col-sm-6">
+			<div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
 				<div class="panel">
 					<div class="panel-heading">
 						<h3>
@@ -153,13 +156,10 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-12 col-md-12 col-sm-6">
-				
-						<a class="twitter-timeline"
-							href="https://twitter.com/_Bookcorner_"
-							data-widget-id="608682590535577601">Tweets por el @_Bookcorner_.</a>
-						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-					
+			<div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
+				<a class="twitter-timeline" href="https://twitter.com/_Bookcorner_"
+					data-widget-id="608682590535577601">Tweets por el @_Bookcorner_.</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 			</div>
 		</div>
 

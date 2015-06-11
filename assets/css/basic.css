@@ -90,6 +90,7 @@ body {
 
 footer {
 	border: none;
+	border-radius: 5px;
 	height: 60px;
 	margin: 0;
 	padding: 0;
