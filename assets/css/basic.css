@@ -48,6 +48,21 @@ body{
   height:200px;
 }
 
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+#wrap {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
+}
+
 #footer {
 	width: auto;
 	height: 60px;
@@ -56,6 +71,8 @@ body{
 	background: #181818
 		url("//d85wutc1n854v.cloudfront.net/live/imgs/tray-bg.png");
 	color: #fff;
+	padding-bottom: 0px !important;
+	margin-bottom: 0px !important;
 }
 
 #footer a {
