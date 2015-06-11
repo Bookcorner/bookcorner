@@ -22,29 +22,6 @@
 <script src="http://cdn.imnjb.me/libs/jquery.cookiecuttr/1.0/jquery.cookiecuttr.min.js"></script>
 <link href="http://cdn.imnjb.me/libs/jquery.cookiecuttr/1.0/cookiecuttr.css" rel="stylesheet" type="text/css"/>
 	
-<script type="text/javascript"> 
-$( document ).ready(function() {
-	$('#myForm').validator(); 
-	$('#formPass').validator(); 
-	$('.alert').append('<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>');
-	
-	$.cookieCuttr({
-	  cookieNotificationLocationBottom: true,
-	  cookieAnalytics: false, 
-	  cookiePolicyPageMessage: 'Por favor lea la siguiente información y elija una de las siguientes opciones',
-	  cookiePolicyLink: '<?= base_url('informacion-legal') ?>',
-	  cookieMessage: 'Utilizamos cookies en nuestro website. Si continua navegando, consideramos que acepta su uso.',
-	  cookieAnalyticsMessage: 'No utilizamos google analytics',
-	  cookieErrorMessage: "Lo sentimos. Esta funcionalidad está desactivada en su navegador. <br>Para seguir utilizando esta funcionalidad, por favor ",
-	  cookieWhatAreTheyLink: "http://es.wikipedia.org/wiki/Cookie_(inform%C3%A1tica)",
-	  cookieAcceptButtonText: "ACEPTAR COOKIES",
-	  cookieDeclineButtonText: "NO USAR COOKIES",
-	  cookieResetButtonText: "BORRAR COOKIES",
-	  cookieWhatAreLinkText: "¿Qué son las cookies?",
-	});
-});
-</script>
-</script>
 <script type="text/javascript"
 	src="<?php echo asset_url()?>js/custom.js"></script>
 <meta charset="utf-8" />
