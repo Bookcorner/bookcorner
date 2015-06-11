@@ -85,7 +85,7 @@ class Listbook extends CI_Controller {
         
         if (! check_session_exist ( $sessionName )) {
             $this->session->set_flashdata ( 'signInError', getSignInErrorMsg () );
-            redirect ( base_url('libros'), 'refresh' );
+            go_back();
         }
         
         $userId = $this->session->userdata ( $sessionName );
