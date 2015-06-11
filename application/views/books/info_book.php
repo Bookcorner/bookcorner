@@ -70,21 +70,28 @@
 					</div>
 					<div class="row">
 						<?php foreach($comments as $comment) { ?>
-						<div>
-    						<div class="col-xs-9 col-xs-push-3">
-    							<h4>#<?= $comment['num_comment'];?> <?= anchor(base_url('usuario/'.$comment['user_nickname']),$comment['user_nickname']); ?></h4>
-								<p> <?= $comment['text'] ?> </p>
-    						
-    						</div>
-    						<div class="col-xs-2 col-xs-pull-9">
-        				        <?php
-                                echo img ( array (
-                                    'src' => asset_url () . '/images/users/' . $comment['user_avatar'], //cambiar lo de avatar x el nombre de la imagen
-                                    'class' => 'img-rounded smallauthor',
-                                    'alt' => 'user_name' 
-                                ) )?>
+						
+						<div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    #<?= $comment['num_comment'];?> 
+                                    <?= anchor(base_url('usuario/'.$comment['user_nickname']),$comment['user_nickname']); ?>
+                                    <span class="text-date">
+                                    <?php
+                                        setlocale(LC_ALL,"es_ES@euro","es_ES","esp");
+                                        $commentDate = strftime("%d de %B de %Y, a las %H:%m:%S", strtotime($comment['date_publish']));
+                                        echo $commentDate;
+                                    ?>
+                                    </span>
+                                </h4>                                
                             </div>
-                        </div>
+                            <div class="panel-body">
+                                <a href="<?= base_url('usuario/'.$comment['user_nickname']) ?>">
+                                    <img alt="Brand" class="commentAvatar" src="<?= asset_url().'images/users/'.$comment['user_avatar'] ?>">
+                                </a>
+                                <?= $comment['text'] ?>
+                            </div>
+                        </div>    						
                         <?php } ?>
 					</div>
 				</div>

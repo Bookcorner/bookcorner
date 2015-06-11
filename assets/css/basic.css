@@ -4,6 +4,12 @@ body{
 	background-repeat: repeat;
 }
 
+.text-date {
+	position: absolute;
+	right: 40px;
+	color: grey;
+}
+
 /* Carousel base class */
 .carousel {
   height: 250px;
