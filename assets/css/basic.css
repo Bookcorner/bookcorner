@@ -104,30 +104,3 @@ a.nolink{
 .jumbo{
 	background-image:url("../images/general/bcmainview.jpg");
 }
-
-#overbox3 {
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
-    width: 100%;
-    z-index: 999999;
-    display: block;
-}
-#infobox3 {
-    margin: auto;
-    position: relative;
-    top: 0px;
-    height: 58px;
-    width: 100%;
-    text-align:center;
-    background-color: #eeeeee;
-}
-#infobox3 p {
-    line-height:58px;
-    font-size:12px;
-    text-align:center;
-}
-#infobox3 p a {
-    margin-right:5px;
-    text-decoration: underline;
-}
