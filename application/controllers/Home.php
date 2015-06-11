@@ -1,17 +1,15 @@
 <?php
 defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 class Home extends CI_Controller {
-    
     public function presentation() {
-        if( isset ( $_COOKIE ['cc_cookie_accept'] ) && $_COOKIE ['cc_cookie_accept'] == 'cc_cookie_accept' ) {
-            redirect( base_url('home'), 'refresh' );
+        if (check_session_exist ( 'id' ) || (isset ( $_COOKIE ['cc_cookie_accept'] ) && $_COOKIE ['cc_cookie_accept'] == 'cc_cookie_accept')) {
+            redirect ( base_url ( 'home' ), 'refresh' );
         } else {
-            redirect( base_url('que-es-bookcorner'), 'refresh' );
+            redirect ( base_url ( 'que-es-bookcorner' ), 'refresh' );
         }
     }
-    
     public function index() {
-        $data ['title'] = 'Home';        
+        $data ['title'] = 'Home';
         $viewUri = 'home/main_content_view';
         $this->load->model ( 'Books_model' );
         $data ['books'] = $this->Books_model->getLastBooks ();
