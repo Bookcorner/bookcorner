@@ -146,7 +146,7 @@
 											] )?>
                                                 <div class="form-group">
                                                     <label class="sr-only" for="idUsername">Usuario</label> 
-						                            <input type="text" class="form-control" pattern="^[a-z0-9_-]{3,16}$" id="idUsername"
+						                            <input type="text" class="form-control" pattern="[A-Za-z0-9_-]{3,16}" id="idUsername"
 													   name="username" placeholder="Usuario" required />
 											    </div>
 											    <div class="form-group">
@@ -205,7 +205,7 @@
 											] )?>
                                                 <div class="form-group">
                                                     <label class="sr-only" for="idUsername">Usuario</label> 
-						                            <input type="text" class="form-control" pattern="^[a-z0-9_-]{3,16}$" id="idUsername"
+						                            <input type="text" class="form-control" pattern="[A-Za-z0-9_-]{3,16}" id="idUsername"
 													   name="username" placeholder="Usuario" required />
 											    </div>
 											    <div class="form-group">
