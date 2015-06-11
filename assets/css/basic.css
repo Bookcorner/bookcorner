@@ -133,3 +133,7 @@ a.nolink{
 .overflow{
 	overflow: auto;
 }
+.lista-simple{
+	list-style: none;
+	padding: 0px;
+}
