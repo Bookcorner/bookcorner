@@ -9,6 +9,14 @@
 	margin-top:6px;
 }
 
+.perfilAvatar {
+	width: 100px !important;
+	height: 100px !important;
+	display: inline-block;
+	position: absolute;
+	margin: 15px 30px;
+}
+
 .commentAvatar {
 	width: 60px !important;
 	height: 60px !important;

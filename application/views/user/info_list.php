@@ -10,7 +10,7 @@ $(document).ready(function() {
 <div class="container">
 	<!-- BREADCRUMB -->
 	<div>
-		<ol class="breadcrumb">
+		<ol class="breadcrumb">		    
 			<li><?php echo anchor(base_url('home'), 'Home')?></li>
 			<li><?php echo anchor(base_url('usuario/'.$user['user_nickname']), 'Lista de '.$user->user_nickname)?></li>
 		</ol>
@@ -18,10 +18,17 @@ $(document).ready(function() {
 	<!-- FIN BREADCRUMB -->
 	<div class="row">
 		<!-- CONTENIDO PPAL-->
-		<div class="col-xs-12">
+		<div class="col-xs-12">		    
 			<div class="panel table-responsive">
+			    <?php 
+			    echo img ( array (
+			            'src' => asset_url () . '/images/users/' . $user->user_avatar,
+			            'class' => 'perfilAvatar',
+			            'alt' => $user->user_nickname
+			    ) ) ?>
 				<div class="panel-heading">
 					<h4 class="lead text-center">Lista de <?= $user['user_nickname'] ?></h4>
+					<h5 class="text-center"><?php echo $user['user_name'].' '.$user['user_surname'] ?></h5>
 				</div>
 				<div class="panel-body">
 					<table class="table table-hover">
