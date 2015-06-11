@@ -15,6 +15,6 @@ function go_back() {
     if (isset($_SERVER['HTTP_REFERER'])) {
         redirect($_SERVER['HTTP_REFERER'], 'refresh');
     } else {
-        redirect(base_url(), 'refresh');
+        redirect(base_url('home'), 'refresh');
     } 
 }
