@@ -4,6 +4,10 @@ body{
 	background-repeat: repeat;
 }
 
+.cc-cookies {
+	width: 100% !important;
+}
+
 .text-date {
 	position: absolute;
 	right: 40px;
