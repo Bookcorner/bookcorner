@@ -137,11 +137,11 @@
 							ver, copiar, imprimir y distribuir cualquier documento publicado
 							por BookCorner en esta página Web teniendo en cuenta que:
 							<ul>
-								<li>(i) dicho documento será utilizado exclusivamente con fines
+								<li><strong>(i)</strong> dicho documento será utilizado exclusivamente con fines
 									informativos</li>
-								<li>(ii) dicho documento no podrá ser utilizado con fines
+								<li><strong>(ii)</strong> dicho documento no podrá ser utilizado con fines
 									comerciales</li>
-								<li>(iii) dicho documento deberá siempre incluir referencia de
+								<li><strong>(iii)</strong> dicho documento deberá siempre incluir referencia de
 									que es propiedad de BookCorner.</li>
 							</ul>
 						</li>
@@ -149,7 +149,7 @@
 							derechos de autor y cualquier uso no autorizado de los mismos
 							puede violar la normativa sobre derechos de autor, marcas y otras
 							regulaciones. La autorización concedida para utilizar esta página
-							Web se entenderá automáticamente terminada en caso de infringir
+							Web se entenderá <strong>automáticamente terminada</strong> en caso de infringir
 							cualquiera de estas Condiciones, estando obligado a destruir
 							inmediatamente cualquier material obtenido o impreso de la página
 							Web. BookCorner no concede ninguna licencia o autorización de uso

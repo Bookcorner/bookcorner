@@ -11,13 +11,13 @@
 		<div class="col-xs-12">
 			<h2>¿Quiénes somos?</h2>
 			<p>Somos tres estudiantes del ciclo formativo de grado superior de
-				Desarrollo de Aplicaciones Web. Nos gusta la informática, sobre todo
-				el diseño web.</p>
+				<strong>Desarrollo de Aplicaciones Web</strong>. Nos gusta la informática, sobre todo
+				el diseño web. Esta página es parte del proyecto de fin de curso de ciclo, y esperamos que sea de vueltro agrado.</p>
 			<h3 class="text-center">Desarrolladores</h3>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-xs-4 col-lg-4 placeholder">
+		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 placeholder">
 		    <?php echo img(array(
                     'src' => asset_url(). 'images/users/juanan.png',
 			        'class' => 'img-responsive img-circle',
@@ -26,7 +26,7 @@
 			<h4>Juan Antonio Ortiz</h4>
 			<span class="text-muted">Creador de bookcorner</span>
 		</div>
-		<div class="col-xs-4 col-lg-4 placeholder">
+		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 placeholder">
 			<?php echo img(array(
                     'src' => asset_url(). 'images/users/mario.jpg',
 			        'class' => 'img-responsive img-circle',
@@ -35,7 +35,7 @@
 			<h4>Mario Cantelar</h4>
 			<span class="text-muted">Creador de bookcorner</span>
 		</div>
-		<div class="col-xs-4 col-lg-4 placeholder">
+		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 placeholder">
 		    <?php echo img(array(
                     'src' => asset_url(). 'images/users/ruben.jpg',
 			        'class' => 'img-responsive img-circle',
@@ -52,7 +52,7 @@
 	</div>
 	<div class="row">
         <?php foreach ($administrators as $admin):?>	   
-    		<div class="col-xs-4 col-lg-4 placeholder">
+    		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 placeholder">
     		    <?php echo img(array(
                         'src' => asset_url(). 'images/users/'. $admin->user_avatar,
     			        'class' => 'img-responsive img-circle',
@@ -70,7 +70,7 @@
 	</div>
 	<div class="row">
         <?php foreach ($moderators as $moderator):?>	   
-    		<div class="col-xs-4 col-lg-4 placeholder">
+    		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 placeholder">
     		    <?php echo img(array(
                         'src' => asset_url(). 'images/users/'. $moderator->user_avatar,
     			        'class' => 'img-responsive img-circle',

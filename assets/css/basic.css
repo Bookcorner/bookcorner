@@ -130,3 +130,6 @@ a.nolink{
 .jumbo{
 	background-image:url("../images/general/bcmainview.jpg");
 }
+.overflow{
+	overflow: auto;
+}

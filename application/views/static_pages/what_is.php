@@ -21,9 +21,15 @@
 						<h1>¿Qué es Bookcorner?</h1>
 						<p>Te damos la bienvenida a Bookcorner: Lugar de gestión de tus
 							libros y autores preferidos.</p>
-						<p>
+						<p class="hidden-xs">
 						    <?php echo anchor(base_url('home'), 'Inicio', [
 								            'class' => 'btn btn-lg btn-primary',
+								            'role' => 'button'
+						    ])?>
+						</p>
+						<p class="visible-xs">
+						    <?php echo anchor(base_url('home'), 'Inicio', [
+								            'class' => 'btn btn-sm btn-primary',
 								            'role' => 'button'
 						    ])?>
 						</p>
@@ -38,13 +44,19 @@
 				))?>
 				<div class="container">
 					<div class="carousel-caption">
-						<h1>Actualiza tu lista de libros</h1>
-						<p>Gestiona en un lugar centralizado todos los libros que te has
-							leído, y compártelos con tus amigos de forma sencilla.</p>
-						<p>
+						<h1>Actualiza tu lista</h1>
+						<p>Gestiona todos los libros leídos, y compártelos con tus amigos.</p>
+						<p class="hidden-xs">
 						    <?php echo anchor(base_url('lista-libros'), '¡Quiero
 								Gestionar mis listas!', [
 								            'class' => 'btn btn-lg btn-primary',
+								            'role' => 'button'
+						    ])?>
+						</p>
+						<p class="visible-xs">
+						    <?php echo anchor(base_url('lista-libros'), '¡Quiero
+								Gestionar mis listas!', [
+								            'class' => 'btn btn-sm btn-primary',
 								            'role' => 'button'
 						    ])?>
 						</p>
@@ -60,12 +72,16 @@
 				<div class="container">
 					<div class="carousel-caption">
 						<h1>Continuo crecimiento</h1>
-						<p>El contenido dinámico de Bookcorner permite que el libro que no
-							encuentres hoy, esté mañana disponible. Para que el sitio crezca,
-							es necesaria tu ayuda. ¿Nos echas un cable?</p>
-						<p>
+						<p>El libro que no encuentres hoy, mañana estará disponible con tu ayuda. ¿Nos echas un cable?</p>
+						<p class="hidden-xs">
 						    <?php echo anchor(base_url('reportes'), '¡Quiero ayudar!', [
 								            'class' => 'btn btn-lg btn-primary',
+								            'role' => 'button'
+						    ])?>
+						</p>
+						<p class="visible-xs">
+						    <?php echo anchor(base_url('reportes'), '¡Quiero ayudar!', [
+								            'class' => 'btn btn-sm btn-primary',
 								            'role' => 'button'
 						    ])?>
 						</p>
@@ -80,12 +96,17 @@
 				))?>
 				<div class="container">
 					<div class="carousel-caption">
-						<h1>Vota a tus libros y autores preferidos</h1>
-						<p>Comparte tus gustos y opiniones con el resto de la comunidad
-							por medio de los votos de libros y autores</p>
-						<p>
+						<h1>Tus puntuaciones importan</h1>
+						<p>Comprueba las tendencias de lecturas actuales e influye en ellas</p>
+						<p class="hidden-xs">
 						    <?php echo anchor(base_url('ver-votos'), '¡Quiero votar!', [
 								            'class' => 'btn btn-lg btn-primary',
+								            'role' => 'button'
+						    ])?>
+						</p>
+						<p class="visible-xs">
+						    <?php echo anchor(base_url('ver-votos'), '¡Quiero votar!', [
+								            'class' => 'btn btn-sm btn-primary',
 								            'role' => 'button'
 						    ])?>
 						</p>
@@ -114,7 +135,7 @@
 					Pretende ser un lugar donde los amantes de los mismos puedan tener
 					un <strong>registro organizado de todos los libros</strong> que han
 					leído o quieren leer, así como poder conocer las tendencias
-					principales de libros de la actualidad.
+					principales de libros de la comunidad.
 				</p>
 			</div>
 			<div class="col-md-5">
@@ -135,9 +156,9 @@
 				<p class="lead">Bookcorner pretende ser un sitio en el que puedas
 					organizar y compartir tus libros preferidos con la comunidad.</p>
 				<p class="lead">Para ello, te proveemos de la gestión total de los
-					libros que estás leyendo actualmente, pudiendo poner notas sobre
-					qué te parecieron, las páginas que te gustaría recordar de los
-					mismos y apuntes de cualquier índole.</p>
+					libros que estás leyendo actualmente, llendo desde una puntuación
+					conforme a lo que te gustó, como un sistema de notas donde podrás apuntar
+					cualquier dato relevante respecto al libro.</p>
 			</div>
 			<div class="col-md-5 col-md-pull-7">
 			     <?php echo img(array(
@@ -157,7 +178,7 @@
 					Crecimiento constante y colectivo. <span class="text-muted">Ayuda a
 						la página a crecer</span>
 				</h2>
-				<p class="lead">Dado que los libros no paran de salir, es (y será)
+				<p class="lead">Dado que los libros no paran de salir, es y será (cada vez menos)
 					frecuente que el sitio no disponga del libro que quieres añadir a
 					tu lista en este momento. Debido a la cantidad ingente de libros
 					que hay, os pedimos vuestra ayuda para seguir aumentando el
@@ -179,10 +200,11 @@
 
 		<div class="row">
 			<div class="col-md-7 col-md-push-5">
-				<h2>Vota tus preferidos</h2>
-				<p class="lead">Bookcorner te la posibilidad de votar sobre los
-					autores y libros de la página, pudiendo así conocer la popularidad
-					de cada uno e inevitablemente descubriendo nuevos libros y autores</p>
+				<h2>Tus gustos influyen</h2>
+				<p class="lead">Bookcorner te la posibilidad de ponerle una puntuación a los libros de la página. 
+				    Estas votaciones son recogidas de forma anónima,
+					pudiendo así conocer la popularidad de cada uno de los libros. 
+					Nuestro objetivo es que esta información te ayude a descubrir nuevos libros.</p>
 			</div>
 			<div class="col-md-5 col-md-pull-7">
 				<?php echo img(array(

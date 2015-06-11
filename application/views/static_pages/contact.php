@@ -8,11 +8,12 @@
 	</div>
 	<!-- FIN BREADCRUMB -->
 	<div class="row">
-		<div class="col-sm-12 col-lg-12">
+		<div class="col-xs-12">
 			<div class="panel">
 				<div class="panel-heading">
-					<h3 class="lead">
-						<i class="icon-map-marker main-color"></i> Contáctanos
+					<h3 class="text-center">
+						Contáctanos
+						<i class="fa fa-phone fa-2x"></i> 
 					</h3>
 				</div>
 				<div class="panel-body">
@@ -28,11 +29,11 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-4 col-lg-4">
+		<div class="col-sm-4 col-md-4 col-lg-4">
 			<div class="panel">
 				<div class="panel-heading">
-					<h3 class="lead">
-						<i class="icon-time main-color"></i> Horarios de atención
+					<h3 class="text-center">
+						Horarios de atención <i class="fa fa-clock-o fa-2x"></i>
 					</h3>
 				</div>
 				<div class="panel-body">
@@ -82,11 +83,11 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-12 col-lg-8">
+		<div class="col-sm-8 col-md-8 col-lg-8">
 			<div class="panel">
 				<div class="panel-heading">
-					<h3 class="lead">
-						<i class="icon-envelope main-color"></i> Contacto
+					<h3 class="text-center">
+						<i class="fa fa-envelope-o fa-2x"></i> Contacto
 					</h3>
 				</div>
 				<div class="panel-body">
