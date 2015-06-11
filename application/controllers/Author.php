@@ -61,4 +61,11 @@ class Author extends CI_Controller {
         $this->session->set_flashdata ( 'verifySuccess', getVerifySuccessMsg () );
         redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
     }
+    public function deleteAuthor(){
+        $authorId = $this->uri->segment(2);
+        $this->load->model('Authors_model');
+        $this->Authors_model->deleteAuthor($authorId);
+        $this->session->set_flashdata ( 'rejectSuccess', getRejectSuccessMsg () );
+        redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+    }
 }

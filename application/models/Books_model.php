@@ -208,4 +208,8 @@ class Books_model extends CI_Model {
                 ORDER BY b.book_name; ');
         return $book;
     }
+    public function deleteBook($bookId){
+        $book = R::load('book', $bookId);
+        R::trash( $book );
+    }
 }

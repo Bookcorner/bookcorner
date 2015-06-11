@@ -100,5 +100,12 @@ class Book extends CI_Controller {
         $newDesc = $_POST['value'];
         $this->load->model('Books_model');
         $this->Books_model->updateBookdesc($bookId, $newDesc);
+    }
+    public function deleteBook(){
+        $bookId = $this->uri->segment(2);
+        $this->load->model('Books_model');
+        $this->Books_model->deleteBook($bookId);
+        $this->session->set_flashdata ( 'rejectSuccess', getRejectSuccessMsg () );
+        redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
     }    
 }
