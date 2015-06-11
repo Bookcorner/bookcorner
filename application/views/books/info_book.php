@@ -13,7 +13,7 @@
 		<div class="col-xs-12">
 			<div class="panel">
 				<div class="panel-heading">
-					<p class="lead text-center"><?= $book->book_name ?></p>
+					<h2 class="text-center"><?= $book->book_name ?></h2>
 				</div>
 				<div class="panel-body">
 					<div class="row">
@@ -28,14 +28,14 @@
 						<div class="col-xs-7">
 							<div class="row">
 								<div class="col-xs-12">
-									<p>Titulo: <?= $book->book_name ?></p>
-									<p>Autor: <?= anchor( base_url().'autor/'.filterQuitSpecChar($author->author_fullname),$author->author_fullname) ?></p>									
-									<p>Géneros:
+									<p><strong>Titulo</strong>: <?= $book->book_name ?></p>
+									<p><strong>Autor</strong>: <?= anchor( base_url().'autor/'.filterQuitSpecChar($author->author_fullname),$author->author_fullname) ?></p>									
+									<p><strong>Géneros</strong>:
 									   <ol style="list-style-type:none;">
 									       <?php foreach ($genres as $genre){ echo '<li>'.$genre['genrebook_name'].'</li>'; }?>
 									   </ol>
 									</p>
-									<p>Descripción: <?= $book->book_desc ?></p>
+									<p><strong>Descripción:</strong> <?= $book->book_desc ?></p>
 								</div>
 							</div>
 							<div class="row">
