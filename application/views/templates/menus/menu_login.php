@@ -3,7 +3,7 @@
 		<div class="container-fluid">
             <!-- IMAGEN -->
 			<div class="navbar-header visible-lg visible-md">
-				<a class="navbar-brand" href="<?= base_url('que-es-bookcorner')?>">
+				<a class="navbar-brand" href="<?= base_url('home')?>">
 				    <?php echo img ( array (
                           'src' => asset_url () . '/images/logo/bc.png',
                           'class' => 'Brand logo-lg-md' 
