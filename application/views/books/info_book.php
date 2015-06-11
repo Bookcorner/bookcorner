@@ -74,7 +74,7 @@
 						<div class="panel panel-info">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    #<?= $comment['num_comment'];?> 
+                                    <span id="<?= $comment['num_comment'];?>" class="id-user-comment">#<?= $comment['num_comment'];?></span>
                                     <?= anchor(base_url('usuario/'.$comment['user_nickname']),$comment['user_nickname']); ?>
                                     <span class="text-date">
                                     <?php

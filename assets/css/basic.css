@@ -14,6 +14,11 @@ body{
 	color: grey;
 }
 
+.id-user-comment {
+	color: black !important;
+	font-weight: bold;
+}
+
 /* Carousel base class */
 .carousel {
   height: 250px;
