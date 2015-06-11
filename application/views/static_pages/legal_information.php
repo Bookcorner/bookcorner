@@ -35,8 +35,8 @@
 	<div class="row">
 		<div class="col-xs-12">
 			<div class="panel">
-				<div class="panel-haeding">
-					<h3 class="lead"> 1. Advertencia Legal</h3>
+				<div class="panel-heading">
+					<h3 class="lead text-center"> 1. Advertencia Legal</h3>
 				</div>
 				<div class="panel-body">
 					<ol>
@@ -82,8 +82,8 @@
 			</div>
 
 			<div class="panel">
-				<div class="panel-haeding">
-					<h3 class="lead"> 2. Política de Privacidad</h3>
+				<div class="panel-heading">
+					<h3 class="lead text-center"> 2. Política de Privacidad</h3>
 				</div>
 				<div class="panel-body">
 					<ol>
@@ -118,8 +118,8 @@
 			</div>
 
 			<div class="panel">
-				<div class="panel-haeding">
-					<h3 class="lead"> 3. Copyright</h3>
+				<div class="panel-heading">
+					<h3 class="lead "> 3. Copyright</h3>
 				</div>
 				<div class="panel-body">
 					<ol>

@@ -4,10 +4,19 @@ body{
 	background-repeat: repeat;
 }
 
+.cc-cookies {
+	width: 100% !important;
+}
+
 .text-date {
 	position: absolute;
 	right: 40px;
 	color: grey;
+}
+
+.id-user-comment {
+	color: black !important;
+	font-weight: bold;
 }
 
 /* Carousel base class */
@@ -48,6 +57,21 @@ body{
   height:200px;
 }
 
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+#wrap {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
+}
+
 #footer {
 	width: auto;
 	height: 60px;
@@ -56,6 +80,8 @@ body{
 	background: #181818
 		url("//d85wutc1n854v.cloudfront.net/live/imgs/tray-bg.png");
 	color: #fff;
+	padding-bottom: 0px !important;
+	margin-bottom: 0px !important;
 }
 
 #footer a {
@@ -103,31 +129,4 @@ a.nolink{
 }
 .jumbo{
 	background-image:url("../images/general/bcmainview.jpg");
-}
-
-#overbox3 {
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
-    width: 100%;
-    z-index: 999999;
-    display: block;
-}
-#infobox3 {
-    margin: auto;
-    position: relative;
-    top: 0px;
-    height: 58px;
-    width: 100%;
-    text-align:center;
-    background-color: #eeeeee;
-}
-#infobox3 p {
-    line-height:58px;
-    font-size:12px;
-    text-align:center;
-}
-#infobox3 p a {
-    margin-right:5px;
-    text-decoration: underline;
 }

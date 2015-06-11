@@ -51,6 +51,19 @@ class Books_model extends CI_Model {
         ] );
         return $booksBeans;
     }
+    function getBooklistFromUser($userId) {
+        $booksInList = R::getAll ( '
+                SELECT b.id
+                FROM book_listbook lb, book b
+                WHERE b.id = lb.book_id AND lb.listbook_id = ?', [ $userId ] );
+        
+        $booksList = array();        
+        foreach($booksInList as $row) {
+            array_push($booksList, $row['id']);
+        }
+        
+        return $booksList;
+    }
     public function createBookTable_management() {
         try {
             $crud = new grocery_CRUD ();
@@ -207,5 +220,9 @@ class Books_model extends CI_Model {
                 GROUP BY v.val_estado_libro        
                 ORDER BY b.book_name; ');
         return $book;
+    }
+    public function deleteBook($bookId){
+        $book = R::load('book', $bookId);
+        R::trash( $book );
     }
 }

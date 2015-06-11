@@ -1,3 +1,4 @@
+</div>
 <!-- FOOOTER -->
 <div class="container">
 		<div id="footer">
@@ -30,11 +31,3 @@
 		</div>
 </div>
 <!-- FIN FOOTER -->
-
-<div id="overbox3">
-    <div id="infobox3">
-        <p>Esta web utiliza cookies para obtener datos estadísticos de la navegación de sus usuarios. Si continúas navegando consideramos que aceptas su uso.
-        <a href="<?= base_url('informacion-legal') ?>">Más información</a>
-        <a onclick="aceptar_cookies();" style="cursor:pointer;">X Cerrar</a></p>
-    </div>
-</div>

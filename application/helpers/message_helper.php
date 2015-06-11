@@ -82,3 +82,6 @@ function getAuthorImageErrorMsg(){
 function getVerifySuccessMsg(){
     return 'El libro/autor ya se encuentra disponible. ¡Gracias por tu ayuda!';
 }
+function getRejectSuccessMsg(){
+    return 'El libro/autor ha sido rechazado. ¡Gracias por tu ayuda!';
+}

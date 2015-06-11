@@ -76,9 +76,14 @@
             										<td><?php echo img(asset_url().'images/books/'.$book['book_img'], $book['book_name'], ['class' => 'votebook'])?></td>
             										<td><?php echo $book['author_fullname']?>
             										</td>
-            										<td><a href="verificar-libro/<?php echo $book['id']?>"
-            											class="btn btn-default"> Verificar <i class="fa fa-check"></i>
-            										</a></td>
+            										<td>
+                                                        <a href="verificar-libro/<?php echo $book['id']?>"
+            											class="btn btn-success"> Verificar <i class="fa fa-check"></i>
+                                                        </a>
+                                                        <a href="rechazar-libro/<?php echo $book['id']?>"
+            											class="btn btn-danger"> Rechazar <i class="fa fa-times"></i>
+                                                        </a>
+            										</td>
             							</tr>    
                     		        <?php endforeach;?>
                                 </tbody>
@@ -135,7 +140,10 @@
             								<td><?php echo img(asset_url().'images/authors/'.$author['author_img'], $author['author_fullname'])?></td>
             								<td>
             									<a href="verificar-autor/<?php echo $author['id']?>"
-            											class="btn btn-default"> Verificar <i class="fa fa-check"></i>
+            											class="btn btn-success"> Verificar <i class="fa fa-check"></i>
+            									</a>
+            									<a href="rechazar-autor/<?php echo $author['id']?>"
+            											class="btn btn-danger"> Rechazar <i class="fa fa-times"></i>
             									</a>
             								</td>
             							</tr>    

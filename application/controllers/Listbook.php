@@ -6,7 +6,7 @@ class Listbook extends CI_Controller {
         
         if (! check_session_exist ( $sessionName )) {
             $this->session->set_flashdata ( 'signInError', getSignInErrorMsg () );
-            redirect ( base_url (), 'refresh' );
+            go_back();
         }
         
         $data ['title'] = 'Lista de libros';
@@ -52,7 +52,7 @@ class Listbook extends CI_Controller {
         
         if (! check_session_exist ( $sessionName )) {
             $this->session->set_flashdata ( 'signInError', getSignInErrorMsg () );
-            redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+            go_back();
         }
         
         $userId = $this->session->userdata ( $sessionName );
@@ -63,7 +63,7 @@ class Listbook extends CI_Controller {
         
         if (!$isBookAlreadyInList) {
             $this->session->set_flashdata ( 'bookNotAdded', bookNotAddedErrorMsg () );
-            redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+            go_back();
         }
         
         $this->load->model ( 'books_model' );
@@ -71,12 +71,12 @@ class Listbook extends CI_Controller {
         
         if (!$existBook) {
             $this->session->set_flashdata ( 'bookAlreadyAdded', bookNotExistErrorMsg () );
-            redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+            go_back();
         }
         
         $success = $this->Listbooks_model->removeBookFromList ( $bookId, $listbook_id );
         $this->session->set_flashdata ( 'bookRemovedSuccess', bookRemovedSuccessMsg () );
-        redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+        go_back();
         
     }
     public function addBookToList() {
@@ -85,7 +85,7 @@ class Listbook extends CI_Controller {
         
         if (! check_session_exist ( $sessionName )) {
             $this->session->set_flashdata ( 'signInError', getSignInErrorMsg () );
-            redirect ( base_url('libros'), 'refresh' );
+            go_back();
         }
         
         $userId = $this->session->userdata ( $sessionName );
@@ -96,14 +96,14 @@ class Listbook extends CI_Controller {
         
         if ($isBookAlreadyInList) {
             $this->session->set_flashdata ( 'bookAlreadyAdded', getBookAlreadyAddedErrorMsg () );
-            redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+            go_back();
         }
         $this->load->model ( 'books_model' );
         $existBook = $this->books_model->getBook ( $bookId );
         
         if (!$existBook) {
             $this->session->set_flashdata ( 'bookAlreadyAdded', bookNotExistErrorMsg () );
-            redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+            go_back();
         }
         
         $success = $this->Listbooks_model->addBookToList ( $bookId, $listbook_id );

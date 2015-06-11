@@ -13,7 +13,7 @@ class User extends CI_Controller {
             $userId = $this->session->userdata ( $session );
         } else {
             $this->session->set_flashdata ( 'signInError', 'Inicie sesión para continuar' );
-            redirect ( base_url (), 'refresh' );
+            go_back();
         }
         
         $data ['title'] = 'Información de Usuario';
@@ -103,7 +103,7 @@ class User extends CI_Controller {
             $this->session->set_flashdata ( 'signUpFail', 'Formulario incorrecto' );
         }
         
-        redirect ( base_url (), 'refresh' );
+        go_back();
     }
     private function setSignUpFormRules() {
         $this->form_validation->set_rules ( 'name', 'Nombre', 'required' );
@@ -292,7 +292,7 @@ class User extends CI_Controller {
             $id = $this->session->userdata ( 'id' );
             $this->Users_model->update_username ( $username, $id );
             $this->session->set_flashdata ( 'updateUsernameOk', getUsernameChangeOkMsg () );
-            redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+            go_back();
         }
     }
     public function editEmail() {
@@ -301,19 +301,19 @@ class User extends CI_Controller {
             $userId = $this->session->userdata ( $session );
         } else {
             $this->session->set_flashdata ( 'signInError', 'Inicie sesión para continuar' );
-            redirect ( base_url (), 'refresh' );
+            go_back();
         }
         
         $email = set_value ( 'newEmail' );
         $isEmailInUse = $this->Users_model->check_email_exists ( $email );
         if ($isEmailInUse) {
             $this->session->set_flashdata ( 'updateEmailError', getEmailAlreadyExistsMsg () );
-            redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+            go_back();
         } else {
             $id = $this->session->userdata ( 'id' );
             $this->Users_model->update_email ( $email, $id );
             $this->session->set_flashdata ( 'updateEmailOk', getEmailChangeOkMsg () );
-            redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+            go_back();
         }
     }
     public function editAvatar() {
@@ -352,7 +352,7 @@ class User extends CI_Controller {
             }
         } else {
             $this->session->set_flashdata ( 'signInError', 'Inicie sesión para continuar' );
-            redirect ( base_url (), 'refresh' );
+            go_back();
         }
     }
     public function deleteAccount() {
@@ -380,7 +380,7 @@ class User extends CI_Controller {
                 echo "El id no coincide";
             }
         } else {
-            redirect ( base_url (), 'refresh' );
+            go_back();
         }
     }
     public function editPass() {
@@ -389,7 +389,7 @@ class User extends CI_Controller {
             $userId = $this->session->userdata ( $session );
         } else {
             $this->session->set_flashdata ( 'signInError', 'Inicie sesión para continuar' );
-            redirect ( base_url (), 'refresh' );
+            go_back();
         }
         
         $oldPass = md5 ( set_value ( 'oldPass' ) );
@@ -399,10 +399,10 @@ class User extends CI_Controller {
             $id = $this->session->userdata ( 'id' );
             $this->Users_model->update_pass ( $newPass, $id );
             $this->session->set_flashdata ( 'updatePassOk', getPassChangeOkMsg () );
-            redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+            go_back();
         } else {
             $this->session->set_flashdata ( 'updatePassError', getPassNoMatchMsg () );
-            redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+            go_back();
         }
     }
 }

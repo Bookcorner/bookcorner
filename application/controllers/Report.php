@@ -6,7 +6,7 @@ class Report extends CI_Controller {
         
         if (! check_session_exist ( $sessionName )) {
             $this->session->set_flashdata ( 'signInError', getSignInErrorMsg () );
-            redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+            go_back();
         }
         
         $data ['title'] = 'Reporte';
@@ -24,7 +24,7 @@ class Report extends CI_Controller {
         
         if (! check_session_exist ( $sessionName )) {
             $this->session->set_flashdata ( 'signInError', getSignInErrorMsg () );
-            redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+            go_back();
         }
         
         $config = $this->setUploadBookConfig ();
@@ -53,7 +53,7 @@ class Report extends CI_Controller {
                 $this->load->helper ( 'image_helper' );
                 resize_img ( $url, 500, 500 );
                 
-                redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+                go_back();
             } else {
                 $authorname = set_value ( 'authorname' );
                 $authordesc = set_value ( 'authordesc' );
@@ -81,15 +81,15 @@ class Report extends CI_Controller {
                     resize_img ( $urlBook, 500, 500 );
                     resize_img ( $urlAuthor, 500, 500 );
                     
-                    redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+                    go_back();
                 } else {
                     $this->session->set_flashdata ( 'authorImageError', getAuthorImageErrorMsg () );
-                    redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+                    go_back();
                 }
             }
         } else {
             $this->session->set_flashdata ( 'bookImageError', getBookImageErrorMsg () );
-            redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+            go_back();
         }
     }
     

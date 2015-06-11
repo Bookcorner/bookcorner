@@ -13,20 +13,20 @@
 		<div class="col-xs-12">
 			<div class="panel">
 				<div class="panel-heading">
-					<p class="lead text-center"><?= $author->author_fullname ?></p>
+					<h2 class="text-center"><?= $author->author_fullname ?></h2>
 				</div>
 				<div class="panel-body">
 					<div class="row">
 						<div class="col-xs-7">
 							<div class="row">
 								<div class="col-xs-12">
-									<p>Nombre: <?= $author->author_fullname ?></p>
-									<p>Libros Escritos:
+									<p><strong>Nombre</strong>: <?= $author->author_fullname ?></p>
+									<p><strong>Sinopsis</strong>: <?= $author->author_desc ?></p>
+									<p><strong>Libros Escritos</strong>:
 									   <ol style="list-style-type:none;">
 									       <?php foreach ($books as $book){echo '<li>'.anchor(base_url('libro/'.filterQuitSpecChar($book['book_name'])), $book['book_name']).'</li>';}?>
 									   </ol>
 									</p>
-									<p>Sinopsis: <?= $author->author_desc ?></p>
 								</div>
 							</div>
 							<div class="row">

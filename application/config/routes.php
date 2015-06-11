@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'home/goToWhatIs';
+$route['default_controller'] = 'home/presentation';
 
 // static pages
 $route['que-es-bookcorner'] = 'home/goToWhatIs';
@@ -62,6 +62,7 @@ $route['libros'] = 'book/index';
 $route['libro/:any'] = 'book/showBook';
 $route['busqueda-libros/:any'] = 'book/showBooksSearched';
 $route['verificar-libro/:num'] = 'book/setBookAvailable';
+$route['rechazar-libro/:num'] = 'book/deleteBook';
 $route['comentar'] = 'book/addBookComment';
 
 //author
@@ -69,6 +70,7 @@ $route['autores'] = 'author/index';
 $route['autor/:any'] = 'author/showAuthor';
 $route['busqueda-autores/:any'] = 'author/showAuthorsSearched';
 $route['verificar-autor/:num'] = 'author/setAuthorAvailable';
+$route['rechazar-autor/:num'] = 'author/deleteAuthor';
 
 //search
 $route['busqueda'] = 'search/searchAuthorOrBook';

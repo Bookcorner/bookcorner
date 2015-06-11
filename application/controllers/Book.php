@@ -2,22 +2,35 @@
 defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 class Book extends CI_Controller {
     public function index() {
+        $sessionName = 'id';
         $data ['title'] = 'Libros';
-        
-        $this->load->model ( 'books_model' );
-        $data['books'] = $this->books_model->searchAllBooksOrderedByName();
         $data ['section'] = 'libros';
+        $this->load->model ( 'books_model' );
+        
+        $data['books'] = $this->books_model->searchAllBooksOrderedByName();
+        $data['listbook'] = array();        
+        if (check_session_exist ( $sessionName )) {
+            $userId = $this->session->userdata ( $sessionName );
+            $data['listbook'] = $this->books_model->getBooklistFromUser($userId);
+        }
         
         $viewUri = 'books/main_book_content';
         loadBasicViews ( $viewUri, $data );
     }
     public function showBooksSearched() {
+        $sessionName = 'id';
         $searchName = prepareForSearchableWord(quitDash($this->uri->segment(2)));
         
         $this->load->model('books_model');
         $books = $this->books_model->searchBooks ( $searchName );
         
         $data ['title'] = 'Libros';
+        
+        $data['listbook'] = array();
+        if (check_session_exist ( $sessionName )) {
+            $userId = $this->session->userdata ( $sessionName );
+            $data['listbook'] = $this->books_model->getBooklistFromUser($userId);
+        }
         
         if (empty ( $books )) {
             $viewUri = 'books/no_books_found';
@@ -67,7 +80,7 @@ class Book extends CI_Controller {
         
         if ( empty($_POST) ){
             $this->session->set_flashdata ( 'signInError', getSignInErrorMsg () );
-            redirect(base_url(),'refresh');
+            go_back();
         }
         
         $data['comment'] = $_POST['comment'];
@@ -77,14 +90,14 @@ class Book extends CI_Controller {
         $this->load->model('Books_model');
         $this->Books_model->addComment($data);
         
-        redirect($_SERVER['HTTP_REFERER'] ,'refresh');
+        go_back();
     }
     public function setBookAvailable(){
         $bookId = $this->uri->segment(2);
         $this->load->model('Books_model');
         $this->Books_model->setAvailableBook($bookId);
         $this->session->set_flashdata ( 'verifySuccess', getVerifySuccessMsg () );
-        redirect ( $_SERVER ['HTTP_REFERER'], 'refresh' );
+        go_back();
     }
     private function updateBookisbn($bookId){
         $newIsbn = $_POST['value'];
@@ -100,5 +113,12 @@ class Book extends CI_Controller {
         $newDesc = $_POST['value'];
         $this->load->model('Books_model');
         $this->Books_model->updateBookdesc($bookId, $newDesc);
+    }
+    public function deleteBook(){
+        $bookId = $this->uri->segment(2);
+        $this->load->model('Books_model');
+        $this->Books_model->deleteBook($bookId);
+        $this->session->set_flashdata ( 'rejectSuccess', getRejectSuccessMsg () );
+        go_back();
     }    
 }

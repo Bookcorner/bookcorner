@@ -98,4 +98,8 @@ class Authors_model extends CI_Model {
         ]);
         return $authors;
     }
+    public function deleteAuthor($authorId){
+        $author = R::load('author', $authorId);
+        R::trash( $author );
+    }
 }
