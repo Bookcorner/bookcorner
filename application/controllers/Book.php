@@ -2,22 +2,35 @@
 defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 class Book extends CI_Controller {
     public function index() {
+        $sessionName = 'id';
         $data ['title'] = 'Libros';
-        
-        $this->load->model ( 'books_model' );
-        $data['books'] = $this->books_model->searchAllBooksOrderedByName();
         $data ['section'] = 'libros';
+        $this->load->model ( 'books_model' );
+        
+        $data['books'] = $this->books_model->searchAllBooksOrderedByName();
+        $data['listbook'] = array();        
+        if (check_session_exist ( $sessionName )) {
+            $userId = $this->session->userdata ( $sessionName );
+            $data['listbook'] = $this->books_model->getBooklistFromUser($userId);
+        }
         
         $viewUri = 'books/main_book_content';
         loadBasicViews ( $viewUri, $data );
     }
     public function showBooksSearched() {
+        $sessionName = 'id';
         $searchName = prepareForSearchableWord(quitDash($this->uri->segment(2)));
         
         $this->load->model('books_model');
         $books = $this->books_model->searchBooks ( $searchName );
         
         $data ['title'] = 'Libros';
+        
+        $data['listbook'] = array();
+        if (check_session_exist ( $sessionName )) {
+            $userId = $this->session->userdata ( $sessionName );
+            $data['listbook'] = $this->books_model->getBooklistFromUser($userId);
+        }
         
         if (empty ( $books )) {
             $viewUri = 'books/no_books_found';

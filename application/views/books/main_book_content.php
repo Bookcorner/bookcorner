@@ -35,10 +35,17 @@
                     </div>
 				</div>
 				<div class="panel-footer">
+				    <?php if (! in_array($book['id'], $listbook) ) { ?>
 					<a href="anadir-libro/<?php echo $book['id']?>"
 						class="btn btn-success"> <i class="fa fa-plus"></i> Añadir a mi
 						lista
-					</a> <a href="<?= base_url('lista-libros') ?>" class="btn btn-warning"> <i
+					</a> 
+					<?php } else { ?>
+					<a href="<?= base_url() ?>quitar-libro/<?= $book->id ?>" class="btn btn-danger"> <i
+						class="fa fa-minus"></i> Quitar de mi lista
+					</a>
+					<?php } ?>
+					<a href="<?= base_url('lista-libros') ?>" class="btn btn-warning"> <i
 						class="fa fa-thumbs-up"></i> Votar Libro
 					</a>
 				</div>
