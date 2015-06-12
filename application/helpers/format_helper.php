@@ -9,7 +9,9 @@ if (! defined ( 'BASEPATH' ))
  * @return String cadena a buscar formateada
  */
 function prepareForSearchableWord($string) {
+    $string = filter($string);    
     $searchFormatted = '%' . $string . '%';
+    $searchFormatted = strtr($searchFormatted, ' ', '%');
     
     return str_replace ( '%20', '%', $searchFormatted );
 }
