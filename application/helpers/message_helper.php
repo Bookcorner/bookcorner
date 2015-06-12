@@ -31,14 +31,14 @@ function bookNotAddedErrorMsg() {
     return 'El libro no está en tu lista';
 }
 function getMailActivationMsg($nameReceiver, $url, $validation) {
-    return "Email de thecornerbook@gmail.com <br /><br />Hola, $nameReceiver:<br/>
-                Se ha registrado en BookCorner, este es un mensaje de activación. <br/><br/>
+    return "<h4>Email de thecornerbook@gmail.com <br /><br />Bienvenido $nameReceiver:<br/>
+                Te has registrado en BookCorner, este es un mensaje de activación. <br/><br/>
+                </h4>
+                <h2> Si has realizado el registro puedes <a href='$url/activar/$validation'>activar tu cuenta</a> </h2>
     
-                <h2> Si ha realizado este registro puede confirmar la operación mediante este link: $url/activar/$validation </h2>
+                <br/> <br/><br/> <br/><br/>
     
-                <br/> <br/><br/> <br/><br/> <br/>
-    
-                <h3> Si no ha realizado este registro puede cancelar la operación mediante este link: $url/cancelar/$validation </h3>
+                <h3> Si no has realizado tú este registro, puedes <a href='$url/cancelar/$validation'>cancelar la operación aquí</a> </h3>
     
                 <br/> <br/>
                 Atentamente, El equipo de BookCorner";
