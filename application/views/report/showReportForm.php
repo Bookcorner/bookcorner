@@ -1,3 +1,22 @@
+<script type="text/javascript">
+$(document).ready(function() {
+
+    $('#reportAuthorDropdown').on({
+    	'click': function() {
+    	    if ($(this).attr('class') == 'collapsed') {
+    	        //console.log( $('#idBookAuthor option:selected').val() );
+    	    	$('#idBookAuthor').val('none');
+    	    	$('#idBookAuthor').prop( "disabled", true );    	        
+    	    } else {
+    	    	$('#idBookAuthor').prop( "disabled", false );
+    	    	$('#idBookAuthor').focus();
+    	    }
+        }       	
+    });
+	
+});
+</script>
+
 <div class="container">
 	<!-- BREADCRUMB -->
 	<div>
@@ -101,7 +120,6 @@
 												<select id="idBookAuthor" name="bookauthor"
 													class="form-control control-label">
 													<option value="none">-- Elige un Autor --</option>
-													<option value="none">AUTOR INEXISTENTE</option>
                                                     <?php foreach ($authors as $author):?>
                                                         <option
 														value="<?php echo $author->id?>"><?php echo $author->author_fullname?></option>
@@ -117,7 +135,7 @@
 							<div class="panel panel-default">
 								<div class="panel-heading" role="tab" id="creacionAutor">
 									<h4 class="panel-title">
-										<a class="collapsed" data-toggle="collapse"
+										<a class="collapsed" data-toggle="collapse" id="reportAuthorDropdown"
 											data-parent="#eleccionAutor" href="#collapseTwo"
 											aria-expanded="false" aria-controls="collapseTwo"> ¿No encuentras el autor? ¡Añádelo Aquí! <i class="fa fa-chevron-down"></i> </a>
 									</h4>
