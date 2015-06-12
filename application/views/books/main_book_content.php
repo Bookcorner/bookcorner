@@ -26,11 +26,12 @@
 					<div class="col-sm-1 col-sm-pull-9">
 					   <a href="<?= 'libro/'.filterQuitSpecChar($book['book_name']) ?>">
                             <?php
-                            echo img ( array (
-                                    'src' => asset_url () . 'images/books/' . $book ['book_img'],
-                                    'class' => 'img-rounded smallbook',
-                                    'alt' => $book ['book_name'] 
-                            ) )?>
+                                echo img ( array (
+                                        'src' => asset_url () . 'images/books/' . $book ['book_img'],
+                                        'class' => 'img-rounded smallbook',
+                                        'alt' => $book ['book_name'] 
+                                ));
+                            ?>
                         </a>
                     </div>
 				</div>
@@ -39,15 +40,18 @@
 					<a href="anadir-libro/<?php echo $book['id']?>"
 						class="btn btn-success"> <i class="fa fa-plus"></i> Añadir a mi
 						lista
-					</a> 
+					</a>
+					<a href="<?= base_url('lista-libros') ?>" class="btn btn-warning disabled"> <i
+						class="fa fa-thumbs-up"></i> Votar Libro
+					</a>
 					<?php } else { ?>
 					<a href="<?= base_url() ?>quitar-libro/<?= $book->id ?>" class="btn btn-danger"> <i
 						class="fa fa-minus"></i> Quitar de mi lista
 					</a>
-					<?php } ?>
 					<a href="<?= base_url('lista-libros') ?>" class="btn btn-warning"> <i
 						class="fa fa-thumbs-up"></i> Votar Libro
 					</a>
+					<?php } ?>					
 				</div>
 			</div>
             <?php endforeach;?>

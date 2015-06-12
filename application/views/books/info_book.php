@@ -19,23 +19,22 @@
 					<div class="row">
 						<div class="col-sm-5 col-xs-12">
                         <?php
-                        echo img ( array (
-                                'src' => asset_url () . '/images/books/' . $book->book_img,
-                                'class' => 'img-rounded bigbook visible-lg visible-md',
-                                'alt' => $book->book_name 
-                        ) )?>
-                        <?php
-                        echo img ( array (
-                                'src' => asset_url () . '/images/books/' . $book->book_img,
-                                'class' => 'img-rounded mediumbook visible-sm',
-                                'alt' => $book->book_name 
-                        ) )?>
-                        <?php
-                        echo img ( array (
-                                'src' => asset_url () . '/images/books/' . $book->book_img,
-                                'class' => 'img-rounded smallbook visible-xs',
-                                'alt' => $book->book_name 
-                        ) )?>
+                            echo img ( array (
+                                    'src' => asset_url () . 'images/books/' . $book->book_img,
+                                    'class' => 'img-rounded bigbook visible-lg visible-md',
+                                    'alt' => $book->book_name 
+                            ));                        
+                            echo img ( array (
+                                    'src' => asset_url () . 'images/books/' . $book->book_img,
+                                    'class' => 'img-rounded mediumbook visible-sm',
+                                    'alt' => $book->book_name 
+                            ));                        
+                            echo img ( array (
+                                    'src' => asset_url () . 'images/books/' . $book->book_img,
+                                    'class' => 'img-rounded smallbook visible-xs',
+                                    'alt' => $book->book_name 
+                            ));
+                        ?>
                         </div>
 						<div class="col-sm-7 col-xs-12">
 							<div class="row">
@@ -57,18 +56,23 @@
 										class="fa fa-plus"></i> Añadir a mi lista
 									</a>
 								</div>
+								<div class="col-xs-6">
+									<a href="<?= base_url('lista-libros') ?>" class="btn btn-warning disabled" title="Añadelo a tu lista para votar"> 
+									<i class="fa fa-thumbs-up"></i> Votar Libro
+									</a>
+								</div>
 								<?php } else { ?>
 							     <div class="col-xs-6">
 								    <a href="<?= base_url() ?>quitar-libro/<?= $book->id ?>" class="btn btn-danger"> <i
 										class="fa fa-minus"></i> Quitar de mi lista
 									</a>
 								 </div>
-								<?php } ?>
-								<div class="col-xs-6">
+								 <div class="col-xs-6">
 									<a href="<?= base_url('lista-libros') ?>" class="btn btn-warning"> 
 									<i class="fa fa-thumbs-up"></i> Votar Libro
 									</a>
 								</div>
+								<?php } ?>								
 							</div>
 						</div>
 					</div>
