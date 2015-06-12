@@ -2,12 +2,6 @@
 defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 class Vote extends CI_Controller {
     public function showTablesVotes() {
-        $sessionName = 'id';
-        
-        if (! check_session_exist ( $sessionName )) {
-            $this->session->set_flashdata ( 'signInError', getSignInErrorMsg () );
-            go_back();
-        }
         
         $this->load->model('Books_model');
         $data['popularBooks'] = $this->Books_model->getAllPopularBooks();
@@ -17,12 +11,6 @@ class Vote extends CI_Controller {
         loadBasicViews($contentURI, $data);
     }
     public function showAllPopularBooks() {
-        $sessionName = 'id';
-    
-        if (! check_session_exist ( $sessionName )) {
-            $this->session->set_flashdata ( 'signInError', getSignInErrorMsg () );
-            go_back();
-        }
     
         $this->load->model('Books_model');
         $data['popularBooks'] = $this->Books_model->getAllPopularBooks();
@@ -31,12 +19,6 @@ class Vote extends CI_Controller {
         loadBasicViews($contentURI, $data);
     }
     public function showAllPopularAVGBooks() {
-        $sessionName = 'id';
-    
-        if (! check_session_exist ( $sessionName )) {
-            $this->session->set_flashdata ( 'signInError', getSignInErrorMsg () );
-           go_back();
-        }
     
         $this->load->model('Books_model');
         $data['averageBooks'] = $this->Books_model->getAllPopularAVGBooks();
@@ -46,12 +28,6 @@ class Vote extends CI_Controller {
     }
     
     public function showAllStateBooks() {
-        $sessionName = 'id';
-    
-        if (! check_session_exist ( $sessionName )) {
-            $this->session->set_flashdata ( 'signInError', getSignInErrorMsg () );
-            go_back();
-        }
     
         $this->load->model('Books_model');
         $data['stateBooks'] = $this->Books_model->getAllStatesBooks();
