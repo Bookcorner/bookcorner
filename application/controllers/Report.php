@@ -30,6 +30,7 @@ class Report extends CI_Controller {
         $config = $this->setUploadBookConfig ();
         
         $this->load->library ( 'upload', $config );
+        $this->load->helper ( 'image_helper' );
         $this->upload->initialize ( $config );
         
         $bookisbn = set_value ( 'isbn' );
@@ -50,8 +51,6 @@ class Report extends CI_Controller {
                 $this->session->set_flashdata ( 'bookCreatedSuccess', getbookCreatedSuccessMsg () );
                 
                 $url = 'assets/images/books/' . $imgbookData ['file_name'];
-                
-                $this->load->helper ( 'image_helper' );
                 resize_img ( $url, 500, 500 );
                 
                 go_back();
@@ -76,11 +75,11 @@ class Report extends CI_Controller {
                     $this->books_model->createNewBookAndAssociateWithAuthor ( $bookisbn, $bookname, $bookdesc, $imgbookData ['file_name'], $genrebook, $idAuthorCreated );
                     $this->session->set_flashdata ( 'bookCreatedSuccess', getbookCreatedSuccessMsg () );
                     
-                    $urlBook = 'assets/images/books/' . $imgbookData ['file_name'];
                     $urlAuthor = 'assets/images/authors/' . $imgAuthorData ['file_name'];
-                    $this->load->helper ( 'image_helper' );
-                    resize_img ( $urlBook, 500, 500 );
                     resize_img ( $urlAuthor, 500, 500 );
+                    
+                    $url = 'assets/images/books/' . $imgbookData ['file_name'];
+                    resize_img ( $url, 500, 500 );
                     
                     go_back();
                 } else {
