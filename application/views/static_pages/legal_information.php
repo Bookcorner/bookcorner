@@ -10,7 +10,7 @@
 	<div class="row">
 		<div class="col-xs-12">
 			<div class="panel">
-				<div class="panel-haeding">
+				<div class="panel-heading">
 					<h2 class="lead text-center">INFORMACIÓN LEGAL</h2>
 				</div>
 				<div class="panel-body">
@@ -119,7 +119,7 @@
 
 			<div class="panel">
 				<div class="panel-heading">
-					<h3 class="lead "> 3. Copyright</h3>
+					<h3 class="lead text-center"> 3. Copyright</h3>
 				</div>
 				<div class="panel-body">
 					<ol>
