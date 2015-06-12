@@ -48,7 +48,7 @@
 						<p>Gestiona todos los libros leídos, y compártelos con tus amigos.</p>
 						<p class="hidden-xs">
 						    <?php echo anchor(base_url('lista-libros'), '¡Quiero
-								Gestionar mis listas!', [
+								gestionar mis listas!', [
 								            'class' => 'btn btn-lg btn-primary',
 								            'role' => 'button'
 						    ])?>
