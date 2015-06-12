@@ -26,10 +26,9 @@
                             'id' => 'idFormAddBook' 
                     ] )?>
 					<fieldset>
-						<!-- Name input-->
 						<div class="form-group">
-							<label class="control-label col-xs-2" for="idIsbn">ISBN:</label>
-							<div class="controls col-xs-9">
+							<label class="control-label col-sm-2 col-xs-12" for="idIsbn">ISBN:</label>
+							<div class="controls col-sm-9 col-xs-12">
 								<input id="idIsbn" name="isbn" class="form-control" type="text"
 									placeholder="Isbn" class="input" required />
 							</div>
@@ -37,17 +36,18 @@
 
 						</div>
 						<div class="form-group">
-							<label class="control-label col-xs-2" for="idBookName">Nombre:</label>
-							<div class="controls col-xs-9">
+							<label class="control-label col-sm-2 col-xs-12" for="idBookName">Nombre:</label>
+							<div class="controls col-sm-9 col-xs-12">
 								<input id="idBookName" name="bookname" class="form-control"
 									type="text" placeholder="Título del libro" class="input"
 									required />
 							</div>
 							<div class="help-block with-errors"></div>
 						</div>
+						
 						<div class="form-group">
-							<label class="control-label col-xs-2" for="idBookgenre">Géneros:</label>
-							<div class="controls col-xs-9">
+							<label class="control-label col-sm-2 col-xs-12" for="idBookgenre">Géneros:</label>
+							<div class="controls col-sm-3 col-xs-12">
 								<select id="idBookgenre" name="genrebooks[]" class="form-control control-label" multiple>
                                     <?php foreach ($genres as $genre):?>
                                         <option value="<?php echo $genre->id?>"><?php echo $genre->genrebook_name?></option>
@@ -58,8 +58,8 @@
 						</div>
 
 						<div class="form-group">
-							<label class="control-label col-xs-2" for="idBookDesc">Descripción:</label>
-							<div class="controls col-xs-9">
+							<label class="control-label col-sm-2 col-xs-12" for="idBookDesc">Descripción:</label>
+							<div class="controls col-sm-9 col-xs-12">
 								<textarea id="idBookDesc" name="bookdesc" class="form-control"
 									type="textarea"
 									placeholder="Introduce una breve descripción del libro"
@@ -69,9 +69,9 @@
 						</div>
 
 						<div class="form-group">
-							<label class="control-label col-xs-2" for="idBookImg">Imagen de
+							<label class="control-label col-sm-2 col-xs-12" for="idBookImg">Imagen de
 								Portada (1024x768):</label>
-							<div class="controls col-xs-9">
+							<div class="controls col-xs-9 col-xs-12">
 								<span class="btn btn-default btn-file"> <i
 									class="fa fa-picture-o"></i> Elegir una imagen...(5 MB máx) <input
 									id="idBookImg" name="bookimg" class="form-control" type="file"
@@ -95,9 +95,9 @@
 									<div class="panel-body">
 									<div class="controls">
 										<div class="form-group">
-											<label class="control-label col-xs-2" for="idBookAuthor">Elige
+											<label class="control-label col-sm-2 col-xs-12" for="idBookAuthor">Elige
 												al autor:</label>
-											<div class="controls col-xs-9">
+											<div class="controls col-sm-9 col-xs-12">
 												<select id="idBookAuthor" name="bookauthor"
 													class="form-control control-label">
 													<option value="none">-- Elige un Autor --</option>
@@ -135,9 +135,9 @@
 												<fieldset>
 													<!-- Name input-->
 													<div class="form-group">
-														<label class="control-label col-xs-2" for="idAuthorName">Nombre
+														<label class="control-label col-sm-2 col-xs-12" for="idAuthorName">Nombre
 															Completo:</label>
-														<div class="controls col-xs-9">
+														<div class="controls col-sm-9 col-xs-12">
 															<input id="idAuthorName" name="authorname"
 																class="form-control" type="text"
 																placeholder="Nombre Completo del autor" class="input"
@@ -147,8 +147,8 @@
 													</div>
 
 													<div class="form-group">
-														<label class="control-label col-xs-2" for="idAuthorDesc">Sinopsis:</label>
-														<div class="controls col-xs-9">
+														<label class="control-label col-sm-2 col-xs-12" for="idAuthorDesc">Sinopsis:</label>
+														<div class="controls col-sm-9 col-xs-12">
 															<textarea id="idBookDesc" name="authordesc"
 																class="form-control" type="textarea"
 																placeholder="Cuéntanos sobre la vida del autor brevemente"
@@ -158,9 +158,9 @@
 													</div>
 
 													<div class="form-group">
-														<label class="control-label col-xs-2" for="idAuthorImg">Imagen
+														<label class="control-label col-sm-2 col-xs-12" for="idAuthorImg">Imagen
 															del Autor (1024x768):</label>
-														<div class="controls col-xs-9">
+														<div class="controls col-sm-9 col-xs-12">
                             								<span class="btn btn-default btn-file"> <i
                             									class="fa fa-picture-o"></i> Elegir una imagen...(5MB máx) <input
                             									id="idBookImg" name="authorimg" class="form-control" type="file"

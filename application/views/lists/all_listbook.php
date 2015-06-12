@@ -42,8 +42,8 @@ $( document ).ready(function() {
 	</div>
 	<!-- FIN BREADCRUMB -->
 	<div class="row">
-		<!-- CONTENIDO PPAL-->
-		<div class="col-xs-12">
+		<!-- CONTENIDO PPAL ESCRITORIO-->
+		<div class="col-sm-12 hidden-xs">
 			<div class="panel table-responsive">
 				<div class="panel-heading">
 					<h4 class="lead text-center">Libros favoritos de <?php echo $nickname?></h4>
@@ -113,6 +113,74 @@ $( document ).ready(function() {
 					</table>
 				</div>
 			</div>
+		</div>
+		<!-- FIN CONTENIDO PRINCIPAL ESCRITORIO -->
+		<!-- COMIENZO CONTENIDO MOVIL -->
+		<div class="col-xs-12 visible-xs">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+					<h4 class="lead text-center">Libros favoritos de <?php echo $nickname?></h4>
+				</div>
+                <?php foreach ($books as $book):?>
+                <div class="panel-body">
+                    <a class="btn btn-default" data-toggle="collapse" href="#idContentBook<?php echo $book['id']?>" aria-expanded="false" aria-controls="idContentBook<?php echo $book['id']?>">
+                      <?php echo $book['book_name']?>
+                    </a>
+                    <div class="collapse" id="idContentBook<?php echo $book['id']?>">
+                      <ul id="<?php echo $book['id']?>" class="list-group">
+                        <li class="list-group-item"><strong>ISBN</strong>: <?php echo $book['book_isbn']?></li>
+                        <li class="list-group-item"><strong>Título</strong>: <?php echo anchor('libro/'.filterQuitSpecChar($book['book_name']),$book['book_name'])?></li>
+                        <li class="list-group-item">
+                            <strong>Estado</strong>:
+                            <a href="#"
+                                data-name="status" 
+                                data-type="select" 
+                                data-pk=""
+                                data-url="listbook/updateBookState/<?php echo $book['id']?>" 
+                                data-title="Selecciona un estado" 
+                                data-value="<?php echo $book['val_estado_libro']?>"
+                                aria-describedBy="<?php echo $book['id']?>"
+                                class="btn btn-default btn-md">
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Puntuación</strong>:
+                            <a href="#"
+                               data-name="score" 
+                               data-type="select"
+                               data-pk=""
+                               data-url="listbook/updateBookScore/<?php echo $book['id']?>" 
+                               data-title="Puntuación" 
+                               data-value="<?php echo $book['val_puntuacion']?>"
+                               aria-describedBy="<?php echo $book['id']?>"
+                               class="btn btn-default btn-md">
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Notas</strong>:
+                             <a href="#"
+                                data-name="note" 
+                                data-type="textarea"
+                                data-pk=""
+                                data-url="listbook/updateBookNote/<?php echo $book['id']?>" 
+                                data-title="Introduce tus notas:" 
+                                data-value="<?php echo $book['val_nota_libro']?>"
+                                aria-describedBy="<?php echo $book['id']?>"
+                                class="btn btn-default btn-md">
+                                <i class="glyphicon glyphicon-edit"></i>
+                              </a>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Eliminar</strong>:
+                            <div class="btn btn-default deleteBook" id="<?= $book['book_id'] ?>">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                <?php endforeach;?>
+            </div>
 		</div>
 	</div>
 </div>
