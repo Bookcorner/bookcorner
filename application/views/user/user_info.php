@@ -1,7 +1,7 @@
 <script type="text/javascript">
 $( document ).ready(function() {
 	
-	$('#deleteAccount').on({
+	$('.deleteAccount').on({
 		'click': function() {
 			$( "#dialog" ).dialog( "open" );
 			$('.ui-dialog-titlebar-close').text("X").addClass('close').removeClass('ui-dialog-titlebar-close');
@@ -101,7 +101,7 @@ $( document ).ready(function() {
 						<?php echo form_close()?>
 						
 						<hr />
-						<button class="btn btn-danger" id="deleteAccount">						  
+						<button class="btn btn-danger deleteAccount">						  
 						   Eliminar mi cuenta
 						</button>
 						
