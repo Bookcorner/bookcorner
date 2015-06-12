@@ -1,3 +1,37 @@
+<script type="text/javascript">
+$( document ).ready(function() {
+    var bookId = null;
+	
+	$('.deleteBook').on({
+		'click': function() {
+			bookId = $(this).attr('id');
+			$( "#dialog" ).dialog( "open" );
+			$('.ui-dialog-titlebar-close').text("X").addClass('close').removeClass('ui-dialog-titlebar-close');
+			$('button:contains("Eliminar libro")').addClass('btn btn-default');
+			$('button:contains("Cancelar")').addClass('btn btn-default');
+		}
+	});
+
+	$( "#dialog" ).dialog({
+      autoOpen: false,
+      buttons: {
+          "Eliminar libro": function() {
+        	  window.location.replace('<?= base_url().'quitar-libro/'?>'+bookId);
+          },
+          "Cancelar": function() {
+            $( this ).dialog( "close" );
+          }
+        }
+    });
+	
+});
+</script>
+
+<div id="dialog" title="Eliminar libro">
+    <p>¿Seguro que desea quitar el libro de su lista?</p>
+    <p>Se perderán sus valoraciones.</p>
+</div>
+
 <div class="container">
 	<!-- BREADCRUMB -->
 	<div>
@@ -69,9 +103,9 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="quitar-libro/<?php echo $book['book_id']?>" class="btn btn-default">
+                                    <div class="btn btn-default deleteBook" id="<?= $book['book_id'] ?>">
                                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                                    </a>
+                                    </div>
                                 </td>
         				    </tr>    
         		        <?php endforeach;?>
