@@ -78,7 +78,7 @@
 				</li>
 				<li class="<?php if ($title == 'Lista de libros') { echo 'active'; }?>">
 					<a href="<?php echo base_url('lista-libros')?>">
-						Listas
+						Lista
 					</a>
 				</li>
 			</ul>
