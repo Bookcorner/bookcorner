@@ -99,13 +99,13 @@
 						<h1>Tus puntuaciones importan</h1>
 						<p>Comprueba las tendencias de lecturas actuales e influye en ellas</p>
 						<p class="hidden-xs">
-						    <?php echo anchor(base_url('ver-votos'), '¡Quiero votar!', [
+						    <?php echo anchor(base_url('ver-votos'), '¡Ver votos!', [
 								            'class' => 'btn btn-lg btn-primary',
 								            'role' => 'button'
 						    ])?>
 						</p>
 						<p class="visible-xs">
-						    <?php echo anchor(base_url('ver-votos'), '¡Quiero votar!', [
+						    <?php echo anchor(base_url('ver-votos'), 'Ver votos!', [
 								            'class' => 'btn btn-sm btn-primary',
 								            'role' => 'button'
 						    ])?>
