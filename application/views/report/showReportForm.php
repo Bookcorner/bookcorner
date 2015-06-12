@@ -63,13 +63,15 @@ $(document).ready(function() {
 							</div>
 							<div class="help-block with-errors"></div>
 						</div>
-						
+
 						<div class="form-group">
 							<label class="control-label col-sm-2 col-xs-12" for="idBookgenre">Géneros:</label>
 							<div class="controls col-sm-3 col-xs-12">
-								<select id="idBookgenre" name="genrebooks[]" class="form-control control-label" multiple>
+								<select id="idBookgenre" name="genrebooks[]"
+									class="form-control control-label" multiple>
                                     <?php foreach ($genres as $genre):?>
-                                        <option value="<?php echo $genre->id?>"><?php echo $genre->genrebook_name?></option>
+                                        <option
+										value="<?php echo $genre->id?>"><?php echo $genre->genrebook_name?></option>
                                     <?php endforeach;?>
                                 </select>
 							</div>
@@ -88,8 +90,8 @@ $(document).ready(function() {
 						</div>
 
 						<div class="form-group">
-							<label class="control-label col-sm-2 col-xs-12" for="idBookImg">Imagen de
-								Portada (1024x768):</label>
+							<label class="control-label col-sm-2 col-xs-12" for="idBookImg">Imagen
+								de Portada:</label>
 							<div class="controls col-xs-9 col-xs-12">
 								<span class="btn btn-default btn-file"> <i
 									class="fa fa-picture-o"></i> Elegir una imagen...(5 MB máx) <input
@@ -106,38 +108,42 @@ $(document).ready(function() {
 									<h4 class="panel-title">
 										<a data-toggle="collapse" data-parent="elecionAutor"
 											href="#collapseOne" aria-expanded="false"
-											aria-controls="collapseOne"> Comprueba si existe el autor <i class="fa fa-chevron-down"></i></a>
+											aria-controls="collapseOne"> Comprueba si existe el autor <i
+											class="fa fa-chevron-down"></i></a>
 									</h4>
 								</div>
 								<div id="collapseOne" class="panel-collapse collapse in"
 									role="tabpanel" aria-labelledby="authorExistente">
 									<div class="panel-body">
-									<div class="controls">
-										<div class="form-group">
-											<label class="control-label col-sm-2 col-xs-12" for="idBookAuthor">Elige
-												al autor:</label>
-											<div class="controls col-sm-9 col-xs-12">
-												<select id="idBookAuthor" name="bookauthor"
-													class="form-control control-label">
-													<option value="none">-- Elige un Autor --</option>
+										<div class="controls">
+											<div class="form-group">
+												<label class="control-label col-sm-2 col-xs-12"
+													for="idBookAuthor">Elige al autor:</label>
+												<div class="controls col-sm-9 col-xs-12">
+													<select id="idBookAuthor" name="bookauthor"
+														class="form-control control-label">
+														<option value="none">-- Elige un Autor --</option>
                                                     <?php foreach ($authors as $author):?>
                                                         <option
-														value="<?php echo $author->id?>"><?php echo $author->author_fullname?></option>
+															value="<?php echo $author->id?>"><?php echo $author->author_fullname?></option>
                                                     <?php endforeach;?>
                                                 </select>
+												</div>
+												<div class="help-block with-errors"></div>
 											</div>
-											<div class="help-block with-errors"></div>
 										</div>
-                                    </div>
 									</div>
 								</div>
 							</div>
 							<div class="panel panel-default">
 								<div class="panel-heading" role="tab" id="creacionAutor">
 									<h4 class="panel-title">
-										<a class="collapsed" data-toggle="collapse" id="reportAuthorDropdown"
-											data-parent="#eleccionAutor" href="#collapseTwo"
-											aria-expanded="false" aria-controls="collapseTwo"> ¿No encuentras el autor? ¡Añádelo Aquí! <i class="fa fa-chevron-down"></i> </a>
+										<a class="collapsed" data-toggle="collapse"
+											id="reportAuthorDropdown" data-parent="#eleccionAutor"
+											href="#collapseTwo" aria-expanded="false"
+											aria-controls="collapseTwo"> ¿No encuentras el autor?
+											¡Añádelo Aquí! <i class="fa fa-chevron-down"></i>
+										</a>
 									</h4>
 								</div>
 								<div id="collapseTwo" class="panel-collapse collapse"
@@ -153,8 +159,8 @@ $(document).ready(function() {
 												<fieldset>
 													<!-- Name input-->
 													<div class="form-group">
-														<label class="control-label col-sm-2 col-xs-12" for="idAuthorName">Nombre
-															Completo:</label>
+														<label class="control-label col-sm-2 col-xs-12"
+															for="idAuthorName">Nombre Completo:</label>
 														<div class="controls col-sm-9 col-xs-12">
 															<input id="idAuthorName" name="authorname"
 																class="form-control" type="text"
@@ -165,7 +171,8 @@ $(document).ready(function() {
 													</div>
 
 													<div class="form-group">
-														<label class="control-label col-sm-2 col-xs-12" for="idAuthorDesc">Sinopsis:</label>
+														<label class="control-label col-sm-2 col-xs-12"
+															for="idAuthorDesc">Sinopsis:</label>
 														<div class="controls col-sm-9 col-xs-12">
 															<textarea id="idBookDesc" name="authordesc"
 																class="form-control" type="textarea"
@@ -176,15 +183,15 @@ $(document).ready(function() {
 													</div>
 
 													<div class="form-group">
-														<label class="control-label col-sm-2 col-xs-12" for="idAuthorImg">Imagen
-															del Autor (1024x768):</label>
+														<label class="control-label col-sm-2 col-xs-12"
+															for="idAuthorImg">Imagen del Autor:</label>
 														<div class="controls col-sm-9 col-xs-12">
-                            								<span class="btn btn-default btn-file"> <i
-                            									class="fa fa-picture-o"></i> Elegir una imagen...(5MB máx) <input
-                            									id="idBookImg" name="authorimg" class="form-control" type="file"
-                            									required />
-                            								</span>
-                            							</div>
+															<span class="btn btn-default btn-file"> <i
+																class="fa fa-picture-o"></i> Elegir una imagen...(5MB
+																máx) <input id="idBookImg" name="authorimg"
+																class="form-control" type="file" required />
+															</span>
+														</div>
 														<div class="help-block with-errors"></div>
 													</div>
 												</fieldset>
@@ -195,13 +202,13 @@ $(document).ready(function() {
 							</div>
 						</div>
 						<div class="help-block with-errors"></div>
+					</fieldset>
 				</div>
 				<div class="form-group">
 					<button type="submit" class="btn btn-info btn-block">
 						<i class="fa fa-sign-in"></i> Enviar solicitud libro
 					</button>
 				</div>
-				</fieldset>
                     <?php echo form_close()?>
                 </div>
 		</div>

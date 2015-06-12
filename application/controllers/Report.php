@@ -41,7 +41,8 @@ class Report extends CI_Controller {
         
         if ($isbookImgUploaded) {
             $idAuthorOfTheBook = set_value ( 'bookauthor' );
-            $authorOfBookAlreadyExist = ($idAuthorOfTheBook != 'none');
+            
+            $authorOfBookAlreadyExist = ($idAuthorOfTheBook != ''); //no llega contenido porque el botón está desabilitado
             
             if ($authorOfBookAlreadyExist) {
                 $this->load->model ( 'books_model' );
