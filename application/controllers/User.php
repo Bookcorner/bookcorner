@@ -271,7 +271,7 @@ class User extends CI_Controller {
             $this->session->set_flashdata ( 'signUpFail', 'El usuario está baneado, no puede borrarlo' );
         }
         
-        redirect ( base_url ('home'), 'refresh' );
+        go_back();
     }
     public function editUsername() {
         $session = 'id';
@@ -343,7 +343,7 @@ class User extends CI_Controller {
                 
                 $this->session->set_flashdata ( 'updateAvatarOk', getAvatarChangeOkMsg () );
                 redirect ( base_url ( 'informacion-de-usuario' ), 'refresh' );
-            } else if (isset ( $_FILES ['newAvatar'] ) || $_FILES ['newAvatar'] ['size'] == 0) {
+            } else if (isset ( $_FILES ['newAvatar'] ) && $_FILES ['newAvatar'] ['size'] == 0) {
                 $this->session->set_flashdata ( 'updateAvatarError', 'La foto no puede ocupar mas de 5MB' );
                 redirect ( base_url ( 'informacion-de-usuario' ), 'refresh' );
             } else {
