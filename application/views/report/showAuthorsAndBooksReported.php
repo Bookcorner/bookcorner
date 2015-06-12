@@ -93,7 +93,7 @@
 								href="#idContentBook<?php echo $book['id']?>"
 								aria-expanded="false"
 								aria-controls="idContentBook<?php echo $book['id']?>">
-                                  Libro <?php echo $book['id']?>
+                                  Libro
                                 </a>
 							<div class="collapse" id="idContentBook<?php echo $book['id']?>">
 								<ul id="<?php echo $book['id']?>" class="list-group">
@@ -207,7 +207,7 @@
 								href="#idContentBook<?php echo $author['id']?>"
 								aria-expanded="false"
 								aria-controls="idContentBook<?php echo $author['id']?>">
-                                Autor <?php echo $author['id']?>
+                                Autor
                                 </a>
 							<div class="collapse"
 								id="idContentBook<?php echo $author['id']?>">
