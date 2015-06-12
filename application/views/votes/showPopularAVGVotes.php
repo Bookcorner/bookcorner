@@ -4,7 +4,7 @@
 		<ol class="breadcrumb">
 			<li><?php echo anchor(base_url('home'), 'Home')?></li>
 			<li><?php echo anchor(base_url('ver-votos'), 'Votaciones')?></li>
-			<li><?php echo anchor(base_url('media-libros-mas-puntuados'), 'Ranking Media Puntuación máxima')?></li>
+			<li><?php echo anchor(base_url('media-libros-mas-puntuados'), 'Ranking puntuación media')?></li>
 		</ol>
 	</div>
 	<!-- FIN BREADCRUMB -->
@@ -14,7 +14,7 @@
 			<div class="panel table-responsive">
 				<div class="panel-heading">
 					<h4 class="lead text-center">
-						<i class="fa fa-star-o fa-2x"></i> Media Libros más puntuados <i
+						<i class="fa fa-star-o fa-2x"></i> Puntuaciones medias más altas <i
 							class="fa fa-star-o fa-2x"></i>
 					</h4>
 				</div>

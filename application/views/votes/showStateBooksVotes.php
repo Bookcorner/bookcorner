@@ -4,7 +4,7 @@
 		<ol class="breadcrumb">
 			<li><?php echo anchor(base_url('home'), 'Home')?></li>
 			<li><?php echo anchor(base_url('ver-votos'), 'Votaciones')?></li>
-			<li><?php echo anchor(base_url('estado-general-libros'), 'Ranking Estado de los libros puntuados')?></li>
+			<li><?php echo anchor(base_url('estado-general-libros'), 'Estado de los libros puntuados')?></li>
 		</ol>
 	</div>
 	<!-- FIN BREADCRUMB -->
