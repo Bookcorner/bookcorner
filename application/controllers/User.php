@@ -249,7 +249,7 @@ class User extends CI_Controller {
             $this->session->set_flashdata ( 'signUpFail', 'El usuario está baneado, no puede activarlo' );
         }
         
-        redirect ( base_url (), 'refresh' );
+        redirect ( base_url ('home'), 'refresh' );
     }
     public function cancel() {
         $string = $this->uri->segment ( 2 );
@@ -271,7 +271,7 @@ class User extends CI_Controller {
             $this->session->set_flashdata ( 'signUpFail', 'El usuario está baneado, no puede borrarlo' );
         }
         
-        redirect ( base_url (), 'refresh' );
+        redirect ( base_url ('home'), 'refresh' );
     }
     public function editUsername() {
         $session = 'id';
