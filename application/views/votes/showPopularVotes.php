@@ -36,11 +36,17 @@
                                         <?php echo img(asset_url().'images/books/'.$book['book_img'], $book['book_name'], ['class' => 'avatar'])?>
                                     </a></td>
 								<td class="text-center">
-								    <h3><a href="<?php echo 'libro/'.filterQuitSpecChar($book['book_name'])?>">
+								    <h3 class="hidden-xs"><a href="<?php echo 'libro/'.filterQuitSpecChar($book['book_name'])?>">
         				                <?php echo $book['book_name']?>
                                     </a></h3>
+                                    <h5 class="visible-xs"><a href="<?php echo 'libro/'.filterQuitSpecChar($book['book_name'])?>">
+        				                <?php echo $book['book_name']?>
+                                    </a></h5>
                                 </td>
-								<td><h3 class="text-center"><?php echo $book['total']?> <i class="fa fa-thumbs-o-up"></i></h3></td>
+								<td>
+								    <h3 class="hidden-xs text-center"><?php echo $book['total']?> <i class="fa fa-thumbs-o-up"></i></h3>
+								    <h5 class="visible-xs text-center"><?php echo $book['total']?> <i class="fa fa-thumbs-o-up"></i></h5>
+								</td>
 							</tr>    
         		        <?php endforeach;?>
         		        </tbody>
@@ -48,5 +54,6 @@
 				</div>
 			</div>
 		</div>
+		<!-- FIN CONTENIDO PRINCIPAL ESCRITORIO -->
 	</div>
 </div>

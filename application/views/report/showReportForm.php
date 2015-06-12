@@ -188,6 +188,5 @@
                 </div>
 		</div>
 	</div>
-	<div class="col-xs-5  "></div>
 </div>
 </div>

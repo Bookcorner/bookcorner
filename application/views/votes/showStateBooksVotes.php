@@ -38,14 +38,19 @@
                                     </a>
                                 </td>
 								<td class="text-center">
-								    <h3>
+								    <h3 class="hidden-xs">
 								        <a href="<?php echo 'libro/'.filterQuitSpecChar($book['book_name'])?>">
         				                <?php echo $book['book_name']?>
                                         </a>
                                     </h3>
+                                    <h5 class="visible-xs">
+								        <a href="<?php echo 'libro/'.filterQuitSpecChar($book['book_name'])?>">
+        				                <?php echo $book['book_name']?>
+                                        </a>
+                                    </h5>
                                 </td>
 								<td>
-								    <h3 class="text-center">
+								    <h3 class="hidden-xs text-center">
 								        <?php switch ($book['estado']){
 								            case 1:
                                                 echo 'Leyendo';
@@ -62,9 +67,30 @@
 								        }?>
 								        <i class="fa fa-thumbs-o-up"></i>
                                     </h3>
+                                    <h5 class="visible-xs text-center">
+								        <?php switch ($book['estado']){
+								            case 1:
+                                                echo 'Leyendo';
+                                                break;
+                                            case 2:
+                                                echo 'Pendiente de leer';
+                                                break;
+                                            case 3:
+                                                echo 'Abandonado';
+                                                break;
+                                            case 4:
+                                                echo 'Terminado';
+                                                break;
+								        }?>
+								        <i class="fa fa-thumbs-o-up"></i>
+                                    </h5>
                                 </td>
 								<td>
-								    <h3 class="text-center">
+								    <h3 class="hidden-xs text-center">
+								        <?php echo $book['n_usuarios']?> 
+								        <i class="fa fa-users"></i>
+                                    </h3>
+                                    <h3 class="visible-xs text-center">
 								        <?php echo $book['n_usuarios']?> 
 								        <i class="fa fa-users"></i>
                                     </h3>

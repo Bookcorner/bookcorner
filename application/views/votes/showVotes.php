@@ -39,7 +39,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-xs-4">
+		<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 			<div class="panel panel-success">
 				<div class="panel-heading">
 					<div class="row">
@@ -62,7 +62,7 @@
 				</a>
 			</div>
 		</div>
-		<div class="col-xs-4">
+		<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 			<div class="panel panel-danger">
 				<div class="panel-heading">
 					<div class="row">
@@ -85,7 +85,7 @@
 				</a>
 			</div>
 		</div>
-		<div class="col-xs-4">
+		<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<div class="row">
@@ -94,7 +94,7 @@
 						</div>
 						<div class="col-xs-9 text-right">
 							<div>
-								<h2>Estado general de los libros</h2>
+								<h2>Estado general de libros</h2>
 							</div>
 						</div>
 					</div>

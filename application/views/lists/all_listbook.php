@@ -182,5 +182,6 @@ $( document ).ready(function() {
                 <?php endforeach;?>
             </div>
 		</div>
+		<!-- FIN CONTENIDO MOVIL -->
 	</div>
 </div>
