@@ -17,13 +17,31 @@
 					</h3>
 				</div>
 				<div class="panel-body">
-					<ul>
-						<li>¿Te ha gustado la página?</li>
-						<li>¿Tienes ideas innovadoras que le puedan venir bien al sitio?</li>
-						<li>¿Quieres preguntarnos algo?</li>
-						<li>¿Estás interesado en algún creador de la página (laboralmente
-							hablando... :D)?</li>
-					</ul>
+				    <div class="col-xs-12 col-sm-6">
+    				    <ul>
+    						<li>¿Te ha gustado la página?</li>
+    						<li>¿Tienes ideas innovadoras que le puedan venir bien al sitio?</li>
+    						<li>¿Quieres preguntarnos algo?</li>
+    						<li>¿Estás interesado en algún creador de la página (laboralmente
+    							hablando... :D)?</li>
+    					</ul>
+				    </div>
+				    <div class="col-sm-6">
+    				    <?php
+                        echo img ( array (
+                                'src' => asset_url () . '/images/general/contacto.png',
+                                'class' => 'img-rounded bigimage pull-right hidden-xs',
+                                'alt' => 'mortadelo' 
+                        ) )?>
+				    </div>
+				    <div class="col-xs-6 col-xs-push-3 visible-xs">
+    				    <?php
+                        echo img ( array (
+                                'src' => asset_url () . '/images/general/contacto.png',
+                                'class' => 'img-rounded smallimage',
+                                'alt' => 'mortadelo' 
+                        ) )?>
+				    </div>
 				</div>
 			</div>
 		</div>

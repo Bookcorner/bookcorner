@@ -100,3 +100,13 @@ a.circle {
 	width: 150px;
 	height: 150px;
 }
+
+.bigimage{
+	width: 320px;
+	height: 180px;
+}
+
+.smallimage{
+	width: 230px;
+	height:160px;
+}
