@@ -71,14 +71,14 @@
 						</div>
 						<div class="col-xs-9 text-right">
 							<div>
-								<h2>Media de Puntuación</h2>
+								<h2>Puntuaciones medias</h2>
 							</div>
 						</div>
 					</div>
 				</div>
 				<a href="<?php echo base_url('media-libros-mas-puntuados')?>">
 					<div class="panel-footer">
-						<span class="pull-left">Ver la media de la puntuación</span> <span
+						<span class="pull-left">Ver las puntuaciones medias</span> <span
 							class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 						<div class="clearfix"></div>
 					</div>
