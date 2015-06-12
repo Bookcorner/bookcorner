@@ -55,7 +55,7 @@
 						</p>
 						<p class="visible-xs">
 						    <?php echo anchor(base_url('lista-libros'), '¡Quiero
-								Gestionar mis listas!', [
+								gestionar mis listas!', [
 								            'class' => 'btn btn-sm btn-primary',
 								            'role' => 'button'
 						    ])?>
