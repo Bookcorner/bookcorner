@@ -58,43 +58,22 @@
 					<table class="table table-hover">
 						<thead>
 							<tr>
-								<th>Day</th>
-								<th>Time</th>
+								<th>Día</th>
+								<th>Horario</th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody>							
 							<tr class="success">
-								<td>Lunes</td>
-								<td>9:00 to 18:00</td>
-							</tr>
-							<tr class="success">
-								<td>Martes</td>
-								<td>9:00 to 18:00</td>
-							</tr>
-							<tr class="success">
-
-								<td>Miércoles</td>
-								<td>9:00 to 18:00</td>
-							</tr>
-							<tr class="success">
-
-								<td>Jueves</td>
-								<td>9:00 to 18:00</td>
-							</tr>
-							<tr class="success">
-
-								<td>Viernes</td>
-								<td>9:00 to 18:00</td>
+								<td>Diario</td>
+								<td>9:00 a 18:00</td>
 							</tr>
 							<tr class="warning">
-
 								<td>Sábado</td>
-								<td>9:00 to 14:00</td>
+								<td>9:00 a 14:00</td>
 							</tr>
 							<tr class="danger">
-
 								<td>Domingo</td>
-								<td>Descanso</td>
+								<td>11:00 a 14:00</td>
 							</tr>
 						</tbody>
 					</table>

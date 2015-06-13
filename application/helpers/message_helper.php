@@ -71,7 +71,9 @@ function getPassNoMatchMsg(){
     return 'La antigua contraseña no coincide.';
 }
 function getbookCreatedSuccessMsg(){
-    return 'Su petición ha sido enviada. Tras la comprobación de nuestros moderadores su libro será publicado. Muchas gracias por tu ayuda';
+    return 'Tu petición ha sido enviada. 
+            Tras la comprobación de nuestros moderadores tu libro será publicado. 
+            Muchas gracias por colaborar en nuestra comunidad.';
 }
 function getBookImageErrorMsg(){
     return 'La imagen del libro no ha sido subida correctamente. Asegurese de que el tamaño no supera los 5 MB y la resolución sea de 1024x768 como máximo';    
