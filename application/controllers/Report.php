@@ -43,6 +43,11 @@ class Report extends CI_Controller {
         if ($isbookImgUploaded) {
             $idAuthorOfTheBook = set_value ( 'bookauthor' );
             
+            if ($idAuthorOfTheBook == 'none') {
+                $this->session->set_flashdata ( 'authorImageError', getAuthorErrorMsg());
+                go_back();
+            }
+            
             $authorOfBookAlreadyExist = ($idAuthorOfTheBook != ''); //no llega contenido porque el botón está desabilitado
             
             if ($authorOfBookAlreadyExist) {

@@ -78,6 +78,9 @@ function getbookCreatedSuccessMsg(){
 function getBookImageErrorMsg(){
     return 'La imagen del libro no ha sido subida correctamente. Asegurese de que el tamaño no supera los 5 MB y la resolución sea de 1024x768 como máximo';    
 }
+function getAuthorErrorMsg(){
+    return 'No ha seleccionado ni añadido ningún autor.';
+}
 function getAuthorImageErrorMsg(){
     return 'La imagen del autor no ha sido subida correctamente. Asegurese de que el tamaño no supera los 5 MB y la resolución sea de 1024x768 como máximo';
 }
