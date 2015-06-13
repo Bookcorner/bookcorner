@@ -123,8 +123,7 @@
 										] )?>
                                             <div class="form-group">
     											<label class="sr-only" for="idUsername">Usuario</label> <input
-    												type="text" class="form-control"
-    												pattern="[A-Za-z0-9_-]{3,16}" id="idUsername"
+    												type="text" class="form-control" id="idUsername"
     												name="username" placeholder="Usuario" required />
                                             </div>
     										<div class="form-group">
@@ -179,8 +178,7 @@
 										] )?>
                                             <div class="form-group">
     											<label class="sr-only" for="idUsername">Usuario</label> <input
-    												type="text" class="form-control"
-    												pattern="[A-Za-z0-9_-]{3,16}" id="idUsername"
+    												type="text" class="form-control" id="idUsername"
     												name="username" placeholder="Usuario" required />
                                             </div>
     										<div class="form-group">
@@ -522,7 +520,7 @@
 												de usuario:</label>
 											<div class="controls col-xs-12">
 												<input id="idUsername" name="user" class="form-control"
-													pattern="^[a-z0-9_-]{3,16}$" type="text"
+													type="text"
 													placeholder="(tu nombre visible en la página)"
 													data-error="Nombre de usuario no válido"
 													class="input-large" required />

@@ -4,9 +4,10 @@ class Users_model extends CI_Model {
     public function __construct() {
         parent::__construct ();
     }
-    public function check_valid_user($username) {
-        $userBean = R::findOne ( 'user', ' user_nickname = ? ', [ 
-                $username 
+    public function check_valid_user($string) {
+        $userBean = R::findOne ('user', 'user_nickname = :nick OR user_email = :email', [ 
+                'nick' => $string, 
+                'email' => $string
         ] );
         
         if ($userBean ['userstatus_id'] == 2) {

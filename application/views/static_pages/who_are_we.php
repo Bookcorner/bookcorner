@@ -19,7 +19,7 @@
 	<div class="row">
 		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 placeholder">
 		    <?php echo img(array(
-                    'src' => asset_url(). 'images/users/juanan.png',
+                    'src' => asset_url(). 'images/users/developers/juanan.png',
 			        'class' => 'img-responsive img-circle',
 			        'alt' => 'Juanan',
 		    ))?>
@@ -28,7 +28,7 @@
 		</div>
 		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 placeholder">
 			<?php echo img(array(
-                    'src' => asset_url(). 'images/users/mario.jpg',
+                    'src' => asset_url(). 'images/users/developers/mario.jpg',
 			        'class' => 'img-responsive img-circle',
 			        'alt' => 'Mario'
 		    ))?>
@@ -37,7 +37,7 @@
 		</div>
 		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 placeholder">
 		    <?php echo img(array(
-                    'src' => asset_url(). 'images/users/ruben.jpg',
+                    'src' => asset_url(). 'images/users/developers/ruben.jpg',
 			        'class' => 'img-responsive img-circle',
 			        'alt' => 'Ruben'
 		    ))?>

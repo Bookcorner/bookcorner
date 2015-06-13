@@ -1,6 +1,36 @@
 <?php
 defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 class Bbdd extends CI_Controller {
+    
+    public function redimensionar() {
+        $this->load->helper('image');
+        
+        $books = R::findAll( 'book' );
+        
+        foreach ($books as $book) {
+            $photo = $book->book_img;
+            $urlImage = 'assets/images/books/'.$photo;
+            resize_img($urlImage, 500, 500);
+        }
+        
+        $authors = R::findAll( 'author' );
+        
+        foreach ($authors as $author) {
+            $photo = $author->author_img;
+            $urlImage = 'assets/images/authors/'.$photo;
+            resize_img($urlImage, 500, 500);
+        }
+        
+        $users = R::findAll( 'user' );
+        
+        foreach ($users as $user) {
+            $photo = $user->user_avatar;
+            $urlImage = 'assets/images/users/'.$photo;
+            resize_img($urlImage, 500, 500);
+        }
+        
+    }
+    
     public function createInitialData() {
         $this->deletePreviousData ();
         $this->setDebugMode ( false );

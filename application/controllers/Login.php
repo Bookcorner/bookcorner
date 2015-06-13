@@ -55,7 +55,7 @@ class Login extends CI_Controller {
         redirect(base_url(), 'refresh');
     }
     private function setSigninFormRules() {
-        $this->form_validation->set_rules ( 'username', 'Usuario', 'required|alpha_numeric' );
+        $this->form_validation->set_rules ( 'username', 'Usuario', 'required' );
         $this->form_validation->set_rules ( 'pwd', 'Contraseña', 'required' );
     }
     
