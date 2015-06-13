@@ -1,3 +1,86 @@
+<script type="text/javascript">
+$(document).on("click", ".deleteBook", function(e) {
+	var idBook = e.target.id;
+	bootbox.dialog({
+		  message: "¿Seguro que quiere rechazar el libro?",
+		  title: "Confirmación",
+		  buttons: {
+		    yes: {
+		      label: "SÍ",
+		      className: "btn-success",
+		      callback: function() {			      
+		    	    window.location.replace('<?= base_url('rechazar-libro') ?>/'+idBook);
+		      }
+		    },
+		    no: {
+		      label: "NO",
+		      className: "btn-danger"
+		    }
+		  }
+		});
+});
+$(document).on("click", ".acceptBook", function(e) {
+	var idBook = e.target.id;
+	bootbox.dialog({
+		  message: "¿Seguro que quiere aceptar el libro?",
+		  title: "Confirmación",
+		  buttons: {
+		    yes: {
+		      label: "SÍ",
+		      className: "btn-success",
+		      callback: function() {			      
+		    	    window.location.replace('<?= base_url('verificar-libro') ?>/'+idBook);
+		      }
+		    },
+		    no: {
+		      label: "NO",
+		      className: "btn-danger"
+		    }
+		  }
+		});
+});
+
+$(document).on("click", ".deleteAuthor", function(e) {
+	var idauthor = e.target.id;
+	bootbox.dialog({
+		  message: "¿Seguro que quiere rechazar el autor? Se borrarán sus libros asociados",
+		  title: "Confirmación",
+		  buttons: {
+		    yes: {
+		      label: "SÍ",
+		      className: "btn-success",
+		      callback: function() {			      
+		    	    window.location.replace('<?= base_url('rechazar-autor') ?>/'+idauthor);
+		      }
+		    },
+		    no: {
+		      label: "NO",
+		      className: "btn-danger"
+		    }
+		  }
+		});
+});
+$(document).on("click", ".acceptAuthor", function(e) {
+	var idauthor = e.target.id;
+	bootbox.dialog({
+		  message: "¿Seguro que quiere aceptar el autor?",
+		  title: "Confirmación",
+		  buttons: {
+		    yes: {
+		      label: "SÍ",
+		      className: "btn-success",
+		      callback: function() {			      
+		    	    window.location.replace('<?= base_url('verificar-autor') ?>/'+idauthor);
+		      }
+		    },
+		    no: {
+		      label: "NO",
+		      className: "btn-danger"
+		    }
+		  }
+		});
+});
+</script>
 <div class="container">
 	<!-- BREADCRUMB -->
 	<div>
@@ -62,10 +145,10 @@
 										<td><?php echo img(asset_url().'images/books/'.$book['book_img'], $book['book_name'], ['class' => 'votebook'])?></td>
 										<td><?php echo $book['author_fullname']?>
             										</td>
-										<td><a href="verificar-libro/<?php echo $book['id']?>"
-											class="btn btn-success"> Verificar <i class="fa fa-check"></i>
-										</a> <a href="rechazar-libro/<?php echo $book['id']?>"
-											class="btn btn-danger"> Rechazar <i class="fa fa-times"></i>
+										<td><a href="#" id="<?= $book['id'] ?>"
+										class="btn btn-success acceptBook"> Verificar <i class="fa fa-check"></i>
+										</a> <a href="#" id="<?= $book['id'] ?>"
+											class="btn btn-danger deleteBook"> Rechazar <i class="fa fa-times"></i>
 										</a></td>
 									</tr>    
                     		        <?php endforeach;?>
@@ -125,10 +208,10 @@
                                         <?php echo $book['author_fullname']?>
                                     </li>
 									<li class="list-group-item"><strong>Acciones</strong>: <a
-										href="verificar-libro/<?php echo $book['id']?>"
-										class="btn btn-success"> Verificar <i class="fa fa-check"></i>
-									</a> <a href="rechazar-libro/<?php echo $book['id']?>"
-										class="btn btn-danger"> Rechazar <i class="fa fa-times"></i>
+										href="#" id="<?= $book['id'] ?>"
+										class="btn btn-success acceptBook"> Verificar <i class="fa fa-check"></i>
+									</a> <a href="#"
+										class="btn btn-danger deleteBook" id="<?= $book['id'] ?> ?>"> Rechazar <i class="fa fa-times"></i>
 									</a></li>
 								</ul>
 							</div>
@@ -176,10 +259,10 @@
 											aria-describedBy="<?php echo $author['id']?>"
 											class="btn btn-default btn-md"> </a></td>
 										<td><?php echo img(asset_url().'images/authors/'.$author['author_img'], $author['author_fullname'], ['class' => 'votebook'])?></td>
-										<td><a href="verificar-autor/<?php echo $author['id']?>"
-											class="btn btn-success"> Verificar <i class="fa fa-check"></i>
-										</a> <a href="rechazar-autor/<?php echo $author['id']?>"
-											class="btn btn-danger"> Rechazar <i class="fa fa-times"></i>
+										<td><a href="#" id ="<?= $author['id'] ?>"
+											class="btn btn-success acceptAuthor"> Verificar <i class="fa fa-check"></i>
+										</a> <a href="#" id="<?= $author['id'] ?>"
+											class="btn btn-danger deleteAuthor"> Rechazar <i class="fa fa-times"></i>
 										</a></td>
 									</tr>    
                     		        <?php endforeach;?>
@@ -230,10 +313,10 @@
                                         <?php echo img(asset_url().'images/authors/'.$author['author_img'], $author['author_fullname'], ['class' => 'votebook'])?>
                                     </li>
 									<li class="list-group-item"><strong>Acciones</strong>: <a
-										href="verificar-autor/<?php echo $author['id']?>"
-										class="btn btn-success"> Verificar <i class="fa fa-check"></i>
-									</a> <a href="rechazar-autor/<?php echo $author['id']?>"
-										class="btn btn-danger"> Rechazar <i class="fa fa-times"></i>
+										href="#" id="<?= $author['id'] ?>"
+										class="btn btn-success acceptAuthor"> Verificar <i class="fa fa-check"></i>
+									</a> <a href="#" id="<?= $author['id'] ?>"
+										class="btn btn-danger deleteAuthor"> Rechazar <i class="fa fa-times"></i>
 									</a></li>
 								</ul>
 							</div>

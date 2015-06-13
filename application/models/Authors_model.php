@@ -97,8 +97,15 @@ class Authors_model extends CI_Model {
         ]);
         return $authors;
     }
-    public function deleteAuthor($authorId){
+    public function deleteAuthor($authorId){        
         $author = R::load('author', $authorId);
+        
+        $books = $this->getAllBooksFromAuthor($authorId);
+        
+        $this->load->model('Books_model');        
+        foreach ($books as $book) {
+            $this->Books_model->deleteBook($book['book_id']);
+        }
         
         $avatar = $author->author_img;
         $file = 'assets/images/authors/' . $avatar;
