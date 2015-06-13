@@ -5,9 +5,8 @@ class Authors_model extends CI_Model {
         parent::__construct ();
     }
     function searchAuthors($authorname) {
-        $authorNameFormatted = prepareForSearchableWord ( $authorname );
         $authorsBean = R::find ( 'author', ' author_fullname LIKE :authorname AND authorstate_id = :authorstate ORDER BY author_fullname', [ 
-                'authorname' => $authorNameFormatted,
+                'authorname' => $authorname,
                 'authorstate' => 1 
         ] );
         return $authorsBean;

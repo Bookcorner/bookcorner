@@ -5,9 +5,8 @@ class Books_model extends CI_Model {
         parent::__construct ();
     }
     function searchBooks($bookname) {
-        $booknameFormatted = prepareForSearchableWord ( $bookname );
         $booksBeans = R::find ( 'book', ' book_name LIKE :bookname OR book_isbn LIKE :bookname AND bookstate_id = :bookstatus ORDER BY book_name', [ 
-                'bookname' => $booknameFormatted,
+                'bookname' => $bookname,
                 'bookstatus' => 1
         ] );
         return $booksBeans;
