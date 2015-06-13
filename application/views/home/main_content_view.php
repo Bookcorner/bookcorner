@@ -18,19 +18,25 @@
 					</h1>
 					<p class="destacado">En este portal podrás generar listas con tus
 						libros favoritos y compartir tus opiniones con la comunidad.</p>
-					<p>
+					<p class="text-center">
 					<?php
-    echo anchor ( base_url ( 'que-es-bookcorner' ), 'Saber más', [ 
-            'btn btn-default btn-md' 
-    ] )?>
-                    </p>
+                        echo anchor ( base_url ( 'que-es-bookcorner' ), 'Saber más', [ 
+                                'class' => 'btn btn-lg btn-primary pull-left',
+                                'role' => 'button'
+                        ]);
+                        echo anchor ( base_url ( 'ver-votos' ), 'Ver votos', [
+                                'class' => 'btn btn-lg btn-primary',
+                                'role' => 'button'
+                        ]);
+                    ?>
+                   </p>
 				</div>
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<div class="panel">
 					<div class="panel-heading">
 						<h3>
-							5 Libros más votados <i class="fa fa-star-o"></i>
+							5 Libros más puntuados <i class="fa fa-star-o"></i>
 						</h3>
 					</div>
 					<div class="panel-body">
@@ -61,8 +67,12 @@
                             </tbody>
 							<tfoot>
 								<tr>
-									<td colspan="2"><a href="<?php echo base_url('ver-votos')?>"><i
-											class="fa fa-eye"></i> Ver más...</a></td>
+									<td colspan="3" class="text-center">
+    									<a href="<?php echo base_url('libros-mas-puntuados')?>">
+    									   <i class="fa fa-eye"></i> 
+    									   Ver más...
+    								    </a>
+									</td>
 								</tr>
 							</tfoot>
 						</table>
@@ -102,8 +112,8 @@
                             </tbody>
 							<tfoot>
 								<tr>
-									<td colspan="2"><a href="<?php echo base_url('ver-votos')?>"
-										class="text-center"><i class="fa fa-eye"></i>Ver más...</a></td>
+									<td colspan="3" class="text-center"><a href="<?php echo base_url('media-libros-mas-puntuados')?>"
+										class="text-center"><i class="fa fa-eye "></i>Ver más...</a></td>
 								</tr>
 							</tfoot>
 						</table>
@@ -151,8 +161,10 @@
                                 </a></li>
     						<?php endforeach;?>
     					</ul>
-						<a href="<?php echo base_url('autores')?>"><i class="fa fa-eye"></i>
-							Ver más...</a>
+    					<a  href="<?php echo base_url('autores')?>">
+					      <i class="fa fa-eye"></i>
+						  Ver más...
+				       </a>		
 					</div>
 				</div>
 			</div>

@@ -21,9 +21,9 @@
 					<p>Aquí encontrarás 3 tablas diferentes, en las cuales aparecen los
 						votos de distinta forma:</p>
 					<ul>
-						<li><strong>Libros más puntuados</strong>: En esta tabla podrás
-							ver cuales son los libros que más votos totales tienen de la
-							aplicación.</li>
+						<li><strong>Libros más puntuados</strong>: En esta tabla podras ver los 
+						libros ordenados por la puntuación que han 
+						recibido en las listas de los usuarios.</li>
 						<li><strong>Media de puntuación más alta</strong>: En esta, podrás
 							ver la puntuación media de cada libro, así como el número de
 							usuarios que conforman la media. Esta puntuación te da una
