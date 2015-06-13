@@ -51,7 +51,7 @@ class Report extends CI_Controller {
             
             if ($authorOfBookAlreadyExist) {
                 $this->load->model ( 'Books_model' );
-                $this->books_model->createNewBookAndAssociateWithAuthor ( $bookisbn, $bookname, $bookdesc, $imgbookData ['file_name'], $genrebook, $idAuthorOfTheBook );
+                $this->Books_model->createNewBookAndAssociateWithAuthor ( $bookisbn, $bookname, $bookdesc, $imgbookData ['file_name'], $genrebook, $idAuthorOfTheBook );
                 $this->session->set_flashdata ( 'bookCreatedSuccess', getbookCreatedSuccessMsg () );
                 
                 $url = 'assets/images/books/' . $imgbookData ['file_name'];

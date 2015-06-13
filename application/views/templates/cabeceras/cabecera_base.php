@@ -17,11 +17,6 @@
 <script type="text/javascript"
 	src="<?php echo asset_url()?>js/validator.min.js"></script>
 	
-<!-- Bootstrap Confirm -->
-<script type="text/javascript"
-    src="https://github.com/makeusabrew/bootbox/releases/download/v4.4.0/bootbox.min.js">
-</script>
-	
 <!-- Cookie Alert -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script src="http://cdn.imnjb.me/libs/jquery.cookiecuttr/1.0/jquery.cookiecuttr.min.js"></script>
