@@ -99,6 +99,11 @@ class Authors_model extends CI_Model {
     }
     public function deleteAuthor($authorId){
         $author = R::load('author', $authorId);
+        
+        $avatar = $author->author_img;
+        $file = 'assets/images/authors/' . $avatar;
+        unlink ( $file );
+        
         R::trash( $author );
     }
 }

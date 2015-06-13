@@ -222,6 +222,11 @@ class Books_model extends CI_Model {
     }
     public function deleteBook($bookId){
         $book = R::load('book', $bookId);
+        
+        $avatar = $book->book_img;
+        $file = 'assets/images/books/' . $avatar;
+        unlink ( $file );
+        
         R::trash( $book );
     }
 }
