@@ -25,6 +25,11 @@ class Report extends CI_Controller {
         if (! check_session_exist ( $sessionName )) {
             $this->session->set_flashdata ( 'signInError', getSignInErrorMsg () );
             go_back();
+        }    
+        $idAuthorOfTheBook = set_value ( 'bookauthor' );
+        if ($idAuthorOfTheBook == 'none') {
+            $this->session->set_flashdata ( 'authorImageError', getAuthorErrorMsg());
+            go_back();
         }
         
         $config = $this->setUploadBookConfig ();
@@ -41,17 +46,11 @@ class Report extends CI_Controller {
         $imgbookData = $this->upload->data ();
         
         if ($isbookImgUploaded) {
-            $idAuthorOfTheBook = set_value ( 'bookauthor' );
-            
-            if ($idAuthorOfTheBook == 'none') {
-                $this->session->set_flashdata ( 'authorImageError', getAuthorErrorMsg());
-                go_back();
-            }
             
             $authorOfBookAlreadyExist = ($idAuthorOfTheBook != ''); //no llega contenido porque el botón está desabilitado
             
             if ($authorOfBookAlreadyExist) {
-                $this->load->model ( 'books_model' );
+                $this->load->model ( 'Books_model' );
                 $this->books_model->createNewBookAndAssociateWithAuthor ( $bookisbn, $bookname, $bookdesc, $imgbookData ['file_name'], $genrebook, $idAuthorOfTheBook );
                 $this->session->set_flashdata ( 'bookCreatedSuccess', getbookCreatedSuccessMsg () );
                 
@@ -89,6 +88,9 @@ class Report extends CI_Controller {
                     go_back();
                 } else {
                     $this->session->set_flashdata ( 'authorImageError', getAuthorImageErrorMsg () );
+                    
+                    $this->Books_model->preventBookReported($bookisbn, $bookname);
+                    
                     go_back();
                 }
             }

@@ -11,6 +11,15 @@ class Books_model extends CI_Model {
         ] );
         return $booksBeans;
     }
+    function preventBookReported($bookisbn, $bookname) {
+        $bookBean = R::findOne ( 'book', ' book_isbn = ? AND book_name = ?', [
+                $bookisbn, $bookname
+        ] );
+        
+        if (($bookBean != null) && (!empty($bookBean))) {
+            $this->deleteBook($bookBean['id']);
+        }
+    }
     function getBook($bookId) {
         $bookBean = R::findOne ( 'book', ' id = ? ', [
                 $bookId
