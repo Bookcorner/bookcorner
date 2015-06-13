@@ -13,7 +13,7 @@ function prepareForSearchableWord($string) {
     $searchFormatted = '%' . $string . '%';
     $searchFormatted = strtr($searchFormatted, ' ', '%');
     
-    return str_replace ( '%20', '%', $searchFormatted );
+    return strtr( '%20', '%', $searchFormatted );
 }
 function filter($string) {
     $originales = 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðòóôõöøùúûýýþÿŔŕ';
