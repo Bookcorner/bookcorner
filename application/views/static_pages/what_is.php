@@ -156,7 +156,7 @@
 				<p class="lead">Bookcorner pretende ser un sitio en el que puedas
 					organizar y compartir tus libros preferidos con la comunidad.</p>
 				<p class="lead">Para ello, te proveemos de la gestión total de los
-					libros que estás leyendo actualmente, llendo desde una puntuación
+					libros que estás leyendo actualmente, yendo desde una puntuación
 					conforme a lo que te gustó, como un sistema de notas donde podrás apuntar
 					cualquier dato relevante respecto al libro.</p>
 			</div>
@@ -201,7 +201,7 @@
 		<div class="row">
 			<div class="col-md-7 col-md-push-5">
 				<h2>Tus gustos influyen</h2>
-				<p class="lead">Bookcorner te la posibilidad de ponerle una puntuación a los libros de la página. 
+				<p class="lead">Bookcorner te da la posibilidad de ponerle una puntuación a los libros de la página. 
 				    Estas votaciones son recogidas de forma anónima,
 					pudiendo así conocer la popularidad de cada uno de los libros. 
 					Nuestro objetivo es que esta información te ayude a descubrir nuevos libros.</p>
