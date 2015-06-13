@@ -43,6 +43,9 @@ class Listbook extends CI_Controller {
     }
     public function updateBookNote($val_id) {
         $booknote = $_POST ['value'];
+        if ($booknote == '' || count($booknote) < 1) {
+            $booknote = 'Introduce una nota';
+        }
         $this->load->model ( 'Listbooks_model' );
         $this->Listbooks_model->updateBookNote ( $booknote, $val_id );
     }
