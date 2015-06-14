@@ -9,16 +9,16 @@
 	<!-- FIN BREADCRUMB -->
 	<!-- CONTENIDO PPAL-->
 	<div class="row">
-		<div class="col-xs-8">
+		<div class="col-xs-12 col-sm-8">
    			<div class="row">
-   				<div class="col-xs-6">
+   				<div class="col-sm-6 col-xs-12">
    					<div class="panel panel-primary">
    						<div class="panel-heading">
    							<div class="row">
-   								<div class="col-xs-3">
+   								<div class="col-sm-3">
    									<i class="fa fa-users fa-5x"></i>
    								</div>
-   								<div class="col-xs-9 text-right">
+   								<div class="col-sm-9 text-right">
    									<div class="huge"><h1><?php echo $number_of_users?></h1></div>
    									<div>Usuarios</div>
    								</div>
@@ -33,14 +33,14 @@
    						</a>
    					</div>
    				</div>
-   				<div class="col-xs-6">
+   				<div class="col-xs-12 col-sm-6">
    					<div class="panel panel-success">
    						<div class="panel-heading">
    							<div class="row">
-   								<div class="col-xs-3">
+   								<div class="col-sm-3">
    									<i class="fa fa-book fa-5x"></i>
    								</div>
-   								<div class="col-xs-9 text-right">
+   								<div class="col-sm-9 text-right">
    									<div class="huge"><h1><?php echo $number_of_books?></h1></div>
    									<div>Libros</div>
    								</div>
@@ -57,14 +57,14 @@
    				</div>
        		</div>
    	    	<div class="row">
-    			<div class="col-xs-6">
+    			<div class="col-xs-12 col-sm-6">
     				<div class="panel panel-info">
     					<div class="panel-heading">
     						<div class="row">
-    							<div class="col-xs-3">
+    							<div class="col-sm-3">
     								<i class="fa fa-pencil-square-o fa-5x"></i>
     							</div>
-    							<div class="col-xs-9 text-right">
+    							<div class="col-sm-9 text-right">
     								<div class="huge"><h1><?php echo $number_of_authors?></h1></div>
     								<div>Autores</div>
     							</div>
@@ -79,15 +79,15 @@
     					</a>
     				</div>
     			</div>
-    			<div class="col-xs-6">
+    			<div class="col-xs-12 col-sm-6">
     				<div class="panel panel-warning">
     					<div class="panel-heading">
     						<div class="row">
-    							<div class="col-xs-6">
+    							<div class="col-sm-6">
     								<i class="fa fa-female fa-5x"></i>
     								<i class="fa fa-male fa-5x"></i>
     							</div>
-    							<div class="col-xs-6 text-right">
+    							<div class="col-sm-6 text-right">
     								<div class="huge"><h1><?php echo $number_of_genres?></h1></div>
     								<div>Géneros Literarios</div>
     							</div>
@@ -104,7 +104,7 @@
     			</div>
     		</div>
 		</div>
-		<div class="col-xs-4">
+		<div class="col-xs-12 col-sm-4">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<i class="fa fa-database" fa-fw"></i> Administración Tablas

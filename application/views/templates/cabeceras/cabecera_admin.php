@@ -10,10 +10,13 @@
     <script src="<?php echo $file; ?>"></script>
 <?php endforeach; ?>
 
+	
 <style>
 /*Style for table container who belongs to Grocery Crud*/
 .table-container{
 background-color: white;
 }
 </style>
+
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">

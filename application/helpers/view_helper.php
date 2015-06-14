@@ -87,7 +87,7 @@ function loadAdminView($view, $data = ['title' => 'Administración']){
     $CI->load->view ( 'templates/cabeceras/cabecera_admin', $data);
     $CI->load->view ( 'templates/cabeceras/fin_cabecera' );
     loadMenu ();
-    $CI->load->view ( 'admin/adminview', $data);
+    $CI->load->view ( $view, $data);
     $CI->load->view ( 'templates/footers/base_footer' );
     $CI->load->view ( 'templates/end' );
 }

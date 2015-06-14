@@ -98,45 +98,45 @@ class Bbdd extends CI_Controller {
         
         // Create database user roles available
         $user_role1 = R::Dispense ( 'userrole' );
-        $user_role1->userrole_name = 'Registered';
-        $user_role1->userrole_desc = 'Normal registered user';
+        $user_role1->userrole_name = 'Registrado';
+        $user_role1->userrole_desc = 'Usuario normal registrado';
         
         $user_role2 = R::Dispense ( 'userrole' );
-        $user_role2->userrole_name = 'Moderator';
-        $user_role2->userrole_desc = 'Registered user with aditional options';
+        $user_role2->userrole_name = 'Moderador';
+        $user_role2->userrole_desc = 'Usuario registrado con opciones especiales';
         
         $user_role3 = R::Dispense ( 'userrole' );
-        $user_role3->userrole_name = 'Administrator';
-        $user_role3->userrole_desc = 'Application boss';
+        $user_role3->userrole_name = 'Administrador';
+        $user_role3->userrole_desc = 'Jefe de la aplicación';
         
         // Create user states
         $user_state1 = R::Dispense ( 'userstatus' );
-        $user_state1->userstate_name = 'Active';
+        $user_state1->userstate_name = 'Activo';
         
         $user_state2 = R::Dispense ( 'userstatus' );
-        $user_state2->userstate_name = 'Inactive';
+        $user_state2->userstate_name = 'Inactivo';
         
         $user_state3 = R::Dispense ( 'userstatus' );
-        $user_state3->userstate_name = 'Banned';
+        $user_state3->userstate_name = 'Baneado';
         
         // Create listbook
         $listbook1 = R::Dispense ( 'listbook' );
-        $listbook1->listbook_name = 'Lista de admin';
+        $listbook1->listbook_name = 'Libros favoritos de admin';
         
         $listbook2 = R::Dispense ( 'listbook' );
-        $listbook2->listbook_name = 'Lista de moderator';
+        $listbook2->listbook_name = 'Libros favoritos de moderator';
         
         $listbook3 = R::Dispense ( 'listbook' );
-        $listbook3->listbook_name = 'Lista de registrate';
+        $listbook3->listbook_name = 'Libros favoritos de registrate';
         
         $listbook4 = R::Dispense ( 'listbook' );
-        $listbook4->listbook_name = 'Lista de Marcant94';
+        $listbook4->listbook_name = 'Libros favoritos de Marcant94';
         
         $listbook5 = R::Dispense ( 'listbook' );
-        $listbook5->listbook_name = 'Lista de Juanana';
+        $listbook5->listbook_name = 'Libros favoritos de Juanana';
         
         $listbook6 = R::Dispense ( 'listbook' );
-        $listbook6->listbook_name = 'Lista de rcortes';
+        $listbook6->listbook_name = 'Libros favoritos de rcortes';
         
         // Create Validation
         $valuation1 = R::Dispense ( 'valuation' );
@@ -294,13 +294,13 @@ class Bbdd extends CI_Controller {
         
         // Create bookstate
         $bookstate1 = R::Dispense ( 'bookstate' );
-        $bookstate1->bookstate_name = 'Available';
+        $bookstate1->bookstate_name = 'Disponible';
         
         $bookstate2 = R::Dispense ( 'bookstate' );
-        $bookstate2->bookstate_name = 'Pending';
+        $bookstate2->bookstate_name = 'Pendiente';
         
         $bookstate3 = R::Dispense ( 'bookstate' );
-        $bookstate3->bookstate_name = 'Not Available';
+        $bookstate3->bookstate_name = 'No disponible';
         
         // Create author
         $author1 = R::Dispense ( 'author' );
@@ -326,13 +326,13 @@ class Bbdd extends CI_Controller {
         
         // Create authorstate
         $authorstate1 = R::Dispense ( 'authorstate' );
-        $authorstate1->authorstate_name = 'Available';
+        $authorstate1->authorstate_name = 'Disponible';
         
         $authorstate2 = R::Dispense ( 'authorstate' );
-        $authorstate2->authorstate_name = 'Pending';
+        $authorstate2->authorstate_name = 'Pendiente';
         
         $authorstate3 = R::Dispense ( 'authorstate' );
-        $authorstate3->authorstate_name = 'Not Available';
+        $authorstate3->authorstate_name = 'No disponible';
         
         // Create Comments
         $comment1 = R::Dispense ( 'comment' );

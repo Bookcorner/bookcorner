@@ -110,13 +110,13 @@ class Listbooks_model extends CI_Model {
         $user = R::load ( 'user', $userId );
         $userId = $user->listbook_id;
         $listbook = R::load ( 'listbook', $userId );
-        $listbook->listbook_name = 'Lista de ' . $listbookName;
+        $listbook->listbook_name = 'Libros favoritos de ' . $listbookName;
         R::store ( $listbook );
     }
     function createListbookForUser($userId, $listbookName) {
         $user = R::load ( 'user', $userId );
         $listbook = R::Dispense ( 'listbook' );
-        $listbook->listbook_name = 'Lista de ' . $listbookName;
+        $listbook->listbook_name = 'Libros favoritos de ' . $listbookName;
         $listbook->ownUserList [] = $user;
         R::store ( $listbook );
     }
