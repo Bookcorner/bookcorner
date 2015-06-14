@@ -263,7 +263,7 @@
 												de usuario:</label>
 											<div class="controls col-xs-9">
 												<input id="idUsername" name="user" class="form-control"
-													pattern="^[a-z0-9_-]{3,16}$" type="text"
+													pattern="^[a-zA-Z0-9_-]{3,16}$" type="text"
 													placeholder="Usuario (tu nombre visible en la página)"
 													data-error="Nombre de usuario no válido"
 													class="input-large" required />
@@ -520,7 +520,7 @@
 												de usuario:</label>
 											<div class="controls col-xs-12">
 												<input id="idUsername" name="user" class="form-control"
-													type="text"
+													type="text" pattern="^[a-zA-Z0-9_-]{3,16}$"
 													placeholder="(tu nombre visible en la página)"
 													data-error="Nombre de usuario no válido"
 													class="input-large" required />
