@@ -87,4 +87,35 @@ class Login extends CI_Controller {
     private function getEncriptedPwd() {
         return encrypt ( set_value ( 'pwd' ) );
     }
+    
+    public function getInfoAjax() {
+        
+        if (isset($_POST['field']) && isset($_POST['value'])) {            
+            if ($_POST['field'] == 'username') {
+                $this->load->model('Users_model');                
+                $username = $_POST['value'];
+                $exist = $this->Users_model->check_username_exists($username);
+                if (!$exist) {
+                    echo "ok";
+                } else {
+                    echo "bad";
+                }
+            } else if ($_POST['field'] == 'email') {
+                $this->load->model('Users_model');
+                $email = $_POST['value'];
+                $exist = $this->Users_model->check_email_exists($email);
+                if (!$exist) {
+                    echo "ok";
+                } else {
+                    echo "bad";
+                }
+            } else {
+                redirect ( base_url ( 'prohibido' ), 'refresh' );
+            }            
+        } else {
+            redirect ( base_url ( 'prohibido' ), 'refresh' );
+        }
+        
+    }
+    
 }

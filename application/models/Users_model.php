@@ -45,21 +45,21 @@ class Users_model extends CI_Model {
                 ] 
         ] );
         return $userBean;
-    }
+    }   
+    function check_email_exists($email) {
+        $userBean = R::findLike ( 'user', [
+                'user_email' => [
+                        $email
+                ]
+        ] );
+        return $userBean;
+    } 
     function update_username($username, $val_id) {
         R::exec ( 'UPDATE user SET user_nickname = :username WHERE id = :id', [ 
                 'username' => $username,
                 'id' => $val_id 
         ] );
-    }
-    function check_email_exists($email) {
-        $userBean = R::findLike ( 'user', [ 
-                'user_email' => [ 
-                        $email 
-                ] 
-        ] );
-        return $userBean;
-    }
+    }    
     function update_email($email, $val_id) {
         R::exec ( 'UPDATE user SET user_email= :email WHERE id = :id', [ 
                 'email' => $email,
