@@ -1,7 +1,7 @@
 $( document ).ready(function() {
 	$('#myForm').validator(); 
 	$('#formPass').validator(); 
-	$('.alert').append('<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>');
+	$('#message-container .alert').append('<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>');
 	
 	$.cookieCuttr({
 	  cookieNotificationLocationBottom: true,

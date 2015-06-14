@@ -210,6 +210,16 @@
 							</tr>    
         		        <?php endforeach;?>
 						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="3" class="text-center">
+									<a href="<?php echo base_url('estado-general-libros')?>">
+									   <i class="fa fa-eye"></i> 
+									   Ver más...
+								    </a>
+								</td>
+							</tr>
+						</tfoot>
 					</table>
 					</div>
 				</div>

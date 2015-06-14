@@ -208,6 +208,12 @@ $(document).on('keyup', '#emailSignup', function(e) {
 											<i class="fa fa-sign-in"></i> Acceder
 										</button>
 									</div>
+									<p class="divider"></p>
+									<div class="form-group">
+										<button type="submit" class="btn btn-default">
+											<i class="fa fa-sign-in"></i> Olvidé la contraseña
+										</button>
+									</div>
                                         <?php echo form_close()?>
                                 </div>
 							</div>
@@ -258,7 +264,7 @@ $(document).on('keyup', '#emailSignup', function(e) {
 										<label> <input type="checkbox" name="remember" checked />
 											Recordarme
 										</label>
-									</div>
+									</div>									
 									<div class="form-group">
 										<button type="submit" class="btn btn-success btn-block">
 											<i class="fa fa-sign-in"></i> Acceder
@@ -532,7 +538,7 @@ $(document).on('keyup', '#emailSignup', function(e) {
 											</button>
 										</div>
 											<?php echo form_close()?>
-										</div>
+										</div>										
 								</div>
 							</li>
 						</ul></li>
