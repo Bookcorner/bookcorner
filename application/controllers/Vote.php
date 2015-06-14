@@ -30,7 +30,9 @@ class Vote extends CI_Controller {
     public function showAllStateBooks() {
     
         $this->load->model('Books_model');
-        $data['stateBooks'] = $this->Books_model->getAllStatesBooks();
+        $data['readedBooks'] = $this->Books_model->showAllReadedBooks();
+        $data['readingBooks'] = $this->Books_model->showAllReadingBooks();
+        $data['abandonedBooks'] = $this->Books_model->showAllAbandonedBooks();
         $data['title'] = 'Estados de los libros';
         $contentURI = 'votes/showStateBooksVotes';
         loadBasicViews($contentURI, $data);

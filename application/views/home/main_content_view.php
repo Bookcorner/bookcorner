@@ -120,6 +120,100 @@
 					</div>
 				</div>
 			</div>
+			<div class="col-sm-push-2 col-lg-8 col-md-8 col-sm-8 col-xs-12">
+				<div class="panel">
+					<div class="panel-heading">
+						<h3>Top estados libros</h3>
+					</div>
+					<div class="panel-body">
+						<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Portada</th>
+								<th class="text-center">Título</th>
+								<th class="text-right">Usuarios</th>
+							</tr>
+							<tr>
+								<th colspan="3" class="text-center alert alert-info">El libro que más veces se ha leido es:</th>
+							</tr>
+						</thead>
+						<tbody>
+						<?php foreach ($mostreadedbook as $book):?>
+                            <tr>
+								<td><a
+									href="<?php echo 'libro/'.filterQuitSpecChar($book['book_name'])?>"
+									class="text-left">
+                                        <?php echo img(asset_url().'images/books/'.$book['book_img'], $book['book_name'], ['class' => 'avatar'])?>
+                                    </a></td>
+								<td class="text-center">
+								    <a href="<?php echo 'libro/'.filterQuitSpecChar($book['book_name'])?>">
+        				                <?php echo $book['book_name']?>
+                                    </a>
+								</td>
+								<td class="text-right">
+								    <?php echo $book['n_usuarios']?>
+								    <i class="fa fa-users"></i>
+								</td>
+							</tr>    
+        		        <?php endforeach;?>
+						</tbody>
+					</table>
+					<!-- FIN LIBROS LEIDOS -->
+					
+					<!-- LIBROS LEYENDO -->
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th colspan="3" class="text-center alert alert-success">El libro más leido actualmente es:<i class="fa fa-leanpub"></i></th>
+							</tr>
+						</thead>
+						<tbody>
+						<?php foreach ($mostreadingbooks as $book):?>
+                            <tr>
+								<td><a
+									href="<?php echo 'libro/'.filterQuitSpecChar($book['book_name'])?>"
+									class="text-left">
+                                        <?php echo img(asset_url().'images/books/'.$book['book_img'], $book['book_name'], ['class' => 'avatar'])?>
+                                    </a></td>
+								<td class="text-center">
+								    <a href="<?php echo 'libro/'.filterQuitSpecChar($book['book_name'])?>">
+        				                <?php echo $book['book_name']?>
+                                    </a>
+								</td>
+								<td class="text-right"><?php echo $book['n_usuarios']?><i class="fa fa-users"></i></td>
+							</tr>   
+        		        <?php endforeach;?>
+						</tbody>
+					</table>
+					<!-- FIN LIBROS LEYENDO -->
+					<!-- LIBROS ABANDONADOS -->
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th colspan="3" class="text-center alert alert-danger">El libro más abandonado es:</th>
+							</tr>
+						</thead>
+						<tbody>
+						<?php foreach ($mostabandonedbook as $book):?>
+                            <tr>
+								<td><a
+									href="<?php echo 'libro/'.filterQuitSpecChar($book['book_name'])?>"
+									class="text-left">
+                                        <?php echo img(asset_url().'images/books/'.$book['book_img'], $book['book_name'], ['class' => 'avatar'])?>
+                                    </a></td>
+								<td class="text-center">
+								    <a href="<?php echo 'libro/'.filterQuitSpecChar($book['book_name'])?>">
+        				                <?php echo $book['book_name']?>
+                                    </a>
+								</td>
+								<td class="text-right"><?php echo $book['n_usuarios']?><i class="fa fa-users"></i></td>
+							</tr>    
+        		        <?php endforeach;?>
+						</tbody>
+					</table>
+					</div>
+				</div>
+			</div>
 		</div>
 		<!-- CONTENIDO CENTRAL -->
 		<!-- MENU LATERAL -->

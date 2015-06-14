@@ -17,6 +17,9 @@ class Home extends CI_Controller {
         $data ['authors'] = $this->Authors_model->getLastAuthors ();
         $data ['popularbooks'] = $this->Books_model->getMostPopularBooks ();
         $data ['averagebooks'] = $this->Books_model->getMostPopularAVGBooks ();
+        $data ['mostreadedbook'] = $this->Books_model->showMostReadedBook ();
+        $data ['mostreadingbooks'] = $this->Books_model->showMostReadingBook ();
+        $data ['mostabandonedbook'] = $this->Books_model->showMostAbandonedBook ();
         
         loadBasicViews ( $viewUri, $data );
     }

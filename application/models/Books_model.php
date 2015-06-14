@@ -221,14 +221,6 @@ class Books_model extends CI_Model {
                 ORDER BY total DESC');
         return $book;
     }
-    public function getAllStatesBooks(){
-        $book = R::getAll('SELECT b.book_name, b.id, b.book_img, v.val_estado_libro as estado, COUNT(v.listbook_id) as n_usuarios   
-                FROM valuation v, book b
-                WHERE v.val_puntuacion <= 10 AND v.book_id = b.id
-                GROUP BY v.val_estado_libro        
-                ORDER BY b.book_name; ');
-        return $book;
-    }
     public function deleteBook($bookId){
         $book = R::load('book', $bookId);
         
@@ -237,5 +229,62 @@ class Books_model extends CI_Model {
         unlink ( $file );
         
         R::trash( $book );
+    }
+    public function showAllReadedBooks(){
+        $readedState = 4;
+        $book  = R::getAll('SELECT b.book_img, b.id, b.book_name, count(listbook_id) as n_usuarios
+            FROM valuation v, book b
+            WHERE v.book_id = b.id AND val_estado_libro = :readedState
+            GROUP BY book_id
+            ORDER BY n_usuarios DESC', ['readedState' => $readedState]);
+        return $book;
+    }
+    public function showAllReadingBooks(){
+        $readingState = 1;
+        $book  = R::getAll('SELECT b.book_img, b.id, b.book_name, count(listbook_id) as n_usuarios
+            FROM valuation v, book b
+            WHERE v.book_id = b.id AND val_estado_libro = :readingState
+            GROUP BY book_id
+            ORDER BY n_usuarios DESC', ['readingState' => $readingState]);
+        return $book;
+    }
+    public function showAllAbandonedBooks(){
+        $abandonedState = 3;
+        $book  = R::getAll('SELECT b.book_img, b.id, b.book_name, count(listbook_id) as n_usuarios
+            FROM valuation v, book b
+            WHERE v.book_id = b.id AND val_estado_libro = :abandonedState
+            GROUP BY book_id
+            ORDER BY n_usuarios DESC', ['abandonedState' => $abandonedState]);
+        return $book;
+    }
+    public function showMostReadedBook(){
+        $readedState = 4;
+        $book  = R::getAll('SELECT b.book_img, b.id, b.book_name, count(listbook_id) as n_usuarios
+            FROM valuation v, book b
+            WHERE v.book_id = b.id AND val_estado_libro = :readedState
+            GROUP BY book_id
+            ORDER BY n_usuarios DESC
+            LIMIT 1', ['readedState' => $readedState]);
+        return $book;
+    }
+    public function showMostReadingBook(){
+        $readingState = 1;
+        $book  = R::getAll('SELECT b.book_img, b.id, b.book_name, count(listbook_id) as n_usuarios
+            FROM valuation v, book b
+            WHERE v.book_id = b.id AND val_estado_libro = :readingState
+            GROUP BY book_id
+            ORDER BY n_usuarios DESC
+            LIMIT 1', ['readingState' => $readingState]);
+        return $book;
+    }
+    public function showMostAbandonedBook(){
+        $abandonedState = 3;
+        $book  = R::getAll('SELECT b.book_img, b.id, b.book_name, count(listbook_id) as n_usuarios
+            FROM valuation v, book b
+            WHERE v.book_id = b.id AND val_estado_libro = :abandonedState
+            GROUP BY book_id
+            ORDER BY n_usuarios DESC
+            LIMIT 1', ['abandonedState' => $abandonedState]);
+        return $book;
     }
 }
