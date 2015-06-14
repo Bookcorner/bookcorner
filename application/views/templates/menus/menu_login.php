@@ -207,14 +207,16 @@ $(document).on('keyup', '#emailSignup', function(e) {
 										<button type="submit" class="btn btn-success btn-block">
 											<i class="fa fa-sign-in"></i> Acceder
 										</button>
-									</div>
-									<p class="divider"></p>
-									<div class="form-group">
-										<button type="submit" class="btn btn-default">
-											<i class="fa fa-sign-in"></i> Olvidé la contraseña
-										</button>
-									</div>
+									</div>																	
                                         <?php echo form_close()?>
+                                    <p class="divider"></p>	
+                                    <form action="" method="post">
+                                        <div class="form-group">
+    										<button type="submit" class="btn btn-default btn-block">
+    											<i class="fa fa-unlock"></i> Olvidé la contraseña
+    										</button>
+    									</div>
+                                    </form>
                                 </div>
 							</div>
 						</li>
