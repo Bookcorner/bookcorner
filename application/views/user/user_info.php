@@ -92,7 +92,7 @@ $( document ).ready(function() {
                 ]) ?>
 					
 					 <span class="btn btn-default btn-file">
-						 Pincha para cargar la imagen
+						 Pincha para cargar la imagen...(5MB máx)
 						 <input type="hidden" name="MAX_FILE_SIZE" value="5242880"> 
 						 <input id="idNewAvatar" name="newAvatar" type="file" required/>
 					 </span>
