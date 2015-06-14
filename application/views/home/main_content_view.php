@@ -134,7 +134,7 @@
 								<th class="text-right">Usuarios</th>
 							</tr>
 							<tr>
-								<th colspan="3" class="text-center alert alert-info">El libro que más veces se ha leido es:</th>
+								<th colspan="3" class="text-center alert alert-info">El libro que más veces se ha leído es:</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -164,7 +164,7 @@
 					<table class="table table-striped">
 						<thead>
 							<tr>
-								<th colspan="3" class="text-center alert alert-success">El libro más leido actualmente es:<i class="fa fa-leanpub"></i></th>
+								<th colspan="3" class="text-center alert alert-success">El libro más leído actualmente es:<i class="fa fa-leanpub"></i></th>
 							</tr>
 						</thead>
 						<tbody>
