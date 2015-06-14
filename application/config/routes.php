@@ -96,6 +96,7 @@ $route['quitar-libro/:num'] = 'listbook/removeBookFromList';
 
 //login
 $route['salir'] = 'login/logout';
+$route['ajax'] = 'login/getInfoAjax';
 
 //vote
 $route['ver-votos'] = 'vote/showTablesVotes';
