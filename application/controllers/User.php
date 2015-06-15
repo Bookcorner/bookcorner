@@ -332,6 +332,7 @@ class User extends CI_Controller {
             $this->session->set_flashdata ( 'updateUsernameOk', getUsernameChangeOkMsg () );
             go_back();
         }
+        go_back();
     }
     public function editEmail() {
         $session = 'id';
@@ -339,20 +340,18 @@ class User extends CI_Controller {
             $userId = $this->session->userdata ( $session );
         } else {
             $this->session->set_flashdata ( 'signInError', 'Inicie sesión para continuar' );
-            go_back();
         }
         
         $email = set_value ( 'newEmail' );
         $isEmailInUse = $this->Users_model->check_email_exists ( $email );
         if ($isEmailInUse) {
             $this->session->set_flashdata ( 'updateEmailError', getEmailAlreadyExistsMsg () );
-            go_back();
         } else {
             $id = $this->session->userdata ( 'id' );
             $this->Users_model->update_email ( $email, $id );
             $this->session->set_flashdata ( 'updateEmailOk', getEmailChangeOkMsg () );
-            go_back();
         }
+        go_back();
     }
     public function editAvatar() {
         $session = 'id';
@@ -390,8 +389,8 @@ class User extends CI_Controller {
             }
         } else {
             $this->session->set_flashdata ( 'signInError', 'Inicie sesión para continuar' );
-            go_back();
         }
+        go_back();
     }
     public function deleteAccount() {
         if (isset ( $_POST ['idUser'] ) && isset ( $_POST ['password'] )) {
@@ -417,9 +416,8 @@ class User extends CI_Controller {
             } else {
                 echo "El id no coincide";
             }
-        } else {
-            go_back();
         }
+        go_back();
     }
     public function editPass() {
         $session = 'id';
@@ -437,10 +435,9 @@ class User extends CI_Controller {
             $id = $this->session->userdata ( 'id' );
             $this->Users_model->update_pass ( $newPass, $id );
             $this->session->set_flashdata ( 'updatePassOk', getPassChangeOkMsg () );
-            go_back();
         } else {
             $this->session->set_flashdata ( 'updatePassError', getPassNoMatchMsg () );
-            go_back();
         }
+        go_back();
     }
 }
