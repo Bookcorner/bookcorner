@@ -28,14 +28,16 @@ function getAvatarChangeOkMsg() {
 function bookNotAddedErrorMsg() {
     return 'El libro no está en tu lista';
 }
-function gerEmailResetPwdMsg($fullname, $newPwd) {
-    return "<p>Estimado $fullname,</p>
+function gerEmailResetPwdMsg($fullname, $newPwd) {    
+    $url = base_url('home');
+    
+    return "<p>Estimad@ $fullname,</p>
 
 <p>Según nos has solicitado, hemos procedido a cambiar tu contraseña por una nueva.</p>
 
 <p>Tu nueva contraseña es: $newPwd</p>
 
-<p>Te recomendamos que entres en el sistema y la cambies por otra de tu elección lo antes posible.</p>
+<p>Te recomendamos que entres en <a href='$url'>BookCorner</a> y la cambies por otra de tu elección lo antes posible.</p>
 
 <p>Saludos,</p>
 <p>El equipo de BookCorner</p>

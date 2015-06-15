@@ -148,7 +148,9 @@ class User extends CI_Controller {
             $captchaValue = base64_decode($captchaValue);
             $captchaControl = $_POST ['captchaControl'];
             
-            if ($captchaControl != $captchaValue) {
+            $isCaptchaOk = $this->checkCaptchaMatch();
+            
+            if (! $isCaptchaOk) {
                 $this->session->set_flashdata('sendmailerror', captchaErrorMsg());
                 redirect( base_url('recuperar_clave') );
             }
@@ -172,7 +174,7 @@ class User extends CI_Controller {
                     $this->session->set_flashdata ( 'sendmailerror', 'No se ha podido enviar el correo' );
                 }
             }
-            redirect( base_url('home') );
+            redirect( base_url('recuperar_clave') );
         } else {
             redirect(base_url('prohibido'), 'refresh');
         }
