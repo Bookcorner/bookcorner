@@ -26,9 +26,9 @@ if($num2 == 1) {
 
 $num3 = rand(1,2);
 if($num3==1) {
-    $axis = 7;
+    $axis = 3;
 } else {
-    $axis = -4;
+    $axis = -2;
 }
 
 $white = imagecolorallocate($image, 255, 255, 255); // background color white

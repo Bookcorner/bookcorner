@@ -60,7 +60,6 @@ $(document).on('keyup', '#emailSignup', function(e) {
 });
 
 </script>
-<div class="container">
 	<!-- INICIO MENU ESCRITORIO -->
 	<nav class="navbar navbar-default navbar-inverse hidden-xs">
 		<div class="container-fluid">
@@ -317,9 +316,8 @@ $(document).on('keyup', '#emailSignup', function(e) {
 									<div class="form-group">
 										<label class="control-label col-xs-2" for="idName">Nombre:</label>
 										<div class="controls col-xs-9">
-											<input id="idName" name="name" class="form-control"
-												type="text" placeholder="Nombre" class="input-large"
-												required />
+											<input id="idName" name="name" class="form-control input-large"
+												type="text" placeholder="Nombre" required />
 										</div>
 										<div class="help-block with-errors"></div>
 									</div>
@@ -327,9 +325,8 @@ $(document).on('keyup', '#emailSignup', function(e) {
 									<div class="form-group">
 										<label class="control-label col-xs-2" for="idSurname">Apellido:</label>
 										<div class="controls col-xs-9">
-											<input id="idSurname" name="surname" class="form-control"
-												type="text" placeholder="Apellido" class="input-large"
-												required />
+											<input id="idSurname" name="surname" class="form-control input-large"
+												type="text" placeholder="Apellido" required />
 										</div>
 										<div class="help-block with-errors"></div>
 									</div>
@@ -349,11 +346,10 @@ $(document).on('keyup', '#emailSignup', function(e) {
 										<label class="control-label col-xs-2" for="UsernameSignup">Nombre
 											de usuario:</label>
 										<div class="controls col-xs-9">
-											<input id="UsernameSignup" name="user" class="form-control"
+											<input id="UsernameSignup" name="user" class="form-control input-large"
 												pattern="^[a-zA-Z0-9_-]{3,16}$" type="text"
 												placeholder="Usuario (tu nombre visible en la página)"
-												data-error="Nombre de usuario no válido" class="input-large"
-												required />
+												data-error="Nombre de usuario no válido" required />
 										</div>
 										<div class="help-block with-errors"></div>
 									</div>
@@ -362,10 +358,9 @@ $(document).on('keyup', '#emailSignup', function(e) {
 									<div class="form-group">
 										<label class="control-label col-xs-2" for="idPass">Contraseña:</label>
 										<div class="controls col-xs-9">
-											<input id="idPass" name="pass" class="form-control"
+											<input id="idPass" name="pass" class="form-control input-large"
 												pattern="^{5,12}$" type="password" placeholder="********"
-												data-error="Contraseña no válida" class="input-large"
-												required />
+												data-error="Contraseña no válida" required />
 
 										</div>
 										<div class="help-block with-errors"></div>
@@ -376,8 +371,8 @@ $(document).on('keyup', '#emailSignup', function(e) {
 											contraseña de nuevo:</label>
 										<div class="controls col-xs-9">
 											<input id="idRepass" name="repass" data-match="#idPass"
-												class="form-control" type="password" placeholder="********"
-												class="input-large"
+												type="password" placeholder="********"
+												class="form-control input-large"
 												data-match-error="Error, la contraseña no coincide" required />
 										</div>
 										<div class="help-block with-errors"></div>
@@ -450,9 +445,10 @@ $(document).on('keyup', '#emailSignup', function(e) {
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed"
 					data-toggle="collapse" data-target="#idMenuContent">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="<?= base_url('home')?>">
 				    <?php
@@ -591,9 +587,8 @@ $(document).on('keyup', '#emailSignup', function(e) {
 									<div class="form-group">
 										<label class="control-label col-xs-12" for="idName">Nombre:</label>
 										<div class="controls col-xs-12">
-											<input id="idName" name="name" class="form-control"
-												type="text" placeholder="Nombre" class="input-large"
-												required />
+											<input id="idName" name="name" class="form-control input-large"
+												type="text" placeholder="Nombre" required />
 										</div>
 										<div class="help-block with-errors"></div>
 									</div>
@@ -601,9 +596,8 @@ $(document).on('keyup', '#emailSignup', function(e) {
 									<div class="form-group">
 										<label class="control-label col-xs-12" for="idSurname">Apellido:</label>
 										<div class="controls col-xs-12">
-											<input id="idSurname" name="surname" class="form-control"
-												type="text" placeholder="Apellido" class="input-large"
-												required />
+											<input id="idSurname" name="surname" class="form-control input-large"
+												type="text" placeholder="Apellido" required />
 										</div>
 										<div class="help-block with-errors"></div>
 									</div>
@@ -635,10 +629,9 @@ $(document).on('keyup', '#emailSignup', function(e) {
 									<div class="form-group">
 										<label class="control-label col-xs-12" for="idPass">Contraseña:</label>
 										<div class="controls col-xs-12">
-											<input id="idPass" name="pass" class="form-control"
+											<input id="idPass" name="pass" class="form-control input-large"
 												pattern="^{5,12}$" type="password" placeholder="********"
-												data-error="Contraseña no válida" class="input-large"
-												required />
+												data-error="Contraseña no válida" required />
 
 										</div>
 										<div class="help-block with-errors"></div>
@@ -649,8 +642,7 @@ $(document).on('keyup', '#emailSignup', function(e) {
 											contraseña:</label>
 										<div class="controls col-xs-12">
 											<input id="idRepass" name="repass" data-match="#idPass"
-												class="form-control" type="password" placeholder="********"
-												class="input-large"
+												class="form-control input-large" type="password" placeholder="********"
 												data-match-error="Error, la contraseña no coincide" required />
 										</div>
 										<div class="help-block with-errors"></div>
@@ -714,4 +706,3 @@ $(document).on('keyup', '#emailSignup', function(e) {
 		</div>
 	</nav>
 	<!-- FIN MENU MOVILES -->
-</div>

@@ -1,4 +1,3 @@
-<div class="container">
 <div class="row h3">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="message-container">
         <?php if($this->session->flashdata('formError')) { ?> <div class="alert alert-danger text-center" role="alert"> <?= $this->session->flashdata('formError') ?> </div> <?php } ?>
@@ -26,5 +25,4 @@
         <?php if($this->session->flashdata('verifySuccess')) { ?> <div class="alert alert-success text-center" role="alert"> <?= $this->session->flashdata('verifySuccess') ?> </div> <?php } ?>
         <?php if($this->session->flashdata('rejectSuccess')) { ?> <div class="alert alert-success text-center" role="alert"> <?= $this->session->flashdata('rejectSuccess') ?> </div> <?php } ?>
     </div>
-</div>
 </div>

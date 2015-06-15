@@ -1,6 +1,5 @@
-</div>
+</div> <!-- End WRAP -->
 <!-- FOOOTER -->
-<div class="container">
 	<div id="footer">
 		<div class="col-xs-12 hidden-xs">
 			<footer>
@@ -48,5 +47,5 @@
 			</ul>
 		</div>
 	</div>
-</div>
+</div> <!-- End Container -->
 <!-- FIN FOOTER -->

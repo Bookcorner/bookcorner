@@ -1,4 +1,3 @@
-<div class="container">
     <!-- INICIO MENU ESCRITORIO -->
 	<nav class="navbar navbar-default navbar-inverse hidden-xs">
 		<div class="container-fluid">
@@ -187,9 +186,10 @@
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed"
 					data-toggle="collapse" data-target="#idMenuContent">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="<?= base_url('home')?>">
 				    <?php echo img ( array (
@@ -302,5 +302,3 @@
 		</div>
 	</nav>
 	<!-- FIN MENU MOVILES -->
-	
-</div>
