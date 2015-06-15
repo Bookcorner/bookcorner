@@ -136,7 +136,8 @@ $(document).on('keyup', '#emailSignup', function(e) {
 				</a></li>
 			</ul>
 			<!-- FIN OPCIONES MENU -->
-
+            <div class="collapse navbar-collapse navbar-right"
+				id="idFormAndLogin">
 			<!-- BUSCADOR -->
             <?php
             echo form_open ( 'busqueda', [ 
@@ -438,6 +439,7 @@ $(document).on('keyup', '#emailSignup', function(e) {
 			</div>
 			<!-- FIN MODAL -->
 			<!-- REGISTRO -->
+            </div>
 		</div>
 	</nav>
 	<!-- FIN MENU ESCRITORIO -->

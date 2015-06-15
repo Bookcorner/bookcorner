@@ -18,17 +18,17 @@ $(document).ready(function() {
 	<!-- FIN BREADCRUMB -->
 	<div class="row">
 		<!-- CONTENIDO PPAL-->
-		<div class="col-xs-12">		    
-			<div class="panel table-responsive">
-			    <?php 
-			    echo img ( array (
-			            'src' => asset_url () . '/images/users/' . $user->user_avatar,
-			            'class' => 'perfilAvatar',
-			            'alt' => $user->user_nickname
-			    ) ) ?>
+		<div class="col-xs-12 hidden-xs">		    
+			<div class="panel">
+                <?php 
+    			    echo img ( array (
+    			            'src' => asset_url () . '/images/users/' . $user->user_avatar,
+    			            'class' => 'perfilAvatar',
+    			            'alt' => $user->user_nickname
+    			    ) ) ?>
 				<div class="panel-heading">
 					<h4 class="lead text-center">Lista de <?= $user['user_nickname'] ?></h4>
-					<h5 class="text-center"><?php echo $user['user_name'].' '.$user['user_surname'] ?></h5>
+					<h5 class="text-center"><strong><?php echo $user['user_name'].' '.$user['user_surname'] ?></strong></h5>
 				</div>
 				<div class="panel-body">
 					<table class="table table-hover">
@@ -54,5 +54,43 @@ $(document).ready(function() {
 				</div>
 			</div>
 		</div>
+		<!-- FIN CONTENIDO PPAL -->
+		<!-- COMIENZO CONTENIDO MOVIL -->
+		<div class="col-xs-12 visible-xs">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <span class="pull-left">
+                    <?php 
+                    echo img ( array (
+            		'src' => asset_url () . '/images/users/' . $user->user_avatar,
+            		'class' => 'perfilAvatarMovil',
+            		'alt' => $user->user_nickname
+            	    ) ) ?>
+                    </span>
+                    <h4 class="lead text-right">Lista de <?= $user['user_nickname'] ?></h4>
+    				<h5 class="text-right"><strong><?php echo $user['user_name'].' '.$user['user_surname'] ?></strong></h5>
+				</div>
+                <?php foreach ($books as $book):?>
+                <div class="panel-body">
+                    <a class="btn btn-default" data-toggle="collapse" href="#idContentBook<?php echo $book['id']?>" aria-expanded="false" aria-controls="idContentBook<?php echo $book['id']?>">
+                      <?php echo $book['book_name']?>
+                    </a>
+                    <div class="collapse" id="idContentBook<?php echo $book['id']?>">
+                      <ul id="<?php echo $book['id']?>" class="list-group">
+                        <li class="list-group-item"><strong>ISBN</strong>: <?php echo $book['book_isbn']?></li>
+                        <li class="list-group-item"><strong>Título</strong>: <?php echo anchor('libro/'.filterQuitSpecChar($book['book_name']),$book['book_name'])?></li>
+                        <li class="list-group-item">
+                            <strong>Estado</strong>: <span class="bookState"><?php echo $book['val_estado_libro']?></span>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Puntuación</strong>: <?php echo $book['val_puntuacion']?>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                <?php endforeach;?>
+            </div>
+		</div>
+		<!-- FIN CONTENIDO MOVIL -->
 	</div>
 </div>

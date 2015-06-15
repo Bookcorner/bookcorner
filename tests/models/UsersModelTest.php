@@ -1,4 +1,5 @@
 <?php
+
 class UsersModelTest extends PHPUnit_Framework_TestCase {
     private $CI;
     public function setUp() {

@@ -17,6 +17,13 @@
 	margin: 15px 30px;
 }
 
+.perfilAvatarMovil {
+	width: 75px;
+	height: 75px;
+	display: block;
+	position: absolute;
+}
+
 .commentAvatar {
 	width: 60px !important;
 	height: 60px !important;
