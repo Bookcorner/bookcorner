@@ -24,10 +24,17 @@ if($num2 == 1) {
 	$color = imagecolorallocate($image, 0, 0, 255); // azul
 }
 
+$num3 = rand(1,2);
+if($num3==1) {
+    $axis = 7;
+} else {
+    $axis = -4;
+}
+
 $white = imagecolorallocate($image, 255, 255, 255); // background color white
 imagefilledrectangle($image,0,0,399,99,$white);
 
-imagettftext ($image, 25, 0, 10, 40, $color, $dir.$font, $randomtext);
+imagettftext ($image, 20, $axis, 0, 40, $color, $dir.$font, $randomtext);
 
 header("Content-type: image/png");
 imagepng($image);

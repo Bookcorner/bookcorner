@@ -141,6 +141,36 @@ class User extends CI_Controller {
         $newUser->userstatus_id = 2; // inactivo, enviar correo de activacion
         return $newUser;
     }
+    public function sendNewPass() {
+        if (isset($_POST['email']) && isset($_POST['captchaValue']) && isset($_POST['captchaControl'])) {
+            $email = $_POST ['email'];
+            $captchaValue = $_POST ['captchaValue'];
+            $captchaControl = $_POST ['captchaControl'];
+    
+            $this->load->model('Users_model');
+            $userBean = $this->Users_model->check_email_exists($email);
+    
+            if (! $userBean) {
+                $this->session->set_flashdata('updateEmailError', getEmailNotExistsMsg());
+            } else {
+                $userId = $userBean->id;
+                $newPwd = $this->Users_model->generate_new_pass($userId);
+                $fullname = $userBean['user_name'].' '.$userBean['user_surname'];
+                $messageEmail = gerEmailResetPwdMsg($fullname, $newPwd);
+                
+                $sendMail = $this->sendMail ( $email, $messageEmail, 'Contraseña nueva' );
+                
+                if ($sendMail) {
+                    $this->session->set_flashdata ( 'sendmailok', 'Se ha enviado el correo satisfactoriamente' );
+                } else {
+                    $this->session->set_flashdata ( 'sendmailerror', 'No se ha podido enviar el correo' );
+                }
+            }
+            go_back();
+        } else {
+            redirect(base_url('prohibido'), 'refresh');
+        }
+    }
     public function sendContact() {
         $this->form_validation->set_rules ( 'name', 'Nombre', 'required' );
         $this->form_validation->set_rules ( 'email', 'Email', 'required|valid_email' );

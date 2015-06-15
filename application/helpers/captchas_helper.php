@@ -15,7 +15,6 @@ function getCaptcha() {
             'class' => 'form-control',
             'id' => 'idCaptchaControl',
             'maxlength' => '6',
-            'style' => 'width:25%',
             'type' => 'text',
             'required' => 'required',
             'placeholder' => 'Captcha',
@@ -24,7 +23,7 @@ function getCaptcha() {
     $base64String = base64_encode($randomText);
     
     //echo img ( $img );
-    echo "<img src =\"data:image/jpeg;base64,$img_base64\" style='margin-right: 30px;'/>";
+    echo "<img src =\"data:image/jpeg;base64,$img_base64\" />";
     echo "<input type='text' value='$base64String' name='captchaValue' hidden>";
     echo form_input ( $input );
 }

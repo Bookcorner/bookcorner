@@ -46,4 +46,10 @@ class Home extends CI_Controller {
         $viewUri = 'static_pages/legal_information';
         loadBasicViews ( $viewUri, $data );
     }
+    public function rememberPassword() {
+        $data ['title'] = 'Recordar Contraseña';
+        $viewUri = 'home/remember_password';
+        
+        loadBasicViews ( $viewUri, $data );
+    }    
 }

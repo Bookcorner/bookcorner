@@ -57,6 +57,9 @@ $route['quienes-somos'] = 'home/goToWhoAreWe';
 $route['contacto'] = 'home/goToContact';
 $route['informacion-legal'] = 'home/legalInformation';
 
+// home
+$route['recuperar_clave'] = 'home/rememberPassword';
+
 //book
 $route['libros'] = 'book/index';
 $route['libro/:any'] = 'book/showBook';
@@ -87,7 +90,7 @@ $route['cancelar/:any'] = 'user/cancel';
 $route['contactar'] = 'user/sendContact';
 $route['eliminar'] = 'user/deleteAccount';
 $route['usuario/:any'] = 'user/showList';
-
+$route['clave_nueva'] = 'user/sendNewPass';
 
 //listbook
 $route['lista-libros'] = 'listbook/showListBooks';

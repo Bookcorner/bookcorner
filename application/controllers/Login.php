@@ -4,16 +4,15 @@ class Login extends CI_Controller {
     public function __construct() {
         parent::__construct ();
     }
-    
     public function signin() {
         $this->setSigninFormRules ();
-    
+        
         $isFormValidationOk = $this->form_validation->run () == TRUE;
-    
+        
         if ($isFormValidationOk) {
             $this->load->model ( 'users_model' );
             $validUser = $this->getCheckedUser ();
-    
+            
             if ($validUser == 'inactive') {
                 $this->session->set_flashdata ( 'loginError', 'Usuario inactivo' );
             } else if ($validUser == 'banned') {
@@ -22,37 +21,36 @@ class Login extends CI_Controller {
                 $this->session->set_flashdata ( 'loginError', 'Usuario erróneo, Por favor inténtelo otra vez' );
             } else {
                 $encriptedPwd = $this->getEncriptedPwd ();
-    
+                
                 $areDifferentPwd = $validUser->user_pwd != $encriptedPwd;
-    
+                
                 if ($areDifferentPwd) {
                     $this->session->set_flashdata ( 'loginError', 'Contraseña errónea, Por favor inténtelo otra vez' );
                 } else {
                     $remember = set_value ( 'remember' );
                     $isRememberChecked = $remember == 'on';
-    
+                    
                     if ($isRememberChecked) {
-                        $this->config->set_item('sess_expire_on_close', FALSE);
-                        $this->config->set_item('sess_expiration', 2592000);
+                        $this->config->set_item ( 'sess_expire_on_close', FALSE );
+                        $this->config->set_item ( 'sess_expiration', 2592000 );
                         
                         $userSession = $this->createUserDataSession ( $validUser );
                         $this->session->set_userdata ( $userSession );
                     } else {
-                        $this->config->set_item('sess_expire_on_close', TRUE);
+                        $this->config->set_item ( 'sess_expire_on_close', TRUE );
                         $userSession = $this->createUserDataSession ( $validUser );
                         $this->session->set_userdata ( $userSession );
                     }
                 }
             }
         } else {
-            $this->session->set_flashdata('formError',getFormErrorMsg());
+            $this->session->set_flashdata ( 'formError', getFormErrorMsg () );
         }
-        go_back();
+        go_back ();
     }
-    
     public function logout() {
         $this->session->sess_destroy ();
-        redirect(base_url(), 'refresh');
+        redirect ( base_url (), 'refresh' );
     }
     private function setSigninFormRules() {
         $this->form_validation->set_rules ( 'username', 'Usuario', 'required' );
@@ -87,35 +85,31 @@ class Login extends CI_Controller {
     private function getEncriptedPwd() {
         return encrypt ( set_value ( 'pwd' ) );
     }
-    
     public function getInfoAjax() {
-        
-        if (isset($_POST['field']) && isset($_POST['value'])) {            
-            if ($_POST['field'] == 'username') {
-                $this->load->model('Users_model');                
-                $username = $_POST['value'];
-                $exist = $this->Users_model->check_username_exists($username);
-                if (!$exist) {
+        if (isset ( $_POST ['field'] ) && isset ( $_POST ['value'] )) {
+            if ($_POST ['field'] == 'username') {
+                $this->load->model ( 'Users_model' );
+                $username = $_POST ['value'];
+                $exist = $this->Users_model->check_username_exists ( $username );
+                if (! $exist) {
                     echo "ok";
                 } else {
                     echo "bad";
                 }
-            } else if ($_POST['field'] == 'email') {
-                $this->load->model('Users_model');
-                $email = $_POST['value'];
-                $exist = $this->Users_model->check_email_exists($email);
-                if (!$exist) {
+            } else if ($_POST ['field'] == 'email') {
+                $this->load->model ( 'Users_model' );
+                $email = $_POST ['value'];
+                $exist = $this->Users_model->check_email_exists ( $email );
+                if (! $exist) {
                     echo "ok";
                 } else {
                     echo "bad";
                 }
             } else {
                 redirect ( base_url ( 'prohibido' ), 'refresh' );
-            }            
+            }
         } else {
             redirect ( base_url ( 'prohibido' ), 'refresh' );
         }
-        
     }
-    
 }

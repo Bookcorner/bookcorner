@@ -46,12 +46,9 @@ class Users_model extends CI_Model {
         ] );
         return $userBean;
     }   
-    function check_email_exists($email) {
-        $userBean = R::findLike ( 'user', [
-                'user_email' => [
-                        $email
-                ]
-        ] );
+    function check_email_exists($email) {        
+        $userBean = R::findOne ( 'user', ' user_email = ? ', [ $email ] );
+        
         return $userBean;
     } 
     function update_username($username, $val_id) {
@@ -79,6 +76,18 @@ class Users_model extends CI_Model {
                 'pwd' => $pass,
                 'id' => $val_id 
         ] );
+    }
+    function generate_new_pass($userId) {
+        $this->load->helper ( 'string' );        
+        $pwd = random_string ( 'alnum', 10 );
+        $pwdEncrypt = encrypt($pwd);
+        
+        R::exec ( 'UPDATE user SET user_pwd= :pwd WHERE id = :id', [
+                'pwd' => $pwdEncrypt,
+                'id' => $userId
+        ] );
+        
+        return $pwd;
     }
     function check_exist_user($username, $email) {
         $countUser = R::count ( 'user', ' user_nickname = ? ', [ 

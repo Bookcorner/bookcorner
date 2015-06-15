@@ -207,10 +207,11 @@ $(document).on('keyup', '#emailSignup', function(e) {
 										<button type="submit" class="btn btn-success btn-block">
 											<i class="fa fa-sign-in"></i> Acceder
 										</button>
-									</div>																	
+									</div>							
                                         <?php echo form_close()?>
-                                    <p class="divider"></p>	
-                                    <form action="" method="post">
+                                    <p class="divider"></p>
+                                    <form action="<?= base_url('recuperar_clave') ?>" class="form"
+                                    role="form">
                                         <div class="form-group">
     										<button type="submit" class="btn btn-default btn-block">
     											<i class="fa fa-unlock"></i> Olvidé la contraseña
@@ -273,6 +274,15 @@ $(document).on('keyup', '#emailSignup', function(e) {
 										</button>
 									</div>
 										<?php echo form_close()?>
+										<p class="divider"></p>	
+                                    <form action="<?= base_url('recuperar_clave') ?>" class="form"
+                                    role="form">
+                                        <div class="form-group">
+    										<button type="submit" class="btn btn-default btn-block">
+    											<i class="fa fa-unlock"></i> Olvidé la contraseña
+    										</button>
+    									</div>
+                                    </form>
 									</div>
 							</div>
 						</li>
@@ -302,7 +312,6 @@ $(document).on('keyup', '#emailSignup', function(e) {
                 'accept-charset' => 'UTF-8',
                 'id' => 'idFormSignIn' 
         ] )?>
-												<fieldset>
 									<!-- Name input-->
 									<div class="form-group">
 										<label class="control-label col-xs-2" for="idName">Nombre:</label>
@@ -421,7 +430,6 @@ $(document).on('keyup', '#emailSignup', function(e) {
 											</button>
 										</div>
 									</div>
-								</fieldset>
                                 <?php echo form_close()?>
 								</div>
 						</div>
@@ -509,15 +517,14 @@ $(document).on('keyup', '#emailSignup', function(e) {
 								<div class="row">
 									<div class="col-md-12">
 										<p class="bg-danger text-danger"><?php echo validation_errors()?></p>
-											<?php
-        
-        echo form_open ( 'login/signin', [ 
-                'class' => 'form',
-                'role' => 'form',
-                'method' => 'post',
-                'accept-charset' => 'UTF-8',
-                'id' => 'idFormLogin' 
-        ] )?>
+											<?php        
+                                            echo form_open ( 'login/signin', [ 
+                                                    'class' => 'form',
+                                                    'role' => 'form',
+                                                    'method' => 'post',
+                                                    'accept-charset' => 'UTF-8',
+                                                    'id' => 'idFormLogin' 
+                                            ] )?>
                                                 <div class="form-group">
 											<label class="sr-only" for="idUsername">Usuario</label> <input
 												type="text" class="form-control"
@@ -540,7 +547,16 @@ $(document).on('keyup', '#emailSignup', function(e) {
 											</button>
 										</div>
 											<?php echo form_close()?>
-										</div>										
+											<p class="divider"></p>	
+                                    <form action="<?= base_url('recuperar_clave') ?>" class="form"
+                                    role="form">
+                                        <div class="form-group">
+    										<button type="submit" class="btn btn-default btn-block">
+    											<i class="fa fa-unlock"></i> Olvidé la contraseña
+    										</button>
+    									</div>
+                                    </form>
+										</div>
 								</div>
 							</li>
 						</ul></li>
@@ -569,7 +585,6 @@ $(document).on('keyup', '#emailSignup', function(e) {
                                         'accept-charset' => 'UTF-8',
                                         'id' => 'idFormMobileSignIn' 
                                 ] )?>
-                                <fieldset>
 									<!-- Name input-->
 									<div class="form-group">
 										<label class="control-label col-xs-12" for="idName">Nombre:</label>
@@ -687,7 +702,6 @@ $(document).on('keyup', '#emailSignup', function(e) {
 											</button>
 										</div>
 									</div>
-								</fieldset>
                                 <?php echo form_close()?>
                             </div>
 						</div>

@@ -1,11 +1,9 @@
 <?php
 if (! defined ( 'BASEPATH' ))
     exit ( 'No direct script access allowed' );
-
 function getFormErrorMsg() {
     return "El formulario no es correcto";
 }
-
 function getSignInErrorMsg() {
     return 'Debes iniciar sesión primero';
 }
@@ -30,6 +28,20 @@ function getAvatarChangeOkMsg() {
 function bookNotAddedErrorMsg() {
     return 'El libro no está en tu lista';
 }
+function gerEmailResetPwdMsg($fullname, $newPwd) {
+    return "<p>Estimado $fullname,</p>
+
+<p>Según nos has solicitado, hemos procedido a cambiar tu contraseña por una nueva.</p>
+
+<p>Tu nueva contraseña es: $newPwd</p>
+
+<p>Te recomendamos que entres en el sistema y la cambies por otra de tu elección lo antes posible.</p>
+
+<p>Saludos,</p>
+<p>El equipo de BookCorner</p>
+
+<p>P.D. Éste es un mensaje automático. Por favor, no lo contestes.</p>";
+}
 function getMailActivationMsg($nameReceiver, $url, $validation) {
     return "<h4>Email de thecornerbook@gmail.com <br /><br />Bienvenido $nameReceiver:<br/>
                 Te has registrado en BookCorner, este es un mensaje de activación. <br/><br/>
@@ -43,50 +55,47 @@ function getMailActivationMsg($nameReceiver, $url, $validation) {
                 <br/> <br/>
                 Atentamente, El equipo de BookCorner";
 }
-function getUserAlreadyActivateMsg(){
+function getUserAlreadyActivateMsg() {
     return 'El usuario ya está activado';
 }
-
-function getUsernameAlreadyExistsMsg(){
+function getUsernameAlreadyExistsMsg() {
     return 'El nombre de usuario ya existe, escoja otro.';
 }
-
-function getUsernameChangeOkMsg(){
+function getUsernameChangeOkMsg() {
     return 'El nombre de usuario ha sido modificado con éxito.';
 }
-
-function getEmailAlreadyExistsMsg(){
+function getEmailAlreadyExistsMsg() {
     return 'La dirección de correo electrónico ya está registrada.';
 }
-
-function getEmailChangeOkMsg(){
+function getEmailNotExistsMsg() {
+    return 'La dirección de correo electrónico no está registrada.';
+}
+function getEmailChangeOkMsg() {
     return 'La dirección de correo electrónico ha sido modificada con éxito.';
 }
-
-function getPassChangeOkMsg(){
+function getPassChangeOkMsg() {
     return 'La contraseña ha sido modificada con éxito.';
 }
-
-function getPassNoMatchMsg(){
+function getPassNoMatchMsg() {
     return 'La antigua contraseña no coincide.';
 }
-function getbookCreatedSuccessMsg(){
+function getbookCreatedSuccessMsg() {
     return 'Tu petición ha sido enviada. 
             Tras la comprobación de nuestros moderadores tu libro será publicado. 
             Muchas gracias por colaborar en nuestra comunidad.';
 }
-function getBookImageErrorMsg(){
-    return 'La imagen del libro no ha sido subida correctamente. Asegurese de que el tamaño no supera los 5 MB y la resolución sea de 1024x768 como máximo';    
+function getBookImageErrorMsg() {
+    return 'La imagen del libro no ha sido subida correctamente. Asegurese de que el tamaño no supera los 5 MB y la resolución sea de 1024x768 como máximo';
 }
-function getAuthorErrorMsg(){
+function getAuthorErrorMsg() {
     return 'No ha seleccionado ni añadido ningún autor.';
 }
-function getAuthorImageErrorMsg(){
+function getAuthorImageErrorMsg() {
     return 'La imagen del autor no ha sido subida correctamente. Asegurese de que el tamaño no supera los 5 MB y la resolución sea de 1024x768 como máximo';
 }
-function getVerifySuccessMsg(){
+function getVerifySuccessMsg() {
     return 'El libro/autor ya se encuentra disponible. ¡Gracias por tu ayuda!';
 }
-function getRejectSuccessMsg(){
+function getRejectSuccessMsg() {
     return 'El libro/autor ha sido rechazado. ¡Gracias por tu ayuda!';
 }
