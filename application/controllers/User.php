@@ -145,7 +145,13 @@ class User extends CI_Controller {
         if (isset($_POST['email']) && isset($_POST['captchaValue']) && isset($_POST['captchaControl'])) {
             $email = $_POST ['email'];
             $captchaValue = $_POST ['captchaValue'];
+            $captchaValue = base64_decode($captchaValue);
             $captchaControl = $_POST ['captchaControl'];
+            
+            if ($captchaControl != $captchaValue) {
+                $this->session->set_flashdata('sendmailerror', captchaErrorMsg());
+                redirect( base_url('recuperar_clave') );
+            }
     
             $this->load->model('Users_model');
             $userBean = $this->Users_model->check_email_exists($email);
@@ -166,7 +172,7 @@ class User extends CI_Controller {
                     $this->session->set_flashdata ( 'sendmailerror', 'No se ha podido enviar el correo' );
                 }
             }
-            go_back();
+            redirect( base_url('home') );
         } else {
             redirect(base_url('prohibido'), 'refresh');
         }
