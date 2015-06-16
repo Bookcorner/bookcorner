@@ -190,9 +190,9 @@ $(document).on('keyup', '#emailSignup', function(e) {
                 'id' => 'idFormLogin' 
         ] )?>
                                             <div class="form-group">
-											<label class="sr-only" for="idUsername">Usuario</label> <input
+											<label class="sr-only" for="idUsername">Usuario o correo</label> <input
 												type="text" class="form-control" id="idUsername"
-												name="username" placeholder="Usuario" required />
+												name="username" placeholder="Usuario o correo" required />
 										</div>
 										<div class="form-group">
 											<label class="sr-only" for="idPwd">Contraseña</label> <input
@@ -255,9 +255,9 @@ $(document).on('keyup', '#emailSignup', function(e) {
                 'id' => 'idFormLogin' 
         ] )?>
                                             <div class="form-group">
-											<label class="sr-only" for="idUsername">Usuario</label> <input
+											<label class="sr-only" for="idUsername">Usuario o correo</label> <input
 												type="text" class="form-control" id="idUsername"
-												name="username" placeholder="Usuario" required />
+												name="username" placeholder="Usuario o correo" required />
 										</div>
 										<div class="form-group">
 											<label class="sr-only" for="idPwd">Contraseña</label> <input
@@ -528,10 +528,10 @@ $(document).on('keyup', '#emailSignup', function(e) {
                 'id' => 'idFormLogin' 
         ] )?>
                                                 <div class="form-group">
-											<label class="sr-only" for="idUsername">Usuario</label> <input
+											<label class="sr-only" for="idUsername">Usuario o correo</label> <input
 												type="text" class="form-control"
 												pattern="[A-Za-z0-9_-]{3,16}" id="idUsername"
-												name="username" placeholder="Usuario" required />
+												name="username" placeholder="Usuario o correo" required />
 										</div>
 										<div class="form-group">
 											<label class="sr-only" for="idPwd">Contraseña</label> <input
