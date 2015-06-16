@@ -1,6 +1,6 @@
 /*CSS Background*/
-body{
-	background-image:url("../images/background/background.png");
+body {
+	background-image: url("../images/background/background.png");
 	background-repeat: repeat;
 }
 
@@ -21,67 +21,68 @@ body{
 
 /* Carousel base class */
 .carousel {
-  height: 250px;
-  margin-bottom: 60px;
+	height: 250px;
+	margin-bottom: 60px;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
-  z-index: 10;
+	z-index: 10;
 }
 
 /* Declare heights because of positioning of img element */
 .carousel .item {
-  height: 250px;
-  background-color: #777;
+	height: 250px;
+	background-color: #777;
 }
-.carousel-inner > .item > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  height: 250px;
+
+.carousel-inner>.item>img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	height: 250px;
 }
 
 .placeholders {
-  margin-bottom: 30px;
-  text-align: center;
+	margin-bottom: 30px;
+	text-align: center;
 }
+
 .placeholders h4 {
-  margin-bottom: 0;
+	margin-bottom: 0;
 }
+
 .placeholder {
-  margin-bottom: 20px;
+	margin-bottom: 20px;
 }
+
 .placeholder img {
-  width: 200px;
-  height:200px;
+	width: 200px;
+	height: 200px;
 }
 
-html,
-body {
-  height: 100%;
-  /* The html and body elements cannot have any padding or margin. */
+html, body {
+	height: 100%;
+	/* The html and body elements cannot have any padding or margin. */
 }
 
-#wrap {
-  min-height: 100%;
-  height: auto;
-  /* Negative indent footer by its height */
-  margin: 0 auto -60px;
-  /* Pad bottom by footer height */
-  padding: 0 0 60px;
+#wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -60px;
+}
+
+#footer, #push {     
+    height: 60px;
 }
 
 #footer {
 	width: auto;
-	height: 60px;
 	overflow: hidden;
-	padding: 0;
 	background: #181818
 		url("//d85wutc1n854v.cloudfront.net/live/imgs/tray-bg.png");
 	color: #fff;
-	padding-bottom: 0px !important;
-	margin-bottom: 0px !important;
 }
 
 #footer a {
@@ -101,40 +102,44 @@ footer p {
 	margin-top: 23px;
 }
 
-a.nolink{
+a.nolink {
 	color: #333;
-	text-decoration:none;
+	text-decoration: none;
 }
 
-.alignleft{
-	float:left;
+.alignleft {
+	float: left;
 }
 
-.alignright{
+.alignright {
 	float: right;
 }
 
-.overflow{
+.overflow {
 	overflow: auto;
 }
 
-.no-padding{
-	padding:0px !important;
+.no-padding {
+	padding: 0px !important;
 }
 
-.padding-top{
-	padding-top:0.5px;
+.padding-top {
+	padding-top: 0.5px;
 }
-.destacado{
+
+.destacado {
 	color: white;
 }
-.jumbo{
-	background-image:url("../images/general/bcmainview.jpg");
+
+.jumbo {
+	background-image: url("../images/general/bcmainview.jpg");
 }
-.overflow{
+
+.overflow {
 	overflow: auto;
 }
-.lista-simple{
+
+.lista-simple {
 	list-style: none;
 	padding: 0px;
 }

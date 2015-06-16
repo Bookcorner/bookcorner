@@ -1,5 +1,3 @@
 </head>
-<body>
-<!--CONTAINER-->
-<div class="container">
-<div id="wrap">
+<body>    
+    <div id="wrapper" class="container">

@@ -60,7 +60,8 @@ $(document).on('keyup', '#emailSignup', function(e) {
 });
 
 </script>
-	<!-- INICIO MENU ESCRITORIO -->
+<!-- INICIO MENU ESCRITORIO -->
+<header>
 	<nav class="navbar navbar-default navbar-inverse hidden-xs">
 		<div class="container-fluid">
 			<!-- IMAGEN -->
@@ -135,9 +136,9 @@ $(document).on('keyup', '#emailSignup', function(e) {
 				</a></li>
 			</ul>
 			<!-- FIN OPCIONES MENU -->
-            <div class="collapse navbar-collapse navbar-right"
+			<div class="collapse navbar-collapse navbar-right"
 				id="idFormAndLogin">
-			<!-- BUSCADOR -->
+				<!-- BUSCADOR -->
             <?php
             echo form_open ( 'busqueda', [ 
                     'id' => 'idSearchForm',
@@ -145,40 +146,40 @@ $(document).on('keyup', '#emailSignup', function(e) {
                     'role' => 'search' 
             ] )?>
                 <select class="form-control" name="typeOfSearch">
-				<option value="book">Libros</option>
-				<option value="author">Autores</option>
-			</select>
-			<div class="form-group">
-				<input type="text" id="idSearchName" name="searchName"
-					class="form-control" placeholder="Buscar...">
-			</div>
-			<button type="submit" class="btn btn-default">
-				<i class="glyphicon glyphicon-search"></i>
-			</button>
+					<option value="book">Libros</option>
+					<option value="author">Autores</option>
+				</select>
+				<div class="form-group">
+					<input type="text" id="idSearchName" name="searchName"
+						class="form-control" placeholder="Buscar...">
+				</div>
+				<button type="submit" class="btn btn-default">
+					<i class="glyphicon glyphicon-search"></i>
+				</button>
         	<?php echo form_close()?>
         	<!-- FIN BUSCADOR -->
 
-			<!-- REGISTRO -->
-			<!-- LG MD -->
-			<ul class="nav navbar-nav navbar-right visible-lg visible-md">
-				<li><a href="" data-toggle="modal" data-target="#myModal"> <i
-						class="fa fa-users"></i> Registro
-				</a></li>
-				<li
-					class="dropdown <?php
+				<!-- REGISTRO -->
+				<!-- LG MD -->
+				<ul class="nav navbar-nav navbar-right visible-lg visible-md">
+					<li><a href="" data-toggle="modal" data-target="#myModal"> <i
+							class="fa fa-users"></i> Registro
+					</a></li>
+					<li
+						class="dropdown <?php
     if (validation_errors () || $this->session->flashdata ( 'loginError' )) {
         echo "open";
     }
     ?>"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						Entrar <i class="fa fa-chevron-down"></i>
-				</a>
-					<ul class="dropdown-menu dropdown-menu-right"
-						style="padding: 15px; min-width: 250px;">
-						<p class="bg-danger text-danger"><?php echo $this->session->flashdata('loginError')?></p>
-						<li>
-							<div class="row">
-								<div class="col-md-12">
-									<p class="bg-danger text-danger"><?php echo validation_errors()?></p>
+							Entrar <i class="fa fa-chevron-down"></i>
+					</a>
+						<ul class="dropdown-menu dropdown-menu-right"
+							style="padding: 15px; min-width: 250px;">
+							<p class="bg-danger text-danger"><?php echo $this->session->flashdata('loginError')?></p>
+							<li>
+								<div class="row">
+									<div class="col-md-12">
+										<p class="bg-danger text-danger"><?php echo validation_errors()?></p>
 										<?php
         
         echo form_open ( 'login/signin', [ 
@@ -189,61 +190,61 @@ $(document).on('keyup', '#emailSignup', function(e) {
                 'id' => 'idFormLogin' 
         ] )?>
                                             <div class="form-group">
-										<label class="sr-only" for="idUsername">Usuario</label> <input
-											type="text" class="form-control" id="idUsername"
-											name="username" placeholder="Usuario" required />
-									</div>
-									<div class="form-group">
-										<label class="sr-only" for="idPwd">Contraseña</label> <input
-											type="password" class="form-control" id="idPwd" name="pwd"
-											placeholder="Contraseña" required />
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="remember" checked />
-											Recordarme
-										</label>
-									</div>
-									<div class="form-group">
-										<button type="submit" class="btn btn-success btn-block">
-											<i class="fa fa-sign-in"></i> Acceder
-										</button>
-									</div>							
+											<label class="sr-only" for="idUsername">Usuario</label> <input
+												type="text" class="form-control" id="idUsername"
+												name="username" placeholder="Usuario" required />
+										</div>
+										<div class="form-group">
+											<label class="sr-only" for="idPwd">Contraseña</label> <input
+												type="password" class="form-control" id="idPwd" name="pwd"
+												placeholder="Contraseña" required />
+										</div>
+										<div class="checkbox">
+											<label> <input type="checkbox" name="remember" checked />
+												Recordarme
+											</label>
+										</div>
+										<div class="form-group">
+											<button type="submit" class="btn btn-success btn-block">
+												<i class="fa fa-sign-in"></i> Acceder
+											</button>
+										</div>							
                                         <?php echo form_close()?>
                                     <p class="divider"></p>
-                                    <form action="<?= base_url('recuperar_clave') ?>" class="form"
-                                    role="form">
-                                        <div class="form-group">
-    										<button type="submit" class="btn btn-default btn-block">
-    											<i class="fa fa-unlock"></i> Olvidé la contraseña
-    										</button>
-    									</div>
-                                    </form>
-                                </div>
-							</div>
-						</li>
-					</ul></li>
-			</ul>
-			<!-- SM -->
-			<ul class="nav navbar-nav navbar-right visible-sm">
-				<li><a href="" data-toggle="modal" data-target="#myModal"> <i
-						class="fa fa-users"></i>
-				</a></li>
-				<li
-					class="dropdown <?php
+										<form action="<?= base_url('recuperar_clave') ?>" class="form"
+											role="form">
+											<div class="form-group">
+												<button type="submit" class="btn btn-default btn-block">
+													<i class="fa fa-unlock"></i> Olvidé la contraseña
+												</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</li>
+						</ul></li>
+				</ul>
+				<!-- SM -->
+				<ul class="nav navbar-nav navbar-right visible-sm">
+					<li><a href="" data-toggle="modal" data-target="#myModal"> <i
+							class="fa fa-users"></i>
+					</a></li>
+					<li
+						class="dropdown <?php
     if (validation_errors () || $this->session->flashdata ( 'loginError' )) {
         echo "open";
     }
     ?>"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i
-						class="fa fa-chevron-down"></i>
-				</a>
+							class="fa fa-chevron-down"></i>
+					</a>
 
-					<ul class="dropdown-menu dropdown-menu-right"
-						style="padding: 15px; min-width: 250px;">
-						<p class="bg-danger text-danger"><?php echo $this->session->flashdata('loginError')?></p>
-						<li>
-							<div class="row">
-								<div class="col-md-12">
-									<p class="bg-danger text-danger"><?php echo validation_errors()?></p>
+						<ul class="dropdown-menu dropdown-menu-right"
+							style="padding: 15px; min-width: 250px;">
+							<p class="bg-danger text-danger"><?php echo $this->session->flashdata('loginError')?></p>
+							<li>
+								<div class="row">
+									<div class="col-md-12">
+										<p class="bg-danger text-danger"><?php echo validation_errors()?></p>
 										<?php
         
         echo form_open ( 'login/signin', [ 
@@ -254,55 +255,55 @@ $(document).on('keyup', '#emailSignup', function(e) {
                 'id' => 'idFormLogin' 
         ] )?>
                                             <div class="form-group">
-										<label class="sr-only" for="idUsername">Usuario</label> <input
-											type="text" class="form-control" id="idUsername"
-											name="username" placeholder="Usuario" required />
-									</div>
-									<div class="form-group">
-										<label class="sr-only" for="idPwd">Contraseña</label> <input
-											type="password" class="form-control" id="idPwd" name="pwd"
-											placeholder="Contraseña" required />
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="remember" checked />
-											Recordarme
-										</label>
-									</div>									
-									<div class="form-group">
-										<button type="submit" class="btn btn-success btn-block">
-											<i class="fa fa-sign-in"></i> Acceder
-										</button>
-									</div>
+											<label class="sr-only" for="idUsername">Usuario</label> <input
+												type="text" class="form-control" id="idUsername"
+												name="username" placeholder="Usuario" required />
+										</div>
+										<div class="form-group">
+											<label class="sr-only" for="idPwd">Contraseña</label> <input
+												type="password" class="form-control" id="idPwd" name="pwd"
+												placeholder="Contraseña" required />
+										</div>
+										<div class="checkbox">
+											<label> <input type="checkbox" name="remember" checked />
+												Recordarme
+											</label>
+										</div>
+										<div class="form-group">
+											<button type="submit" class="btn btn-success btn-block">
+												<i class="fa fa-sign-in"></i> Acceder
+											</button>
+										</div>
 										<?php echo form_close()?>
-										<p class="divider"></p>	
-                                    <form action="<?= base_url('recuperar_clave') ?>" class="form"
-                                    role="form">
-                                        <div class="form-group">
-    										<button type="submit" class="btn btn-default btn-block">
-    											<i class="fa fa-unlock"></i> Olvidé la contraseña
-    										</button>
-    									</div>
-                                    </form>
+										<p class="divider"></p>
+										<form action="<?= base_url('recuperar_clave') ?>" class="form"
+											role="form">
+											<div class="form-group">
+												<button type="submit" class="btn btn-default btn-block">
+													<i class="fa fa-unlock"></i> Olvidé la contraseña
+												</button>
+											</div>
+										</form>
 									</div>
+								</div>
+							</li>
+						</ul></li>
+				</ul>
+				<!-- MODAL -->
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+					aria-labelledby="idRegisterFormMobile" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								<h4 class="modal-title" id="idRegisterFormMobile">Formulario de
+									registro</h4>
 							</div>
-						</li>
-					</ul></li>
-			</ul>
-			<!-- MODAL -->
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-				aria-labelledby="idRegisterFormMobile" aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal"
-								aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-							<h4 class="modal-title" id="idRegisterFormMobile">Formulario de
-								registro</h4>
-						</div>
-						<div class="modal-body">
-							<div>
+							<div class="modal-body">
+								<div>
 											<?php
         
         echo form_open ( base_url () . 'registrarse', [ 
@@ -316,8 +317,9 @@ $(document).on('keyup', '#emailSignup', function(e) {
 									<div class="form-group">
 										<label class="control-label col-xs-2" for="idName">Nombre:</label>
 										<div class="controls col-xs-9">
-											<input id="idName" name="name" class="form-control input-large"
-												type="text" placeholder="Nombre" required />
+											<input id="idName" name="name"
+												class="form-control input-large" type="text"
+												placeholder="Nombre" required />
 										</div>
 										<div class="help-block with-errors"></div>
 									</div>
@@ -325,8 +327,9 @@ $(document).on('keyup', '#emailSignup', function(e) {
 									<div class="form-group">
 										<label class="control-label col-xs-2" for="idSurname">Apellido:</label>
 										<div class="controls col-xs-9">
-											<input id="idSurname" name="surname" class="form-control input-large"
-												type="text" placeholder="Apellido" required />
+											<input id="idSurname" name="surname"
+												class="form-control input-large" type="text"
+												placeholder="Apellido" required />
 										</div>
 										<div class="help-block with-errors"></div>
 									</div>
@@ -346,7 +349,8 @@ $(document).on('keyup', '#emailSignup', function(e) {
 										<label class="control-label col-xs-2" for="UsernameSignup">Nombre
 											de usuario:</label>
 										<div class="controls col-xs-9">
-											<input id="UsernameSignup" name="user" class="form-control input-large"
+											<input id="UsernameSignup" name="user"
+												class="form-control input-large"
 												pattern="^[a-zA-Z0-9_-]{3,16}$" type="text"
 												placeholder="Usuario (tu nombre visible en la página)"
 												data-error="Nombre de usuario no válido" required />
@@ -358,8 +362,9 @@ $(document).on('keyup', '#emailSignup', function(e) {
 									<div class="form-group">
 										<label class="control-label col-xs-2" for="idPass">Contraseña:</label>
 										<div class="controls col-xs-9">
-											<input id="idPass" name="pass" class="form-control input-large"
-												pattern="^{5,12}$" type="password" placeholder="********"
+											<input id="idPass" name="pass"
+												class="form-control input-large" pattern="^{5,12}$"
+												type="password" placeholder="********"
 												data-error="Contraseña no válida" required />
 
 										</div>
@@ -428,13 +433,13 @@ $(document).on('keyup', '#emailSignup', function(e) {
 									</div>
                                 <?php echo form_close()?>
 								</div>
+							</div>
 						</div>
 					</div>
 				</div>
+				<!-- FIN MODAL -->
+				<!-- REGISTRO -->
 			</div>
-			<!-- FIN MODAL -->
-			<!-- REGISTRO -->
-            </div>
 		</div>
 	</nav>
 	<!-- FIN MENU ESCRITORIO -->
@@ -445,10 +450,9 @@ $(document).on('keyup', '#emailSignup', function(e) {
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed"
 					data-toggle="collapse" data-target="#idMenuContent">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="<?= base_url('home')?>">
 				    <?php
@@ -515,14 +519,14 @@ $(document).on('keyup', '#emailSignup', function(e) {
 								<div class="row">
 									<div class="col-md-12">
 										<p class="bg-danger text-danger"><?php echo validation_errors()?></p>
-											<?php        
-                                            echo form_open ( 'login/signin', [ 
-                                                    'class' => 'form',
-                                                    'role' => 'form',
-                                                    'method' => 'post',
-                                                    'accept-charset' => 'UTF-8',
-                                                    'id' => 'idFormLogin' 
-                                            ] )?>
+											<?php
+        echo form_open ( 'login/signin', [ 
+                'class' => 'form',
+                'role' => 'form',
+                'method' => 'post',
+                'accept-charset' => 'UTF-8',
+                'id' => 'idFormLogin' 
+        ] )?>
                                                 <div class="form-group">
 											<label class="sr-only" for="idUsername">Usuario</label> <input
 												type="text" class="form-control"
@@ -545,16 +549,16 @@ $(document).on('keyup', '#emailSignup', function(e) {
 											</button>
 										</div>
 											<?php echo form_close()?>
-											<p class="divider"></p>	
-                                    <form action="<?= base_url('recuperar_clave') ?>" class="form"
-                                    role="form">
-                                        <div class="form-group">
-    										<button type="submit" class="btn btn-default btn-block">
-    											<i class="fa fa-unlock"></i> Olvidé la contraseña
-    										</button>
-    									</div>
-                                    </form>
-										</div>
+											<p class="divider"></p>
+										<form action="<?= base_url('recuperar_clave') ?>" class="form"
+											role="form">
+											<div class="form-group">
+												<button type="submit" class="btn btn-default btn-block">
+													<i class="fa fa-unlock"></i> Olvidé la contraseña
+												</button>
+											</div>
+										</form>
+									</div>
 								</div>
 							</li>
 						</ul></li>
@@ -584,118 +588,122 @@ $(document).on('keyup', '#emailSignup', function(e) {
                                         'id' => 'idFormMobileSignIn' 
                                 ] )?>
 									<!-- Name input-->
-									<div class="form-group">
-										<label class="control-label col-xs-12" for="idName">Nombre:</label>
-										<div class="controls col-xs-12">
-											<input id="idName" name="name" class="form-control input-large"
-												type="text" placeholder="Nombre" required />
-										</div>
-										<div class="help-block with-errors"></div>
+								<div class="form-group">
+									<label class="control-label col-xs-12" for="idName">Nombre:</label>
+									<div class="controls col-xs-12">
+										<input id="idName" name="name"
+											class="form-control input-large" type="text"
+											placeholder="Nombre" required />
 									</div>
-									<!-- surname input -->
-									<div class="form-group">
-										<label class="control-label col-xs-12" for="idSurname">Apellido:</label>
-										<div class="controls col-xs-12">
-											<input id="idSurname" name="surname" class="form-control input-large"
-												type="text" placeholder="Apellido" required />
-										</div>
-										<div class="help-block with-errors"></div>
+									<div class="help-block with-errors"></div>
+								</div>
+								<!-- surname input -->
+								<div class="form-group">
+									<label class="control-label col-xs-12" for="idSurname">Apellido:</label>
+									<div class="controls col-xs-12">
+										<input id="idSurname" name="surname"
+											class="form-control input-large" type="text"
+											placeholder="Apellido" required />
 									</div>
-									<!-- genre input -->
-									<div class="form-group">
-										<label class="control-label col-xs-12" for="idGenre">Género:</label>
-										<div class="controls col-xs-12">
-											<label class="radio-inline"><input type="radio" value="M"
-												name="genre" checked>Hombre</label> <label
-												class="radio-inline"><input type="radio" value="F"
-												name="genre">Mujer</label>
-										</div>
+									<div class="help-block with-errors"></div>
+								</div>
+								<!-- genre input -->
+								<div class="form-group">
+									<label class="control-label col-xs-12" for="idGenre">Género:</label>
+									<div class="controls col-xs-12">
+										<label class="radio-inline"><input type="radio" value="M"
+											name="genre" checked>Hombre</label> <label
+											class="radio-inline"><input type="radio" value="F"
+											name="genre">Mujer</label>
 									</div>
-									<!-- Username input-->
-									<div class="form-group">
-										<label class="control-label col-xs-12" for="UsernameSignup">Nombre
-											de usuario:</label>
-										<div class="controls col-xs-12">
-											<input id="UsernameSignup" name="user" class="form-control"
-												type="text" pattern="^[a-zA-Z0-9_-]{3,16}$"
-												placeholder="(tu nombre visible en la página)"
-												data-error="Nombre de usuario no válido" class="input-large"
-												required />
-										</div>
-										<div class="help-block with-errors"></div>
+								</div>
+								<!-- Username input-->
+								<div class="form-group">
+									<label class="control-label col-xs-12" for="UsernameSignup">Nombre
+										de usuario:</label>
+									<div class="controls col-xs-12">
+										<input id="UsernameSignup" name="user" class="form-control"
+											type="text" pattern="^[a-zA-Z0-9_-]{3,16}$"
+											placeholder="(tu nombre visible en la página)"
+											data-error="Nombre de usuario no válido" class="input-large"
+											required />
 									</div>
+									<div class="help-block with-errors"></div>
+								</div>
 
-									<!-- Password input-->
-									<div class="form-group">
-										<label class="control-label col-xs-12" for="idPass">Contraseña:</label>
-										<div class="controls col-xs-12">
-											<input id="idPass" name="pass" class="form-control input-large"
-												pattern="^{5,12}$" type="password" placeholder="********"
-												data-error="Contraseña no válida" required />
+								<!-- Password input-->
+								<div class="form-group">
+									<label class="control-label col-xs-12" for="idPass">Contraseña:</label>
+									<div class="controls col-xs-12">
+										<input id="idPass" name="pass"
+											class="form-control input-large" pattern="^{5,12}$"
+											type="password" placeholder="********"
+											data-error="Contraseña no válida" required />
 
-										</div>
-										<div class="help-block with-errors"></div>
 									</div>
+									<div class="help-block with-errors"></div>
+								</div>
 
-									<div class="form-group">
-										<label class="control-label col-xs-12" for="idRepass">Confirmación
-											contraseña:</label>
-										<div class="controls col-xs-12">
-											<input id="idRepass" name="repass" data-match="#idPass"
-												class="form-control input-large" type="password" placeholder="********"
-												data-match-error="Error, la contraseña no coincide" required />
-										</div>
-										<div class="help-block with-errors"></div>
+								<div class="form-group">
+									<label class="control-label col-xs-12" for="idRepass">Confirmación
+										contraseña:</label>
+									<div class="controls col-xs-12">
+										<input id="idRepass" name="repass" data-match="#idPass"
+											class="form-control input-large" type="password"
+											placeholder="********"
+											data-match-error="Error, la contraseña no coincide" required />
 									</div>
+									<div class="help-block with-errors"></div>
+								</div>
 
-									<!-- Email input-->
-									<div class="form-group">
-										<label class="control-label col-xs-12" for="emailSignup">Email:</label>
-										<div class="controls col-xs-12">
-											<input id="emailSignup" name="email"
-												pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$"
-												class="input-large form-control" type="text"
-												placeholder="Email"
-												data-error="Dirección de correo no válida" required />
-										</div>
-										<div class="help-block with-errors"></div>
+								<!-- Email input-->
+								<div class="form-group">
+									<label class="control-label col-xs-12" for="emailSignup">Email:</label>
+									<div class="controls col-xs-12">
+										<input id="emailSignup" name="email"
+											pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$"
+											class="input-large form-control" type="text"
+											placeholder="Email"
+											data-error="Dirección de correo no válida" required />
 									</div>
+									<div class="help-block with-errors"></div>
+								</div>
 
-									<div class="form-group">
-										<label class="control-label col-xs-12" for="idReemail">Confirmación
-											email:</label>
-										<div class="controls col-xs-12">
-											<input id="idReemail" name="reemail"
-												data-match="#emailSignup" class="input-large form-control"
-												type="text" placeholder="Email"
-												data-match-error="Error, el email no coincide" required />
-										</div>
-										<div class="help-block with-errors"></div>
+								<div class="form-group">
+									<label class="control-label col-xs-12" for="idReemail">Confirmación
+										email:</label>
+									<div class="controls col-xs-12">
+										<input id="idReemail" name="reemail" data-match="#emailSignup"
+											class="input-large form-control" type="text"
+											placeholder="Email"
+											data-match-error="Error, el email no coincide" required />
 									</div>
+									<div class="help-block with-errors"></div>
+								</div>
 
-									<div class="form-group form-inline">
-										<label class="control-label col-xs-12" for=idCaptchaControl>
-											Introduce Captcha: </label>
-										<div class="controls col-xs-12">
+								<div class="form-group form-inline">
+									<label class="control-label col-xs-12" for=idCaptchaControl>
+										Introduce Captcha: </label>
+									<div class="controls col-xs-12">
 												        <?php getCaptcha(); ?>
     												</div>
-										<div class="help-block with-errors"></div>
-									</div>
+									<div class="help-block with-errors"></div>
+								</div>
 
-									<!-- Button -->
-									<div class="form-group">
-										<label class="control-label col-xs-12" for="idConfirmsignup"></label>
-										<div class="controls col-xs-12">
-											<button id="idConfirmsignup" name="confirmsignup"
-												class="btn btn-success">
-												<i class="fa fa-sign-in"></i> Registrar
-											</button>
-											<button type="button" class="btn btn-danger"
-												data-dismiss="modal">
-												<i class="fa fa-ban"></i> Cancelar
-											</button>
-										</div>
+								<!-- Button -->
+								<div class="form-group">
+									<label class="control-label col-xs-12" for="idConfirmsignup"></label>
+									<div class="controls col-xs-12">
+										<button id="idConfirmsignup" name="confirmsignup"
+											class="btn btn-success">
+											<i class="fa fa-sign-in"></i> Registrar
+										</button>
+										<button type="button" class="btn btn-danger"
+											data-dismiss="modal">
+											<i class="fa fa-ban"></i> Cancelar
+										</button>
 									</div>
+								</div>
                                 <?php echo form_close()?>
                             </div>
 						</div>
@@ -705,4 +713,6 @@ $(document).on('keyup', '#emailSignup', function(e) {
 			</div>
 		</div>
 	</nav>
-	<!-- FIN MENU MOVILES -->
+</header>
+<!-- FIN MENU MOVILES -->
+<div id="content">
