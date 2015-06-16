@@ -12,7 +12,9 @@ class Authors_model extends CI_Model {
         return $authorsBean;
     }
     function getAllBooksFromAuthor($authorId) {
-        $listOfBooks = R::getAll ('SELECT * FROM author_book ab, book b WHERE ab.author_id = ? AND b.id = ab.book_id', [ $authorId ] );
+        $listOfBooks = R::getAll ( 'SELECT * FROM author_book ab, book b WHERE ab.author_id = ? AND b.id = ab.book_id AND b.bookstate_id = 1', [ 
+                $authorId 
+        ] );
         return $listOfBooks;
     }
     function getAuthor($authorId) {
@@ -21,9 +23,9 @@ class Authors_model extends CI_Model {
         ] );
         return $authorBean;
     }
-    function getAuthorByName ( $authorName ) {
-        $authorBean = R::findOne ( 'author', ' author_fullname = ? ', [
-                $authorName
+    function getAuthorByName($authorName) {
+        $authorBean = R::findOne ( 'author', ' author_fullname = ? ', [ 
+                $authorName 
         ] );
         return $authorBean;
     }
@@ -88,29 +90,31 @@ class Authors_model extends CI_Model {
         R::store ( $author );
     }
     function countAuthorsReports() {
-        $number_of_authors_pending = R::count ( 'author', 'authorstate_id = 2');
+        $number_of_authors_pending = R::count ( 'author', 'authorstate_id = 2' );
         return $number_of_authors_pending;
     }
     public function getLastAuthors() {
-        $authors = R::find('author', 'authorstate_id = :authorstate ORDER BY id DESC LIMIT 5', [
-                'authorstate' => 1
-        ]);
+        $authors = R::find ( 'author', 'authorstate_id = :authorstate ORDER BY id DESC LIMIT 5', [ 
+                'authorstate' => 1 
+        ] );
         return $authors;
     }
-    public function deleteAuthor($authorId){        
-        $author = R::load('author', $authorId);
+    public function deleteAuthor($authorId) {
+        $author = R::load ( 'author', $authorId );
         
-        $books = $this->getAllBooksFromAuthor($authorId);
+        $books = $listOfBooks = R::getAll ( 'SELECT * FROM author_book ab, book b WHERE ab.author_id = ? AND b.id = ab.book_id', [ 
+                $authorId 
+        ] );
         
-        $this->load->model('Books_model');        
-        foreach ($books as $book) {
-            $this->Books_model->deleteBook($book['book_id']);
+        $this->load->model ( 'Books_model' );
+        foreach ( $books as $book ) {
+            $this->Books_model->deleteBook ( $book ['book_id'] );
         }
         
         $avatar = $author->author_img;
         $file = 'assets/images/authors/' . $avatar;
         unlink ( $file );
         
-        R::trash( $author );
+        R::trash ( $author );
     }
 }
