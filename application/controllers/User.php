@@ -368,7 +368,9 @@ class User extends CI_Controller {
                 $userBean = $this->Users_model->getUserInfo ( $userId );
                 
                 $photo = $_FILES ['newAvatar'];
-                $nameArray = explode ( '.', $photo ['name'] );
+                $nameOfPhoto = $photo ['name'];
+                $nameOfPhoto = strtolower($nameOfPhoto);
+                $nameArray = explode ( '.', $nameOfPhoto );
                 $ext = end ( $nameArray );
                 $newName = $userBean->user_nickname;
                 $newName .= '.' . $ext;
