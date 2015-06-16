@@ -321,7 +321,7 @@ $(document).on('keyup', '#emailSignup', function(e) {
 												class="form-control input-large" type="text"
 												placeholder="Nombre" required />
 										</div>
-										<div class="help-block with-errors"></div>
+										<div class="help-block with-errors col-xs-12"></div>
 									</div>
 
 									<div class="form-group">
@@ -331,7 +331,7 @@ $(document).on('keyup', '#emailSignup', function(e) {
 												class="form-control input-large" type="text"
 												placeholder="Apellido" required />
 										</div>
-										<div class="help-block with-errors"></div>
+										<div class="help-block with-errors col-xs-12"></div>
 									</div>
 
 									<div class="form-group">
@@ -355,7 +355,7 @@ $(document).on('keyup', '#emailSignup', function(e) {
 												placeholder="Usuario (tu nombre visible en la página)"
 												data-error="Nombre de usuario no válido" required />
 										</div>
-										<div class="help-block with-errors"></div>
+										<div class="help-block with-errors col-xs-12"></div>
 									</div>
 
 									<!-- Password input-->
@@ -368,7 +368,7 @@ $(document).on('keyup', '#emailSignup', function(e) {
 												data-error="Contraseña no válida" required />
 
 										</div>
-										<div class="help-block with-errors"></div>
+										<div class="help-block with-errors col-xs-12"></div>
 									</div>
 
 									<div class="form-group">
@@ -380,7 +380,7 @@ $(document).on('keyup', '#emailSignup', function(e) {
 												class="form-control input-large"
 												data-match-error="Error, la contraseña no coincide" required />
 										</div>
-										<div class="help-block with-errors"></div>
+										<div class="help-block with-errors col-xs-12"></div>
 									</div>
 
 									<!-- Email input-->
@@ -393,7 +393,7 @@ $(document).on('keyup', '#emailSignup', function(e) {
 												placeholder="Email"
 												data-error="Dirección de correo no válida" required />
 										</div>
-										<div class="help-block with-errors"></div>
+										<div class="help-block with-errors col-xs-12"></div>
 									</div>
 
 									<div class="form-group">
@@ -405,7 +405,7 @@ $(document).on('keyup', '#emailSignup', function(e) {
 												type="text" placeholder="Email"
 												data-match-error="Error, el email no coincide" required />
 										</div>
-										<div class="help-block with-errors"></div>
+										<div class="help-block with-errors col-xs-12"></div>
 									</div>
 
 									<div class="form-group form-inline">
@@ -414,7 +414,7 @@ $(document).on('keyup', '#emailSignup', function(e) {
 										<div class="controls col-xs-9">
 												        <?php getCaptcha(); ?>
     												</div>
-										<div class="help-block with-errors"></div>
+										<div class="help-block with-errors col-xs-12"></div>
 									</div>
 
 									<!-- Button -->
@@ -595,7 +595,7 @@ $(document).on('keyup', '#emailSignup', function(e) {
 											class="form-control input-large" type="text"
 											placeholder="Nombre" required />
 									</div>
-									<div class="help-block with-errors"></div>
+									<div class="help-block with-errors col-xs-12"></div>
 								</div>
 								<!-- surname input -->
 								<div class="form-group">
@@ -605,7 +605,7 @@ $(document).on('keyup', '#emailSignup', function(e) {
 											class="form-control input-large" type="text"
 											placeholder="Apellido" required />
 									</div>
-									<div class="help-block with-errors"></div>
+									<div class="help-block with-errors col-xs-12"></div>
 								</div>
 								<!-- genre input -->
 								<div class="form-group">
@@ -628,7 +628,7 @@ $(document).on('keyup', '#emailSignup', function(e) {
 											data-error="Nombre de usuario no válido" class="input-large"
 											required />
 									</div>
-									<div class="help-block with-errors"></div>
+									<div class="help-block with-errors col-xs-12"></div>
 								</div>
 
 								<!-- Password input-->
@@ -641,7 +641,7 @@ $(document).on('keyup', '#emailSignup', function(e) {
 											data-error="Contraseña no válida" required />
 
 									</div>
-									<div class="help-block with-errors"></div>
+									<div class="help-block with-errors col-xs-12"></div>
 								</div>
 
 								<div class="form-group">
@@ -653,7 +653,7 @@ $(document).on('keyup', '#emailSignup', function(e) {
 											placeholder="********"
 											data-match-error="Error, la contraseña no coincide" required />
 									</div>
-									<div class="help-block with-errors"></div>
+									<div class="help-block with-errors col-xs-12"></div>
 								</div>
 
 								<!-- Email input-->
@@ -666,7 +666,7 @@ $(document).on('keyup', '#emailSignup', function(e) {
 											placeholder="Email"
 											data-error="Dirección de correo no válida" required />
 									</div>
-									<div class="help-block with-errors"></div>
+									<div class="help-block with-errors col-xs-12"></div>
 								</div>
 
 								<div class="form-group">
@@ -678,7 +678,7 @@ $(document).on('keyup', '#emailSignup', function(e) {
 											placeholder="Email"
 											data-match-error="Error, el email no coincide" required />
 									</div>
-									<div class="help-block with-errors"></div>
+									<div class="help-block with-errors col-xs-12"></div>
 								</div>
 
 								<div class="form-group form-inline">
@@ -687,7 +687,7 @@ $(document).on('keyup', '#emailSignup', function(e) {
 									<div class="controls col-xs-12">
 												        <?php getCaptcha(); ?>
     												</div>
-									<div class="help-block with-errors"></div>
+									<div class="help-block with-errors col-xs-12"></div>
 								</div>
 
 								<!-- Button -->
