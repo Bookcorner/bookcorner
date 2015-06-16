@@ -62,7 +62,7 @@
 					</thead>
 					<tbody>
 						<tr class="success">
-							<td>Diario</td>
+							<td>Lunes a Viernes</td>
 							<td>9:00 a 18:00</td>
 						</tr>
 						<tr class="warning">
