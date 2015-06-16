@@ -63,7 +63,14 @@ $username = "root";
 $password = "";
 $database = "bookcorner";
 
+if ( ! ($_SERVER ['SERVER_NAME'] == 'localhost' || $_SERVER ['SERVER_NAME'] == '127.0.0.1')) {
 
+    $hostname = "mysql.hostinger.es";
+    $username = "u223979541_admin";
+    $password = "alumnoadmin93";
+    $database = "u223979541_book";
+
+}
 
 $active_group = 'default';
 $query_builder = TRUE;

@@ -267,28 +267,27 @@
 					<a href="<?php echo base_url('autores')?>"> <i class="fa fa-eye"></i>
 						Ver más...
 					</a>
-				</div>
+				</div>				
 			</div>
 		</div>
-		<div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
+		  <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
 			<a class="twitter-timeline" href="https://twitter.com/_Bookcorner_"
 				data-widget-id="608682590535577601">Tweets por el @_Bookcorner_.</a>
 			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        	</div>
+        	<div id="fb-root"></div>
+        	<script>(function(d, s, id) {
+                 var js, fjs = d.getElementsByTagName(s)[0];
+                 if (d.getElementById(id)) return;
+                 js = d.createElement(s); js.id = id;
+                 js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.3";
+                 fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
+        	<div class="fb-like"
+        		data-href="https://www.facebook.com/pages/Bookcorner/845421485541650?fref=ts"
+        		data-layout="standard" data-action="like" data-show-faces="false"
+        		data-share="true"></div>
 		</div>
-		<div id="fb-root"></div>
-		<script>(function(d, s, id) {
-             var js, fjs = d.getElementsByTagName(s)[0];
-             if (d.getElementById(id)) return;
-             js = d.createElement(s); js.id = id;
-             js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.3";
-             fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));</script>
-		<div class="fb-like"
-			data-href="https://www.facebook.com/pages/Bookcorner/845421485541650?fref=ts"
-			data-layout="standard" data-action="like" data-show-faces="false"
-			data-share="true"></div>
-	</div>
-
 	<!-- FIN MENU LATERAL -->
 </div>
 <!-- CONTENIDO PPAL-->
