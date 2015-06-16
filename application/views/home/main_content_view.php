@@ -179,8 +179,8 @@
 									href="<?php echo 'libro/'.filterQuitSpecChar($book['book_name'])?>">
         				                <?php echo $book['book_name']?>
                                     </a></td>
-								<td class="text-right"><?php echo $book['n_usuarios']?><i
-									class="fa fa-users"></i></td>
+								<td class="text-right"><?php echo $book['n_usuarios']?>
+								<i class="fa fa-users"></i></td>
 							</tr>   
         		        <?php endforeach;?>
 						</tbody>
@@ -206,8 +206,8 @@
 									href="<?php echo 'libro/'.filterQuitSpecChar($book['book_name'])?>">
         				                <?php echo $book['book_name']?>
                                     </a></td>
-								<td class="text-right"><?php echo $book['n_usuarios']?><i
-									class="fa fa-users"></i></td>
+								<td class="text-right"><?php echo $book['n_usuarios']?>
+								<i class="fa fa-users"></i></td>
 							</tr>    
         		        <?php endforeach;?>
 						</tbody>
