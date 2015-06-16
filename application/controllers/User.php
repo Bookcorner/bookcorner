@@ -160,7 +160,14 @@ class User extends CI_Controller {
     
             if (! $userBean) {
                 $this->session->set_flashdata('updateEmailError', getEmailNotExistsMsg());
+            } else if ($userBean['userstatus_id'] == 3) { // banned user
+                $this->session->set_flashdata('updateEmailError', getBannedMsg());
             } else {
+                
+                if ($userBean['userstatus_id'] == 2) { // inactive user
+                    $this->Users_model->activateUser ( $userBean['user_validation'] );
+                }
+                
                 $userId = $userBean->id;
                 $newPwd = $this->Users_model->generate_new_pass($userId);
                 $fullname = $userBean['user_name'].' '.$userBean['user_surname'];

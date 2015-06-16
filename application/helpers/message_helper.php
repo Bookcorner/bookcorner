@@ -13,6 +13,9 @@ function getBookAlreadyAddedErrorMsg() {
 function getBookAddedSuccessMsg() {
     return 'El libro ha sido añadido';
 }
+function getBannedMsg() {
+    return 'La cuenta está baneada.';
+}
 function captchaErrorMsg() {
     return 'Captcha incorrecto';
 }
