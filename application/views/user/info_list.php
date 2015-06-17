@@ -5,6 +5,12 @@ $(document).ready(function() {
 		var stateValue = $(this).text();
 		$(this).text(states[stateValue]);
 	});
+	$('.bookValoration').each(function(){
+		var valorationValue = $(this).text();
+		if (valorationValue == 11) {
+			$(this).text('Sin puntuar');
+		}
+	});
 });
 </script>
 <!-- BREADCRUMB -->
@@ -47,7 +53,7 @@ $(document).ready(function() {
 							<td><?php echo $book['book_isbn']?></td>
 							<td><?php echo anchor('libro/'.filterQuitSpecChar($book['book_name']),$book['book_name'])?></td>
 							<td class="bookState"><?php echo $book['val_estado_libro']?></td>
-							<td><?php echo $book['val_puntuacion']?></td>
+							<td class="bookValoration"><?php echo $book['val_puntuacion']?></td>
 						</tr>    
         		        <?php endforeach;?>
         		        </tbody>
@@ -86,7 +92,8 @@ $(document).ready(function() {
 						<li class="list-group-item"><strong>Título</strong>: <?php echo anchor('libro/'.filterQuitSpecChar($book['book_name']),$book['book_name'])?></li>
 						<li class="list-group-item"><strong>Estado</strong>: <span
 							class="bookState"><?php echo $book['val_estado_libro']?></span></li>
-						<li class="list-group-item"><strong>Puntuación</strong>: <?php echo $book['val_puntuacion']?>
+						<li class="list-group-item"><strong>Puntuación</strong>: 
+						    <span class="bookValoration"><?php echo $book['val_puntuacion']?></span>
                         </li>
 					</ul>
 				</div>
