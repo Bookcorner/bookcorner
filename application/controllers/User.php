@@ -136,7 +136,7 @@ class User extends CI_Controller {
         $newUser->user_validation = $validation;
         $newUser->user_email = set_value ( 'email' );
         $newUser->user_avatar = 'basic.jpg'; // imagen basica
-        $newUser->user_genre = 'M';
+        $newUser->user_genre = set_value ( 'genre' );
         $newUser->userrole_id = 1; // registrado, no es moderador ni admin
         $newUser->userstatus_id = 2; // inactivo, enviar correo de activacion
         return $newUser;
