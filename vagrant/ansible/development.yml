@@ -1,0 +1,14 @@
+---
+
+# file: development.yml
+
+- hosts: development
+  sudo: yes
+  gather_facts: no
+  roles:
+      - common_os_setup
+      - dependencies
+      - ansible
+      - mysql
+      - php
+      - apache_install

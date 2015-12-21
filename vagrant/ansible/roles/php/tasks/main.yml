@@ -1,0 +1,11 @@
+---
+
+#file: /roles/php/tasks/main.yml
+
+- name: install php5 command
+  apt: name=php5 state=present
+  tags: php
+
+- name: install libapache2-mod-php5 command
+  apt: name=libapache2-mod-php5 state=present
+  tags: php

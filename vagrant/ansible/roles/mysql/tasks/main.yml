@@ -1,0 +1,7 @@
+---
+
+#file: /roles/mysql/tasks/main.yml
+
+- name: install mysql server
+  apt: name=mysql-server state=present
+  tags: mysql

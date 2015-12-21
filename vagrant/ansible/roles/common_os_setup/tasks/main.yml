@@ -1,0 +1,20 @@
+---
+# file: roles/common_os_setup/tasks/main.yml
+
+- name: ensure apt cache is up to date
+  apt: update_cache=yes
+
+- name: ensure the language packs are installed
+  apt: name={{item}}
+  with_items:
+  - language-pack-en
+  - language-pack-es
+
+- name: reconfigure locales
+  command: sudo update-locale LANG=en_US.UTF-8 LC_ADDRESS=es_ES.UTF-8 LC_COLLATE=es_ES.UTF-8 LC_CTYPE=es_ES.UTF-8 LC_MONETARY=es_ES.UTF-8 LC_MEASUREMENT=es_ES.UTF-8 LC_NUMERIC=es_ES.UTF-8 LC_PAPER=es_ES.UTF-8 LC_TELEPHONE=es_ES.UTF-8 LC_TIME=es_ES.UTF-8
+
+- name: ensure apt packages are upgraded
+  apt: upgrade=yes
+
+
+

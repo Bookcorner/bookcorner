@@ -1,0 +1,15 @@
+---
+
+#file: /roles/dependencies/tasks/main.yml
+
+- name: install unzip command
+  apt: name=unzip state=present
+  tags: dependency
+
+- name: install git
+  apt: name=git state=present
+  tags: git
+
+- name: install sshpass
+  apt: name=sshpass state=present
+  tags: dependency

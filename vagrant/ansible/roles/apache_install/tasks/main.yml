@@ -1,0 +1,26 @@
+---
+#file: /roles/apache/tasks/main.yml
+
+- name: install apache2
+  apt: name=apache2 state=latest update_cache=yes
+  tags: apache
+
+- name: install apache2-utils for authentication
+  apt: name=apache2-utils state=latest update_cache=yes
+  tags: apache
+
+- name: apache2 listen on port {{ http_port }}
+  lineinfile: dest=/etc/apache2/ports.conf regexp="^Listen " line="Listen {{ http_port }}" state=present
+
+- name: apache2 virtualhost on port {{ http_port }}
+  lineinfile: dest=/etc/apache2/sites-available/000-default.conf regexp="^<VirtualHost \*:" line="<VirtualHost *:{{ http_port }}>"
+
+- name: enable mod_proxy module
+  apache2_module: name={{item}} state=present
+  with_items:
+    - proxy
+    - proxy_http
+    - rewrite
+    - headers
+  notify: restart apache
+  tags: apache

@@ -1,0 +1,15 @@
+---
+# file: roles/ansible/tasks/main.yml
+
+- name: install python setup tools
+  apt: name=python-setuptools state=present update_cache=yes
+  tags: ansible
+
+- name: install pip to manage ansible installation
+  command: easy_install pip
+  tags: ansible
+
+- name: install ansible with pip
+  command: pip install ansible
+  tags: ansible
+
