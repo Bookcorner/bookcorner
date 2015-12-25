@@ -1,0 +1,258 @@
+= Guía de entrada al proyecto Bookcorner
+:icons: font
+:hardbreaks:
+:sourcedir: ..
+:toc: left
+:toc-title: Lista de software
+:sectnums:
+:linkcss:
+
+Este documento recoge los pasos a seguir para configurar el entorno de trabajo para el proyecto *Bookcorner*.
+
+NOTE: Estos pasos corresponden a la configuración del proyecto en Mac OS X El Capitan 10.11 Para otras versiones (u otros sistemas operativos), consultar las indicaciones de la web de cada componente.
+
+
+== Software necesario
+
+.Lista del software utilizado
+* Virtual Box: virtualizador para hardware x86 para uso en servidor, escritorio o embebido.
+* Vagrant 1.8.1: generación de máquinas virtuales a partir de imágenes previamente construidas (_boxes_).
+* Ansible 1.9.3: configuración de la máquina virtual
+* PHP 7: entorno de desarrollo y lenguaje de programación principal del proyecto.
+* Composer: gestión de dependencias del proyecto.
+* Git: sistema de control de versiones.
+* Sourcetree: para una mejor visualización del histórico de git.
+
+A continuación, se detalla el proceso de instalación de cada componente. Se recomienda seguir el mismo orden propuesto por esta guía.
+
+
+=== Virtualización
+
+TIP: La razón de instalar las herramientas de virtualización antes que el resto es porque si no está creada previamente, Vagrant creará la carpeta /opt necesaria para la instalación de otros componentes, con lo que ahorramos la creación manual.
+
+
+==== Virtual Box
+
+Descargar de: https://www.virtualbox.org/wiki/Downloads
+
+Una vez descargado el .dmg ejecutarlo y seguir las instrucciones del instalador. La aplicación aparecerá en la lista de aplicaciones instaladas en el sistema, lo podemos comprobar en la carpeta _/Applications_.
+
+TIP: VirtualBox es necesario para usar Vagrant.
+
+
+==== Vagrant
+
+Descargar de: https://www.vagrantup.com/downloads.html
+
+Una vez descargado el fichero .dmg ejecutarlo y seguir las instrucciones del instalador.
+
+Comprobar que queda correctamente instalado:
+
+[source, console]
+.Command line
+----
+$ vagrant --version
+Vagrant 1.8.1
+----
+
+
+==== Ansible
+
+Las instrucciones de descarga se pueden encontrar en: http://docs.ansible.com/intro_installation.html
+
+La instalación recomendada es vía _pip_, el gestor de paquetes de Python. Si no lo tenemos instalado debemos instalar pip primero y luego instalar Ansible:
+
+[source, console]
+.Command line
+----
+$ sudo easy_install pip
+
+$ pip --version
+pip 6.1.1 from /Library/Python/2.7/site-packages/pip-6.1.1-py2.7.egg (python 2.7)
+
+$ sudo pip install ansible
+
+$ ansible --version
+ansible 1.9.1
+----
+
+
+=== PHP 7
+
+Esto lo instalaremos en la máquina virtual que se creará con ansible para el desarrollo del proyecto. Hay que tener en cuaenta que para ejecutar la aplicación en la máquina real se debe ejecutar el siguiente comando desde la raíz del proyecto de la máquina virtual.
+
+[source, console]
+.Command line
+----
+php -S localhost:5000
+----
+
+
+=== Composer
+
+Esta herramienta nos permitirá manejar las dependencias de nuestro proyecto php facilitanto la adición de librerias.
+
+*Falta añadir el como se utiliza, y decir que lo instala de forma automática el IDE*
+
+
+=== Git
+
+Descargar de: http://www.git-scm.com/download/mac
+
+Una vez descargado el .dmg abrir el archivo y ejecutar el .pkg .
+
+TIP: Si leemos el README.txt incluido en el .dmg veremos que Mac viene con una versión propia de git que se encuentra en /opt/bin/git lo cual le da prioridad sobre el git que acabamos de instalar y que se encuentra en la localización secundaria /usr/local/git . Si queremos cambiar este comportamiento hemos de realizar los pasos 2 y 3 del README que se resumen a continuación (el 3 es por si no queremos reiniciar la sesión actual del terminal).
+
+[source, console]
+.Command line
+----
+$ sudo mv /usr/bin/git /usr/bin/git-system
+
+$ source /etc/profile
+----
+
+TIP: Se puede configurar el terminal para que nos dé información de un repositorio git al entrar en él, como indicar el estado del repositorio (up to date, behind...), la rama en la que estamos, marcar cuando accedemos como root, etc. Para esto, basta con añadir lo siguiente a nuestro fichero ~/.bash_profile o equivalente:
+
+[source, bash]
+.~/.bash_profile
+----
+source /usr/local/git/contrib/completion/git-prompt.sh
+source /usr/local/git/contrib/completion/git-completion.bash
+
+# Turn the prompt symbol red if the user is root
+if [ $(id -u) -eq 0 ] ; then
+    # you are root, make the prompt red
+    PS1='\[\033[31m\]\u@\h:\w\[\033[32m\]$(__git_ps1 " (%s)")\[\033[31m\]#\[\033[0m\] '
+else
+    PS1='\u@\h:\w\[\033[32m\]$(__git_ps1 " (%s)")\[\033[0m\]$ '
+fi
+export PS1
+
+export GIT_PS1_SHOWDIRTYSTATE=true
+export GIT_PS1_SHOWSTASHSTATE=true
+export GIT_PS1_SHOWUNTRACKEDFILES=true
+export GIT_PS1_SHOWUPSTREAM="auto"
+export GIT_PS1_SHOWCOLORHINTS=true
+----
+
+
+=== SourceTree
+
+Descargar de: https://www.sourcetreeapp.com/
+
+Una vez descargado el .dmg ejecutarlo y seguir las instrucciones del instalador. La aplicación aparecerá en la lista de aplicaciones instaladas en el sistema, lo podemos comprobar en la carpeta _/Applications_.
+
+
+
+== Arranque del proyecto
+
+Una vez que tenemos todo el software necesario instalado en nuestra máquina podemos proceder a descargarnos el proyecto y arrancarlo en local.
+
+
+=== Descarga del código
+
+Abrimos la herramienta SourceTree y vamos a la pestaña *Remote* dónde escogemos el proyecto bookcorner desde nuestra cuenta de github y pulsamos en el botón *clone* dónde escogemos dónde queremos que se guarde neustro proyecto.
+
+Esto nos creará la carpeta _Bookcorner_ con los diferentes subdirectorios que actualmente son:
+
+* ansible: aquí residen los archivos necesarios para realizar el provisionamiento de la máquina virtual
+* application: aquí reside el código de la aplicación.
+* assets: se encuentran los recursos de la aplicción.
+* captcha: aquí reside el código de los captchas utilizados en la aplicación.
+* doc: documentación del proyecto.
+* system: código relevante para el framework de codeigniter.
+* tests: código de los test de la aplicación.
+* user_guide: guía par ael uso de codeigniter.
+* .gitignore: ficheros que se excluyen de git.
+* .htaccess: fichero de redirreción de la aplicación.
+* index.php: punto de entrada de la aplicación.
+* Vagrantfile: fichero de configuración de la máquina virtual. Está en el directorio raíz para que todo el código dle proyecto se comparta en la máquina virtual y la aplicación pueda ejecutarse desde la máquina virtual sin tener instalados los programas en el host.
+
+
+=== Configuración de la máquina virtual
+
+Lo siguiente es hacer que Vagrant nos monte la máquina virtual, que estará configurada con Ansible según los grupos que hayamos asignado a dicha máquina. Para ello, si estamos en la carpeta del repositorio, _bookcorner_, hacemos lo siguiente en el terminal:
+
+[source, console]
+----
+$ cd vagrant
+$ vagrant up
+----
+
+Esto nos creará la máquina virtual con Vagrant (en este caso un Ubuntu) y después Ansible nos instalará en la máquina el resto de componentes necesarios.
+
+Para parar la máquina virtual podemos hacerlo desde la línea de comandos:
+
+[source, console]
+----
+$ vagrant halt // <1>
+
+----
+
+<1> Para parar la máquina por completo
+<2> Para suspender la máquina, arrancarla de nuevo de este modo es más rápido.
+
+En cualquier caso, para arrancar la máquina de nuevo siempre se hace con _vagrant up_.
+
+
+== Documentación
+
+=== Asciidoctor
+
+Las instrucciones de instalación de Asciidoctor se pueden encontrar en: http://asciidoctor.org/docs/install-asciidoctor-macosx/#rvm-procedure-recommended
+
+
+TIP: Para trabajar en Atom resaltando la sintaxis de Asciidoctor, hay un plugin que te permite incluso realizar una previsualización de lo escrito.
+
+
+== Convenciones y otras aclaraciones sobre nomenclatura
+
+=== Id de usuarios en base de datos
+
+Falta por realizar hasta que se realice una investigación del estado actual de la base de datos.
+
+
+== Configuración y puesta en marcha de entornos
+
+Los diferentes entornos (desarrollo, pre y producción) están configurados con Ansible, lo que facilita la modificación y la puesta en marcha. Dentro de nuestro directorio ansible tenemos la siguiente estructura:
+
+[source, console]
+----
+environments/
+    |__ development/
+    |       |__ group_vars/
+    |       |        |__ development
+    |       |__ inventory_vagrant
+roles/
+    |__ ansible/
+    |       |__ tasks/
+    |__ common_os_setup/
+    |       |__ tasks/
+    |__ dependencies/
+    |       |__ tasks/
+    |__ mysql/
+    |       |__ tasks/
+    |__ php/
+           |__ tasks/
+
+development.yml
+----
+
+
+Los diferentes entornos se definen a través de los _inventory_ que es donde se indica, para cada grupo/host de ansible, qué IP le corresponde.
+
+Como vemos, cada entorno tiene sus propias variables de grupo (recogidas en ficheros con el mismo nombre del grupo de hosts al que corresponden) ya que éstas se toman de forma relativa a partir del inventory que se esté ejecutando en ese momento.
+
+Las diferentes tareas a realizar en la configuración de cada entorno están divididas en roles lo más acotados posibles, de forma que puedan ser reutilizados y combinados en los distintos playbooks.
+
+
+=== Desarrollo
+
+En el Vagrantfile tenemos fijado como puerto SSH el 2222. En caso de colisión en el momento de crear la máquina, Vagrant ajusta el puerto de conexión SSH pero no lo cambia al leer el _inventory_ de Ansible (que en este caso es el que está en ansible/environments/development/inventory_vagrant). Este fichero de inventory es especial ya que está combinado con el fichero _Vagrantfile_ para que se ejecute cuando se qcrea la máquina virtual. Además está configurado para que se trabaje de la misma manera que trabajarías como si tuvieras todas las herramientas en local.
+
+Si queremos ejecutar ansible en la máquina virtual de desarrollo solo debemos ejecutar el siguiente comando desde el directorio _Bookcorner_:
+
+[source, console]
+----
+vagrant provision
+----

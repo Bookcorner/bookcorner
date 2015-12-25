@@ -25,7 +25,7 @@ Vagrant.configure(2) do |config|
   # accessing "localhost:8080" will access port 80 on the guest machine.
   # config.vm.network "forwarded_port", guest: 80, host: 8080
 
-  # Apache Server port forwardinga
+  # MySQL
   config.vm.network "forwarded_port", guest: 3306, host: 3306
 
   #Fix SSH forwarded port
@@ -49,15 +49,14 @@ Vagrant.configure(2) do |config|
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
+
+  # Configure virtual machine with 2 GB of memory
+  config.vm.provider "virtualbox" do |vb|
+     #  Customize the amount of memory on the VM:
+     vb.memory = "2048"
+   end
   #
-  # config.vm.provider "virtualbox" do |vb|
-  #   # Display the VirtualBox GUI when booting the machine
-  #   vb.gui = true
-  #
-  #   # Customize the amount of memory on the VM:
-  #   vb.memory = "1024"
-  # end
-  #
+
   # View the documentation for the provider you are using for more
   # information on available options.
 
