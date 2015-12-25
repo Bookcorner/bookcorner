@@ -59,9 +59,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | the query builder class.
 */
 $hostname = "127.0.0.1";
-$username = "root";
-$password = "";
-$database = "bookcorner";
+$username = "bookcorner";
+$password = "bookcornerpassword";
+$database = "bookcornerdb";
 
 if ( ! ($_SERVER ['SERVER_NAME'] == 'localhost' || $_SERVER ['SERVER_NAME'] == '127.0.0.1')) {
 

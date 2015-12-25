@@ -3,3 +3,6 @@
 
 # PhpStorm
 .idea
+
+# Vagrant
+.vagrant

@@ -10,5 +10,3 @@
       - dependencies
       - ansible
       - mysql
-      - php
-      - apache_install

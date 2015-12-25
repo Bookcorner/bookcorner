@@ -4,4 +4,19 @@
 
 - name: install mysql server
   apt: name=mysql-server state=present
-  tags: mysql
+  tags: bookcornerdb
+
+- name: create bookcorner database
+  mysql_db: name={{database.dbname}} state=present
+  tags: bookcornerdb
+
+- name: create bookcorner database user from localhost (ONLY Development)
+  mysql_user: host=localhost name={{database.dbuser}} password={{database.dbpassword}} priv=*.*:ALL state=present
+  tags: bookcornerdb
+
+- name: create bookcorner database user accessible from all hosts (ONLY Development)
+  mysql_user: host=% name={{database.dbuser}} password={{database.dbpassword}} priv=*.*:ALL state=present
+  tags: bookcornerdb
+
+- name: Make mysql accessible from all hosts
+  lineinfile: dest=/etc/mysql/my.cnf regexp="skip-external-locking" insertbefore="skip-external-locking" line="#"

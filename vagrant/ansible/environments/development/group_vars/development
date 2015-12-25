@@ -1,12 +1,6 @@
 ---
-http_port: 8081
 
-apache:
-    server_name: dev.tea.ms
-    ssl_folder: /etc/apache2/ssl
-    certificate_file: /etc/apache2/ssl/teams.crt
-    certificate_key_file: /etc/apache2/ssl/teams.key
-    sonar_http: http://localhost:9000/sonar
-    nexus_http: http://localhost:8081/nexus
-    jenkins_http: http://localhost:8080/jenkins
-    document_root: /var/www/html/teams/site-public
+database:
+    dbname: bookcornerdb
+    dbuser: bookcorner
+    dbpassword: bookcornerpassword
