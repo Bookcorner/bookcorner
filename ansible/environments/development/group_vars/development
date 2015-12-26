@@ -4,3 +4,7 @@ database:
     dbname: bookcornerdb
     dbuser: bookcorner
     dbpassword: bookcornerpassword
+
+php:
+    configure_string: --prefix=/usr/local/php7 --enable-bcmath --with-bz2 --enable-calendar --enable-exif --enable-dba --enable-ftp --with-gettext --with-gd --enable-mbstring --with-mcrypt --with-mhash --enable-mysqlnd --with-mysql=mysqlnd --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-openssl --enable-pcntl --with-pspell --enable-shmop --enable-soap --enable-sockets --enable-sysvmsg --enable-sysvsem --enable-sysvshm --enable-wddx --with-zlib --enable-zip --with-readline --with-curl
+    cli_configure_string: --with-config-file-path=/etc/php7/cli --with-config-file-scan-dir=/etc/php7/cli/conf.d

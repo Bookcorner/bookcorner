@@ -1,0 +1,15 @@
+{
+  "description": "The Bookcorner",
+  "name": "bookcorner/bookcorner",
+  "type": "project",
+  "homepage": "http://bookcorner.esy.es",
+  "license": "MIT",
+  "require": {
+    "php": ">=5.2.4",
+    "twitter/bootstrap": "3.3.*",
+    "fortawesome/font-awesome": "4.5.*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "5.1.*"
+  }
+}

@@ -28,6 +28,9 @@ Vagrant.configure(2) do |config|
   # MySQL
   config.vm.network "forwarded_port", guest: 3306, host: 3306
 
+  # Use application
+  config.vm.network "forwarded_port", guest: 8000, host: 8000
+
   #Fix SSH forwarded port
   config.vm.network "forwarded_port", guest: 22, host:2222, id: "ssh", auto_correct: true
 

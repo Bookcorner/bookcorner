@@ -79,14 +79,7 @@ ansible 1.9.1
 
 === PHP 7
 
-Esto lo instalaremos en la máquina virtual que se creará con ansible para el desarrollo del proyecto. Hay que tener en cuaenta que para ejecutar la aplicación en la máquina real se debe ejecutar el siguiente comando desde la raíz del proyecto de la máquina virtual.
-
-[source, console]
-.Command line
-----
-php -S localhost:5000
-----
-
+Esto lo instalaremos en la máquina virtual que se creará con ansible para el desarrollo del proyecto.
 
 === Composer
 
@@ -256,3 +249,43 @@ Si queremos ejecutar ansible en la máquina virtual de desarrollo solo debemos e
 ----
 vagrant provision
 ----
+
+
+=== Ejecución de la aplicación
+Para ejecutar la aplicación en la máquina real se debe ejecutar las siguientes acciones:
+
+* En primero lugar debemos tener la máquina levantada. Para ello utilizamos el comando:
+
+[source, console]
+.Command line (máquina real)
+----
+vagrant up
+----
+
+* Después necesitamos acceder a la máquina virtual con el comando:
+
+[source, console]
+.Command line (máquina real)
+----
+vagrant ssh
+----
+
+* Una vez en la máquina virtual accedemos al directorio compartido que contiene todos los archivos de nuestro proyecto que estan en la máquina real (dónde está situado el fichero _Vagrantfile_)
+
+[source, console]
+.Command line (máquina virtual)
+----
+cd /vagrant
+----
+
+* Por último ejecutamos el comando que nos ofrece php para generar un servidor web embebido que nos ahorra la configuración de un servidor web real (que será necesario en el entorno de integración continua y en producción)
+
+[source, console]
+.Command line (máquina virtual)
+----
+php -S 0.0.0.0:8000
+----
+
+Tras ejecutar este comando veremos como la aplicación se inicia y obtendremos también el log de la aplicación.
+
+NOTE: Es muy importante que este sea el puerto de ejecución de la aplicación en desarrollo ya que es el que está comunicando la máquina real con la máquina virtual. Si queremos cambiar el puerto por problemas de compatibilidad con otros puertos podemos cambiar la configuración del fichero Vagrantfile

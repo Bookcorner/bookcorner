@@ -6,3 +6,6 @@
 
 # Vagrant
 .vagrant
+
+# Dependencies
+vendor

@@ -5,6 +5,7 @@
 - name: install dependencies
   apt: name={{item}} state=present
   with_items:
+      - git
       - unzip
       - python-mysqldb
   tags: dependency
