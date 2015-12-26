@@ -1,0 +1,62 @@
+---
+
+#file: /roles/php/tasks/php7.yml
+
+- name: Install packages needed to compile PHP 7
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - autoconf
+    - bison
+    - libxml2-dev
+    - libbz2-dev
+    - libmcrypt-dev
+    - libcurl4-openssl-dev
+    - libltdl-dev
+    - libpng-dev
+    - libpspell-dev
+    - libreadline6
+    - libreadline6-dev
+  tags: php
+
+- name: Clone PHP7
+  git: repo=https://git.php.net/repository/php-src.git dest=/home/vagrant/php-src
+  tags: php
+
+- name: Create php7 necessary directories
+  file: path={{ item }} recurse=true state=directory
+  with_items:
+    - /etc/php7/conf.d
+    - /etc/php7/cli/conf.d
+    - /etc/php7/fpm/conf.d
+    - /usr/local/php7
+  tags: php
+
+- name: Run buildconf
+  shell: ./buildconf
+  args:
+    chdir: /home/vagrant/php-src
+  tags: php
+
+- name: Configure the build.
+  shell: ./configure {{ php.configure_string }}
+  args:
+    chdir: /home/vagrant/php-src
+  tags: php
+
+- name: Configure the cli build.
+  shell: ./configure {{ php.cli_configure_string }}
+  args:
+    chdir: /home/vagrant/php-src
+  tags: php
+
+- name: Build PHP7
+  shell: make
+  args:
+    chdir: /home/vagrant/php-src
+  tags: php
+
+- name: Install PHP7
+  shell: make install
+  args:
+    chdir: /home/vagrant/php-src
+  tags: php

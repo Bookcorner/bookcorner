@@ -1,0 +1,10 @@
+---
+
+#file: /roles/php/tasks/main.yml
+
+- name: Install php5 latest version
+  apt: pkg={{item}} state=latest
+  with_items:
+      #- php5
+      - php5-mysqlnd
+  tags: php

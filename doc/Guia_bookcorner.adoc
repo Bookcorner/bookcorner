@@ -102,7 +102,7 @@ Abrir una nueva terminal y comporobar si lo tenemos instalado ejecutando:
 composer --version
 ----
 
-Si tienes cualquier duda visitar la página https://getcomposer.org/download  
+Si tienes cualquier duda visitar la página https://getcomposer.org/download
 
 === Git
 
@@ -195,7 +195,7 @@ Para parar la máquina virtual podemos hacerlo desde la línea de comandos:
 [source, console]
 ----
 $ vagrant halt // <1>
-
+$ vagrant suspend // <2>
 ----
 
 <1> Para parar la máquina por completo
