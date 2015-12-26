@@ -85,8 +85,24 @@ Esto lo instalaremos en la máquina virtual que se creará con ansible para el d
 
 Esta herramienta nos permitirá manejar las dependencias de nuestro proyecto php facilitanto la adición de librerias.
 
-*Falta añadir el como se utiliza, y decir que lo instala de forma automática el IDE*
+Para utilizarlo basta con ejecutarlo y tenerlo en el path para lo cual ejecutamos el siguiente comando:
 
+[source, console]
+.Command line
+----
+curl -sS https://getcomposer.org/installer | php
+mv composer /usr/local/bin
+----
+
+Abrir una nueva terminal y comporobar si lo tenemos instalado ejecutando:
+
+[source, console]
+.Command line
+----
+composer --version
+----
+
+Si tienes cualquier duda visitar la página https://getcomposer.org/download  
 
 === Git
 
