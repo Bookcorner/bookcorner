@@ -6,11 +6,11 @@
 <?php echo link_tag(asset_url().'css/custom.css', 'stylesheet')?>
 
 <!-- JQuery -->
-<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 <!-- JQueryUI-->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/dark-hive/jquery-ui.css">
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 
 <script type="text/javascript"
 	src="<?php echo asset_url()?>js/bootstrap.min.js"></script>
@@ -19,8 +19,8 @@
 	
 <!-- Cookie Alert -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-<script src="http://cdn.imnjb.me/libs/jquery.cookiecuttr/1.0/jquery.cookiecuttr.min.js"></script>
-<link href="http://cdn.imnjb.me/libs/jquery.cookiecuttr/1.0/cookiecuttr.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="<?php echo asset_url()?>js/jquery.cookiecuttr.js"></script>
+<?php echo link_tag(asset_url().'css/cookiecuttr.css', 'stylesheet')?>
 	
 <script type="text/javascript"
 	src="<?php echo asset_url()?>js/custom.js"></script>
