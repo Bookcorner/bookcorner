@@ -65,10 +65,10 @@ $database = "bookcornerdb";
 
 if ( ! ($_SERVER ['SERVER_NAME'] == 'localhost' || $_SERVER ['SERVER_NAME'] == '127.0.0.1')) {
 
-    $hostname = "mysql.hostinger.es";
-    $username = "u223979541_admin";
+    $hostname = "localhost";
+    $username = "id7648161_admin";
     $password = "alumnoadmin93";
-    $database = "u223979541_book";
+    $database = "id7648161_bookcorner";
 
 }
 
